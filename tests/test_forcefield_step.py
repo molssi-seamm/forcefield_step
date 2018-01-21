@@ -6,7 +6,7 @@
 import pytest
 
 
-from forcefield_step import forcefield_step
+from forcefield_step import forcefield_step  # nopep8
 
 
 @pytest.fixture
