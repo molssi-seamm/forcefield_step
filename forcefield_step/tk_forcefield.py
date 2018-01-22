@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """The graphical part of a Forcefield step"""
 
-import chemflowchart
+import molssi_workflow
 import forcefield_step
 import os.path
 import tkinter as tk
@@ -9,7 +9,7 @@ import tkinter.filedialog as tk_filedialog
 import tkinter.ttk as ttk
 
 
-class TkForcefield(chemflowchart.TkNode):
+class TkForcefield(molssi_workflow.TkNode):
     """The node_class is the class of the 'real' node that this
     class is the Tk graphics partner for
     """

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """A node or step for the forcefield in a workflow"""
 
-import chemflowchart
-import chemflowchart.data as data
+import molssi_workflow
+import molssi_workflow.data as data
 import forcefield
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-class Forcefield(chemflowchart.Node):
+class Forcefield(molssi_workflow.Node):
     def __init__(self, workflow=None, gui_object=None,
                  extension=None):
         '''Initialize a forcefield step
@@ -18,9 +18,8 @@ class Forcefield(chemflowchart.Node):
         '''
         logger.debug('Creating Forcefield {}'.format(self))
 
-        self.flowchart = None
         self.ff_file = \
-            '/Users/psaxe/Work/ChemFlowchart/forcefield/data/pcff2017.frc'
+            '/Users/psaxe/Work/Workflow/forcefield/data/pcff2018.frc'
         self.ff_name = None
 
         super().__init__(workflow=workflow, title='Forcefield',
@@ -30,8 +29,7 @@ class Forcefield(chemflowchart.Node):
         """Setup the forcefield
         """
 
-        self.forcefield = forcefield.Forcefield(self.ff_file)
-        data.forcefield = self.forcefield
-        self.forcefield.initialize_biosym_forcefield()
+        data.forcefield = forcefield.Forcefield(self.ff_file)
+        data.forcefield.initialize_biosym_forcefield()
 
         return super().run()
