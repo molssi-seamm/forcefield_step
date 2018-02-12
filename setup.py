@@ -56,8 +56,11 @@ setup(
     tests_require=test_requirements,
     setup_requires=setup_requirements,
     entry_points={
-        'molssi.workflow.tk': [
+        'org.molssi.workflow': [
             'Forcefield = forcefield_step:ForcefieldStep',
         ],
-}
+        'org.molssi.workflow.tk': [
+            'Forcefield = forcefield_step:ForcefieldStep',
+        ],
+    }
 )

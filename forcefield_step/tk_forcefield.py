@@ -16,7 +16,8 @@ class TkForcefield(molssi_workflow.TkNode):
 
     node_class = forcefield_step.Forcefield
 
-    def __init__(self, node=None, canvas=None, x=None, y=None, w=None, h=None):
+    def __init__(self, tk_workflow=None, node=None, canvas=None,
+                 x=None, y=None, w=None, h=None):
         '''Initialize a node
 
         Keyword arguments:
@@ -24,7 +25,8 @@ class TkForcefield(molssi_workflow.TkNode):
 
         self.dialog = None
 
-        super().__init__(node=node, canvas=canvas, x=x, y=y, w=w, h=h)
+        super().__init__(tk_workflow=tk_workflow, node=node,
+                         canvas=canvas, x=x, y=y, w=w, h=h)
 
     def create_dialog(self):
         """Create the dialog!"""

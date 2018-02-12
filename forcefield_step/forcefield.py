@@ -10,8 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 class Forcefield(molssi_workflow.Node):
-    def __init__(self, workflow=None, gui_object=None,
-                 extension=None):
+    def __init__(self, workflow=None, extension=None):
         '''Initialize a forcefield step
 
         Keyword arguments:
@@ -23,7 +22,7 @@ class Forcefield(molssi_workflow.Node):
         self.ff_name = None
 
         super().__init__(workflow=workflow, title='Forcefield',
-                         gui_object=gui_object, extension=extension)
+                         extension=extension)
 
     def run(self):
         """Setup the forcefield
