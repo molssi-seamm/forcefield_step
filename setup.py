@@ -12,7 +12,9 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'forcefield'
+    'forcefield',
+    'logging',
+    'molssi_workflow',
 ]
 
 setup_requirements = [
