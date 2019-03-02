@@ -24,11 +24,61 @@ class Forcefield(molssi_workflow.Node):
         super().__init__(workflow=workflow, title='Forcefield',
                          extension=extension)
 
+    def describe(self, indent='', json_dict=None):
+        """Write out information about what this node will do
+        If json_dict is passed in, add information to that dictionary
+        so that it can be written out by the controller as appropriate.
+        """
+
+        next_node = super().describe(indent, json_dict)
+
+        indent += '    '
+        if self.ff_file[0] == '$':
+            string = indent + (
+                "Reading the forcefield file given in the variable"
+                " '{ff_file}'"
+            )
+        else:
+            string = indent + (
+                "Reading the forcefield file '{ff_file}'"
+            )
+            
+        self.job_output(
+            string.format(
+                ff_file=self.ff_file
+            )
+        )
+        self.job_output('')
+
+        return next_node
+
     def run(self):
         """Setup the forcefield
         """
 
-        data.forcefield = forcefield.Forcefield(self.ff_file)
+        next_node = super().run()
+
+        ff_file = self.get_value(self.ff_file)
+
+        indent = '    '
+        string = indent + (
+            "Reading the forcefield file '{ff_file}'"
+        )
+            
+        self.job_output(
+            string.format(
+                ff_file=ff_file
+            )
+        )
+
+        if self.ff_name is None:
+            data.forcefield = forcefield.Forcefield(ff_file)
+        else:
+            ff_name = self.get_value(self.ff_name)
+            data.forcefield = forcefield.Forcefield(ff_file, ff_name)
+
         data.forcefield.initialize_biosym_forcefield()
 
-        return super().run()
+        self.job_output('')
+
+        return next_node
