@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 """A node or step for the forcefield in a workflow"""
 
-import molssi_workflow
-import molssi_workflow.data as data
 import forcefield
 import logging
+import molssi_workflow
+import molssi_workflow.data as data
+import molssi_util.printing as printing
+from molssi_util.printing import FormattedText as __
 
 logger = logging.getLogger(__name__)
+job = printing.getPrinter()
+printer = printing.getPrinter('forcefield')
 
 
 class Forcefield(molssi_workflow.Node):
@@ -32,23 +36,19 @@ class Forcefield(molssi_workflow.Node):
 
         next_node = super().describe(indent, json_dict)
 
-        indent += '    '
         if self.ff_file[0] == '$':
-            string = indent + (
+            string = (
                 "Reading the forcefield file given in the variable"
                 " '{ff_file}'"
             )
         else:
-            string = indent + (
+            string = (
                 "Reading the forcefield file '{ff_file}'"
             )
             
-        self.job_output(
-            string.format(
-                ff_file=self.ff_file
-            )
+        job.job(
+            __(string, ff_file=self.ff_file, indent=self.indent+'    ')
         )
-        self.job_output('')
 
         return next_node
 
@@ -56,19 +56,13 @@ class Forcefield(molssi_workflow.Node):
         """Setup the forcefield
         """
 
-        next_node = super().run()
+        next_node = super().run(printer=printer)
 
         ff_file = self.get_value(self.ff_file)
 
-        indent = '    '
-        string = indent + (
-            "Reading the forcefield file '{ff_file}'"
-        )
-            
-        self.job_output(
-            string.format(
-                ff_file=ff_file
-            )
+        printer.important(
+            __("Reading the forcefield file '{ff_file}'",
+               ff_file=ff_file, indent=self.indent+'    ')
         )
 
         if self.ff_name is None:
@@ -78,7 +72,5 @@ class Forcefield(molssi_workflow.Node):
             data.forcefield = forcefield.Forcefield(ff_file, ff_name)
 
         data.forcefield.initialize_biosym_forcefield()
-
-        self.job_output('')
 
         return next_node
