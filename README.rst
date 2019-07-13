@@ -6,19 +6,19 @@ Forcefield Step
 .. image:: https://img.shields.io/pypi/v/forcefield_step.svg
         :target: https://pypi.python.org/pypi/forcefield_step
 
-.. image:: https://img.shields.io/travis/paulsaxe/forcefield_step.svg
-        :target: https://travis-ci.org/paulsaxe/forcefield_step
+.. image:: https://img.shields.io/travis/molssi-seamm/forcefield_step.svg
+        :target: https://travis-ci.org/molssi-seamm/forcefield_step
 
 .. image:: https://readthedocs.org/projects/forcefield-step/badge/?version=latest
         :target: https://forcefield-step.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/paulsaxe/forcefield_step/shield.svg
-     :target: https://pyup.io/repos/github/paulsaxe/forcefield_step/
+.. image:: https://pyup.io/repos/github/molssi-seamm/forcefield_step/shield.svg
+     :target: https://pyup.io/repos/github/molssi-seamm/forcefield_step/
      :alt: Updates
 
 
-Step to setup the forcefield in a MolSSI workflow
+Step to setup the forcefield in a SEAMM flowchart
 
 
 * Free software: BSD license

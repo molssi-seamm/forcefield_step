@@ -14,11 +14,11 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'forcefield',
     'logging',
-    'molssi_workflow',
+    'seamm',
 ]
 
 setup_requirements = [
-    'pytest-runner',
+    # 'pytest-runner',
     # TODO(paulsaxe): put setup requirements (distutils extensions, etc.) here
 ]
 
@@ -30,11 +30,11 @@ test_requirements = [
 setup(
     name='forcefield_step',
     version='0.1.0',
-    description="Step to setup the forcefield in a MolSSI workflow",
+    description="Step to setup the forcefield in a SEAMM flowchart",
     long_description=readme + '\n\n' + history,
     author="Paul Saxe",
     author_email='psaxe@molssi.org',
-    url='https://github.com/paulsaxe/forcefield_step',
+    url='https://github.com/molssi-seam/forcefield_step',
     packages=find_packages(include=['forcefield_step']),
     include_package_data=True,
     install_requires=requirements,
@@ -58,10 +58,10 @@ setup(
     tests_require=test_requirements,
     setup_requires=setup_requirements,
     entry_points={
-        'org.molssi.workflow': [
+        'org.molssi.seamm': [
             'Forcefield = forcefield_step:ForcefieldStep',
         ],
-        'org.molssi.workflow.tk': [
+        'org.molssi.seamm.tk': [
             'Forcefield = forcefield_step:ForcefieldStep',
         ],
     }
