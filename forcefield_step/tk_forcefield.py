@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """The graphical part of a Forcefield step"""
 
-import molssi_workflow
+import seamm
 import forcefield_step
 import os.path
 import tkinter as tk
@@ -9,14 +9,14 @@ import tkinter.filedialog as tk_filedialog
 import tkinter.ttk as ttk
 
 
-class TkForcefield(molssi_workflow.TkNode):
+class TkForcefield(seamm.TkNode):
     """The node_class is the class of the 'real' node that this
     class is the Tk graphics partner for
     """
 
     node_class = forcefield_step.Forcefield
 
-    def __init__(self, tk_workflow=None, node=None, canvas=None,
+    def __init__(self, tk_flowchart=None, node=None, canvas=None,
                  x=None, y=None, w=200, h=50):
         '''Initialize a node
 
@@ -25,7 +25,7 @@ class TkForcefield(molssi_workflow.TkNode):
 
         self.dialog = None
 
-        super().__init__(tk_workflow=tk_workflow, node=node,
+        super().__init__(tk_flowchart=tk_flowchart, node=node,
                          canvas=canvas, x=x, y=y, w=w, h=h)
 
     def create_dialog(self):

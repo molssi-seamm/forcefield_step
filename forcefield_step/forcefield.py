@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-"""A node or step for the forcefield in a workflow"""
+"""A node or step for the forcefield in a flowchart"""
 
 import forcefield
 import logging
-import molssi_workflow
-import molssi_workflow.data as data
-import molssi_util.printing as printing
-from molssi_util.printing import FormattedText as __
+import seamm
+import seamm.data as data
+import seamm_util.printing as printing
+from seamm_util.printing import FormattedText as __
 
 logger = logging.getLogger(__name__)
 job = printing.getPrinter()
 printer = printing.getPrinter('forcefield')
 
 
-class Forcefield(molssi_workflow.Node):
-    def __init__(self, workflow=None, extension=None):
+class Forcefield(seamm.Node):
+    def __init__(self, flowchart=None, extension=None):
         '''Initialize a forcefield step
 
         Keyword arguments:
@@ -22,10 +22,10 @@ class Forcefield(molssi_workflow.Node):
         logger.debug('Creating Forcefield {}'.format(self))
 
         self.ff_file = \
-            '/Users/psaxe/Work/Workflow/forcefield/data/pcff2018.frc'
+            '/Users/psaxe/Work/Flowchart/forcefield/data/pcff2018.frc'
         self.ff_name = None
 
-        super().__init__(workflow=workflow, title='Forcefield',
+        super().__init__(flowchart=flowchart, title='Forcefield',
                          extension=extension)
 
     def describe(self, indent='', json_dict=None):
