@@ -9,8 +9,8 @@ Forcefield Step
 .. image:: https://travis-ci.org/molssi-seamm/forcefield_step.svg?branch=master
         :target: https://travis-ci.org/molssi-seamm/forcefield_step
 
-.. image:: https://readthedocs.org/projects/custom-step/badge/?version=latest
-        :target: https://forcefield_step.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/forcefield-step/badge/?version=latest
+        :target: https://forcefield-step.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/molssi-seamm/forcefield_step/shield.svg
