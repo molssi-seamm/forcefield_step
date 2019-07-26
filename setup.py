@@ -23,7 +23,6 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'seamm_ff_util',
-    'logging',
     'seamm',
 ]
 
