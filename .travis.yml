@@ -1,37 +1,60 @@
 language: python
+
+# Run jobs on container-based infrastructure, can be overridden per job
+
 matrix:
   include:
-  - os: osx
-    language: generic
-    env: PYTHON_VER=3.6
-  - os: osx
-    language: generic
-    env: PYTHON_VER=3.7
-  - os: linux
-    python: 3.6
-  - os: linux
-    dist: xenial
-    python: 3.7
+    # Extra includes for OSX since python language is not available by default on OSX
+    - os: osx
+      language: generic
+      env: PYTHON_VER=3.6
+    - os: osx
+      language: generic
+      env: PYTHON_VER=3.7
+
+
+    - os: linux
+      language: generic  # No need to set Python version since its conda
+      env: PYTHON_VER=3.6
+    - os: linux
+      language: generic
+      env: PYTHON_VER=3.7
+
+
 before_install:
-- uname -a
-- df -h
-- ulimit -a
-- source devtools/travis-ci/before_install.sh
-- python -V
+    # Additional info about the build
+  - uname -a
+  - df -h
+  - ulimit -a
+
+    # Install the Python environment
+  - source devtools/travis-ci/before_install.sh
+  - python -V
+
 install:
-- pip install -U pytest pytest-cov codecov
-- pip install -e .
+
+    # Create test environment for package
+  - python devtools/scripts/create_conda_env.py -n=test -p=$PYTHON_VER devtools/conda-envs/test_env.yaml
+    # Activate the test environment
+  - conda activate test
+    # Build and install package
+  - python setup.py develop --no-deps
+
+
 script:
 - pytest -v --cov=forcefield_step tests/
 notifications:
-  email: false
+    email: false
+
 after_success:
-- codecov
+  - codecov
+
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   on:
-    condition: "$TRAVIS_OS_NAME = osx"
+    condition: $PYTHON_VER = 3.7
+    condition: $TRAVIS_OS_NAME = linux
     repo: molssi-seamm/seamm_ff_util
     tags: true
   user: seamm
