@@ -4,9 +4,7 @@
 """Tests for `forcefield_step` package."""
 
 import pytest
-
-
-from forcefield_step import forcefield_step  # nopep8
+import forcefield_step  # noqa: F401
 
 
 @pytest.fixture

@@ -1,4 +1,5 @@
 # -*- Coding: utf-8 -*-
+
 """Helper class needed for the stevedore integration. Needs to provide
 a description() method that returns a dict containing a description of
 this node, and a factory() method for creating the graphical and non-graphical
@@ -10,9 +11,11 @@ import forcefield_step
 class ForcefieldStep(object):
     my_description = {
         'description':
-        'An interface for the setup and control of the forcefield',
-        'group': 'Simulations',
-        'name': 'Forcefield'
+            'An interface for the setup and control of the forcefield',
+        'group':
+            'Simulations',
+        'name':
+            'Forcefield'
     }
 
     def __init__(self, flowchart=None, gui=None):

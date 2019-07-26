@@ -1,29 +1,62 @@
-# Config file for automatic testing at travis-ci.org
-# This file will be regenerated if you run travis_pypi_setup.py
-
 language: python
-python:
-  - 3.5
-  - 3.4
-  - 3.3
-  - 2.7
-  - 2.6
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+# Run jobs on container-based infrastructure, can be overridden per job
 
-# command to run tests, e.g. python setup.py test
-script: tox
+matrix:
+  include:
+    # Extra includes for OSX since python language is not available by default on OSX
+    - os: osx
+      language: generic
+      env: PYTHON_VER=3.6
+    - os: osx
+      language: generic
+      env: PYTHON_VER=3.7
 
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
+
+    - os: linux
+      language: generic  # No need to set Python version since its conda
+      env: PYTHON_VER=3.6
+    - os: linux
+      language: generic
+      env: PYTHON_VER=3.7
+
+
+before_install:
+    # Additional info about the build
+  - uname -a
+  - df -h
+  - ulimit -a
+
+    # Install the Python environment
+  - source devtools/travis-ci/before_install.sh
+  - python -V
+
+install:
+
+    # Create test environment for package
+  - python devtools/scripts/create_conda_env.py -n=test -p=$PYTHON_VER devtools/conda-envs/test_env.yaml
+    # Activate the test environment
+  - conda activate test
+    # Build and install package
+  - python setup.py develop --no-deps
+
+
+script:
+- pytest -v --cov=forcefield_step tests/
+notifications:
+    email: false
+
+after_success:
+  - codecov
+
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: paulsaxe
-  password:
-    secure: PLEASE_REPLACE_ME
   on:
+    condition: $PYTHON_VER = 3.7
+    condition: $TRAVIS_OS_NAME = linux
+    repo: molssi-seamm/forcefield_step
     tags: true
-    repo: paulsaxe/forcefield_step
-    python: 2.7
+  user: seamm
+  password:
+    secure: "Pqe6T0TP0q+yYZyviooG95c9cV6AALKt3aguUuSc766MQ1HtEgPUFO+BDXvpUV4w9xMPi3lYbMHduoF/EGRhiyUUNYRc7ad+xFU5Yeg/AZSzm2L3nqU1GX17YAHPZWM1FFB0d4r4uJ9sTFTGMgskqxUQZpOv5X2hckcx4EutkQZiSJsBGLhRxzVO75Cgl5SbBYIsSa31NBEoMxYZTFspK3CDc2zxbDcUpmRNZpVGJRtnv4ieW7/B0xSULWiDWyabo/Lo16TRCxpjBo+VgYpORjzJ98HYXt5UDviPMMR1PB5y3yWj4SIqp22tncAauaFFk/L/uuHWA1qKCutCWvUkqDFjJIJHsfcoKqmf0VqQjnKUvzPJ9rbuZ74lFlGT+XWZrQf9vCzIb99213sRMWvBMwVHODLVhss677Vxmf52y2LfIHXpBDbobYryiSZRP9E8ES8LNdo4p6awC3FqQxfHJt9qMl30+ul6s5bob61lM3jNblvnEgvFlgTyo7N569mK3esLhFt7o4hOYloka+ne7MS85kd61jWfAs0h87MQv6DAaQgxtcNC+qBhH1bEEuriarJdDCJHklkq3k8h4n/PG+cNGoebMH7FZhNyn9Wgp8lxh5jfzJBf0G4OWZg3vlN2ZG5WjBsmq72L1g4rLk6aWQR9Rmokq7DHwNx/r4mqeuw="
