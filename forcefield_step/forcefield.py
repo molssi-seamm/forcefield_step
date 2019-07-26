@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+
 """A node or step for the forcefield in a flowchart"""
 
-import forcefield
+import seamm_ff_util
 import logging
 import seamm
 import seamm.data as data
@@ -14,6 +15,7 @@ printer = printing.getPrinter('forcefield')
 
 
 class Forcefield(seamm.Node):
+
     def __init__(self, flowchart=None, extension=None):
         '''Initialize a forcefield step
 
@@ -25,8 +27,9 @@ class Forcefield(seamm.Node):
             '/Users/psaxe/Work/Flowchart/forcefield/data/pcff2018.frc'
         self.ff_name = None
 
-        super().__init__(flowchart=flowchart, title='Forcefield',
-                         extension=extension)
+        super().__init__(
+            flowchart=flowchart, title='Forcefield', extension=extension
+        )
 
     def describe(self, indent='', json_dict=None):
         """Write out information about what this node will do
@@ -42,13 +45,9 @@ class Forcefield(seamm.Node):
                 " '{ff_file}'"
             )
         else:
-            string = (
-                "Reading the forcefield file '{ff_file}'"
-            )
-            
-        job.job(
-            __(string, ff_file=self.ff_file, indent=self.indent+'    ')
-        )
+            string = ("Reading the forcefield file '{ff_file}'")
+
+        job.job(__(string, ff_file=self.ff_file, indent=self.indent + '    '))
 
         return next_node
 
@@ -61,15 +60,18 @@ class Forcefield(seamm.Node):
         ff_file = self.get_value(self.ff_file)
 
         printer.important(
-            __("Reading the forcefield file '{ff_file}'",
-               ff_file=ff_file, indent=self.indent+'    ')
+            __(
+                "Reading the forcefield file '{ff_file}'",
+                ff_file=ff_file,
+                indent=self.indent + '    '
+            )
         )
 
         if self.ff_name is None:
-            data.forcefield = forcefield.Forcefield(ff_file)
+            data.forcefield = seamm_ff_util.Forcefield(ff_file)
         else:
             ff_name = self.get_value(self.ff_name)
-            data.forcefield = forcefield.Forcefield(ff_file, ff_name)
+            data.forcefield = seamm_ff_util.Forcefield(ff_file, ff_name)
 
         data.forcefield.initialize_biosym_forcefield()
 

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """The graphical part of a Forcefield step"""
 
 import seamm
@@ -16,8 +17,16 @@ class TkForcefield(seamm.TkNode):
 
     node_class = forcefield_step.Forcefield
 
-    def __init__(self, tk_flowchart=None, node=None, canvas=None,
-                 x=None, y=None, w=200, h=50):
+    def __init__(
+        self,
+        tk_flowchart=None,
+        node=None,
+        canvas=None,
+        x=None,
+        y=None,
+        w=200,
+        h=50
+    ):
         '''Initialize a node
 
         Keyword arguments:
@@ -25,8 +34,15 @@ class TkForcefield(seamm.TkNode):
 
         self.dialog = None
 
-        super().__init__(tk_flowchart=tk_flowchart, node=node,
-                         canvas=canvas, x=x, y=y, w=w, h=h)
+        super().__init__(
+            tk_flowchart=tk_flowchart,
+            node=node,
+            canvas=canvas,
+            x=x,
+            y=y,
+            w=w,
+            h=h
+        )
 
     def create_dialog(self):
         """Create the dialog!"""
@@ -42,8 +58,7 @@ class TkForcefield(seamm.TkNode):
         ff_file_label = ttk.Label(frame, text='Forcefield:')
         self.ff_file_widget = ttk.Entry(frame, width=30)
         self.ff_file_widget.insert(0, self.node.ff_file)
-        ff_file_button = ttk.Button(frame, text='...',
-                                    command=self.ff_file_cb)
+        ff_file_button = ttk.Button(frame, text='...', command=self.ff_file_cb)
         ff_file_label.grid(row=0, column=0)
         self.ff_file_widget.grid(row=0, column=1)
         ff_file_button.grid(row=0, column=2)
@@ -53,10 +68,12 @@ class TkForcefield(seamm.TkNode):
         ok_button = ttk.Button(button_box, text="OK", command=self.handle_ok)
         ok_button.grid(row=0, column=0, sticky=tk.W)
         help_button = ttk.Button(
-            button_box, text="Help", command=self.handle_help)
+            button_box, text="Help", command=self.handle_help
+        )
         help_button.grid(row=0, column=1)
         cancel_button = ttk.Button(
-            button_box, text="Cancel", command=self.handle_cancel)
+            button_box, text="Cancel", command=self.handle_cancel
+        )
         cancel_button.grid(row=0, column=2, sticky=tk.E)
         button_box.grid_columnconfigure(0, weight=1)
         button_box.grid_columnconfigure(1, weight=1)
@@ -65,8 +82,8 @@ class TkForcefield(seamm.TkNode):
     def ff_file_cb(self):
         """Present the file dialog for getting the forcefield"""
         name = tk_filedialog.askopenfilename(
-            parent=self.dialog, filetypes=[
-                ('all files', '.*'), ('forcefield files', '.frc')],
+            parent=self.dialog,
+            filetypes=[('all files', '.*'), ('forcefield files', '.frc')],
             initialdir=os.path.dirname(self.node.ff_file)
         )
         if name != '':
