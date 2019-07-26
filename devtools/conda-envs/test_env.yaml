@@ -15,5 +15,5 @@ dependencies:
   - pip:
     - codecov
     - seamm
-    - seamm_util
+    - seamm_ff_util
 
