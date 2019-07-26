@@ -1,5 +1,6 @@
 name: test
 channels:
+  - rdkit
 dependencies:
     # Base depends
   - python
@@ -8,7 +9,7 @@ dependencies:
     # Testing
   - pytest
   - pytest-cov
-  - codecov
+  - rdkit
 
     # Pip-only installs
   - pip:
