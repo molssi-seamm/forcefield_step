@@ -55,7 +55,7 @@ lint: ## check style with flake8
 
 format: ## reformat with with yapf and isort
 	yapf --recursive --in-place forcefield_step tests
-#	isort --recursive --atomic forcefieldl tests
+#	isort --recursive --atomic forcefield tests
 
 typing: ## check typing
 	pytype forcefield_step
