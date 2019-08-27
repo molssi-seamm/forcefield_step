@@ -48,7 +48,7 @@ class Forcefield(seamm.Node):
         """Return a short description of this step.
 
         Return a nicely formatted string describing what this step will
-        do. 
+        do.
 
         Keyword arguments:
             P: a dictionary of parameter values, which may be variables
@@ -64,7 +64,9 @@ class Forcefield(seamm.Node):
         else:
             text = "Reading the forcefield file '{ff_file}'"
 
-        return text
+        return self.header + '\n' + __(
+            text, indent=3*' ', ff_file=self.ff_file
+        ).__str__()
 
     def run(self):
         """Setup the forcefield
@@ -74,6 +76,7 @@ class Forcefield(seamm.Node):
 
         ff_file = self.get_value(self.ff_file)
 
+        printer.important(__(self.header, indent=self.indent))
         printer.important(
             __(
                 "Reading the forcefield file '{ff_file}'",
@@ -89,5 +92,6 @@ class Forcefield(seamm.Node):
             data.forcefield = seamm_ff_util.Forcefield(ff_file, ff_name)
 
         data.forcefield.initialize_biosym_forcefield()
+        printer.important('')
 
         return next_node
