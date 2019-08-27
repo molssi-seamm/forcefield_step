@@ -2,8 +2,9 @@
 
 """A node or step for the forcefield in a flowchart"""
 
-import seamm_ff_util
+import forcefield_step
 import logging
+import seamm_ff_util
 import seamm
 import seamm.data as data
 import seamm_util.printing as printing
@@ -31,25 +32,41 @@ class Forcefield(seamm.Node):
             flowchart=flowchart, title='Forcefield', extension=extension
         )
 
-    def describe(self, indent='', json_dict=None):
-        """Write out information about what this node will do
-        If json_dict is passed in, add information to that dictionary
-        so that it can be written out by the controller as appropriate.
+    @property
+    def version(self):
+        """The semantic version of this module.
+        """
+        return forcefield_step.__version__
+
+    @property
+    def git_revision(self):
+        """The git version of this module.
+        """
+        return forcefield_step.__git_revision__
+
+    def description_text(self, P=None):
+        """Return a short description of this step.
+
+        Return a nicely formatted string describing what this step will
+        do.
+
+        Keyword arguments:
+            P: a dictionary of parameter values, which may be variables
+                or final values. If None, then the parameters values will
+                be used as is.
         """
 
-        next_node = super().describe(indent, json_dict)
-
         if self.ff_file[0] == '$':
-            string = (
+            text = (
                 "Reading the forcefield file given in the variable"
                 " '{ff_file}'"
             )
         else:
-            string = ("Reading the forcefield file '{ff_file}'")
+            text = "Reading the forcefield file '{ff_file}'"
 
-        job.job(__(string, ff_file=self.ff_file, indent=self.indent + '    '))
-
-        return next_node
+        return self.header + '\n' + __(
+            text, indent=3*' ', ff_file=self.ff_file
+        ).__str__()
 
     def run(self):
         """Setup the forcefield
@@ -59,6 +76,7 @@ class Forcefield(seamm.Node):
 
         ff_file = self.get_value(self.ff_file)
 
+        printer.important(__(self.header, indent=self.indent))
         printer.important(
             __(
                 "Reading the forcefield file '{ff_file}'",
@@ -74,5 +92,6 @@ class Forcefield(seamm.Node):
             data.forcefield = seamm_ff_util.Forcefield(ff_file, ff_name)
 
         data.forcefield.initialize_biosym_forcefield()
+        printer.important('')
 
         return next_node
