@@ -1,12 +1,14 @@
 name: test
 channels:
   - rdkit
+  - default
 dependencies:
     # Base depends
   - python
   - pip
   - configargparse
-
+  - rdkit
+  
     # Testing
   - coverage
   - flake8
