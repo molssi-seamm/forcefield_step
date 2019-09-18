@@ -21,18 +21,8 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    'seamm_ff_util',
-    'seamm',
-]
-
-setup_requirements = [
-    'pytest-runner',
-]
-
-test_requirements = [
-    'pytest',
-]
+with open('requirements_install.txt') as fd:
+    requirements = fd.read()
 
 setup(
     # Descriptive entries which should always be present
@@ -42,7 +32,6 @@ setup(
     description="Step to setup the forcefield in a SEAMM flowchart",
     long_description=readme + '\n\n' + history,
     version=versioneer.get_version(),
-    # version='0.1.0',
     cmdclass=versioneer.get_cmdclass(),
     license='BSD-3-Clause',
     url='https://github.com/molssi-seam/forcefield_step',
@@ -75,7 +64,7 @@ setup(
 
     # Manual control if final package is compressible or not, set False to
     # prevent the .egg from being made
-    zip_safe=False,
+    # zip_safe=False,
 
     keywords='forcefield_step',
     classifiers=[

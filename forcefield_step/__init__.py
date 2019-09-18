@@ -9,6 +9,7 @@ A step for choosing the default forcefield.
 # the package.
 
 from forcefield_step.forcefield import Forcefield  # noqa: F401
+from forcefield_step.forcefield_parameters import ForcefieldParameters  # noqa: F401,E501
 from forcefield_step.forcefield_step import ForcefieldStep  # noqa: F401
 from forcefield_step.tk_forcefield import TkForcefield  # noqa: F401
 
