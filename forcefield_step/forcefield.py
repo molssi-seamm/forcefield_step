@@ -116,7 +116,9 @@ class Forcefield(seamm.Node):
             )
 
         return self.header + '\n' + __(
-            text, indent=4*' ', **P,
+            text,
+            indent=4 * ' ',
+            **P,
         ).__str__()
 
     def run(self):
@@ -136,14 +138,15 @@ class Forcefield(seamm.Node):
         printer.important(
             __(
                 "Reading the forcefield file '{forcefield_file}'",
-                **P, indent=self.indent + '    '
+                **P,
+                indent=self.indent + '    '
             )
         )
 
         # Find the forcefield file
         path = pkg_resources.resource_filename(__name__, 'data/')
         ff_file = os.path.join(path, P['forcefield_file'])
-        
+
         if P['forcefield'] == 'default':
             data.forcefield = seamm_ff_util.Forcefield(ff_file)
             printer.important(
@@ -160,7 +163,8 @@ class Forcefield(seamm.Node):
             printer.important(
                 __(
                     "   Using the forcefield '{forcefield}'",
-                    **P, indent=self.indent + '    '
+                    **P,
+                    indent=self.indent + '    '
                 )
             )
 
