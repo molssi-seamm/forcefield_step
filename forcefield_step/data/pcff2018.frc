@@ -8,7 +8,7 @@
 #version        pcff.frc        3.1     1-April-96
 #version        pcff.frc        4.0     8-October-13
 
-#define cff91
+#define pcff
 
 
 !Ver Ref                Function             Label
