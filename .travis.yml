@@ -41,8 +41,8 @@ jobs:
       language: generic
       env: PYTHON_VER=3.7
       script:
-        - flake8 mopac_step tests
-        - yapf --diff --recursive  mopac_step tests
+        - flake8 forcefield_step tests
+        - yapf --diff --recursive  forcefield_step tests
 
     - stage: test
       name: "Tests on MacOS Python 3.6"
@@ -71,7 +71,7 @@ jobs:
     - stage: test
       name: "Tests and coverage on Linux Python 3.7"
       script:
-        - pytest -v --cov=mopac_step tests/
+        - pytest -v --cov=forcefield_step tests/
       after_success:
         - codecov
       os: linux
@@ -91,7 +91,7 @@ jobs:
         on:
           condition: $PYTHON_VER = 3.7
           condition: $TRAVIS_OS_NAME = linux
-          repo: molssi-seamm/mopac_step
+          repo: molssi-seamm/forcefield_step
           tags: true
         user: seamm
         password:
