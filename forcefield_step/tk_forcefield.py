@@ -56,9 +56,11 @@ class TkForcefield(seamm.TkNode):
         # Create the widgets and grid them in
         P = self.node.parameters
         row = 0
+        widgets = []
         for key in P:
             self[key] = P[key].widget(frame)
             self[key].grid(row=row, column=0, sticky=tk.EW)
             row += 1
+            widgets.append(self[key])
 
-        sw.align_labels(self.keys())
+        sw.align_labels(widgets)
