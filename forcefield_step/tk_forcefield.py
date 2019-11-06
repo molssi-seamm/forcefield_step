@@ -4,9 +4,7 @@
 
 import seamm
 import seamm_widgets as sw
-import Pmw
 import tkinter as tk
-import tkinter.ttk as ttk
 
 
 class TkForcefield(seamm.TkNode):
@@ -49,58 +47,18 @@ class TkForcefield(seamm.TkNode):
 
         self.popup_menu.tk_popup(event.x_root, event.y_root, 0)
 
-    def edit(self):
-        """Present a dialog for editing the Forcefield flowchart
+    def create_dialog(self):
+        """Create the dialog for editing the Forcefield flowchart
         """
 
-        self.dialog = Pmw.Dialog(
-            self.toplevel,
-            buttons=('OK', 'Help', 'Cancel'),
-            defaultbutton='OK',
-            master=self.toplevel,
-            title='Edit Forcefield parameters',
-            command=self.handle_dialog
-        )
-        self.dialog.withdraw()
-
-        frame = ttk.Frame(self.dialog.interior())
-        frame.pack(expand=tk.YES, fill=tk.BOTH)
-        self['frame'] = frame
+        frame = super().create_dialog('Edit Forcefield Step')
 
         # Create the widgets and grid them in
         P = self.node.parameters
         row = 0
-        widgets = []
         for key in P:
             self[key] = P[key].widget(frame)
-            widgets.append(self[key])
             self[key].grid(row=row, column=0, sticky=tk.EW)
             row += 1
 
-        sw.align_labels(widgets)
-
-        self.dialog.activate(geometry='centerscreenfirst')
-
-    def handle_dialog(self, result):
-
-        if result is None or result == 'Cancel':
-            self.dialog.deactivate(result)
-            return
-
-        if result == 'Help':
-            # display help!!!
-            return
-
-        if result != "OK":
-            self.dialog.deactivate(result)
-            raise RuntimeError(
-                "Don't recognize dialog result '{}'".format(result)
-            )
-
-        self.dialog.deactivate(result)
-
-        # Shortcut for parameters
-        P = self.node.parameters
-
-        for key in P:
-            P[key].set_from_widget()
+        sw.align_labels(self.keys())
