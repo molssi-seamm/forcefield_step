@@ -18,6 +18,7 @@ dependencies:
 
     # Pip-only installs
   - pip:
+    - codecov
     - seamm>=0.6
     - seamm_ff_util>=0.6
     - seamm-widgets>=0.6
