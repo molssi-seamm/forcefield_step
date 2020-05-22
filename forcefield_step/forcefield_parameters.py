@@ -13,10 +13,12 @@ logger = logging.getLogger(__name__)
 # Get the list of available forcefields
 path = pkg_resources.resource_filename(__name__, 'data/')
 forcefields = []
+
+logger.debug('Looking for forcefields at ' + path)
 with os.scandir(path) as it:
     for entry in it:
         if not entry.name.startswith('.') and entry.is_file():
-            print(entry.name)
+            logger.debug('   ' + entry.name)
             ffname, ext = os.path.splitext(entry.name)
             if ext == '.frc':
                 forcefields.append(entry.name)
