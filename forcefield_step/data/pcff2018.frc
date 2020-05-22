@@ -3262,8 +3262,8 @@
 >        eps(ij) = 2 sqrt(eps(i) * eps(j)) * 
 >                   r(i)^3 * r(j)^3/[r(i)^6 + r(j)^6]
 
-@type r-eps
-@combination sixth-power
+@type rmin-eps
+@combination sixthpower
 
 !   Ver    Ref    I          r             eps
 !--------- ---  -----   -------------  -----------
