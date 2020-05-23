@@ -17,12 +17,12 @@
  1.0  1     equivalence                      cff91
  2.0  1     auto_equivalence                 cff91_auto
  2.0  1     bond_increments                  cff91_auto
- 2.0  1     quadratic_bond                   cff91_auto
  1.0  1     quartic_bond                     cff91
- 2.0  1     quadratic_angle                  cff91_auto
+ 2.0  1     quadratic_bond                   cff91_auto
  1.0  1     quartic_angle                    cff91
- 2.0  1     torsion_1                        cff91_auto
+ 2.0  1     quadratic_angle                  cff91_auto
  1.0  1     torsion_3                        cff91
+ 2.0  1     torsion_1                        cff91_auto
  2.0  2     wilson_out_of_plane              cff91  cff91_auto
  2.0  1     nonbond(9-6)                     cff91
  1.0  1     bond-bond                        cff91
