@@ -41,7 +41,7 @@ class ForcefieldParameters(seamm.Parameters):
             "default": "default",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": tuple('default',),
+            "enumeration": tuple(['default']),
             "format_string": "s",
             "description": "Forcefield:",
             "help_text": "The forcefield with the file."
