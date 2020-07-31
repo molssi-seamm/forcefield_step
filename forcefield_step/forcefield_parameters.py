@@ -2,6 +2,7 @@
 """Control parameters for using forcefields
 """
 
+import importlib
 import logging
 import os
 import pkg_resources
@@ -12,7 +13,12 @@ logger = logging.getLogger(__name__)
 
 # Get the list of available forcefields
 path = pkg_resources.resource_filename(__name__, 'data/')
-forcefields = []
+
+# Check if we can use OpenKIM
+if importlib.util.find_spec('kim_query') is None:
+    forcefields = []
+else:
+    forcefields = ['OpenKIM']
 
 logger.debug('Looking for forcefields at ' + path)
 with os.scandir(path) as it:
@@ -23,28 +29,60 @@ with os.scandir(path) as it:
             if ext == '.frc':
                 forcefields.append(entry.name)
 
+forcefields = sorted(forcefields)
+
 
 class ForcefieldParameters(seamm.Parameters):
     """The control parameters for forcefields"""
 
     parameters = {
+        "task": {
+            "default": 'setup forcefield',
+            "kind": "enumeration",
+            "default_units": "",
+            "enumeration": (
+                'setup forcefield',
+                'assign forcefield to structure',
+            ),
+            "format_string": "s",
+            "description": "What to do:",
+            "help_text": "What to do with the forcefield."
+        },
         "forcefield_file": {
             "default": forcefields[0],
             "kind": "enumeration",
             "default_units": "",
             "enumeration": tuple(forcefields),
             "format_string": "s",
-            "description": "Forcefield file:",
-            "help_text": "The forcefield file to use."
+            "description": "Forcefield Repository:",
+            "help_text": "The forcefield repository or file to use."
         },
         "forcefield": {
             "default": "default",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": tuple(['default']),
+            "enumeration": ('default',),
             "format_string": "s",
             "description": "Forcefield:",
             "help_text": "The forcefield with the file."
+        },
+        "elements": {
+            "default": "",
+            "kind": "periodic table",
+            "default_units": None,
+            "enumeration": None,
+            "format_string": "",
+            "description": "Elements:",
+            "help_text": "The elements to include."
+        },
+        "potentials": {
+            "default": "",
+            "kind": "enumeration",
+            "default_units": "",
+            "enumeration": None,
+            "format_string": "s",
+            "description": "Interatomic Potentials:",
+            "help_text": "The interatomic potentials to use."
         },
     }
 

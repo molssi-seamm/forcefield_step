@@ -109,6 +109,8 @@ class Forcefield(seamm.Node):
                 " '{forcefield_file}' and use the {forcefield} "
                 "forcefield."
             )
+        elif P['forcefield_file'] == 'OpenKIM':
+            text = "Use the OpenKIM potential '{potentials}'"
         else:
             text = (
                 "Read the forcefield file '{forcefield_file}' "
@@ -135,40 +137,52 @@ class Forcefield(seamm.Node):
         )
 
         printer.important(__(self.header, indent=self.indent))
-        printer.important(
-            __(
-                "Reading the forcefield file '{forcefield_file}'",
-                **P,
-                indent=self.indent + '    '
-            )
-        )
 
-        # Find the forcefield file
-        path = pkg_resources.resource_filename(__name__, 'data/')
-        ff_file = os.path.join(path, P['forcefield_file'])
-
-        if P['forcefield'] == 'default':
-            data.forcefield = seamm_ff_util.Forcefield(ff_file)
+        if P['forcefield_file'] == 'OpenKIM':
             printer.important(
                 __(
-                    "   Using the default forcefield '{ff}'.",
-                    ff=data.forcefield.forcefields[0],
+                    "Using the OpenKIM potential '{potentials}'",
+                    **P,
                     indent=self.indent + '    '
                 )
             )
+            data.forcefield = 'OpenKIM'
+            data.OpenKIM_Potential = P['potentials']
         else:
-            data.forcefield = seamm_ff_util.Forcefield(
-                ff_file, P['forcefield']
-            )
             printer.important(
                 __(
-                    "   Using the forcefield '{forcefield}'",
+                    "Reading the forcefield file '{forcefield_file}'",
                     **P,
                     indent=self.indent + '    '
                 )
             )
 
-        data.forcefield.initialize_biosym_forcefield()
+            # Find the forcefield file
+            path = pkg_resources.resource_filename(__name__, 'data/')
+            ff_file = os.path.join(path, P['forcefield_file'])
+
+            if P['forcefield'] == 'default':
+                data.forcefield = seamm_ff_util.Forcefield(ff_file)
+                printer.important(
+                    __(
+                        "   Using the default forcefield '{ff}'.",
+                        ff=data.forcefield.forcefields[0],
+                        indent=self.indent + '    '
+                    )
+                )
+            else:
+                data.forcefield = seamm_ff_util.Forcefield(
+                    ff_file, P['forcefield']
+                )
+                printer.important(
+                    __(
+                        "   Using the forcefield '{forcefield}'",
+                        **P,
+                        indent=self.indent + '    '
+                    )
+                )
+
+            data.forcefield.initialize_biosym_forcefield()
         printer.important('')
 
         return next_node
