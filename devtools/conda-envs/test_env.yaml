@@ -2,12 +2,15 @@ name: test
 channels:
   - rdkit
   - default
+  - conda-forge
 dependencies:
     # Base depends
   - python
   - pip
   - configargparse
   - rdkit
+  - openkim-models
+  - kim-query
   
     # Testing
   - coverage

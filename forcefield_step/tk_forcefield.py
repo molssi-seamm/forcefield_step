@@ -5,7 +5,10 @@
 import seamm
 import tkinter as tk
 
-import kim_query
+try:
+    import kim_query
+except ModuleNotFoundError:
+    pass
 
 
 class TkForcefield(seamm.TkNode):
