@@ -79,7 +79,7 @@ class ForcefieldParameters(seamm.Parameters):
             "default": "",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": None,
+            "enumeration": ('will be replaced',),
             "format_string": "s",
             "description": "Interatomic Potentials:",
             "help_text": "The interatomic potentials to use."
