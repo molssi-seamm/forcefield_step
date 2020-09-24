@@ -45,12 +45,12 @@ jobs:
         - yapf --diff --recursive  forcefield_step tests
 
     - stage: test
-      name: "Tests on MacOS Python 3.8"
+      name: "Tests on MacOS Python 3.7"
       script:
         - pytest -v tests/
       os: osx
       language: generic
-      env: PYTHON_VER=3.8
+      env: PYTHON_VER=3.7
 
     - stage: test
       name: "Tests on MacOS Python 3.8"
@@ -61,12 +61,12 @@ jobs:
       env: PYTHON_VER=3.8
 
     - stage: test
-      name: "Tests on Linux Python 3.8"
+      name: "Tests on Linux Python 3.7"
       script:
         - pytest -v tests/
       os: linux
       language: generic  # No need to set Python version since its conda
-      env: PYTHON_VER=3.8
+      env: PYTHON_VER=3.7
 
     - stage: test
       name: "Tests and coverage on Linux Python 3.8"
