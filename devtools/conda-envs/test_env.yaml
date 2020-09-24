@@ -9,7 +9,7 @@ dependencies:
   - pip
   - configargparse
   - rdkit
-  - openbabel
+  # - openbabel
   - openkim-models
   - kim-query
   
