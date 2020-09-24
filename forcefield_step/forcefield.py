@@ -9,7 +9,6 @@ import os.path
 import pkg_resources
 import seamm_ff_util
 import seamm
-import seamm_util
 import seamm_util.printing as printing
 from seamm_util.printing import FormattedText as __
 
@@ -68,7 +67,7 @@ class Forcefield(seamm.Node):
 
         # Set the logging level for this module if requested
         if 'forcefield_step_log_level' in self.options:
-            logger.setLevel(self.options.forcefield_log_level)
+            logger.setLevel(self.options.forcefield_step_log_level)
 
         super().__init__(
             flowchart=flowchart, title='Forcefield', extension=extension
@@ -179,7 +178,7 @@ class Forcefield(seamm.Node):
             )
         )
 
-        smiles = seamm_util.smiles.from_seamm(system)
+        smiles = system.to_smiles(hydrogens=True)
         logger.debug('Atom typing -- smiles = ' + smiles)
         ff_assigner = seamm_ff_util.FFAssigner(ff)
         atom_types = ff_assigner.assign(smiles, add_hydrogens=False)
