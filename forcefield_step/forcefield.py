@@ -9,7 +9,6 @@ import os.path
 import pkg_resources
 import seamm_ff_util
 import seamm
-import seamm.data as data
 import seamm_util.printing as printing
 from seamm_util.printing import FormattedText as __
 
@@ -55,20 +54,20 @@ class Forcefield(seamm.Node):
 
         # Options for this plugin
         self.parser.add_argument(
-            "--from-smiles-log-level",
+            "--forcefield-step-log-level",
             default=configargparse.SUPPRESS,
             choices=[
                 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'NOTSET'
             ],
             type=upcase,
-            help="the logging level for the From SMILES step"
+            help="the logging level for the Forcefield step"
         )
 
         self.options, self.unknown = self.parser.parse_known_args()
 
         # Set the logging level for this module if requested
-        if 'forcefield_log_level' in self.options:
-            logger.setLevel(self.options.forcefield_log_level)
+        if 'forcefield_step_log_level' in self.options:
+            logger.setLevel(self.options.forcefield_step_log_level)
 
         super().__init__(
             flowchart=flowchart, title='Forcefield', extension=extension
@@ -103,19 +102,22 @@ class Forcefield(seamm.Node):
         if not P:
             P = self.parameters.values_to_dict()
 
-        if P['forcefield_file'][0] == '$':
-            text = (
-                "Read the forcefield file given in the variable"
-                " '{forcefield_file}' and use the {forcefield} "
-                "forcefield."
-            )
-        elif P['forcefield_file'] == 'OpenKIM':
-            text = "Use the OpenKIM potential '{potentials}'"
-        else:
-            text = (
-                "Read the forcefield file '{forcefield_file}' "
-                "and use the {forcefield} forcefield."
-            )
+        if P['task'] == 'setup forcefield':
+            if P['forcefield_file'][0] == '$':
+                text = (
+                    "Read the forcefield file given in the variable"
+                    " '{forcefield_file}' and use the {forcefield} "
+                    "forcefield."
+                )
+            elif P['forcefield_file'] == 'OpenKIM':
+                text = "Use the OpenKIM potential '{potentials}'"
+            else:
+                text = (
+                    "Read the forcefield file '{forcefield_file}' "
+                    "and use the {forcefield} forcefield."
+                )
+        elif P['task'] == 'assign forcefield to structure':
+            text = "Assign the atom types to the structure."
 
         return self.header + '\n' + __(
             text,
@@ -138,6 +140,78 @@ class Forcefield(seamm.Node):
 
         printer.important(__(self.header, indent=self.indent))
 
+        if P['task'] == 'setup forcefield':
+            self.setup_forcefield(P)
+        elif P['task'] == 'assign forcefield to structure':
+            self.assign_forcefield(P)
+
+        printer.important('')
+
+        return next_node
+
+    def assign_forcefield(self, P=None):
+        """Assign the forcefield to the structure, i.e. find the atom types.
+
+        Parameters
+        ----------
+        P : {str: Any}
+            The final values of the parameters.
+
+        Returns
+        -------
+        None
+        """
+        if P is None:
+            P = self.parameters.current_values_to_dict(
+                context=seamm.flowchart_variables._data
+            )
+
+        ff = self.get_variable('_forcefield')
+        system = self.get_variable('_system')
+
+        ffname = ff.current_forcefield
+        printer.important(
+            __(
+                f"Assigning the atom types for forcefield '{ffname}' to the "
+                "system",
+                indent=self.indent + '    '
+            )
+        )
+
+        smiles = system.to_smiles(hydrogens=True)
+        logger.debug('Atom typing -- smiles = ' + smiles)
+        ff_assigner = seamm_ff_util.FFAssigner(ff)
+        atom_types = ff_assigner.assign(smiles, add_hydrogens=False)
+        logger.info('Atom types: ' + ', '.join(atom_types))
+        key = f'atom_types_{ff.current_forcefield}'
+        if key not in system.atoms:
+            system.atoms.add_attribute(key, coltype='str')
+        system.atoms[key] = atom_types
+
+        printer.important(
+            __(
+                f"Assigned atom types to {system.n_atoms()} atoms.",
+                indent=self.indent + '    '
+            )
+        )
+
+    def setup_forcefield(self, P=None):
+        """Setup the forcefield for later use.
+
+        Parameters
+        ---------
+        P : {str: Any}
+            The final values of the parameters.
+
+        Returns
+        -------
+        None
+        """
+        if P is None:
+            P = self.parameters.current_values_to_dict(
+                context=seamm.flowchart_variables._data
+            )
+
         if P['forcefield_file'] == 'OpenKIM':
             printer.important(
                 __(
@@ -146,8 +220,8 @@ class Forcefield(seamm.Node):
                     indent=self.indent + '    '
                 )
             )
-            data.forcefield = 'OpenKIM'
-            data.OpenKIM_Potential = P['potentials']
+            self.set_variable('_forcefield', 'OpenKIM')
+            self.set_variable('_OpenKIM_Potential', P['potentials'])
         else:
             printer.important(
                 __(
@@ -162,18 +236,18 @@ class Forcefield(seamm.Node):
             ff_file = os.path.join(path, P['forcefield_file'])
 
             if P['forcefield'] == 'default':
-                data.forcefield = seamm_ff_util.Forcefield(ff_file)
+                ff = seamm_ff_util.Forcefield(ff_file)
+                self.set_variable('_forcefield', ff)
                 printer.important(
                     __(
                         "   Using the default forcefield '{ff}'.",
-                        ff=data.forcefield.forcefields[0],
+                        ff=ff.forcefields[0],
                         indent=self.indent + '    '
                     )
                 )
             else:
-                data.forcefield = seamm_ff_util.Forcefield(
-                    ff_file, P['forcefield']
-                )
+                ff = seamm_ff_util.Forcefield(ff_file, P['forcefield'])
+                self.set_variable('_forcefield', ff)
                 printer.important(
                     __(
                         "   Using the forcefield '{forcefield}'",
@@ -182,7 +256,4 @@ class Forcefield(seamm.Node):
                     )
                 )
 
-            data.forcefield.initialize_biosym_forcefield()
-        printer.important('')
-
-        return next_node
+            ff.initialize_biosym_forcefield()

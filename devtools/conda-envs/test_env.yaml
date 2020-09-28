@@ -9,6 +9,7 @@ dependencies:
   - pip
   - configargparse
   - rdkit
+  - openbabel
   - openkim-models
   - kim-query
   
@@ -22,9 +23,9 @@ dependencies:
     # Pip-only installs
   - pip:
     - codecov
-    - seamm>=0.9
-    - seamm_ff_util>=0.9
-    - seamm-widgets>=0.9
+    - seamm>=2020.9.23
+    - seamm_ff_util>=2020.9.23
+    - seamm-widgets>=2020.8.1
 
       # Testing
     - yapf
