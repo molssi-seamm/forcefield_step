@@ -5532,6 +5532,15 @@
             "overrides": []
         }
     },
+    "kr": {
+        "2020.09.19": {
+            "smarts": [
+                "[Kr:1]"
+            ],
+            "description": "Krypton atom",
+            "overrides": []
+        }
+    },
     "c": {
         "2017.12.15": {
             "smarts": [
