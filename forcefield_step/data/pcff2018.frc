@@ -7,6 +7,7 @@
 #version        pcff.frc        3.0     1-March-95
 #version        pcff.frc        3.1     1-April-96
 #version        pcff.frc        4.0     8-October-13
+#version	pcff2018.frc	2020.10.5	5-October-2020
 
 #define pcff
 
@@ -33,7 +34,7 @@
  1.0  1     middle_bond-torsion_3            cff91
  1.0  1     angle-torsion_3                  cff91
  1.0  1     angle-angle-torsion_1            cff91
-2017.12.15 1 templates                       pcff
+2020.10.5  1 templates                       pcff
 
 #atom_types           cff91
 
@@ -5523,12 +5524,48 @@
 
 #templates pcff
 {
+    "he": {
+        "2020.10.05": {
+            "smarts": [
+                "[He:1]"
+            ],
+            "description": "Helium atom",
+            "overrides": []
+        }
+    },
+    "ne": {
+        "2020.10.05": {
+            "smarts": [
+                "[Ne:1]"
+            ],
+            "description": "Neon atom",
+            "overrides": []
+        }
+    },
     "ar": {
         "2018.08.02": {
             "smarts": [
                 "[Ar:1]"
             ],
             "description": "Argon atom",
+            "overrides": []
+        }
+    },
+    "kr": {
+        "2020.10.05": {
+            "smarts": [
+                "[Kr:1]"
+            ],
+            "description": "Krypton atom",
+            "overrides": []
+        }
+    },
+    "xe": {
+        "2020.10.05": {
+            "smarts": [
+                "[Xe:1]"
+            ],
+            "description": "Xenon atom",
             "overrides": []
         }
     },
@@ -6054,4 +6091,10 @@ added hydroxy-apatite related parameters
 bringing over nonbond terms, small molecules, and otther parameters
 from the LAMMPS copy of the published COMPASS:
 Parameters for He,Ne,Ar,Kr,Xe,H2,O2,N2,NO,CO,CO2,NO2,CS2,SO2 from JPC B104, 4951-7 (2000)
+#end
+
+#reference 15
+@Author Paul Saxe
+@Date 05-October-2020
+Adding in templates for He, Ne, Kr, and Xe (see ref 14)
 #end
