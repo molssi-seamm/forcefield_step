@@ -2,11 +2,14 @@
 
 """A node or step for the forcefield in a flowchart"""
 
-import forcefield_step
-import configargparse
 import logging
 import os.path
 import pkg_resources
+import pprint
+
+import configargparse
+
+import forcefield_step
 import seamm_ff_util
 import seamm
 import seamm_util.printing as printing
@@ -150,7 +153,8 @@ class Forcefield(seamm.Node):
         return next_node
 
     def assign_forcefield(self, P=None):
-        """Assign the forcefield to the structure, i.e. find the atom types.
+        """Assign the forcefield to the structure, i.e. find the atom types
+        and charges.
 
         Parameters
         ----------
@@ -172,25 +176,62 @@ class Forcefield(seamm.Node):
         ffname = ff.current_forcefield
         printer.important(
             __(
-                f"Assigning the atom types for forcefield '{ffname}' to the "
-                "system",
+                "Assigning the atom types and charges for forcefield "
+                f"'{ffname}' to the system",
                 indent=self.indent + '    '
             )
         )
 
+        # Atom types
+        logger.debug('Atom typing, getting the SMILES for the system')
         smiles = system.to_smiles(hydrogens=True)
         logger.debug('Atom typing -- smiles = ' + smiles)
         ff_assigner = seamm_ff_util.FFAssigner(ff)
         atom_types = ff_assigner.assign(smiles, add_hydrogens=False)
         logger.info('Atom types: ' + ', '.join(atom_types))
-        key = f'atom_types_{ff.current_forcefield}'
+        key = f'atom_types_{ffname}'
         if key not in system.atoms:
             system.atoms.add_attribute(key, coltype='str')
         system.atoms[key] = atom_types
 
+        # Charges
+        logger.debug('Getting the charges for the system')
+        neighbors = system.bonded_neighbors(as_indices=True)
+
+        charges = []
+        total_q = 0.0
+        for i in range(system.n_atoms()):
+            itype = atom_types[i]
+            parameters = ff.charges(itype)[3]
+            q = float(parameters['Q'])
+            for j in neighbors[i]:
+                jtype = atom_types[j]
+                parameters = ff.bond_increments(itype, jtype)[3]
+                q += float(parameters['deltaij'])
+            charges.append(q)
+            total_q += q
+        if abs(total_q) > 0.0001:
+            logger.warning('Total charge is not zero: {}'.format(total_q))
+            logger.info(
+                'Charges from increments and charges:\n' +
+                pprint.pformat(charges)
+            )
+        else:
+            logger.debug(
+                'Charges from increments:\n' + pprint.pformat(charges)
+            )
+
+        key = f'charges_{ffname}'
+        if key not in system.atoms:
+            system.atoms.add_attribute(key, coltype='float')
+        charge_column = system.atoms.get_column(key)
+        charge_column[0:] = charges
+        logger.debug(f"Set column '{key}' to the charges")
+
         printer.important(
             __(
-                f"Assigned atom types to {system.n_atoms()} atoms.",
+                f"Assigned atom types and charges to {system.n_atoms()} "
+                "atoms.",
                 indent=self.indent + '    '
             )
         )
