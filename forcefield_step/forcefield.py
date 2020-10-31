@@ -7,8 +7,6 @@ import os.path
 import pkg_resources
 import pprint
 
-import configargparse
-
 import forcefield_step
 import seamm_ff_util
 import seamm
@@ -20,57 +18,14 @@ job = printing.getPrinter()
 printer = printing.getPrinter('forcefield')
 
 
-def upcase(string):
-    """Return an uppercase version of the string.
-
-    Used for the type argument in argparse/
-    """
-    return string.upper()
-
-
 class Forcefield(seamm.Node):
 
     def __init__(self, flowchart=None, extension=None):
-        '''Initialize a forcefield step
+        """Initialize a forcefield step
 
         Keyword arguments:
-        '''
+        """
         logger.debug('Creating Forcefield {}'.format(self))
-
-        # Argument/config parsing
-        self.parser = configargparse.ArgParser(
-            auto_env_var_prefix='',
-            default_config_files=[
-                '/etc/seamm/forcefield_step.ini',
-                '/etc/seamm/seamm.ini',
-                '~/.seamm/forcefield_step.ini',
-                '~/.seamm/seamm.ini',
-            ]
-        )
-
-        self.parser.add_argument(
-            '--seamm-configfile',
-            is_config_file=True,
-            default=None,
-            help='a configuration file to override others'
-        )
-
-        # Options for this plugin
-        self.parser.add_argument(
-            "--forcefield-step-log-level",
-            default=configargparse.SUPPRESS,
-            choices=[
-                'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'NOTSET'
-            ],
-            type=upcase,
-            help="the logging level for the Forcefield step"
-        )
-
-        self.options, self.unknown = self.parser.parse_known_args()
-
-        # Set the logging level for this module if requested
-        if 'forcefield_step_log_level' in self.options:
-            logger.setLevel(self.options.forcefield_step_log_level)
 
         super().__init__(
             flowchart=flowchart, title='Forcefield', extension=extension
