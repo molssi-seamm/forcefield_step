@@ -1,7 +1,5 @@
-configargparse
 kim_query
-Pmw
-seamm>=0.9
-seamm_ff_util>=0.9
-seamm_widgets>=0.9
+seamm
+seamm-ff-util
+seamm-widgets
 
