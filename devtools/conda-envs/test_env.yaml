@@ -26,8 +26,12 @@ dependencies:
   - pip:
     - seamm
     - seamm_ff_util
-    - seamm-widgets
 
     # Testing
     - yapf
 
+    # Documentation
+    - rinohtype
+    - pygments
+    - sphinx-rtd-theme
+    - pystemmer
