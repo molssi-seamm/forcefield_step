@@ -1,3 +1,4 @@
+MODULE := forcefield_step
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 define BROWSER_PYSCRIPT
@@ -49,17 +50,14 @@ clean-test: ## remove test and coverage artifacts
 	find . -name '.pytype' -exec rm -fr {} +
 
 lint: ## check style with flake8
-	flake8 forcefield_step tests
-	yapf --diff --recursive  forcefield_step tests
-#	isort --check-only --diff --recursive forcefield_step tests
+	flake8 $(MODULE) tests
+	yapf --diff --recursive  $(MODULE) tests
 
 format: ## reformat with with yapf and isort
-	yapf --recursive --in-place forcefield_step tests
-#	isort --recursive --atomic forcefield tests
+	yapf --recursive --in-place $(MODULE) tests
 
 typing: ## check typing
-	pytype forcefield_step
-#	mypy -p forcefield_step
+	pytype $(MODULE)
 
 test: ## run tests quickly with the default Python
 	py.test
@@ -72,15 +70,15 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source forcefield_step -m pytest
+	coverage run --source $(MODULE) -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/forcefield_step.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ forcefield_step
+	rm -f docs/developer/$(MODULE).rst
+	rm -f docs/developer/modules.rst
+	sphinx-apidoc -o docs/developer $(MODULE)
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
@@ -101,4 +99,4 @@ install: uninstall ## install the package to the active Python's site-packages
 	python setup.py install
 
 uninstall: clean ## uninstall the package
-	pip uninstall --yes forcefield_step
+	pip uninstall --yes $(MODULE)
