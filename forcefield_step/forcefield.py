@@ -126,7 +126,8 @@ class Forcefield(seamm.Node):
             )
 
         ff = self.get_variable('_forcefield')
-        system = self.get_variable('_system')
+        system_db = self.get_variable('_system_db')
+        configuration = system_db.system.configuration
 
         ffname = ff.current_forcefield
         printer.important(
@@ -139,57 +140,67 @@ class Forcefield(seamm.Node):
 
         # Atom types
         logger.debug('Atom typing, getting the SMILES for the system')
-        smiles = system.to_smiles(hydrogens=True)
+        smiles = configuration.to_smiles(hydrogens=True)
         logger.debug('Atom typing -- smiles = ' + smiles)
         ff_assigner = seamm_ff_util.FFAssigner(ff)
         atom_types = ff_assigner.assign(smiles, add_hydrogens=False)
         logger.info('Atom types: ' + ', '.join(atom_types))
         key = f'atom_types_{ffname}'
-        if key not in system.atoms:
-            system.atoms.add_attribute(key, coltype='str')
-        system.atoms[key] = atom_types
+        if key not in configuration.atoms:
+            configuration.atoms.add_attribute(key, coltype='str')
+        configuration.atoms[key] = atom_types
 
-        # Charges
-        logger.debug('Getting the charges for the system')
-        neighbors = system.bonded_neighbors(as_indices=True)
+        # Now get the charges if forcefield has them.
+        terms = ff.data['forcefield'][ffname]['parameters']
+        if 'bond_increments' in terms:
+            logger.debug('Getting the charges for the system')
+            neighbors = configuration.bonded_neighbors(as_indices=True)
 
-        charges = []
-        total_q = 0.0
-        for i in range(system.n_atoms()):
-            itype = atom_types[i]
-            parameters = ff.charges(itype)[3]
-            q = float(parameters['Q'])
-            for j in neighbors[i]:
-                jtype = atom_types[j]
-                parameters = ff.bond_increments(itype, jtype)[3]
-                q += float(parameters['deltaij'])
-            charges.append(q)
-            total_q += q
-        if abs(total_q) > 0.0001:
-            logger.warning('Total charge is not zero: {}'.format(total_q))
-            logger.info(
-                'Charges from increments and charges:\n' +
-                pprint.pformat(charges)
+            charges = []
+            total_q = 0.0
+            for i in range(configuration.n_atoms):
+                itype = atom_types[i]
+                parameters = ff.charges(itype)[3]
+                q = float(parameters['Q'])
+                for j in neighbors[i]:
+                    jtype = atom_types[j]
+                    parameters = ff.bond_increments(itype, jtype)[3]
+                    q += float(parameters['deltaij'])
+                charges.append(q)
+                total_q += q
+            if abs(total_q) > 0.0001:
+                logger.warning('Total charge is not zero: {}'.format(total_q))
+                logger.info(
+                    'Charges from increments and charges:\n' +
+                    pprint.pformat(charges)
+                )
+            else:
+                logger.debug(
+                    'Charges from increments:\n' + pprint.pformat(charges)
+                )
+
+            key = f'charges_{ffname}'
+            if key not in configuration.atoms:
+                configuration.atoms.add_attribute(key, coltype='float')
+            charge_column = configuration.atoms.get_column(key)
+            charge_column[0:] = charges
+            logger.debug(f"Set column '{key}' to the charges")
+
+            printer.important(
+                __(
+                    "Assigned atom types and charges to "
+                    f"{configuration.n_atoms} atoms.",
+                    indent=self.indent + '    '
+                )
             )
         else:
-            logger.debug(
-                'Charges from increments:\n' + pprint.pformat(charges)
+            printer.important(
+                __(
+                    f"Assigned atom types to {configuration.n_atoms} "
+                    "atoms.",
+                    indent=self.indent + '    '
+                )
             )
-
-        key = f'charges_{ffname}'
-        if key not in system.atoms:
-            system.atoms.add_attribute(key, coltype='float')
-        charge_column = system.atoms.get_column(key)
-        charge_column[0:] = charges
-        logger.debug(f"Set column '{key}' to the charges")
-
-        printer.important(
-            __(
-                f"Assigned atom types and charges to {system.n_atoms()} "
-                "atoms.",
-                indent=self.indent + '    '
-            )
-        )
 
     def setup_forcefield(self, P=None):
         """Setup the forcefield for later use.
@@ -231,9 +242,10 @@ class Forcefield(seamm.Node):
             path = pkg_resources.resource_filename(__name__, 'data/')
             ff_file = os.path.join(path, P['forcefield_file'])
 
+            ff = seamm_ff_util.Forcefield(ff_file)
+            self.set_variable('_forcefield', ff)
+
             if P['forcefield'] == 'default':
-                ff = seamm_ff_util.Forcefield(ff_file)
-                self.set_variable('_forcefield', ff)
                 printer.important(
                     __(
                         "   Using the default forcefield '{ff}'.",
@@ -241,9 +253,9 @@ class Forcefield(seamm.Node):
                         indent=self.indent + '    '
                     )
                 )
+
+                ff.initialize_biosym_forcefield()
             else:
-                ff = seamm_ff_util.Forcefield(ff_file, P['forcefield'])
-                self.set_variable('_forcefield', ff)
                 printer.important(
                     __(
                         "   Using the forcefield '{forcefield}'",
@@ -252,4 +264,4 @@ class Forcefield(seamm.Node):
                     )
                 )
 
-            ff.initialize_biosym_forcefield()
+                ff.initialize_biosym_forcefield(P['forcefield'])
