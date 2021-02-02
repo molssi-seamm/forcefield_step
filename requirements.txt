@@ -1,4 +1,4 @@
 kim-query==1.0.0
-seamm==2020.12.4
-seamm-ff-util==2020.12.4
+seamm==2021.2.2
+seamm-ff-util==2021.2.2
 
