@@ -89,9 +89,6 @@ class Forcefield(seamm.Node):
 
         next_node = super().run(printer=printer)
 
-        # The options from command line, config file ...
-        o = self.options  # noqa: F841
-
         P = self.parameters.current_values_to_dict(
             context=seamm.flowchart_variables._data
         )
@@ -120,10 +117,10 @@ class Forcefield(seamm.Node):
         -------
         None
         """
-        if P is None:
-            P = self.parameters.current_values_to_dict(
-                context=seamm.flowchart_variables._data
-            )
+        # if P is None:
+        #     P = self.parameters.current_values_to_dict(
+        #         context=seamm.flowchart_variables._data
+        #     )
 
         ff = self.get_variable('_forcefield')
         system_db = self.get_variable('_system_db')
