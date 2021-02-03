@@ -13,7 +13,7 @@ dependencies:
   - kim-query
   # molsystem requires, and only available via Conda.
   - openbabel
-  - openkim-models
+  # - openkim-models
   - rdkit
   
   # Testing

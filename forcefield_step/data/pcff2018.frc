@@ -67,6 +67,7 @@
        1.0  1   c       12.01115      C          4        generic SP3 carbon
        1.0  1   c+      12.01115      C          3        C in guanidinium group
        1.0  1   c-      12.01115      C          3        C in charged carboxylate
+2021.01.27  16  c0      12.01115      C          4        sp3 with no H's attached
        1.0  1   c1      12.01115      C          4        sp3 carbon with 1 H 3 heavies
        1.0  1   c2      12.01115      C          4        sp3 carbon with 2 H's, 2 Heavy's
        1.0  1   c3      12.01115      C          4        sp3 carbon with 3 hHs 1 heavy
@@ -210,7 +211,8 @@
        1.0  1   c      c      c      c      c        c    
        1.0  1   c+     c+     c+     c+     c+       c+   
        1.0  1   c-     c-     c-     c-     c-       c-   
-       1.0  1   c1     c      c      c      c        c    
+2021.01.27 16   c0     c0     c      c      c        c    
+2021.01.27 16   c1     c1     c      c      c        c    
        1.0  1   c2     c      c      c      c        c    
        1.0  1   c3     c      c      c      c        c    
        1.0  1   c3h    c      c      c      c        c    
@@ -337,6 +339,7 @@
  2.0  1     c     c    c      c_    c_         c_        c_        c_           c_       c_   
  2.0  1     c+    c+   c+     cr_   c_         c'_       c_        c+_          c_       c'_  
  2.0  1     c-    c-   c-     c'_   c_         c'_       c_        c'_          c_       c'_  
+2021.01.27 16     c0    c    c      c_    c_         c_        c_        c_           c_       c_   
  2.0  1     c1    c    c      c_    c_         c_        c_        c_           c_       c_   
  2.0  1     c2    c    c      c_    c_         c_        c_        c_           c_       c_   
  2.0  1     c3    c    c      c_    c_         c_        c_        c_           c_       c_   
@@ -3290,7 +3293,10 @@
 2019.03.21 14      ar         3.88        0.2
        3.0 10      az         0.0001      0.00000
        2.1  8      br         4.3000      0.34890
+2021.01.27 16      c          3.8540      0.06200
        2.0  1      c          4.0100      0.05400
+2021.01.27 16      c0         3.8540      0.02000
+2021.01.27 16      c1         3.8540      0.04000
        2.0  1      c+         3.3080      0.12000
        2.0  1      c-         3.9080      0.12000
        2.1  8      c=         3.9000      0.06400
@@ -3307,6 +3313,7 @@
        2.0  1      ct         4.0100      0.06400
        2.0  5      cz         3.9000      0.06400
        2.1  8      f          3.2000      0.05980
+2021.01.27 16      h          2.878       0.023
        2.0  1      h          2.9950      0.02000
        2.0  1      h*         1.0980      0.01300
        2.0  1      h+         1.0980      0.01300
@@ -5622,6 +5629,17 @@
             ]
         }
     },
+    "c0": {
+        "2021.01.27": {
+            "smarts": [
+                "[CX4H0:1]"
+            ],
+            "description": "SP3 carbon with no hydrogens as in neo-pentane",
+            "overrides": [
+                "c"
+            ]
+        }
+    },
     "c1": {
         "2017.12.15": {
             "smarts": [
@@ -6097,4 +6115,11 @@ Parameters for He,Ne,Ar,Kr,Xe,H2,O2,N2,NO,CO,CO2,NO2,CS2,SO2 from JPC B104, 4951
 @Author Paul Saxe
 @Date 05-October-2020
 Adding in templates for He, Ne, Kr, and Xe (see ref 14)
+#end
+
+#reference 16
+@Author Paul Saxe
+@Date 27-January-2021
+Adding C0 atom type and changing non-bond parameters for C, H
+to those in COMPASS.
 #end
