@@ -2,8 +2,12 @@
 Forcefield Step
 ===============
 
-.. image:: https://img.shields.io/travis/molssi-seamm/forcefield_step.svg
-   :target: https://travis-ci.org/molssi-seamm/forcefield_step
+.. image:: https://img.shields.io/github/issues-pr-raw/molssi-seamm/forcefield_step
+   :target: https://github.com/molssi-seamm/forcefield_step/pulls
+   :alt: GitHub pull requests
+
+.. image:: https://github.com/molssi-seamm/forcefield_step/workflows/CI/badge.svg
+   :target: https://github.com/molssi-seamm/forcefield_step/actions
    :alt: Build Status
 
 .. image:: https://codecov.io/gh/molssi-seamm/forcefield_step/branch/master/graph/badge.svg
@@ -14,8 +18,8 @@ Forcefield Step
    :target: https://lgtm.com/projects/g/molssi-seamm/forcefield_step/context:python
    :alt: Code Quality
 
-.. image:: https://readthedocs.org/projects/forcefield-step/badge/?version=latest
-   :target: https://forcefield-step.readthedocs.io/en/latest/?badge=latest
+.. image:: https://github.com/molssi-seamm/forcefield_step/workflows/Documentation/badge.svg
+   :target: https://molssi-seamm.github.io/forcefield_step/index.html
    :alt: Documentation Status
 
 .. image:: https://pyup.io/repos/github/molssi-seamm/forcefield_step/shield.svg
@@ -30,7 +34,7 @@ Step to setup the forcefield in a SEAMM flowchart
 
 
 * Free software: BSD license
-* Documentation: https://forcefield-step.readthedocs.io.
+* Documentation: https://molssi-seamm.github.io/forcefield_step/index.html
 
 
 Features
