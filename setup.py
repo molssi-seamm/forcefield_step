@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-forcefield_step
-A step in SEAMM flowchart to setup a class-3 forcefield, pcff
+"""forcefield_step
+A SEAMM plug-in for setting up a forcefield or EAM potentials for subsequent simulations.
 """
 
 import sys
 from setuptools import setup, find_packages
 import versioneer
 
-short_description = __doc__.split("\n")
+short_description = __doc__.splitlines()[1]
 
 # from https://github.com/pytest-dev/pytest-runner#conditional-requirement
 needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
@@ -31,6 +30,7 @@ setup(
     author_email='psaxe@molssi.org',
     description="Step to setup the forcefield in a SEAMM flowchart",
     long_description=readme + '\n\n' + history,
+    long_description_content_type='text/x-rst',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     license='BSD-3-Clause',
@@ -66,10 +66,10 @@ setup(
     # prevent the .egg from being made
     # zip_safe=False,
 
-    keywords='forcefield_step',
+    keywords=['SEAMM', 'plug-in', 'flowchart', 'forcefield', 'EAM', 'OpenKIM'],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Science/Research',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3 :: Only',
