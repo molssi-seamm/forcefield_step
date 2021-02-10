@@ -1,9 +1,19 @@
-Welcome to the documentation for the Forcefield plug-in
-======================================================= 
+.. include:: ../README.rst
+.. include:: ../AUTHORS.rst
 
-Contents:
+==============================
+Versions of this Documentation
+==============================
+
+.. raw:: html
+
+   <iframe
+   src="https://molssi-seamm.github.io/forcefield_step/dev/versions.html"
+   title="Documentation Versions"  style="border:none;">
+   </iframe>
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :titlesonly:
 
@@ -12,21 +22,10 @@ Contents:
    authors
    history
 
---------
-   
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :titlesonly:
 
    Main SEAMM documentation <https://molssi-seamm.github.io>
-
-Documentation Versions
-----------------------
-
-.. raw:: html
-
-   <iframe
-   src="https://molssi-seamm.github.io/forcefield_step/dev/versions.html"
-   title="Documentation Versions"  style="border:none;">
-   </iframe>
 

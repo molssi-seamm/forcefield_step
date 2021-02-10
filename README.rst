@@ -1,7 +1,3 @@
-===============
-Forcefield Step
-===============
-
 .. image:: https://img.shields.io/github/issues-pr-raw/molssi-seamm/forcefield_step
    :target: https://github.com/molssi-seamm/forcefield_step/pulls
    :alt: GitHub pull requests
@@ -30,20 +26,29 @@ Forcefield Step
    :target: https://pypi.python.org/pypi/forcefield_step
    :alt: PyPi VERSION
 
-Step to setup the forcefield in a SEAMM flowchart
+========================
+SEAMM Forcefield Plug-in
+========================
 
+A SEAMM plug-in for setting up a forcefield or EAM potentials for
+subsequent simulations.
+
+This plug-in provides a graphical user interface (GUI) for choosing
+the forcefield or EAM potentials use by subsequent simulation steps.
 
 * Free software: BSD license
 * Documentation: https://molssi-seamm.github.io/forcefield_step/index.html
 
-
 Features
 --------
 
-* TODO
+* Support for PCFF class II forcefield.
+* Support for OpenKIM and the potentials it supports.
+* For OpenKIM potentials choice is managed through a periodic table
+  interface, making it simple to find the right potentials.
 
-Credits
----------
+Acknowledgements
+----------------
 
 This package was created with Cookiecutter_ and the `molssi-seamm/cookiecutter-seamm-plugin`_ project template.
 
