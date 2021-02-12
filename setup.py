@@ -8,8 +8,6 @@ import sys
 from setuptools import setup, find_packages
 import versioneer
 
-short_description = __doc__.splitlines()[1]
-
 # from https://github.com/pytest-dev/pytest-runner#conditional-requirement
 needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
 pytest_runner = ['pytest-runner'] if needs_pytest else []
@@ -28,7 +26,7 @@ setup(
     name='forcefield_step',
     author="Paul Saxe",
     author_email='psaxe@molssi.org',
-    description="Step to setup the forcefield in a SEAMM flowchart",
+    description=__doc__.splitlines()[1],
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/x-rst',
     version=versioneer.get_version(),

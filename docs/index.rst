@@ -28,4 +28,3 @@ Versions of this Documentation
    :titlesonly:
 
    Main SEAMM documentation <https://molssi-seamm.github.io>
-
