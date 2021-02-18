@@ -30,6 +30,7 @@ available_atomtyping_engines = tuple(available_atomtyping_engines)
 class ForcefieldParameters(seamm.Parameters):
     """The control parameters for forcefields"""
 
+    parameters = {
         "atomtyping_engine": {
             "default": available_atomtyping_engines[0],
             "kind": "enumeration",
