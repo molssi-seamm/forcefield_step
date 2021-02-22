@@ -94,20 +94,19 @@ class Forcefield(seamm.Node):
         )
 
         printer.important(__(self.header, indent=self.indent))
-
         atomtyping_engine = seamm.AtomTyperFactory(namespace='org.molssi.seamm.atom_typers').create(atomtyping_engine="Antechamber",forcefield="Amber",parameter_set="GAFF")
 
-        system = self.get_variable('_system')
+        self.set_variable("_atomtyping_engine", atomtyping_engine)
 
-        atom_types = atomtyping_engine.assign_parameters(system=system)
+        system_db = self.get_variable('_system_db')
 
+        atom_types = atomtyping_engine.assign_parameters(system=system_db)
         name = atomtyping_engine.name
         key = f'atom_types_{name}'
-        if key not in system.atoms:
-            system.atoms.add_attribute(key, coltype='str')
-        system.atoms[key] = atom_types
+        if key not in system_db.atoms:
+            system_db.atoms.add_attribute(key, coltype='str')
+        system_db.atoms[key] = atom_types
 
-        self.set_variable("_atomtyping_engine", atomtyping_engine)
 
         printer.important('')
 
