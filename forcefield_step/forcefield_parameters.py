@@ -17,7 +17,7 @@ else:
     forcefields = ['OpenKIM']
 
 plugin_manager = seamm.PluginManager("org.molssi.seamm.atom_typers")
-available_atomtyping_engines= []
+available_atomtyping_engines= ["None"]
 
 logger.debug('Looking for installed forcefield plugins')
 
