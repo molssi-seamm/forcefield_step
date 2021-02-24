@@ -40,6 +40,15 @@ class ForcefieldParameters(seamm.Parameters):
             "description": "The atomtyping tool to be used:",
             "help_text": "The atomtyping tool to use."
         },
+        "forcefield": {
+            "default": "None",
+            "kind": "enumeration",
+            "default_units": "",
+            "enumeration": ["GAFF", "None"],
+            "format_string": "s",
+            "description": "The forcefield to be used",
+            "help_text": "The forcefield to be used"
+        },
     }
 
     def __init__(self, defaults={}, data=None):
