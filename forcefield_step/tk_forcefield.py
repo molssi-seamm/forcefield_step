@@ -4,6 +4,7 @@
 
 import seamm
 import tkinter as tk
+import seamm_widgets as sw
 
 try:
     import kim_query
@@ -74,22 +75,12 @@ class TkForcefield(seamm.TkNode):
 
         # Create the widgets
         P = self.node.parameters
+
         for key in P:
             self[key] = P[key].widget(frame)
 
-        # bindings...
-        self['task'].combobox.bind("<<ComboboxSelected>>", self.reset_dialog)
-        self['task'].config(state='readonly')
-
-        self['forcefield_file'].combobox.bind(
-            "<<ComboboxSelected>>", self.reset_dialog
-        )
-        self['forcefield_file'].combobox.bind("<Return>", self.reset_dialog)
-        self['forcefield_file'].combobox.bind("<FocusOut>", self.reset_dialog)
-
         # and set it up the first time
         self.reset_dialog()
-
     def reset_dialog(self, widget=None):
         """Layout the widgets as needed for the current state"""
 
@@ -97,39 +88,14 @@ class TkForcefield(seamm.TkNode):
         for slave in frame.grid_slaves():
             slave.grid_forget()
 
-        task = self['task'].get()
-        repository = self['forcefield_file'].get()
-
+        P = self.node.parameters
         row = 0
-        self['task'].grid(row=row, column=0, sticky=tk.W)
-        row += 1
-
-        if task == 'assign forcefield to structure':
-            pass
-        elif task == 'setup forcefield':
-            self['forcefield_file'].grid(row=row, column=0, sticky=tk.W)
+        widgets = []
+        for key in P:
+            self[key].grid(row=row, column=0, sticky=tk.EW)
+            widgets.append(self[key])
             row += 1
-            if repository == 'OpenKIM':
-                # For reasons unknown, the PeriodicTable does not redisplay
-                # properly, so recreate.
-                self['elements'].destroy()
-                P = self.node.parameters
-                self['elements'] = P['elements'].widget(
-                    frame, command=self.update_potentials
-                )
-                self['elements'].grid(row=row, column=0, columnspan=2)
-                frame.rowconfigure(row, weight=1)
-                frame.columnconfigure(1, weight=1)
-                row += 1
-                self['potentials'].grid(
-                    row=row, column=0, columnspan=2, sticky=tk.EW
-                )
-            else:
-                self['forcefield'].grid(
-                    row=row, column=0, columnspan=2, sticky=tk.EW
-                )
-                row += 1
-
+        sw.align_labels(widgets) 
         return row
 
     def update_potentials(self, elements):
