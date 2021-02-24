@@ -93,8 +93,9 @@ class Forcefield(seamm.Node):
             context=seamm.flowchart_variables._data
         )
 
+
         printer.important(__(self.header, indent=self.indent))
-        atomtyping_engine = seamm.AtomTyperFactory(namespace='org.molssi.seamm.atom_typers').create(atomtyping_engine="Antechamber",forcefield="Amber",parameter_set="GAFF")
+        atomtyping_engine = seamm.AtomTyperFactory(namespace='org.molssi.seamm.atom_typers').create(atomtyping_engine=P["atomtyping_engine"],forcefield="Amber",parameter_set="GAFF")
 
         self.set_variable("_atomtyping_engine", atomtyping_engine)
 
