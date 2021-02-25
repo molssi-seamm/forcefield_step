@@ -60,22 +60,10 @@ class Forcefield(seamm.Node):
         if not P:
             P = self.parameters.values_to_dict()
 
-        if P['task'] == 'setup forcefield':
-            if P['forcefield_file'][0] == '$':
-                text = (
-                    "Read the forcefield file given in the variable"
-                    " '{forcefield_file}' and use the {forcefield} "
-                    "forcefield."
+            text = (
+                "Use '{atomtyping_engine}' to assign the forcefield"
+                "{forcefield} to the system object."
                 )
-            elif P['forcefield_file'] == 'OpenKIM':
-                text = "Use the OpenKIM potential '{potentials}'"
-            else:
-                text = (
-                    "Read the forcefield file '{forcefield_file}' "
-                    "and use the {forcefield} forcefield."
-                )
-        elif P['task'] == 'assign forcefield to structure':
-            text = "Assign the atom types to the structure."
 
         return self.header + '\n' + __(
             text,
@@ -93,7 +81,6 @@ class Forcefield(seamm.Node):
             context=seamm.flowchart_variables._data
         )
 
-
         printer.important(__(self.header, indent=self.indent))
         atomtyping_engine = seamm.AtomTyperFactory(namespace='org.molssi.seamm.atom_typers').create(atomtyping_engine=P["atomtyping_engine"],forcefield="Amber",parameter_set="GAFF")
 
@@ -102,12 +89,6 @@ class Forcefield(seamm.Node):
         system_db = self.get_variable('_system_db')
 
         atom_types = atomtyping_engine.assign_parameters(system=system_db)
-        name = atomtyping_engine.name
-        key = f'atom_types_{name}'
-        if key not in system_db.atoms:
-            system_db.atoms.add_attribute(key, coltype='str')
-        system_db.atoms[key] = atom_types
-
 
         printer.important('')
 
