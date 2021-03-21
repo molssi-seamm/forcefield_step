@@ -8,7 +8,6 @@ import pkg_resources
 import pprint
 
 import forcefield_step
-import seamm_ff_util
 import seamm
 import seamm_util.printing as printing
 from seamm_util.printing import FormattedText as __
