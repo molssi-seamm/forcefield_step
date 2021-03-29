@@ -87,8 +87,7 @@ class Forcefield(seamm.Node):
         self.set_variable("_atomtyping_engine", atomtyping_engine)
 
         system_db = self.get_variable('_system_db')
-
-        atomtyping_engine.assign_parameters(system=system_db)
+        atomtyping_engine.assign_parameters(configuration=system_db.system.configuration)
 
         printer.important('')
 
