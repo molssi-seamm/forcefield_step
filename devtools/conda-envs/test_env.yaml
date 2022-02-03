@@ -1,7 +1,6 @@
 name: test
 
 channels:
-  - rdkit
   - conda-forge
 
 dependencies:
@@ -11,27 +10,23 @@ dependencies:
 
   # SEAMM
   - kim-query
-  # molsystem requires, and only available via Conda.
-  - openbabel
-  # - openkim-models
-  - rdkit
+  - seamm
+  - seamm-ff-util
   
   # Testing
+  - black
   - codecov
   - flake8
   - pytest
   - pytest-cov
 
+  # Documentation
+  - pygments
+
   # Pip-only installs
   - pip:
-    - seamm
-    - seamm_ff_util
-
-    # Testing
-    - yapf
 
     # Documentation
     - rinohtype
-    - pygments
     - sphinx-rtd-theme
     - pystemmer
