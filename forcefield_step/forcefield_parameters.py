@@ -12,21 +12,21 @@ logger = logging.getLogger(__name__)
 
 
 # Get the list of available forcefields
-path = pkg_resources.resource_filename(__name__, 'data/')
+path = pkg_resources.resource_filename(__name__, "data/")
 
 # Check if we can use OpenKIM
-if importlib.util.find_spec('kim_query') is None:
+if importlib.util.find_spec("kim_query") is None:
     forcefields = []
 else:
-    forcefields = ['OpenKIM']
+    forcefields = ["OpenKIM"]
 
-logger.debug('Looking for forcefields at ' + path)
+logger.debug("Looking for forcefields at " + path)
 with os.scandir(path) as it:
     for entry in it:
-        if not entry.name.startswith('.') and entry.is_file():
-            logger.debug('   ' + entry.name)
+        if not entry.name.startswith(".") and entry.is_file():
+            logger.debug("   " + entry.name)
             ffname, ext = os.path.splitext(entry.name)
-            if ext == '.frc':
+            if ext == ".frc":
                 forcefields.append(entry.name)
 
 forcefields = sorted(forcefields)
@@ -37,16 +37,16 @@ class ForcefieldParameters(seamm.Parameters):
 
     parameters = {
         "task": {
-            "default": 'setup forcefield',
+            "default": "setup forcefield",
             "kind": "enumeration",
             "default_units": "",
             "enumeration": (
-                'setup forcefield',
-                'assign forcefield to structure',
+                "setup forcefield",
+                "assign forcefield to structure",
             ),
             "format_string": "s",
             "description": "What to do:",
-            "help_text": "What to do with the forcefield."
+            "help_text": "What to do with the forcefield.",
         },
         "forcefield_file": {
             "default": forcefields[0],
@@ -55,16 +55,16 @@ class ForcefieldParameters(seamm.Parameters):
             "enumeration": tuple(forcefields),
             "format_string": "s",
             "description": "Forcefield Repository:",
-            "help_text": "The forcefield repository or file to use."
+            "help_text": "The forcefield repository or file to use.",
         },
         "forcefield": {
             "default": "default",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": ('default',),
+            "enumeration": ("default",),
             "format_string": "s",
             "description": "Forcefield:",
-            "help_text": "The forcefield with the file."
+            "help_text": "The forcefield with the file.",
         },
         "elements": {
             "default": "",
@@ -73,16 +73,16 @@ class ForcefieldParameters(seamm.Parameters):
             "enumeration": None,
             "format_string": "",
             "description": "Elements:",
-            "help_text": "The elements to include."
+            "help_text": "The elements to include.",
         },
         "potentials": {
             "default": "",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": ('will be replaced',),
+            "enumeration": ("will be replaced",),
             "format_string": "s",
             "description": "Interatomic Potentials:",
-            "help_text": "The interatomic potentials to use."
+            "help_text": "The interatomic potentials to use.",
         },
     }
 
@@ -91,6 +91,5 @@ class ForcefieldParameters(seamm.Parameters):
         parameters given in the class"""
 
         super().__init__(
-            defaults={**ForcefieldParameters.parameters, **defaults},
-            data=data
+            defaults={**ForcefieldParameters.parameters, **defaults}, data=data
         )

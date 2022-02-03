@@ -5706,6 +5706,24 @@
             ]
         }
     },
+    "cl": {
+        "2022.2.1": {
+            "smarts": [
+                "[Cl:1]"
+            ],
+            "description": "generic chlorine",
+            "overrides": []
+        }
+    },
+    "f": {
+        "2022.2.1": {
+            "smarts": [
+                "[F:1]"
+            ],
+            "description": "generic fluorine",
+            "overrides": []
+        }
+    },
     "h": {
         "2017.12.15": {
             "smarts": [

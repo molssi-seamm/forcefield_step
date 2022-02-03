@@ -38,8 +38,8 @@ jobs:
     - name: Run linters
       shell: bash -l {0}
       run: |
+        black --extend-exclude '_version.py' --check --diff forcefield_step tests
         flake8 forcefield_step tests
-        yapf --diff --recursive forcefield_step tests
     - name: Run tests
       shell: bash -l {0}
       run: |

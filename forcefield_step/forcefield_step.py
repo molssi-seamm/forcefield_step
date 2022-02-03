@@ -10,12 +10,9 @@ import forcefield_step
 
 class ForcefieldStep(object):
     my_description = {
-        'description':
-            'An interface for the setup and control of the forcefield',
-        'group':
-            'Simulations',
-        'name':
-            'Forcefield'
+        "description": "An interface for the setup and control of the forcefield",
+        "group": "Simulations",
+        "name": "Forcefield",
     }
 
     def __init__(self, flowchart=None, gui=None):
@@ -26,8 +23,7 @@ class ForcefieldStep(object):
         pass
 
     def description(self):
-        """Return a description of what this extension does
-        """
+        """Return a description of what this extension does"""
         return ForcefieldStep.my_description
 
     def create_node(self, flowchart=None, **kwargs):
