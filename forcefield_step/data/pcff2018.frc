@@ -6048,6 +6048,15 @@
                 "na"
             ]
         }
+    },
+    "s": {
+        "2022.5.26": {
+            "smarts": [
+                "[S:1]"
+            ],
+            "description": "generic sp3 sulfur",
+            "overrides": []
+        }
     }
 }
 
