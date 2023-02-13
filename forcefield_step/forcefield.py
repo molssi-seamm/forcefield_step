@@ -97,13 +97,16 @@ class Forcefield(seamm.Node):
         if P["task"] == "setup forcefield":
             self.setup_forcefield(P)
         elif P["task"] == "assign forcefield to structure":
-            self.assign_forcefield(P)
+            ff = self.get_variable("_forcefield")
+            system_db = self.get_variable("_system_db")
+            configuration = system_db.system.configuration
+            ff.assign_forcefield(configuration)
 
         printer.important("")
 
         return next_node
 
-    def assign_forcefield(self, P=None):
+    def assign_forcefield(self, P=None, configuration=None):
         """Assign the forcefield to the structure, i.e. find the atom types
         and charges.
 
@@ -122,8 +125,9 @@ class Forcefield(seamm.Node):
         #     )
 
         ff = self.get_variable("_forcefield")
-        system_db = self.get_variable("_system_db")
-        configuration = system_db.system.configuration
+        if configuration is None:
+            system_db = self.get_variable("_system_db")
+            configuration = system_db.system.configuration
 
         ffname = ff.current_forcefield
         printer.important(
@@ -174,6 +178,37 @@ class Forcefield(seamm.Node):
                 )
             else:
                 logger.debug("Charges from increments:\n" + pprint.pformat(charges))
+
+            key = f"charges_{ffname}"
+            if key not in configuration.atoms:
+                configuration.atoms.add_attribute(key, coltype="float")
+            charge_column = configuration.atoms.get_column(key)
+            charge_column[0:] = charges
+            logger.debug(f"Set column '{key}' to the charges")
+
+            printer.important(
+                __(
+                    "Assigned atom types and charges to "
+                    f"{configuration.n_atoms} atoms.",
+                    indent=self.indent + "    ",
+                )
+            )
+        elif "charges" in terms:
+            logger.debug("Getting the charges for the system")
+
+            charges = []
+            total_q = 0.0
+            for i in range(configuration.n_atoms):
+                itype = atom_types[i]
+                parameters = ff.charges(itype)[3]
+                q = float(parameters["Q"])
+                charges.append(q)
+                total_q += q
+            if abs(total_q) > 0.0001:
+                logger.warning("Total charge is not zero: {}".format(total_q))
+                logger.info("Charges from charges:\n" + pprint.pformat(charges))
+            else:
+                logger.debug("Charges from charges:\n" + pprint.pformat(charges))
 
             key = f"charges_{ffname}"
             if key not in configuration.atoms:
