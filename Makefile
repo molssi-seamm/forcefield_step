@@ -50,11 +50,11 @@ clean-test: ## remove test and coverage artifacts
 	find . -name '.pytype' -exec rm -fr {} +
 
 lint: ## check style with flake8
-	black --check --diff --extend-exclude '_version.py' $(MODULE)
-	flake8 $(MODULE) tests
+	black --check --diff --extend-exclude '_version.py' $(MODULE) tests
+	flake8 --color never $(MODULE) tests
 
 format: ## reformat with with yapf and isort
-	black --extend-exclude '_version.py' $(MODULE)
+	black --extend-exclude '_version.py' $(MODULE) tests
 
 typing: ## check typing
 	pytype $(MODULE)
