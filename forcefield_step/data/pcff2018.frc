@@ -5701,6 +5701,28 @@
             ]
         }
     },
+    "c=": {
+        "2017.12.15": {
+            "smarts": [
+                "[CH2:1]=*"
+            ],
+            "description": "SP2 double-bonded carbon at end of chain",
+            "overrides": [
+                "c"
+            ]
+        }
+    },
+    "c=1": {
+        "2023.1.27": {
+            "smarts": [
+                "[CH2]=[CX3:1]"
+            ],
+            "description": "SP2 double-bonded carbon next to end of chain",
+            "overrides": [
+                "c"
+            ]
+        }
+    },
     "c2=": {
         "2022.05.29": {
             "smarts": [
@@ -5712,12 +5734,23 @@
             ]
         }
     },
-    "c=": {
-        "2017.12.15": {
+    "c_0" : {
+        "2023.1.27": {
             "smarts": [
-                "[CX3:1]=*"
+                "O=[CX3:1]([C,H])[C,H]"
             ],
-            "description": "SP2 double-bonded carbon",
+            "description": "carbonyl carbon in ketones and aldehydes",
+            "overrides": [
+                "c"
+            ]
+        }
+    },
+    "c_1" : {
+        "2023.1.27": {
+            "smarts": [
+                "O=[CX3:1]([N,O])[C,H]"
+            ],
+            "description": "carbonyl carbon in acid, ester, amide",
             "overrides": [
                 "c"
             ]
@@ -5729,6 +5762,17 @@
                 "[c:1]"
             ],
             "description": "SP2 aromatic carbon",
+            "overrides": [
+                "c"
+            ]
+        }
+    },
+    "cz": {
+        "2023.1.27": {
+            "smarts": [
+                "O=[C:1](O-*)O-*"
+            ],
+            "description": "carbonyl carbon in corbonate",
             "overrides": [
                 "c"
             ]
@@ -5957,6 +6001,28 @@
                 "[O](C)C=[O:1]"
             ],
             "description": "SP2 oxygen in an ester",
+            "overrides": [
+                "o"
+            ]
+        }
+    },
+    "oo": {
+        "2023.1.27": {
+            "smarts": [
+                "OC(=[O:1])O"
+            ],
+            "description": "Carbonyl oxygen in carbonate",
+            "overrides": [
+                "o"
+            ]
+        }
+    },
+    "oz": {
+        "2023.1.27": {
+            "smarts": [
+                "C[O:1]C(=O)[O:2]C"
+            ],
+            "description": "Ester oxygen in carbonate",
             "overrides": [
                 "o"
             ]
