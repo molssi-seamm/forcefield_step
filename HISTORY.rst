@@ -3,12 +3,12 @@ History
 =======
 
 2023.2.13 -- Added OPLS-AA forcefield
-* Added parameters for OPLS-AA along with some extra parameters for ionic liquids
-  * PF6-
-  * ethylene carbonate (EC) and fluoronated EC (FEC)
-* Added atom-typing templates for most of OPLS-AA. Still missing a few and amino acids
-  and DNA not yet tested.
-* Added extensive, almost-complete testing, for OPLS-AA
+  * Added parameters for OPLS-AA along with some extra parameters for ionic liquids
+    * PF6-
+    * ethylene carbonate (EC) and fluoronated EC (FEC)
+  * Added atom-typing templates for most of OPLS-AA. Still missing a few and amino
+    acids and DNA not yet tested.
+  * Added extensive, almost-complete testing, for OPLS-AA
     
 
 2021.2.10 (10 February 2021)
