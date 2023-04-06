@@ -2,6 +2,9 @@
 History
 =======
 
+2023.4.6 -- Added Lithium battery forcefield
+  * An initial set of parameters for cathode materials, specifically LiCoO2.
+
 2023.2.13 -- Added OPLS-AA forcefield
   * Added parameters for OPLS-AA along with some extra parameters for ionic liquids
     * PF6-
