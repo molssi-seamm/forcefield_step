@@ -10479,7 +10479,7 @@
 
 > E = K2 * (Theta - Theta0)^2
 
-@units Theta degree
+@units Theta0 degree
 @units K2 kJ/mol/radian^2
 
 ! Version   Ref   I         J         K           Theta0        K2
