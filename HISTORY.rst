@@ -2,6 +2,9 @@
 History
 =======
 
+2023.5.1 -- Fixed bug in Lithium battery forcefield
+  * Fixed a typo in the angle type unit line which caused a crash
+    
 2023.4.6 -- Added Lithium battery forcefield
   * An initial set of parameters for cathode materials, specifically LiCoO2.
 
