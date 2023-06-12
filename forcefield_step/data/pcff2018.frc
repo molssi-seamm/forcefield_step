@@ -6162,6 +6162,15 @@
             "description": "Generic SP3 sulfur",
             "overrides": []
         }
+    },
+    "si": {
+        "2023.05.29": {
+            "smarts": [
+                "[SiX4:1]"
+            ],
+            "description": "generic SP3 silicon atom",
+            "overrides": []
+        }
     }
 }
 
