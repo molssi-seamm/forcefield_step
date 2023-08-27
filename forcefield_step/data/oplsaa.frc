@@ -10,7 +10,8 @@
 2023.01.29   1    nonbond(12-6)                    oplsaa CL&P-oplsaa
 2023.01.29   1    quadratic_bond                   oplsaa CL&P-oplsaa
 2023.01.29   1    quadratic_angle                  oplsaa CL&P-oplsaa
-2023.01.29   1    simple_fourier_angle             CL&P-oplsaa
+2023.08.21   1    quadratic_angle                  oplsaa
+2023.08.26   1    tabulated_angle                  CL&P-oplsaa
 2023.01.29   1    torsion_opls                     oplsaa
 2023.01.29   1    improper_opls                    oplsaa
 2023.01.29   1    templates                        oplsaa
@@ -41,7 +42,8 @@
 2023.01.29   1    nonbond(12-6)                    oplsaa CL&P-oplsaa
 2023.01.29   1    quadratic_bond                   oplsaa CL&P-oplsaa
 2023.01.29   1    quadratic_angle                  oplsaa CL&P-oplsaa
-2023.01.29   1    simple_fourier_angle             CL&P-oplsaa
+2023.08.21   1    quadratic_angle                  oplsaa
+2023.08.21   1    simple_fourier_angle             CL&P-oplsaa
 2023.01.29   1    torsion_opls                     oplsaa
 2023.01.29   1    improper_opls                    oplsaa
 2023.01.29   1    templates                        oplsaa
@@ -10499,6 +10501,23 @@
 ! Version   Ref   I         J         K            K         n
 !---------  ----  --------  --------  --------  --------    ---
 2023.01.29  5     FP        P         FP         145.6       4
+
+
+#tabulated_angle       CL&P-oplsaa
+
+>  Fourier angle with reasonable repulsive 1/R^12 term to keep atoms apart from 0º
+> E = K * [1 - cos(n*Theta)]  + 1.0/Rij^12
+>
+>    K = K2(quadratic) / 8
+
+@units K kJ/mol
+@units Rb Å
+@units A kJ/mol*Å^12
+@equation E = K/8*(1-cos(n*Theta)) + A/(2*Rb*sin(Theta/2))**12
+
+! Version   Ref   I         J         K        Eqn     K         n      Rb      A     zero-shift
+!---------  ----  --------  --------  -------- ---  --------    ---  ------  ------   ----------
+2023.10.25  5     FP        P         FP        E    1165.0      4    1.606    50.0      0.001
 
 #templates CL&P-oplsaa
 {
