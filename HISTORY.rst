@@ -2,6 +2,11 @@
 History
 =======
 
+2023.8.27 -- Fixed issue with angle in octahedral systems
+  * The SHAPES-type simple fourier potential used for octahedral complexes has a fals
+    minimim at 0º. Added a LJ 1/R^12 repulsive term between the two end atoms of the
+    angle to prevent small angles. This required using tabulated potentials in LAMMPS.
+    
 2023.5.1 -- Fixed bug in Lithium battery forcefield
   * Fixed a typo in the angle type unit line which caused a crash
     
