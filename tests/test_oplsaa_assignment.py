@@ -2661,6 +2661,18 @@ if True:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
             raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
 
+    def test_opls_659(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 659, aromatic carbon in fluorobenzene
+        opls 660, chlorine in fluorobenzene
+        """
+        correct = ["opls_660", "opls_659"] + 5 * ["opls_90"] + 5 * ["opls_91"]
+        configuration.from_smiles("Fc1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
     def test_opls_712(oplsaa_assigner, configuration):
         """Test of atom-type assignment for propylene carbonate
         opls 712, carbonyl oxygen

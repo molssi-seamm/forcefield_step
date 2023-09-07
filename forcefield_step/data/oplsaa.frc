@@ -9228,6 +9228,24 @@
             "overrides": []
         }
     },
+    "opls_659": {
+        "2023.09.07": {
+            "smarts": [
+	    	"[c:1]F"
+            ],
+            "description": "aromatic carbon in fluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_660": {
+        "2023.09.07": {
+            "smarts": [
+	    	"c[F:1]"
+            ],
+            "description": "chlorine in fluorobenzene",
+            "overrides": []
+        }
+    },
     "opls_712": {
         "2023.01.29": {
             "smarts": [

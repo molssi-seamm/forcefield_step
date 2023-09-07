@@ -2,6 +2,8 @@
 History
 =======
 
+2023.9.7 -- Added typing in OPLS_AA for fluorobenzene
+
 2023.9.6 -- Fixed issue with PF6- geometry
   * The Lennard-Jones repulsive term added to the F-P-F angle was too weak, allowing the
     structure to get trapped in a symmetric state with ~40º angles.
