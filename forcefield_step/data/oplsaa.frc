@@ -9242,7 +9242,7 @@
             "smarts": [
 	    	"c[F:1]"
             ],
-            "description": "chlorine in fluorobenzene",
+            "description": "fluorine in fluorobenzene",
             "overrides": []
         }
     },
