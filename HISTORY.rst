@@ -2,6 +2,10 @@
 History
 =======
 
+2023.9.6 -- Fixed issue with PF6- geometry
+  * The Lennard-Jones repulsive term added to the F-P-F angle was too weak, allowing the
+    structure to get trapped in a symmetric state with ~40º angles.
+
 2023.8.27 -- Fixed issue with angle in octahedral systems
   * The SHAPES-type simple fourier potential used for octahedral complexes has a fals
     minimim at 0º. Added a LJ 1/R^12 repulsive term between the two end atoms of the
