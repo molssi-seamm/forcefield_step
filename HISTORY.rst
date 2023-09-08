@@ -2,6 +2,19 @@
 History
 =======
 
+2023.9.8 -- Added more typing for OPLS-AA
+  * cyclopropane -CH2-, -CHR-, and -CR2-
+  * hexafluorobenzene
+  * difluorobenzene
+  * bromobenzene
+  * iodobenzene
+  * thiophenol
+  * alkyl nitriles
+  * nitroalkanes
+  * nitrobenzene
+  * methylene in phenylacetonitrile
+  * corrections to methylene nitrile anion
+
 2023.9.7 -- Added typing in OPLS_AA for fluorobenzene
 
 2023.9.6 -- Fixed issue with PF6- geometry

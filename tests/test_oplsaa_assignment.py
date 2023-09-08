@@ -1882,18 +1882,6 @@ if True:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
             raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
 
-        # Ethylnitrile anion
-        correct = (
-            ["opls_80", "opls_363", "opls_365", "opls_366"]
-            + 3 * ["opls_85"]
-            + ["opls_364"]
-        )
-        configuration.from_smiles("C[CH-]C#N")
-        result = oplsaa_assigner.assign(configuration)
-        if result != correct:
-            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
-            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
-
     def test_opls_376(oplsaa_assigner, configuration):
         """Test of atom-type assignment for hydroxide anion OH(-)
         opls 376, O
@@ -2661,13 +2649,282 @@ if True:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
             raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
 
+    def test_opls_652(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 652, cyclopropane -CH2-
+        opls 653, cyclopropane -CHR-
+        opls 654, cyclopropane -CR2-
+        """
+        correct = [
+            "opls_652",
+            "opls_653",
+            "opls_80",
+            "opls_654",
+            "opls_80",
+            "opls_80",
+        ] + 12 * ["opls_85"]
+        configuration.from_smiles("C1C(C)C1(C)(C)")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
     def test_opls_659(oplsaa_assigner, configuration):
         """Test of atom-type assignment for
         opls 659, aromatic carbon in fluorobenzene
-        opls 660, chlorine in fluorobenzene
+        opls 660, fluorine in fluorobenzene
         """
         correct = ["opls_660", "opls_659"] + 5 * ["opls_90"] + 5 * ["opls_91"]
         configuration.from_smiles("Fc1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_661(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 661, aromatic carbon in hexafluorobenzene
+        opls 662, chlorine in hexafluorobenzene
+        """
+        correct = 6 * ["opls_661", "opls_662"]
+        configuration.from_smiles("c1(F)c(F)c(F)c(F)c(F)c1(F)")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_665(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 665, aromatic carbon in trifluoromethylbenzene
+        opls 666, methyl carbon in trifluoromethylbenzene
+        opls 667, fluorine in trifluoromethylbenzene
+        """
+        correct = (
+            5 * ["opls_90"]
+            + ["opls_665", "opls_666"]
+            + 3 * ["opls_667"]
+            + 5 * ["opls_91"]
+        )
+        configuration.from_smiles("c1ccccc1C(F)(F)F")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_668(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 668, aromatic carbon in difluorobenzene
+        opls 669, chlorine in difluorobenzene
+        """
+        correct = 2 * ["opls_668", "opls_669"] + 4 * ["opls_90"] + 4 * ["opls_91"]
+        configuration.from_smiles("c1(F)c(F)cccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_670(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 670, aromatic carbon in bromobenzene
+        opls 671, bromine in bromobenzene
+        """
+        correct = ["opls_671", "opls_670"] + 5 * ["opls_90"] + 5 * ["opls_91"]
+        configuration.from_smiles("Brc1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_672(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 672, aromatic carbon in iodobenzene
+        opls 673, fluorine in iodobenzene
+        """
+        correct = ["opls_673", "opls_672"] + 5 * ["opls_90"] + 5 * ["opls_91"]
+        configuration.from_smiles("Ic1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_675(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 676, aromatic carbon in thiophenol
+        opls 675, sulfur in thiophenol
+        """
+        correct = (
+            ["opls_675", "opls_676"] + 5 * ["opls_90"] + ["opls_146"] + 5 * ["opls_91"]
+        )
+        configuration.from_smiles("Sc1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_694(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 695, carbon in alkyl nitrile
+        opls 694, nitrogen in alkyl nitrile
+        opls 696, methyl carbon in acetonitrile
+        opls 700, H adjacent to alkyl nitrile
+        """
+        correct = ["opls_694", "opls_695", "opls_696"] + 3 * ["opls_700"]
+        configuration.from_smiles("N#CC")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_697(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 695, carbon in alkyl nitrile
+        opls 694, nitrogen in alkyl nitrile
+        opls 697, methylene carbon in alkyl nitrile
+        opls 700, H adjacent to alkyl nitrile
+        """
+        correct = (
+            ["opls_694", "opls_695", "opls_697", "opls_80"]
+            + 2 * ["opls_700"]
+            + 3 * ["opls_85"]
+        )
+        configuration.from_smiles("N#CCC")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_698(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 695, carbon in alkyl nitrile
+        opls 694, nitrogen in alkyl nitrile
+        opls 698, methine carbon in alkyl nitrile
+        opls 700, H adjacent to alkyl nitrile
+        """
+        correct = (
+            ["opls_694", "opls_695", "opls_698"]
+            + 2 * ["opls_80"]
+            + ["opls_700"]
+            + 6 * ["opls_85"]
+        )
+        configuration.from_smiles("N#CC(C)C")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_699(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 695, carbon in alkyl nitrile
+        opls 694, nitrogen in alkyl nitrile
+        opls 698, quaternary carbon in alkyl nitrile
+        """
+        correct = (
+            ["opls_694", "opls_695", "opls_699"] + 3 * ["opls_80"] + 9 * ["opls_85"]
+        )
+        configuration.from_smiles("N#CC(C)(C)C")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_701(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 701, nitrogen in alkyl nitro group
+        opls 702, oxygen in alkyl nitro group
+        opls 703, methyl carbon in nitromethane
+        opls 704, H adjacent to alkyl nitro group
+        """
+        correct = ["opls_701", "opls_702", "opls_702", "opls_703"] + 3 * ["opls_704"]
+        configuration.from_smiles("N(=O)(=O)C")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_705(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 701, nitrogen in alkyl nitro group
+        opls 702, oxygen in alkyl nitro group
+        opls 705, methylene carbon adjacent to an nitro group
+        opls 704, H adjacent to alkyl nitro group
+        """
+        correct = (
+            ["opls_701", "opls_702", "opls_702", "opls_705", "opls_80"]
+            + 2 * ["opls_704"]
+            + 3 * ["opls_85"]
+        )
+        configuration.from_smiles("N(=O)(=O)CC")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_706(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 701, nitrogen in alkyl nitro group
+        opls 702, oxygen in alkyl nitro group
+        opls 706, methine carbon adjacent to an nitro group
+        opls 704, H adjacent to alkyl nitro group
+        """
+        correct = (
+            ["opls_701", "opls_702", "opls_702", "opls_706"]
+            + 2 * ["opls_80"]
+            + ["opls_704"]
+            + 6 * ["opls_85"]
+        )
+        configuration.from_smiles("N(=O)(=O)C(C)C")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_707(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 701, nitrogen in alkyl nitro group
+        opls 702, oxygen in alkyl nitro group
+        opls 707, quaternary carbon adjacent to an nitro group
+        opls 704, H adjacent to alkyl nitro group
+        """
+        correct = (
+            ["opls_701", "opls_702", "opls_702", "opls_707"]
+            + 3 * ["opls_80"]
+            + 9 * ["opls_85"]
+        )
+        configuration.from_smiles("N(=O)(=O)C(C)(C)C")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_708(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 708, nitrogen in nitrobenzene
+        opls 702, oxygen in nitro group
+        opls 709, aromatic carbon in nitrobenzene
+        """
+        correct = (
+            ["opls_708", "opls_702", "opls_702", "opls_709"]
+            + 5 * ["opls_90"]
+            + 5 * ["opls_91"]
+        )
+        configuration.from_smiles("N(=O)(=O)c1ccccc1")
+        result = oplsaa_assigner.assign(configuration)
+        if result != correct:
+            print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+            raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+    def test_opls_710(oplsaa_assigner, configuration):
+        """Test of atom-type assignment for
+        opls 710, carbon in benzonitrile -- methylene in phenylacetonitrile?
+        opls 694, nitrogen in nitrile
+        """
+        correct = (
+            ["opls_694", "opls_695", "opls_710", "opls_163"]
+            + 5 * ["opls_90"]
+            + 2 * ["opls_700"]
+            + 5 * ["opls_91"]
+        )
+        configuration.from_smiles("N#CCc1ccccc1")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
