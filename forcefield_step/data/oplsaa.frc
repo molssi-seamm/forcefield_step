@@ -766,7 +766,7 @@
 2023.01.29    1  opls_707   12.011  C      4    Nitroalkane R3C-NO2
 2023.01.29    1  opls_708   14.007  N      3    Nitrobenzene -NO2
 2023.01.29    1  opls_709   12.011  C      3    Nitrobenzene C-NO2
-2023.01.29    1  opls_710   12.011  C      0    Benzonitrile -CH2-
+2023.01.29    1  opls_710   12.011  C      0    Benzonitrile -CH2- (phenylacetonitrile?)
 2023.01.29    1  opls_711   14.007  N      2    Neutral Benzamidine N
 2023.01.29    1  opls_712   15.999  O      1    Propylene Carbonate C=O
 2023.01.29    1  opls_713   12.011  C      3    Propylene Carbonate C=O
@@ -7531,7 +7531,7 @@
     "opls_363": {
         "2023.01.29": {
             "smarts": [
-                "[CD3-:1][CD2]~[ND1]"
+                "[CD3H2-:1][CD2]~[ND1]"
             ],
             "description": "Nitrile anion: methyl carbon -- CH2(-)-CN",
             "overrides": []
@@ -9228,6 +9228,33 @@
             "overrides": []
         }
     },
+    "opls_652": {
+        "2023.09.08": {
+            "smarts": [
+	    	"C1[CD4H2:1]C1"
+            ],
+            "description": "cyclopropane -CH2-",
+            "overrides": []
+        }
+    },
+    "opls_653": {
+        "2023.09.08": {
+            "smarts": [
+	    	"C1[CD4H1z0:1]C1"
+            ],
+            "description": "cyclopropane -CHR-",
+            "overrides": []
+        }
+    },
+    "opls_654": {
+        "2023.09.08": {
+            "smarts": [
+	    	"C1[CD4H0z0:1]C1"
+            ],
+            "description": "cyclopropane -CR2-",
+            "overrides": []
+        }
+    },
     "opls_659": {
         "2023.09.07": {
             "smarts": [
@@ -9243,6 +9270,249 @@
 	    	"c[F:1]"
             ],
             "description": "fluorine in fluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_661": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[c:1]1(F)[c:2](F)[c:3](F)[c:4](F)[c:5](F)[c:6]1F"
+            ],
+            "description": "aromatic carbon in hexafluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_662": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c1([F:1])c([F:2])c([F:3])c([F:4])c([F:5])c1[F:6]"
+            ],
+            "description": "fluorine in hexafluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_668": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[cz0][c:1](F)[c:2](F)[cz0]"
+            ],
+            "description": "aromatic carbon in difluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_669": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[cz0]c([F:1])c([F:2])[cz0]"
+            ],
+            "description": "fluorine in difluorobenzene",
+            "overrides": []
+        }
+    },
+    "opls_670": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[c:1]Br"
+            ],
+            "description": "aromatic carbon in bromobenzene",
+            "overrides": []
+        }
+    },
+    "opls_671": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c[Br:1]"
+            ],
+            "description": "bromine in bromobenzene",
+            "overrides": []
+        }
+    },
+    "opls_672": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[c:1]I"
+            ],
+            "description": "aromatic carbon in iodobenzene",
+            "overrides": []
+        }
+    },
+    "opls_673": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c[I:1]"
+            ],
+            "description": "iodine in iodobenzene",
+            "overrides": []
+        }
+    },
+    "opls_675": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c[SH1:1]"
+            ],
+            "description": "S in thiophenol",
+            "overrides": []
+        }
+    },
+    "opls_676": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[c:1][SH1]"
+            ],
+            "description": "aromatic carbon in thiophenol",
+            "overrides": []
+        }
+    },
+    "opls_694": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4][Cz1]#[N:1]"
+            ],
+            "description": "N in alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_695": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4][Cz1:1]#N"
+            ],
+            "description": "C in alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_696": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CH3:1]C#N"
+            ],
+            "description": "methyl carbon in acetonitrile",
+            "overrides": []
+        }
+    },
+    "opls_697": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4H2z0:1]C#N"
+            ],
+            "description": "methylene carbon in alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_698": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4Hz0:1]C#N"
+            ],
+            "description": "methine carbon in alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_699": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4H0z0:1]C#N"
+            ],
+            "description": "quaternary carbon in alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_700": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[H:1][CD4z0]C#N"
+            ],
+            "description": "hydrogen adjacent to alkyl nitrile",
+            "overrides": []
+        }
+    },
+    "opls_701": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4z1][ND3:1](~[OD1])~[OD1]"
+            ],
+            "description": "N in nitroalkane",
+            "overrides": []
+        }
+    },
+    "opls_702": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[ND3](~[OD1:1])~[OD1:2]"
+            ],
+            "description": "O in nitroalkane",
+            "overrides": []
+        }
+    },
+    "opls_703": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CH3:1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "C in nitromethane",
+            "overrides": []
+        }
+    },
+    "opls_704": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[H:1][CD4z1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "H adjacent to nitro group",
+            "overrides": []
+        }
+    },
+    "opls_705": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4H2:1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "methylene adjacent to nitro group",
+            "overrides": []
+        }
+    },
+    "opls_706": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4H1:1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "methine adjacent to nitro group",
+            "overrides": []
+        }
+    },
+    "opls_707": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[CD4H0:1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "quaternary carbon adjacent to nitro group",
+            "overrides": []
+        }
+    },
+    "opls_708": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[cD3][ND3:1](~[OD1])~[OD1]"
+            ],
+            "description": "N in nitrobenzene",
+            "overrides": []
+        }
+    },
+    "opls_709": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[cD3:1][ND3](~[OD1])~[OD1]"
+            ],
+            "description": "aromatic C in nitrobenzene",
+            "overrides": []
+        }
+    },
+    "opls_710": {
+        "2023.09.08": {
+            "smarts": [
+	    	"[cD3][CD4:1][CD2]#[ND1]"
+            ],
+            "description": "C in benzonitrile -- phenylacetonitrile?",
             "overrides": []
         }
     },
@@ -9715,7 +9985,7 @@
     "opls_790": {
         "2023.01.29": {
             "smarts": [
-                "[CD4H0:1]F"
+                "[CD4H0z1:1]F"
             ],
             "description": "Fluorinated methine R3CF",
             "overrides": []
@@ -9785,6 +10055,33 @@
                 "[H:1][CD4H1](c)(F)F"
             ],
             "description": "difluoromethylbenzene: hydrogen Ar-CHF2",
+            "overrides": []
+        }
+    },
+    "opls_665": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c1cccc[c:1]1C(F)(F)F"
+            ],
+            "description": "phenyl carbon in trifluoromethylbenzene",
+            "overrides": []
+        }
+    },
+    "opls_666": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c1ccccc1[C:1](F)(F)F"
+            ],
+            "description": "methyl carbon in trifluoromethylbenzene",
+            "overrides": []
+        }
+    },
+    "opls_667": {
+        "2023.09.08": {
+            "smarts": [
+	    	"c1ccccc1C([F:1])([F:2])[F:3]"
+            ],
+            "description": "fluorine in trifluoromethylbenzene",
             "overrides": []
         }
     },
