@@ -4,15 +4,15 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
-2023.01.29   1    atom_types                       oplsaa CL&P-oplsaa
-2023.01.29   1    equivalence                      oplsaa CL&P-oplsaa
-2023.01.29   1    charges                          oplsaa CL&P-oplsaa
-2023.01.29   1    nonbond(12-6)                    oplsaa CL&P-oplsaa
-2023.01.29   1    quadratic_bond                   oplsaa CL&P-oplsaa
-2023.01.29   1    quadratic_angle                  oplsaa CL&P-oplsaa
-2023.08.21   1    quadratic_angle                  oplsaa
-2023.08.26   1    tabulated_angle                  CL&P-oplsaa
-2023.01.29   1    torsion_opls                     oplsaa
+2023.01.29   1    atom_types                       oplsaa CL&P
+2023.01.29   1    equivalence                      oplsaa CL&P
+2023.01.29   1    charges                          oplsaa CL&P
+2023.01.29   1    nonbond(12-6)                    oplsaa CL&P
+2023.01.29   1    quadratic_bond                   oplsaa CL&P
+2023.01.29   1    quadratic_angle                  oplsaa CL&P
+2023.08.21   1    quadratic_angle                  oplsaa CL&P
+2023.08.26   1    tabulated_angle                  CL&P
+2023.01.29   1    torsion_opls                     oplsaa CL&P
 2023.01.29   1    improper_opls                    oplsaa
 2023.01.29   1    templates                        oplsaa
 #end
@@ -32,21 +32,20 @@
 2023.01.29   1    templates                        oplsaa
 
 
-#define CL&P-oplsaa
+#define CL&P
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
-2023.01.29   1    atom_types                       oplsaa CL&P-oplsaa
-2023.01.29   1    equivalence                      oplsaa CL&P-oplsaa
-2023.01.29   1    charges                          oplsaa CL&P-oplsaa
-2023.01.29   1    nonbond(12-6)                    oplsaa CL&P-oplsaa
-2023.01.29   1    quadratic_bond                   oplsaa CL&P-oplsaa
-2023.01.29   1    quadratic_angle                  oplsaa CL&P-oplsaa
-2023.08.21   1    quadratic_angle                  oplsaa
-2023.08.21   1    simple_fourier_angle             CL&P-oplsaa
-2023.01.29   1    torsion_opls                     oplsaa
-2023.01.29   1    improper_opls                    oplsaa
-2023.01.29   1    templates                        oplsaa
+2023.01.29   1    atom_types                       CL&P
+2023.01.29   1    equivalence                      CL&P
+2023.01.29   1    charges                          CL&P
+2023.01.29   1    nonbond(12-6)                    CL&P
+2023.01.29   1    quadratic_bond                   CL&P
+2023.01.29   1    quadratic_angle                  CL&P
+2023.08.21   1    quadratic_angle                  CL&P
+2023.08.21   1    simple_fourier_angle             CL&P
+2023.01.29   1    torsion_opls                     CL&P
+2023.01.29   1    templates                        CL&P
 #end
 
 
@@ -10719,11 +10718,61 @@
             "description": "Fluorine in PF6-",
             "overrides": []
         }
+    },
+    "Nbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N:1](~[S](~[O])~[O])~[S](~[O])~[O]",
+                "[N-1:1](~[S](~[O])~[O])~[S](~[O])~[O]"
+            ],
+            "description": "N- in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Sbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]",
+                "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]"
+            ],
+            "description": "S in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Obt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]",
+                "[N-1](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]"
+            ],
+            "description": "O in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Cbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)",
+                "[N-1](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)"
+            ],
+            "description": "O in bis(trifluormethanesulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Fbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])",
+                "[N-1](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])"
+            ],
+            "description": "F in bis(trifluormethanesulfonyl)imide",
+            "overrides": []
+        }
     }
 }
 
 
-#atom_types           CL&P-oplsaa
+#atom_types           CL&P
 
 > Atom type definitions for any variant of oplsaa
 
@@ -10732,10 +10781,17 @@
 2023.01.29    1     P       30.974  P      6    Phosphorous
 2023.01.29    1     F       18.998  F      1    Fluorine
 2023.01.29    1     FP      18.998  F      1    Fluorine in PF6-
+2023.09.13    3	    N	    14.007  N      2	generic N in CL&P
+2023.09.13    3	    S	    32.060  S	   4	generic S in CL&P
+2023.09.13    3	    O	    15.999  O	   1	generic O in CL&P
+2023.09.13    5	    Nbt	    14.007  N      2	N- in bis(trifluoromethanesulfonyl)imide anion
+2023.09.13    5	    Sbt	    32.060  S	   4	S in bis(trifluoromethanesulfonyl)imide anion
+2023.09.13    5	    Fbt	    18.998  F	   1	F in bis(trifluoromethanesulfonyl)imide anion
+2023.09.13    5	    Obt	    15.999  O	   1	O in bis(trifluoromethanesulfonyl)imide anion
+2023.09.13    5	    Cbt	    15.999  C	   4	C in bis(trifluoromethanesulfonyl)imide anion
 
 
-
-#equivalence          CL&P-oplsaa
+#equivalence          CL&P
 
 !                                        Equivalences
 !                         -------------------------------------------
@@ -10744,10 +10800,14 @@
 2023.01.29    1     P        P         P       P        P        P
 2023.01.29    1     F        F         F       F        F        F
 2023.01.29    1     FP       FP        F       FP       F        F
+2023.09.13    5     Nbt      Nbt       N       N    	N	 N
+2023.09.13    5     Sbt      Sbt       S       S	S	 S
+2023.09.13    5     Fbt      Fbt       Fbt     Fbt	Fbt	 Fbt
+2023.09.13    5     Obt      Obt       O       O	O	 O
+2023.09.13    5     Cbt      Cbt       C       C	C	 C
 
 
-
-#charges CL&P-oplsaa
+#charges CL&P
 
 
 ! Version   Ref   I          Charge
@@ -10755,10 +10815,14 @@
 2023.01.29  2     F          -0.12
 2023.01.29  2     FP         -0.39
 2023.01.29  2     P           1.34
+2023.09.13  3     Nbt        -0.660
+2023.09.13  3     Sbt         1.020
+2023.09.13  3     Fbt        -0.160
+2023.09.13  3     Obt        -0.530
+2023.09.13  3     Cbt         0.350
 
 
-
-#nonbond(12-6)         CL&P-oplsaa
+#nonbond(12-6)         CL&P
 
 > E = 4 * eps(ij) * [(sigma(ij)*/r(ij))**12 - (sigma(ij)*/r(ij))**6]
 >
@@ -10776,10 +10840,14 @@
 2023.01.29  2     F         2.95       0.22175
 2023.01.29  2     FP        3.12       0.25520
 2023.01.29  2     P         3.74       0.83680
+2023.09.13  3	  Nbt       3.250      0.71128
+2023.09.13  3	  Sbt       3.550      1.04600
+2023.09.13  5	  Fbt       3.118      0.25540
+2023.09.13  5	  Obt       3.150      0.83736
+2023.09.13  3	  Cbt       3.500      0.27614
 
 
-
-#quadratic_bond       CL&P-oplsaa
+#quadratic_bond       CL&P
 
 > E = K2 * (R - R0)^2
 
@@ -10789,10 +10857,12 @@
 ! Version   Ref   I         J               R0        K2
 !---------  ----  --------  --------  --------  --------
 2023.01.29  3     P         F         1.606     3100.0
+2023.09.13  3     S         N         1.570     3137.0
+2023.09.13  3	  S	    O	      1.437	5331.0
+2023.09.13  3	  Sbt	    Cbt	      1.818	1970.0
+2023.09.13  3	  Cbt	    Fbt       1.323	3697.0
 
-
-
-#quadratic_angle       CL&P-oplsaa
+#quadratic_angle       CL&P
 
 > E = K2 * (Theta - Theta0)^2
 
@@ -10802,10 +10872,17 @@
 ! Version   Ref   I         J         K           Theta0        K2
 !---------  ----  --------  --------  --------  --------  --------
 2023.01.29  3     FP        P         FP          90.0      1165.0
+2023.09.13  3	  Sbt	    Nbt	      Sbt	 125.6	     671.0
+2023.09.13  3	  O	    N	      S       	 113.6	     789.0
+2023.09.13  5	  C	    S	      N       	 103.5	     764.0
+2023.09.13  3	  C	    S	      O      	 102.6	     870.0
+2023.09.13  3	  O	    S	      O      	 118.5	     969.0
+2023.09.13  3	  N	    S	      O      	 113.6	     789.0
+2023.09.13  3	  Fbt	    C	      S       	 111.8	     694.0
+2023.09.13  5	  Fbt	    C	      Fbt      	 109.1	     644.0
 
 
-
-#simple_fourier_angle       CL&P-oplsaa
+#simple_fourier_angle       CL&P
 
 > E = K * [1 - cos(n*Theta)]
 >
@@ -10817,8 +10894,24 @@
 !---------  ----  --------  --------  --------  --------    ---
 2023.01.29  5     FP        P         FP         145.6       4
 
+#torsion_opls       CL&P
 
-#tabulated_angle       CL&P-oplsaa
+> E = 1/2*V1*[1 + cos(phi1)]
+>   + 1/2*V2*[1 - cos(2*phi2)]
+>   + 1/2*V3*[1 + cos(3*phi3)]
+>   + 1/2*V4*[1 - cos(4*phi4)]
+
+! Version   Ref   I         J         K         L             V1      V2      V3      V4
+!---------  ----  --------  --------  --------  --------  ------  -------  ------  ------
+2023.09.13  3     C         S         N         S         32.773  -10.420  -3.915   0.0
+2023.09.13  3     Fbt	    C         S         N          0.0      0.0     1.322   0.0
+2023.09.13  3     S	    N         S         O          0.0      0.0    -0.015   0.0
+2023.09.13  3     Fbt	    C         S         O          0.0      0.0     1.451   0.0
+
+
+
+
+#tabulated_angle       CL&P
 
 >  Fourier angle with reasonable repulsive 1/R^12 term to keep atoms apart from 0º
 > E = K * [1 - cos(n*Theta)]  + 1.0/Rij^12
@@ -10832,9 +10925,9 @@
 
 ! Version   Ref   I         J         K        Eqn     K         n      Rb      A     zero-shift
 !---------  ----  --------  --------  -------- ---  --------    ---  ------  ------   ----------
-2023.10.25  5     FP        P         FP        E    1165.0      4    1.606   2000.0      0.001
+2023.08.25  5     FP        P         FP        E    1165.0      4    1.606   2000.0      0.001
 
-#templates CL&P-oplsaa
+#templates CL&P
 {
     "P": {
         "2023.01.29": {
@@ -10851,6 +10944,56 @@
                 "[P]([F:1])([F:2])([F:3])([F:4])([F:5])[F:6]"
             ],
             "description": "Fluorine in PF6-",
+            "overrides": []
+        }
+    },
+    "Nbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N:1](~[S](~[O])~[O])~[S](~[O])~[O]",
+                "[N-1:1](~[S](~[O])~[O])~[S](~[O])~[O]"
+            ],
+            "description": "N- in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Sbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]",
+                "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]"
+            ],
+            "description": "S in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Obt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]",
+                "[N-1](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]"
+            ],
+            "description": "O in bis(sulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Cbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)",
+                "[N-1](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)"
+            ],
+            "description": "O in bis(trifluormethanesulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "Fbt": {
+        "2023.09.213": {
+            "smarts": [
+                "[N](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])",
+                "[N-1](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])"
+            ],
+            "description": "F in bis(trifluormethanesulfonyl)imide",
             "overrides": []
         }
     }
@@ -10923,4 +11066,26 @@ added missing angle parameters
       F-CH-O-C(=O) in FEC
       
 from LibParGen on EC and FEC (ethylene carbonate and fluoroethylene carbonate)
+
+#reference 5
+@Author Paul Saxe
+@Date 2023-09-13
+Gouveia, A. S. L. et al. Ionic liquids with anions based on fluorosulfonyl derivatives:
+from asymmetrical substitutions to a consistent force field model.
+Phys. Chem. Chem. Phys. 19, 29617–29624 (2017).
+doi: 10.1039/c7cp06081e
+
+@article{10.1039/c7cp06081e, 
+year = {2017}, 
+title = {{Ionic liquids with anions based on fluorosulfonyl derivatives: from asymmetrical substitutions to a consistent force field model}}, 
+author = {Gouveia, Andreia S. L. and Bernardes, Carlos E. S. and Tomé, Liliana C. and Lozinskaya, Elena I. and Vygodskii, Yakov S. and Shaplov, Alexander S. and Lopes, José N. Canongia and Marrucho, Isabel M.}, 
+journal = {Physical Chemistry Chemical Physics}, 
+issn = {1463-9076}, 
+doi = {10.1039/c7cp06081e}, 
+pmid = {29083012}, 
+pages = {29617--29624}, 
+number = {43}, 
+volume = {19}, 
+local-url = {file://localhost/Users/psaxe/Downloads/c7cp06081e.pdf}
+}
 #end
