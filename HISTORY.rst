@@ -2,6 +2,9 @@
 History
 =======
 
+2023.9.13 -- Added parameters for TFSI to  CL&P/OPLSAA
+  * Parameters for TFSI - bis[(trifluoromethyl)sulfonyl]imide
+
 2023.9.8 -- Added more typing for OPLS-AA
   * cyclopropane -CH2-, -CHR-, and -CR2-
   * hexafluorobenzene
