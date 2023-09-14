@@ -10768,6 +10768,86 @@
             "description": "F in bis(trifluormethanesulfonyl)imide",
             "overrides": []
         }
+    },
+    "NA": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C[n:1]1cc[n:2](c1)C",
+	    	"C[n:1]1cc[n+:2](c1)C"
+            ],
+            "description": "ring N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CR": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1cc[n]([c:1]1)C",
+	    	"Cn1cc[n+]([c:1]1)C"
+            ],
+            "description": "ring single C 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CW": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1[c:1][c:2][n](c1)C",
+	    	"Cn1[c:1][c:2][n+](c1)C"
+            ],
+            "description": "ring pair of C's 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "HA": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1c([H:1])c([H:2])[n](c1([H:3]))C",
+	    	"Cn1c([H:1])c([H:2])[n+](c1([H:3]))C"
+            ],
+            "description": "ring N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "C1": {
+        "2023.09.14": {
+            "smarts": [
+	    	"[C:1]n1cc[n](c1)[C:2]",
+	    	"[C:1]n1cc[n+](c1)[C:2]"
+            ],
+            "description": "alkyl carbon bonded to N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "H1": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C([H:1])n1cc[n](c1)C[H:2]",
+	    	"C([H:1])n1cc[n+](c1)C[H:2]"
+            ],
+            "description": "H on alkyl C bonded to N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "C2": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C[C:1]Cn1cc[n](c1)C",
+	    	"C[C:1]Cn1cc[n+](c1)C"
+            ],
+            "description": "methylene C 2 from N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CE": {
+        "2023.09.14": {
+            "smarts": [
+	    	"[CH3:1]Cn1cc[n](c1)C",
+	    	"[CH3:1]Cn1cc[n+](c1)C"
+            ],
+            "description": "methyl C 2 from N 1-ethyl-3-methylimidazolium cation",
+            "overrides": []
+        }
     }
 }
 
@@ -10789,6 +10869,17 @@
 2023.09.13    5	    Fbt	    18.998  F	   1	F in bis(trifluoromethanesulfonyl)imide anion
 2023.09.13    5	    Obt	    15.999  O	   1	O in bis(trifluoromethanesulfonyl)imide anion
 2023.09.13    5	    Cbt	    15.999  C	   4	C in bis(trifluoromethanesulfonyl)imide anion
+2023.09.14    2	    C1	    12.011  C	   4	C bonded to N in charged imidazolium group
+2023.09.14    2	    C2	    12.011  C	   4	C to C bonded to N in charged imidazolium group
+2023.09.14    2	    CE	    12.011  C	   4	methyl carbon in ethane bonded to N in charged imidazolium group
+2023.09.14    2	    CR	    12.011  C	   3	C between N's in charged imidazolium group
+2023.09.14    2	    CS	    12.011  C	   4	Secondary C in side chain bonded to N in charged imidazolium group
+2023.09.14    2	    CT	    12.011  C	   4	Terminal C in side chain bonded to N in charged imidazolium group
+2023.09.14    2	    CW	    12.011  C	   3	The pair of C on longer side bonded to N in charged imidazolium group
+2023.09.14    2	    HA	     1.008  H	   1	H bonded to ring C in charged imidazolium group
+2023.09.14    2	    HC	     1.008  H	   1	H bonded to side chain C past first in charged imidazolium group
+2023.09.14    2	    H1	     1.008  H	   1	H bonded to first side chain C in charged imidazolium group
+2023.09.14    2	    NA	    14.007  N	   2	N in charged imidazolium group
 
 
 #equivalence          CL&P
@@ -10805,6 +10896,19 @@
 2023.09.13    5     Fbt      Fbt       Fbt     Fbt	Fbt	 Fbt
 2023.09.13    5     Obt      Obt       O       O	O	 O
 2023.09.13    5     Cbt      Cbt       C       C	C	 C
+2023.09.14    2     C1       C1    opls_18  opls_18  opls_18  opls_18 
+2023.09.14    2     C2       C2    opls_18  opls_18  opls_18  opls_18 
+2023.09.14    2     CE       CE    opls_18  opls_18  opls_18      C2
+! 2023.09.14    2     CR       CR        CR       CR       CR       CR  
+2023.09.14    2     CR       CR	   opls_447 opls_447 opls_447 opls_447
+2023.09.14    2     CS       CS    opls_18  opls_18  opls_18      CT
+2023.09.14    2     CT       CT    opls_18  opls_18  opls_18  opls_18 
+! 2023.09.14    2     CW       CW        CW       CW       CW       CW  
+2023.09.14    2     CW	     CW	   opls_447 opls_447 opls_447 opls_447
+2023.09.14    2     HA	     HA    opls_91  opls_91  opls_91  opls_91 
+2023.09.14    2     HC       HC    opls_85  opls_85  opls_85  opls_85 
+2023.09.14    2     H1       H1    opls_85  opls_85  opls_85  opls_85 
+2023.09.14    2     NA       NA       NA       NA       NA       NA  
 
 
 #charges CL&P
@@ -10820,7 +10924,17 @@
 2023.09.13  3     Fbt        -0.160
 2023.09.13  3     Obt        -0.530
 2023.09.13  3     Cbt         0.350
-
+2023.09.14   2    C1	     -0.17
+2023.09.14   2    C2	      0.01
+2023.09.14   2    CE	     -0.05
+2023.09.14   2    CR	     -0.11
+2023.09.14   2    CS	     -0.12
+2023.09.14   2    CT	     -0.18
+2023.09.14   2    CW	     -0.13
+2023.09.14   2    HA	      0.21
+! 2023.09.14   2    HC	      0.06   same as opls_85
+2023.09.14   2    H1	      0.13
+2023.09.14   2    NA	      0.15
 
 #nonbond(12-6)         CL&P
 
@@ -10845,6 +10959,16 @@
 2023.09.13  5	  Fbt       3.118      0.25540
 2023.09.13  5	  Obt       3.150      0.83736
 2023.09.13  3	  Cbt       3.500      0.27614
+2023.09.14  2     C1	    3.50       0.27614
+2023.09.14  2     C2	    3.50       0.27614
+2023.09.14  2     CE	    3.50       0.27614
+2023.09.14  2     CR	    3.55       0.29288
+2023.09.14  2     CS	    3.50       0.27614
+2023.09.14  2     CT	    3.50       0.27614
+2023.09.14  2     CW	    3.55       0.29288
+2023.09.14  2     HA	    2.42       0.12552
+2023.09.14  2     H1	    2.50       0.12552
+2023.09.14  2     NA	    3.25       0.71128
 
 
 #quadratic_bond       CL&P
@@ -10861,6 +10985,11 @@
 2023.09.13  3	  S	    O	      1.437	5331.0
 2023.09.13  3	  Sbt	    Cbt	      1.818	1970.0
 2023.09.13  3	  Cbt	    Fbt       1.323	3697.0
+2023.09.14  2	  CR	    NA 	      1.315 	1996.0
+2023.09.14  2	  CW	    NA 	      1.378 	1787.0
+2023.09.14  2	  CW	    CW 	      1.341 	2176.0
+2023.09.14  2	  NA	    C1 	      1.466 	1410.0
+
 
 #quadratic_angle       CL&P
 
@@ -10880,6 +11009,18 @@
 2023.09.13  3	  N	    S	      O      	 113.6	     789.0
 2023.09.13  3	  Fbt	    C	      S       	 111.8	     694.0
 2023.09.13  5	  Fbt	    C	      Fbt      	 109.1	     644.0
+2023.09.14  2	  CW	    NA	      CR	 108.0       292.6
+2023.09.14  2	  CW	    NA	      C1	 125.6       292.6
+2023.09.14  2	  CR	    NA	      C1	 126.4       292.6
+2023.09.14  2	  NA	    CR	      HA	 125.1       146.3
+2023.09.14  2	  NA	    CR	      NA	 109.8       292.6
+2023.09.14  2	  NA	    CW	      CW	 107.1       292.6
+2023.09.14  2	  NA	    CW	      HA	 122.0       146.3
+2023.09.14  2	  CW	    CW	      HA	 130.9       146.3
+! 2023.01.29  1     opls_18   opls_18   opls_18     112.70     58.35 Copied for next
+2023.01.29  1     NA       opls_18   opls_18     112.70       58.35
+!2023.01.29  1     opls_18   opls_18   opls_85     110.70     37.50
+2023.01.29  1     NA       opls_18   opls_85     110.70     37.50
 
 
 #simple_fourier_angle       CL&P
@@ -10901,13 +11042,50 @@
 >   + 1/2*V3*[1 + cos(3*phi3)]
 >   + 1/2*V4*[1 - cos(4*phi4)]
 
+@units V1 kJ/mol
+@units V2 kJ/mol
+@units V3 kJ/mol
+@units V4 kJ/mol
+
 ! Version   Ref   I         J         K         L             V1      V2      V3      V4
 !---------  ----  --------  --------  --------  --------  ------  -------  ------  ------
-2023.09.13  3     C         S         N         S         32.773  -10.420  -3.915   0.0
+2023.09.13  3     C         S         N         S         32.773  -10.420  -3.195   0.0
 2023.09.13  3     Fbt	    C         S         N          0.0      0.0     1.322   0.0
 2023.09.13  3     S	    N         S         O          0.0      0.0    -0.015   0.0
 2023.09.13  3     Fbt	    C         S         O          0.0      0.0     1.451   0.0
+2023.09.14  2	  * 	    NA	      CR	*  	   0.0 	   19.46    0.0     0.0
+2023.09.14  2	  * 	    CW	      CW	*  	   0.0 	   44.98    0.0	    0.0
+2023.09.14  2	  * 	    NA	      CW	*  	   0.0 	   12.55    0.0	    0.0
+2023.09.14  2	  CW	    NA	      C1	H1 	   0.0 	    0.0     0.55    0.0
+2023.09.14  2	  CR	    NA	      C1	H1 	   0.0 	    0.0     0.0     0.0
+2023.09.14  2	  CW	    NA	      C1	C2 	  -5.76     4.43    0.877   0.0
+2023.09.14  2	  CW	    NA	      C1	CE 	  -5.76     4.43    0.877   0.0
+2023.09.14  2	  CR	    NA	      C1	C2 	  -3.23     0.0     0.0	    0.0
+2023.09.14  2	  CR	    NA	      C1	CE 	  -3.23     0.0     0.0     0.0
+2023.09.14  2	  NA	    C1	      C2	CS 	   0.738   -0.681   1.02    0.0
+2023.09.14  2	  NA	    C1	      C2	CT 	   0.738   -0.681   1.02    0.0
+2023.09.14  2	  NA	    C1	      C2	opls_85	   0.0      0.0     0.0	    0.0
+2023.09.14  2	  NA	    C1	      CE	opls_85    0.0      0.0     0.0	    0.0
 
+! 2023.09.14  2	  C*-C*-C*-H* 0 0 1.531   These do not seem to match OPLS, which they should.
+! 2023.09.14  2	  H*-C*-C*-H* 0 0 1.331
+! 2023.09.14  2	  C*-C*-C*-C* 0.728 -0.657 1.167
+
+
+
+#improper_opls       CL&P
+
+> E = 1/2*V2*[1 - cos(2*phi2)]
+
+> k is the central atom
+
+@units V2 kJ/mol
+
+! Version   Ref   I         J         K         L             V2
+!---------  ----  --------  --------  --------  --------  ------
+2023.09.14  2	  *         *         NA        *           8.37 
+2023.09.14  2	  *         *         CW        *           9.2
+2023.09.14  2	  *         *         CR        *           9.2
 
 
 
@@ -10948,7 +11126,7 @@
         }
     },
     "Nbt": {
-        "2023.09.213": {
+        "2023.09.13": {
             "smarts": [
                 "[N:1](~[S](~[O])~[O])~[S](~[O])~[O]",
                 "[N-1:1](~[S](~[O])~[O])~[S](~[O])~[O]"
@@ -10958,7 +11136,7 @@
         }
     },
     "Sbt": {
-        "2023.09.213": {
+        "2023.09.13": {
             "smarts": [
                 "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]",
                 "[N](~[S:1](~[O])~[O])~[S:2](~[O])~[O]"
@@ -10968,7 +11146,7 @@
         }
     },
     "Obt": {
-        "2023.09.213": {
+        "2023.09.13": {
             "smarts": [
                 "[N](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]",
                 "[N-1](~[S](~[O:1])~[O:2])~[S](~[O:3])~[O:4]"
@@ -10978,7 +11156,7 @@
         }
     },
     "Cbt": {
-        "2023.09.213": {
+        "2023.09.13": {
             "smarts": [
                 "[N](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)",
                 "[N-1](~[S](~[O])(~[O])[C:1](F)(F)F)~[S](~[O])(~[O])[C:2](F)(F)(F)"
@@ -10988,12 +11166,92 @@
         }
     },
     "Fbt": {
-        "2023.09.213": {
+        "2023.09.13": {
             "smarts": [
                 "[N](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])",
                 "[N-1](~[S](~[O])(~[O])C([F:1])([F:2])[F:3])~[S](~[O])(~[O])C([F:4])([F:5])([F:6])"
             ],
             "description": "F in bis(trifluormethanesulfonyl)imide",
+            "overrides": []
+        }
+    },
+    "NA": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C[n:1]1cc[n:2](c1)C",
+	    	"C[n:1]1cc[n+:2](c1)C"
+            ],
+            "description": "ring N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CR": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1cc[n]([c:1]1)C",
+	    	"Cn1cc[n+]([c:1]1)C"
+            ],
+            "description": "ring single C 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CW": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1[c:1][c:2][n](c1)C",
+	    	"Cn1[c:1][c:2][n+](c1)C"
+            ],
+            "description": "ring pair of C's 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "HA": {
+        "2023.09.14": {
+            "smarts": [
+	    	"Cn1c([H:1])c([H:2])[n](c1([H:3]))C",
+	    	"Cn1c([H:1])c([H:2])[n+](c1([H:3]))C"
+            ],
+            "description": "ring N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "C1": {
+        "2023.09.14": {
+            "smarts": [
+	    	"[C:1]n1cc[n](c1)[C:2]",
+	    	"[C:1]n1cc[n+](c1)[C:2]"
+            ],
+            "description": "alkyl carbon bonded to N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "H1": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C([H:1])n1cc[n](c1)C[H:2]",
+	    	"C([H:1])n1cc[n+](c1)C[H:2]"
+            ],
+            "description": "H on alkyl C bonded to N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "C2": {
+        "2023.09.14": {
+            "smarts": [
+	    	"C[C:1]Cn1cc[n](c1)C",
+	    	"C[C:1]Cn1cc[n+](c1)C"
+            ],
+            "description": "methylene C 2 from N 1-alkyl-3-methylimidazolium cation",
+            "overrides": []
+        }
+    },
+    "CE": {
+        "2023.09.14": {
+            "smarts": [
+	    	"[CH3:1]Cn1cc[n](c1)C",
+	    	"[CH3:1]Cn1cc[n+](c1)C"
+            ],
+            "description": "methyl C 2 from N 1-ethyl-3-methylimidazolium cation",
             "overrides": []
         }
     }
