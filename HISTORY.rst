@@ -2,6 +2,11 @@
 History
 =======
 
+2023.9.14 -- Fixed errors! And added C2mim to test.
+  * The units of the torsions were incorrect in the last implementation.
+  * Added parameters for 1-alkyl-3-methylimidazolium cations from JCP 108, 2038 (2004)
+  * Tested much more thoroughly.
+
 2023.9.13 -- Added parameters for TFSI to  CL&P/OPLSAA
   * Parameters for TFSI - bis[(trifluoromethyl)sulfonyl]imide
 
