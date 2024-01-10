@@ -43,7 +43,8 @@
 2023.01.29   1    quadratic_bond                   CL&P
 2023.01.29   1    quadratic_angle                  CL&P
 2023.08.21   1    quadratic_angle                  CL&P
-2023.08.21   1    simple_fourier_angle             CL&P
+! 2023.08.21   1    simple_fourier_angle             CL&P
+2023.08.26   1    tabulated_angle                  CL&P
 2023.01.29   1    torsion_opls                     CL&P
 2023.01.29   1    templates                        CL&P
 #end
@@ -11000,7 +11001,7 @@
 
 ! Version   Ref   I         J         K           Theta0        K2
 !---------  ----  --------  --------  --------  --------  --------
-2023.01.29  3     FP        P         FP          90.0      1165.0
+! 2023.01.29  3     FP        P         FP          90.0      1165.0 replaced by tabulated form
 2023.09.13  3	  Sbt	    Nbt	      Sbt	 125.6	     671.0
 2023.09.13  3	  O	    N	      S       	 113.6	     789.0
 2023.09.13  5	  C	    S	      N       	 103.5	     764.0
