@@ -10,6 +10,7 @@ dependencies:
 
   # SEAMM
   - kim-query
+  - rdkit
   - seamm
   - seamm-ff-util
   
