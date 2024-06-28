@@ -7,7 +7,16 @@ History
   * Added 'ligpargen' command to access custom parameters from the LigParGen service
     at Yale University, ading them to the 'ligpargen.frc' personal forcefield, which
     is automatically included in 'oplsaa.frc' if it exists.
-      
+
+2024.1.10 -- Fixed PF6- issue in CL&P forcefield
+  * The angle parameters for PF6- in the CL&P forcefield only work if the 180º F-P-F
+    angles are not included in the calculation. Replacing them with an equivalent
+    periodic SHAPES-like potential almost works; however, since 0º is a valid angle and
+    there are no 1-3 nonbonds, nothing keeps the F atoms apart. This is solved using a
+    tabulated potential based on the SHAPES potential but with an added 1-3 repulsion
+    large enough that the gradient is always pusing small angles apart, but not large
+    enough to affect the minimum at 90º.
+
 2023.9.14 -- Fixed errors! And added C2mim to test.
   * The units of the torsions were incorrect in the last implementation.
   * Added parameters for 1-alkyl-3-methylimidazolium cations from JCP 108, 2038 (2004)
