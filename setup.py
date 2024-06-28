@@ -81,5 +81,8 @@ setup(
         'org.molssi.seamm.tk': [
             'Forcefield = forcefield_step:ForcefieldStep',
         ],
+        'console_scripts': [
+            'ligpargen=forcefield_step.ligpargen:run',
+        ],
     }
 )

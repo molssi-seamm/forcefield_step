@@ -1,7 +1,13 @@
 =======
 History
 =======
-
+2024.6.28 -- Added customizable local forcefields and LigParGen interface.
+  * Added the machinery to handle local forcefield files in either
+    ~/.seamm.d/data/Forcefields (personal) or ~/SEAMM/data/Forcefields (site).
+  * Added 'ligpargen' command to access custom parameters from the LigParGen service
+    at Yale University, ading them to the 'ligpargen.frc' personal forcefield, which
+    is automatically included in 'oplsaa.frc' if it exists.
+      
 2023.9.14 -- Fixed errors! And added C2mim to test.
   * The units of the torsions were incorrect in the last implementation.
   * Added parameters for 1-alkyl-3-methylimidazolium cations from JCP 108, 2038 (2004)
