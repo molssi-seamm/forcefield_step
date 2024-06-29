@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Getting Started &#8212; SEAMM Forcefield Plug-in 2024.6.29 documentation</title>
+    <title>Getting Started &#8212; SEAMM Forcefield Plug-in 2024.6.29.1 documentation</title>
   
   
   
@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../_static/documentation_options.js?v=4a368e61"></script>
+    <script src="../_static/documentation_options.js?v=570413cc"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -516,10 +516,76 @@ next to it and click <cite>Install selected</cite> or <cite>Update selected</cit
 </div>
 <p>will ensure both that it is installed and up-to-date.</p>
 </section>
-<section id="replace-this">
-<h2>Replace this!<a class="headerlink" href="#replace-this" title="Link to this heading">#</a></h2>
-<p>Put an example or two here….</p>
-<p>That should be enough to get started. For more detail about the functionality in this plug-in, see the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>.</p>
+<section id="intoduction-to-the-forcefield-step">
+<h2>Intoduction to the Forcefield Step<a class="headerlink" href="#intoduction-to-the-forcefield-step" title="Link to this heading">#</a></h2>
+<p>The Forcefield Step is used to read a forcefield into SEAMM and set it as the default
+forcefield until another Forcefield Step changes the default. You can also use the
+Forcefield Step to assign the forcefield to your system, though the assignment will also
+be done automatically when needed so you do not need to explicitly ask the Forcefield
+Step to do the assignment.</p>
+<p>The Forcefield Step resides in the Simulation section of the Flowchart. Typically it is
+one of the firt couple steps in a Flowchart, defining the forcefield to be used by
+subsequent steps:</p>
+<figure class="align-center" id="id5">
+<img alt="A flowchart with a Forcefield Step" src="../_images/initial.png" />
+<figcaption>
+<p><span class="caption-text">A flowchart with a single Forcefield Step</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Opening the Forcefield Step gives this dialog:</p>
+<figure class="align-center" id="id6">
+<img alt="The initial forcefield dialog" src="../_images/dialog.png" />
+<figcaption>
+<p><span class="caption-text">The initial forcefield dialog</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The first field, “What to do:”, allows you to setup a forcefield or to assign it to the
+current system, as mentioned above. The second, “Forcefield Repository”, is used to
+select the type of forcefield to setup:</p>
+<figure class="align-center" id="id7">
+<img alt="The forcefield choices" src="../_images/ff_choices.png" />
+<figcaption>
+<p><span class="caption-text">The choice of forcefield to set up.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are currently four main possibilities:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.openkim.org">OpenKIM</a> is an online repository that contains many of the “interatomic potentials”
+used for materials simulations. These are potentials such as the Stillinger-Webber
+potential for silicon, the potentials for the embedded atom method (EAM), and
+those for the modified embedded atom method (MEAM).</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1073/pnas.0408037102">OPLS-AA</a>, the Optimized Potentials for Liquid Simulations – All Atoms forcefield
+of William Jorgensen and et al. <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, has wide coverage of organic and
+biomolecular systems.</p></li>
+<li><p><a class="reference external" href="https://pubs.acs.org/doi/10.1021/ja00086a030">PCFF2018</a>, the Polymer Consistent Force Field <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>,also covers organic molecules
+with an emphasis on (synthetic) polymers.</p></li>
+<li><p>local:OPLS_AA/ligpargen.frc contains parameters that the user has downloaded from
+the LigParGen server. See the <a class="reference internal" href="../user_guide/ligpargen/index.html#ligpargen"><span class="std std-ref">The LigParGen Server</span></a> section in the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a> for more information.</p></li>
+</ol>
+</div></blockquote>
+<p>Your installation may have a different set of forcefields than shown above. Once you
+have setup a forcefield you can proceed to e.g. LAMMPS to run the simulation using the
+forcefield.</p>
+<p>That should be enough to get started. For more detail about the functionality in this
+plug-in, see the <a class="reference internal" href="../user_guide/index.html#user-guide"><span class="std std-ref">User Guide</span></a>.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>W.L. Jorgensen, J. Tirado-Rives,
+Potential energy functions for atomic-level simulations of water and organic and
+biomolecular systems,
+Proc. Natl. Acad. Sci. 102 (2005) 6665–6670.
+<a class="reference external" href="https://doi.org/10.1073/pnas.0408037102">https://doi.org/10.1073/pnas.0408037102</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Huai Sun, Stephen J. Mumby, Jon R. Maple, and Arnold T. Hagler,
+An ab Initio CFF93 All-Atom Force Field for Polycarbonates
+Journal of the American Chemical Society 1994 116 (7), 2978-2987
+DOI: 10.1021/ja00086a030</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -570,7 +636,7 @@ next to it and click <cite>Install selected</cite> or <cite>Update selected</cit
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-this">Replace this!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intoduction-to-the-forcefield-step">Intoduction to the Forcefield Step</a></li>
 </ul>
   </nav></div>
 
