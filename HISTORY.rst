@@ -1,6 +1,11 @@
 =======
 History
 =======
+2024.6.29 -- Bugfix: factor of 2 for dihedrals and impropers in ligpargen
+  * The ligpargen tool was missing a factor of 2 in the dihedral and improper parameters.
+  * Corrected the search paths for forcefields.
+  * Improved the documentation.
+    
 2024.6.28 -- Added customizable local forcefields and LigParGen interface.
   * Added the machinery to handle local forcefield files in either
     ~/.seamm.d/data/Forcefields (personal) or ~/SEAMM/data/Forcefields (site).

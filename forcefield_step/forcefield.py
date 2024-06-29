@@ -324,19 +324,19 @@ class Forcefield(seamm.Node):
         else:
             # Find the forcefield file
             ff_file = P["forcefield_file"]
+            printer.important(
+                self.indent + 4 * " " + f"Reading the forcefield file {ff_file}"
+            )
             if ff_file.startswith("local:"):
-                ff_file = ff_file[6:]
+                ff_file = "Forcefields/" + ff_file[6:]
                 path = self.find_data_file(ff_file)
                 ff_file = str(path)
             else:
                 path = pkg_resources.resource_filename(__name__, "data/")
                 ff_file = os.path.join(path, P["forcefield_file"])
 
-            printer.important(self.indent + 4 * " " + "Reading the forcefield file")
             printer.important("")
-            printer.important(
-                self.indent + 8 * " " + P["forcefield_file"] + ": " + str(ff_file)
-            )
+            printer.important(self.indent + 8 * " " + str(ff_file))
             printer.important("")
 
             ff = seamm_ff_util.Forcefield(

@@ -30,13 +30,22 @@ with os.scandir(path) as it:
             if ext == ".frc":
                 forcefields.append(entry.name)
 
-# and local forcefields in the ~/SEAMM/Parameters directory
-local = Path.home() / "SEAMM" / "Parameters"
+# and local forcefields in the ~/SEAMM/data/Forcefields
+local = Path.home() / "SEAMM" / "data" / "Forcefields"
 logger.debug("Looking for forcefields at " + str(local))
 if local.exists():
     for path in local.glob("**/*.frc"):
         logger.debug("   " + str(path))
         forcefields.append("local:" + str(path.relative_to(local)))
+
+# and local forcefields in the ~/.seamm.d/data/Forcefields
+local = Path.home() / ".seamm.d" / "data" / "Forcefields"
+logger.debug("Looking for forcefields at " + str(local))
+if local.exists():
+    for path in local.glob("**/*.frc"):
+        logger.debug("   " + str(path))
+        forcefields.append("local:" + str(path.relative_to(local)))
+
 forcefields = sorted(forcefields)
 
 
