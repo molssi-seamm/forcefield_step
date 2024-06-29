@@ -91,9 +91,9 @@ Template for OPLS-AA Library
 
 
 def reader(path):
-    """Reads the .key and .xyz files and returns the data
+    """Reads the .key file and returns the data
 
-    This method reads the .key and .xyz files output by LigParGen and adds the
+    This method reads the .key file output by LigParGen and adds the
     parameters to the local SEAMM forcefield ligpargen.frc file.
 
     Parameters
@@ -104,7 +104,7 @@ def reader(path):
     Note
     ----
     The .key file is a text file that contains the forcefield parameters for
-    Tinker. It looks like this:
+    Tinker. It looks like this::
 
 
 
@@ -160,18 +160,18 @@ def reader(path):
         ...
 
     The interesting keys are:
-    - atom: defines the atom types
-    - vdw: defines the van der Waals parameters
-    - bond: defines the bond parameters
-    - angle: defines the angle parameters
-    - torsion: defines the torsion parameters
-    - imptors: defines the improper torsion parameters
-    - charge: defines the charge parameters
+        - atom: defines the atom types
+        - vdw: defines the van der Waals parameters
+        - bond: defines the bond parameters
+        - angle: defines the angle parameters
+        - torsion: defines the torsion parameters
+        - imptors: defines the improper torsion parameters
+        - charge: defines the charge parameters
     """
     if isinstance(path, str):
         path = Path(path)
 
-    lines = path.with_suffix(".key").read_text().splitlines()
+    lines = path.read_text().splitlines()
 
     section = {}
     for line in lines:
@@ -307,6 +307,10 @@ def add_to_ff(ff, configuration, data):
                         it, jt, kt, lt, v1, _, _, v2, _, _, v3, _, _ = torsion
                         if it == "0" and jt == "0" and kt == "0" and lt == "0":
                             continue
+                        # Tinker has a factor of 2 someplace.
+                        v1 = str(round(2 * float(v1), 4))
+                        v2 = str(round(2 * float(v2), 4))
+                        v3 = str(round(2 * float(v3), 4))
                         columns["Version"].append(version)
                         columns["Ref"].append(ref)
                         columns["I"].append(ikey + "_" + it)
@@ -334,6 +338,8 @@ def add_to_ff(ff, configuration, data):
                         it, jt, kt, lt, v2, _, _ = imptor
                         if it == "0" and jt == "0" and kt == "0" and lt == "0":
                             continue
+                        # Tinker has a factor of 2 someplace.
+                        v2 = str(round(2 * float(v2), 4))
                         columns["Version"].append(version)
                         columns["Ref"].append(ref)
                         columns["I"].append(ikey + "_" + it)
@@ -627,7 +633,8 @@ Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
   pages     = "6665--6670",
   month     =  may,
   year      =  2005,
-  language  = "en"
+  language  = "en",
+  doi       = "10.1073/pnas.0408037102"
 }
 
 @bibtex @ARTICLE{Dodda2017-hm,
@@ -790,7 +797,8 @@ def run():
         # Remove the temporary .mol file
         Path("structure.mol").unlink()
 
-        paths = Path("~/Downloads").expanduser().glob("*.key")
+        paths = [*Path("~/Downloads").expanduser().glob("*.key")]
+        paths.extend([*Path("~/Downloads").expanduser().glob("download_lpg*.py")])
         time = 0
         path = None
         for tmp_path in paths:
