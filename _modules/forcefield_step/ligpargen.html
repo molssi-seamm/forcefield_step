@@ -1,0 +1,1375 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forcefield_step.ligpargen &#8212; SEAMM Forcefield Plug-in 2024.6.29 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c224919a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
+<!-- End Google Tag Manager -->
+
+    <script src="../../_static/documentation_options.js?v=4a368e61"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/forcefield_step/ligpargen';</script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/SEAMM logo.png" class="logo__image only-light" alt=""/>
+    <script>document.write(`<img src="../../_static/SEAMM Inverted 288x181.png" class="logo__image only-dark" alt=""/>`);</script>
+  
+  
+    <p class="title logo__title">Forcefield Step</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../authors.html">
+    Development Lead
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../history.html">
+    History
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://molssi-seamm.github.io">
+    SEAMM Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://molssi.org">
+    MolSSI
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer_guide/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../authors.html">
+    Development Lead
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../history.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://molssi-seamm.github.io">
+    SEAMM Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://molssi.org">
+    MolSSI
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">forcefield_s...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for forcefield_step.ligpargen</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">molsystem.elements</span> <span class="kn">import</span> <span class="n">to_symbols</span>
+<span class="kn">from</span> <span class="nn">molsystem.system_db</span> <span class="kn">import</span> <span class="n">SystemDB</span>
+<span class="kn">import</span> <span class="nn">pyperclip</span>
+<span class="kn">import</span> <span class="nn">read_structure_step</span>
+<span class="kn">import</span> <span class="nn">rdkit</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="n">ff_template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;!MolSSI forcefield 1</span>
+
+<span class="s2">#define ligpargen</span>
+
+<span class="s2">! Version  Ref                Function             Label</span>
+<span class="s2">!--------- ---    ------------------------------   ------</span>
+<span class="s2">2024.06.16 101    atom_types                       ligpargen</span>
+<span class="s2">2024.06.16 101    charges                          ligpargen</span>
+<span class="s2">2024.06.16 101    nonbond(12-6)                    ligpargen</span>
+<span class="s2">2024.06.16 101    quadratic_bond                   ligpargen</span>
+<span class="s2">2024.06.16 101    quadratic_angle                  ligpargen</span>
+<span class="s2">2024.06.16 101    torsion_opls                     ligpargen</span>
+<span class="s2">2024.06.16 101    improper_opls                    ligpargen</span>
+<span class="s2">2024.06.16 101    fragments                        ligpargen</span>
+
+<span class="s2">#atom_types           ligpargen</span>
+
+<span class="s2">&gt; Atom type definitions for any variant of OPLS-AA</span>
+
+<span class="s2">! Version   Ref    Type       Mass  El  # conns           Comment</span>
+<span class="s2">!---------- ---  --------   ------  --  ------- ---------------------------</span>
+
+<span class="s2">#charges ligpargen</span>
+<span class="s2">! Version   Ref     I      Charge</span>
+<span class="s2">!---------  ---  -------  --------</span>
+
+<span class="s2">#nonbond(12-6)         ligpargen</span>
+<span class="s2">&gt; E = 4 * eps(ij) * [(sigma(ij)*/r(ij))**12 - (sigma(ij)*/r(ij))**6]</span>
+<span class="s2">&gt;</span>
+<span class="s2">&gt; where    sigma(ij) = sqrt(sigma(i) * sigma(j)</span>
+<span class="s2">&gt;</span>
+<span class="s2">&gt;            eps(ij) = sqrt(eps(i) * eps(j))</span>
+
+<span class="s2">@type sigma-eps</span>
+<span class="s2">@combination geometric</span>
+
+<span class="s2">! Version   Ref     I       sigma     eps</span>
+<span class="s2">!---------  ---  -------  --------  --------</span>
+
+<span class="s2">#quadratic_bond       ligpargen</span>
+<span class="s2">&gt; E = K2 * (R - R0)^2</span>
+
+<span class="s2">! Version   Ref     I         J         R0        K2</span>
+<span class="s2">!---------  ---  --------  --------  --------  --------</span>
+
+<span class="s2">#quadratic_angle       ligpargen</span>
+<span class="s2">&gt; E = K2 * (Theta - Theta0)^2</span>
+
+<span class="s2">! Version   Ref     I         J         K       Theta0     K2</span>
+<span class="s2">!---------  ---  --------  --------  --------  --------  --------</span>
+
+<span class="s2">#torsion_opls       ligpargen</span>
+<span class="s2">&gt; E = 1/2*V1*[1 + cos(phi1)]</span>
+<span class="s2">&gt;   + 1/2*V2*[1 - cos(2*phi2)]</span>
+<span class="s2">&gt;   + 1/2*V3*[1 + cos(3*phi3)]</span>
+<span class="s2">&gt;   + 1/2*V4*[1 - cos(4*phi4)]</span>
+
+<span class="s2">! Version   Ref     I         J         K         L        V1      V2      V3      V4</span>
+<span class="s2">!---------  ---  --------  --------  --------  --------  ------  ------  ------  ------</span>
+
+<span class="s2">#improper_opls       ligpargen</span>
+<span class="s2">&gt; E = 1/2*V2*[1 - cos(2*phi2)]</span>
+
+<span class="s2">&gt; k is the central atom</span>
+
+<span class="s2">! Version   Ref     I         J         K         L        V2</span>
+<span class="s2">!---------  ---  --------  --------  --------  --------  ------</span>
+
+<span class="s2">#fragments ligpargen</span>
+<span class="s2">{</span>
+<span class="s2">}</span>
+
+<span class="s2">#reference 101</span>
+<span class="s2">@Author Paul Saxe</span>
+<span class="s2">@Date 2024-06-16</span>
+<span class="s2">Template for OPLS-AA Library</span>
+<span class="s2">#end</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="reader">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.ligpargen.reader">[docs]</a>
+<span class="k">def</span> <span class="nf">reader</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reads the .key and .xyz files and returns the data</span>
+
+<span class="sd">    This method reads the .key and .xyz files output by LigParGen and adds the</span>
+<span class="sd">    parameters to the local SEAMM forcefield ligpargen.frc file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str or pathlib.Path</span>
+<span class="sd">        The path to the .key or .xyz files</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    The .key file is a text file that contains the forcefield parameters for</span>
+<span class="sd">    Tinker. It looks like this:</span>
+
+
+
+<span class="sd">              ##############################</span>
+<span class="sd">              ##                          ##</span>
+<span class="sd">              ##  Force Field Definition  ##</span>
+<span class="sd">              ##                          ##</span>
+<span class="sd">              ##############################</span>
+
+
+<span class="sd">        forcefield              OPLS-AA</span>
+
+<span class="sd">        vdwindex                TYPE</span>
+<span class="sd">        vdwtype                 LENNARD-JONES</span>
+<span class="sd">        radiusrule              GEOMETRIC</span>
+<span class="sd">        radiustype              SIGMA</span>
+<span class="sd">        radiussize              DIAMETER</span>
+<span class="sd">        epsilonrule             GEOMETRIC</span>
+<span class="sd">        torsionunit             1.0</span>
+<span class="sd">        imptorunit              1.0</span>
+<span class="sd">        vdw-14-scale            2.0</span>
+<span class="sd">        chg-14-scale            2.0</span>
+<span class="sd">        electric                332.06</span>
+<span class="sd">        dielectric              1.0</span>
+
+
+<span class="sd">              #############################</span>
+<span class="sd">              ##                         ##</span>
+<span class="sd">              ##  Atom Type Definitions  ##</span>
+<span class="sd">              ##                         ##</span>
+<span class="sd">              #############################</span>
+
+
+<span class="sd">        atom        800  800    CT    &quot;C00&quot;          6     12.011     4</span>
+<span class="sd">        atom        801  801    CZ    &quot;C01&quot;          6     12.011     2</span>
+<span class="sd">        atom        802  802    NZ    &quot;N02&quot;          7     14.007     1</span>
+<span class="sd">        atom        803  803     F    &quot;F03&quot;          9     18.998     1</span>
+<span class="sd">        atom        804  804    HC    &quot;H04&quot;          1      1.008     1</span>
+<span class="sd">        atom        805  805    HC    &quot;H05&quot;          1      1.008     1</span>
+
+
+
+<span class="sd">              ################################</span>
+<span class="sd">              ##                            ##</span>
+<span class="sd">              ##  Van der Waals Parameters  ##</span>
+<span class="sd">              ##                            ##</span>
+<span class="sd">              ################################</span>
+
+
+<span class="sd">        vdw         800           3.5000   0.0660</span>
+<span class="sd">        vdw         801           3.3000   0.0660</span>
+<span class="sd">        vdw         802           3.2000   0.1700</span>
+<span class="sd">        ...</span>
+
+<span class="sd">    The interesting keys are:</span>
+<span class="sd">    - atom: defines the atom types</span>
+<span class="sd">    - vdw: defines the van der Waals parameters</span>
+<span class="sd">    - bond: defines the bond parameters</span>
+<span class="sd">    - angle: defines the angle parameters</span>
+<span class="sd">    - torsion: defines the torsion parameters</span>
+<span class="sd">    - imptors: defines the improper torsion parameters</span>
+<span class="sd">    - charge: defines the charge parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.key&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+    <span class="n">section</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">section</span><span class="p">:</span>
+            <span class="n">section</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">section</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+
+    <span class="k">return</span> <span class="n">section</span></div>
+
+
+
+<div class="viewcode-block" id="add_to_ff">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.ligpargen.add_to_ff">[docs]</a>
+<span class="k">def</span> <span class="nf">add_to_ff</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds the data to the forcefield file</span>
+
+<span class="sd">    This method adds the data from the .key file to the forcefield file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ff : list</span>
+<span class="sd">        The list of strings that make up the forcefield file</span>
+<span class="sd">    configuration : Configuration</span>
+<span class="sd">        The configuration object</span>
+<span class="sd">    data : dict</span>
+<span class="sd">        The data read from the .key file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The updated forcefield file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">PC_iupac_name</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">inchikey</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">inchikey</span>
+    <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smarts</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">hydrogens</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Find the next available reference number</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ff</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#reference&quot;</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">tmp</span> <span class="o">&gt;</span> <span class="n">ref</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="n">ref</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">ikey</span> <span class="o">=</span> <span class="n">inchikey</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y.%m.</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">section</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">entry_lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">section</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Add the new data and print to the file</span>
+                <span class="k">if</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;atom_types&quot;</span><span class="p">:</span>
+                    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">bonded_neighbors</span><span class="p">(</span><span class="n">as_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">nbonds</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">]</span>
+                    <span class="n">atom_types</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">atom</span><span class="p">,</span> <span class="n">nb</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;atom&quot;</span><span class="p">],</span> <span class="n">nbonds</span><span class="p">):</span>
+                        <span class="n">symbol</span> <span class="o">=</span> <span class="n">to_symbols</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="mi">4</span><span class="p">])])[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Mass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;El&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">symbol</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;# conns&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Comment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
+                        <span class="n">atom_types</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">atom</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;charges&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">charge</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;charge&quot;</span><span class="p">]:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">charge</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Charge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">charge</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;nonbond(12-6)&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">vdw</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;vdw&quot;</span><span class="p">]:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">vdw</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Sigma&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vdw</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Epsilon&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vdw</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;quadratic_bond&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;bond&quot;</span><span class="p">]:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">bond</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">bond</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;R0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bond</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bond</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">,</span> <span class="s2">&quot;decimal&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;quadratic_angle&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;angle&quot;</span><span class="p">]:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Theta0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;torsion_opls&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">torsion</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;torsion&quot;</span><span class="p">]:</span>
+                        <span class="n">it</span><span class="p">,</span> <span class="n">jt</span><span class="p">,</span> <span class="n">kt</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torsion</span>
+                        <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">jt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">kt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">lt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">it</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">jt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">kt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">lt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;0.0&quot;</span><span class="p">)</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;improper_opls&quot;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">imptor</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imptors&quot;</span><span class="p">]:</span>
+                        <span class="n">it</span><span class="p">,</span> <span class="n">jt</span><span class="p">,</span> <span class="n">kt</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">imptor</span>
+                        <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">jt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">kt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">lt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">it</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">jt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">kt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">lt</span><span class="p">)</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+                    <span class="n">align</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;fragments&quot;</span><span class="p">:</span>
+                    <span class="n">fragments</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">entry_lines</span><span class="p">))</span>
+
+                    <span class="c1"># Need to reorder the atom types to the order of the atoms</span>
+                    <span class="n">molecule</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_RDKMol</span><span class="p">()</span>
+                    <span class="n">pattern</span> <span class="o">=</span> <span class="n">rdkit</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmarts</span><span class="p">(</span><span class="n">smarts</span><span class="p">)</span>
+                    <span class="n">matches</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">GetSubstructMatches</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+                    <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="n">atom_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+                    <span class="n">fragments</span><span class="p">[</span><span class="n">canonical_smiles</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">version</span><span class="p">:</span> <span class="p">{}}</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">fragments</span><span class="p">[</span><span class="n">canonical_smiles</span><span class="p">][</span><span class="n">version</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;InChIKey&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inchikey</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;SMILES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">canonical_smiles</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;SMARTS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">smarts</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;atom types&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">types</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;reference&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ref</span>
+
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">fragments</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="n">entry_lines</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown section: </span><span class="si">{</span><span class="n">section</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;fragments&quot;</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">tlines</span> <span class="o">=</span> <span class="n">tabulate</span><span class="p">(</span>
+                            <span class="n">columns</span><span class="p">,</span>
+                            <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span>
+                            <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+                            <span class="n">colalign</span><span class="o">=</span><span class="n">align</span><span class="p">,</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!&quot;</span> <span class="o">+</span> <span class="n">tlines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!&quot;</span> <span class="o">+</span> <span class="n">tlines</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">tline</span> <span class="ow">in</span> <span class="n">tlines</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+                            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">tline</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">tline</span> <span class="o">=</span> <span class="s2">&quot;!&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tline</span><span class="p">)</span>
+                        <span class="n">tline</span> <span class="o">=</span> <span class="s2">&quot;!&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">columns</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tline</span><span class="p">)</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="c1"># add a blank line and the new section header</span>
+            <span class="k">if</span> <span class="n">section</span> <span class="o">!=</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">section</span> <span class="o">!=</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="c1"># See if this is a section that needs to be updated</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;atom_types&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Mass&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;El&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;# conns&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Comment&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;charges&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;Charge&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;nonbond(12-6)&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Sigma&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Epsilon&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;quadratic_bond&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;R0&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;K2&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;quadratic_angle&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Theta0&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;K2&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;torsion_opls&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;L&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;V1&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;V2&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;V3&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;V4&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;improper_opls&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;Version&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;Ref&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;L&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;V2&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="p">}</span>
+                <span class="c1"># Reproduce any comment lines, etc, at beginnning</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;fragments&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+                <span class="n">entry_lines</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="n">key</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">section</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">section</span> <span class="o">!=</span> <span class="s2">&quot;reference&quot;</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;atom_types&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Mass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;El&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;# conns&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;# conns&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Comment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Comment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;charges&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Charge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;nonbond(12-6)&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Sigma&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Epsilon&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;quadratic_bond&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;R0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;quadratic_angle&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Theta0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;torsion_opls&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;improper_opls&quot;</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                    <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;fragments&quot;</span><span class="p">:</span>
+                    <span class="n">entry_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="c1"># Add the new reference at the end of the file.</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;#end&quot;</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;#reference </span><span class="si">{</span><span class="n">ref</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@Date </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@User </span><span class="si">{</span><span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Parameters downloaded from LigParGen&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;InChIKey: </span><span class="si">{</span><span class="n">inchikey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  SMILES: </span><span class="si">{</span><span class="n">canonical_smiles</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  SMARTS: </span><span class="si">{</span><span class="n">smarts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Potential energy functions for atomic-level simulations of water and organic and</span>
+<span class="sd">biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.</span>
+<span class="sd">USA 2005, 102, 6665-6670</span>
+
+<span class="sd">Localized Bond-Charge Corrected CM1A Charges for Condensed-Phase Simulations.</span>
+<span class="sd">Dodda, L. S.; Vilseck, J. Z.; Tirado-Rives, J.; Jorgensen, W. L.</span>
+<span class="sd">J. Phys. Chem. B, 2017, 121 (15), 3864-3870</span>
+
+<span class="sd">LigParGen web server: An automatic OPLS-AA parameter generator for organic ligands.</span>
+<span class="sd">Dodda, L. S.;Cabeza de Vaca, I.; Tirado-Rives, J.; Jorgensen, W. L.</span>
+<span class="sd">Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336</span>
+
+<span class="sd">@bibtex @ARTICLE{Jorgensen2005-uh,</span>
+<span class="sd">  title     = &quot;Potential energy functions for atomic-level simulations of water</span>
+<span class="sd">               and organic and biomolecular systems&quot;,</span>
+<span class="sd">  author    = &quot;Jorgensen, William L and Tirado-Rives, Julian&quot;,</span>
+<span class="sd">  abstract  = &quot;An overview is provided on the development and status of</span>
+<span class="sd">               potential energy functions that are used in atomic-level</span>
+<span class="sd">               statistical mechanics and molecular dynamics simulations of</span>
+<span class="sd">               water and of organic and biomolecular systems. Some topics that</span>
+<span class="sd">               are considered are the form of force fields, their</span>
+<span class="sd">               parameterization and performance, simulations of organic</span>
+<span class="sd">               liquids, computation of free energies of hydration, universal</span>
+<span class="sd">               extension for organic molecules, and choice of atomic charges.</span>
+<span class="sd">               The discussion of water models covers some history, performance</span>
+<span class="sd">               issues, and special topics such as nuclear quantum effects.&quot;,</span>
+<span class="sd">  journal   = &quot;Proc. Natl. Acad. Sci. U. S. A.&quot;,</span>
+<span class="sd">  publisher = &quot;Proceedings of the National Academy of Sciences&quot;,</span>
+<span class="sd">  volume    =  102,</span>
+<span class="sd">  number    =  19,</span>
+<span class="sd">  pages     = &quot;6665--6670&quot;,</span>
+<span class="sd">  month     =  may,</span>
+<span class="sd">  year      =  2005,</span>
+<span class="sd">  language  = &quot;en&quot;</span>
+<span class="sd">}</span>
+
+<span class="sd">@bibtex @ARTICLE{Dodda2017-hm,</span>
+<span class="sd">  title     = &quot;{1.14*CM1A-LBCC}: Localized bond-charge corrected {CM1A} charges</span>
+<span class="sd">               for condensed-phase simulations&quot;,</span>
+<span class="sd">  author    = &quot;Dodda, Leela S and Vilseck, Jonah Z and Tirado-Rives, Julian and</span>
+<span class="sd">               Jorgensen, William L&quot;,</span>
+<span class="sd">  abstract  = &quot;The quality of the 1.14*CM1A and 1.20*CM5 charge models was</span>
+<span class="sd">               evaluated for calculations of free energies of hydration. For a</span>
+<span class="sd">               set of 426 neutral molecules, 1.14*CM1A and 1.20*CM5 yield MADs</span>
+<span class="sd">               of 1.26 and 1.21 kcal/mol, respectively. The 1.14*CM1A charges,</span>
+<span class="sd">               which can be readily obtained for large systems, exhibit large</span>
+<span class="sd">               deviations only for a subset of functional groups. The results</span>
+<span class="sd">               for these cases were systematically improved using localized</span>
+<span class="sd">               bond-charge corrections (LBCC) by which offsetting adjustments</span>
+<span class="sd">               are made to the partial charges for atoms in specified bond</span>
+<span class="sd">               types. Only 19 LBCCs were needed to yield 1.14*CM1A-LBCC charges</span>
+<span class="sd">               that reduce the errors for the 426 $\\Delta$Ghyd values to only</span>
+<span class="sd">               0.61 kcal/mol. The modified charge method was also tested in</span>
+<span class="sd">               computation of heats of vaporization and densities for pure</span>
+<span class="sd">               organic liquids, yielding average errors of 1.40 kcal/mol and</span>
+<span class="sd">               0.024 g/cm3, similar to those for 1.14*CM1A.&quot;,</span>
+<span class="sd">  journal   = &quot;J. Phys. Chem. B&quot;,</span>
+<span class="sd">  publisher = &quot;American Chemical Society (ACS)&quot;,</span>
+<span class="sd">  volume    =  121,</span>
+<span class="sd">  number    =  15,</span>
+<span class="sd">  pages     = &quot;3864--3870&quot;,</span>
+<span class="sd">  month     =  apr,</span>
+<span class="sd">  year      =  2017,</span>
+<span class="sd">  language  = &quot;en&quot;,</span>
+<span class="sd">  doi       = &quot;10.1021/acs.jpcb.7b00272&quot;</span>
+<span class="sd">}</span>
+
+<span class="sd">@bibtex @ARTICLE{Dodda2017-in,</span>
+<span class="sd">  title     = &quot;{LigParGen} web server: an automatic {OPLS-AA} parameter</span>
+<span class="sd">               generator for organic ligands&quot;,</span>
+<span class="sd">  author    = &quot;Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,</span>
+<span class="sd">               Julian and Jorgensen, William L&quot;,</span>
+<span class="sd">  journal   = &quot;Nucleic Acids Res.&quot;,</span>
+<span class="sd">  publisher = &quot;Oxford University Press (OUP)&quot;,</span>
+<span class="sd">  volume    =  45,</span>
+<span class="sd">  number    = &quot;W1&quot;,</span>
+<span class="sd">  pages     = &quot;W331--W336&quot;,</span>
+<span class="sd">  month     =  jul,</span>
+<span class="sd">  year      =  2017,</span>
+<span class="sd">  copyright = &quot;http://creativecommons.org/licenses/by-nc/4.0/&quot;,</span>
+<span class="sd">  doi       = &quot;10.1093/nar/gkx312&quot;</span>
+<span class="sd">}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">@bibtex @Misc</span><span class="se">{{</span><span class="si">{</span><span class="n">inchikey</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">  author    = &quot;Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,</span>
+<span class="s2">               Julian and Jorgensen, William L&quot;,</span>
+<span class="s2">  title     = &quot;</span><span class="se">{{</span><span class="s2">LigParGen</span><span class="se">}}</span><span class="s2"> generated parameters for </span><span class="si">{</span><span class="n">canonical_smiles</span><span class="si">}{</span><span class="n">tmp</span><span class="si">}</span><span class="s2">&quot;,</span>
+<span class="s2">  month     = &quot;jun&quot;,</span>
+<span class="s2">  year      = &quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;,</span>
+<span class="s2">  organization = &quot;William L. Jorgensen research group, Yale University&quot;,</span>
+<span class="s2">  url       = &quot;https://traken.chem.yale.edu/ligpargen/&quot;,</span>
+<span class="s2">  address   = &quot;New Haven, CT, USA&quot;,</span>
+<span class="s2">  note      = &quot;Accessed on </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="se">}}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;#end&quot;</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_copy_header</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="s2">&quot;Version&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="s2">&quot;-------&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="run">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.ligpargen.run">[docs]</a>
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">ffpath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;~/.seamm.d/data/Forcefields/OPLS-AA/ligpargen.frc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
+    <span class="n">ffpath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ffpath</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">ffpath</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">ff_template</span>
+
+    <span class="n">db</span> <span class="o">=</span> <span class="n">SystemDB</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;file:seamm_db?mode=memory&amp;cache=shared&quot;</span><span class="p">)</span>
+
+    <span class="n">changed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">smiles</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a SMILES string (return to exit): &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">smiles</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">system</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_system</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">smiles</span><span class="p">)</span>
+        <span class="n">configuration</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">create_configuration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;initial&quot;</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Recreate the system from the canonical SMILES to get the order of atoms</span>
+        <span class="n">system</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">canonical_smiles</span>
+        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">read_structure_step</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;structure.mol&quot;</span><span class="p">,</span>
+            <span class="p">[</span><span class="n">configuration</span><span class="p">],</span>
+            <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.mol&quot;</span><span class="p">,</span>
+            <span class="n">remove_hydrogens</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://zarbi.chem.yale.edu/ligpargen/index.html&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pyperclip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You will need to go to the LigParGen website&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;and paste the following SMILES string into the SMILES box.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;or you can upload the file &#39;structure.mol&#39; from this directory.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You will need to go to the LigParGen website&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="n">url</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The address has been copied to the clipboard.&quot;</span><span class="p">)</span>
+            <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Press return for the next step.&quot;</span><span class="p">)</span>
+            <span class="n">pyperclip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following SMILES string has been copied to the clipboard.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please paste it into the SMILES box on the LigParGen website.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;or you can upload the file &#39;structure.mol&#39; from this directory.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Select the type of charges you want and the molecule&#39;s charge&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;and click the &#39;Submit Molecules&#39; button.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In the results page that appears after a few seconds, click the KEY&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;button under &#39;TINKER&#39;. This will download a file with a .key extension.&quot;</span><span class="p">)</span>
+        <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Press return when you have the file and are ready to continue.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Remove the temporary .mol file</span>
+        <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;structure.mol&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+        <span class="n">paths</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;~/Downloads&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.key&quot;</span><span class="p">)</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">tmp_path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">tmp_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_birthtime_ns</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="n">tmp_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_birthtime</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="n">tmp_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_mtime</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">time</span><span class="p">:</span>
+                <span class="n">time</span> <span class="o">=</span> <span class="n">t</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">tmp_path</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> the file you want to use? [Y/n] &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">answer</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the path to the .key file: &quot;</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">add_to_ff</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">changed</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ffpath</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">ffpath</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+            <span class="n">backup</span> <span class="o">=</span> <span class="n">ffpath</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.frc-&quot;</span><span class="p">)</span>
+            <span class="n">backup</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="n">ffpath</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The file has been updated and a backup copy made.&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

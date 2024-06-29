@@ -28,6 +28,14 @@ forcefield\_step.forcefield\_step module
    :undoc-members:
    :show-inheritance:
 
+forcefield\_step.ligpargen module
+---------------------------------
+
+.. automodule:: forcefield_step.ligpargen
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 forcefield\_step.tk\_forcefield module
 --------------------------------------
 
