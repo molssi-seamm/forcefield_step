@@ -1,6 +1,12 @@
 =======
 History
 =======
+2024.6.28 -- Added customizable local forcefields and LigParGen interface.
+  * Added the machinery to handle local forcefield files in either
+    ~/.seamm.d/data/Forcefields (personal) or ~/SEAMM/data/Forcefields (site).
+  * Added 'ligpargen' command to access custom parameters from the LigParGen service
+    at Yale University, ading them to the 'ligpargen.frc' personal forcefield, which
+    is automatically included in 'oplsaa.frc' if it exists.
 
 2024.1.10 -- Fixed PF6- issue in CL&P forcefield
   * The angle parameters for PF6- in the CL&P forcefield only work if the 180º F-P-F

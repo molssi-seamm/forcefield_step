@@ -10,8 +10,11 @@ dependencies:
 
   # SEAMM
   - kim-query
+  - pyperclip
+  - rdkit
   - seamm
   - seamm-ff-util
+  - tabulate
   
   # Testing
   - black
@@ -26,5 +29,6 @@ dependencies:
 
   # Pip-only installs
   - pip:
+    - read-structure-step
     # Documentation
     - sphinx-copybutton

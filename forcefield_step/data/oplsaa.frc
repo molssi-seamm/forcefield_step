@@ -4,17 +4,18 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
-2023.01.29   1    atom_types                       oplsaa CL&P
+2023.01.29   1    atom_types                       oplsaa CL&P ligpargen:optional
 2023.01.29   1    equivalence                      oplsaa CL&P
-2023.01.29   1    charges                          oplsaa CL&P
-2023.01.29   1    nonbond(12-6)                    oplsaa CL&P
-2023.01.29   1    quadratic_bond                   oplsaa CL&P
-2023.01.29   1    quadratic_angle                  oplsaa CL&P
-2023.08.21   1    quadratic_angle                  oplsaa CL&P
+2023.01.29   1    charges                          oplsaa CL&P ligpargen:optional
+2023.01.29   1    nonbond(12-6)                    oplsaa CL&P ligpargen:optional
+2023.01.29   1    quadratic_bond                   oplsaa CL&P ligpargen:optional
+2023.01.29   1    quadratic_angle                  oplsaa CL&P ligpargen:optional
+2023.08.21   1    quadratic_angle                  oplsaa CL&P ligpargen:optional
 2023.08.26   1    tabulated_angle                  CL&P
-2023.01.29   1    torsion_opls                     oplsaa CL&P
-2023.01.29   1    improper_opls                    oplsaa
+2023.01.29   1    torsion_opls                     oplsaa CL&P ligpargen:optional
+2023.01.29   1    improper_opls                    oplsaa ligpargen:optional
 2023.01.29   1    templates                        oplsaa
+2024.06.20   1    fragments			   ligpargen:optional
 #end
 
 #define oplsaa
@@ -49,7 +50,7 @@
 2023.01.29   1    templates                        CL&P
 #end
 
-
+#include local:OPLS-AA/ligpargen.frc missing_ok
 
 #atom_types           oplsaa
 
@@ -11262,6 +11263,31 @@
 @Author Paul Saxe
 @Date 2023-01-29
 OPLSAA forcefield translated from Tinker version.
+
+@bibtex @ARTICLE{Jorgensen2005-uh,
+  title     = "Potential energy functions for atomic-level simulations of water
+               and organic and biomolecular systems",
+  author    = "Jorgensen, William L and Tirado-Rives, Julian",
+  abstract  = "An overview is provided on the development and status of
+               potential energy functions that are used in atomic-level
+               statistical mechanics and molecular dynamics simulations of
+               water and of organic and biomolecular systems. Some topics that
+               are considered are the form of force fields, their
+               parameterization and performance, simulations of organic
+               liquids, computation of free energies of hydration, universal
+               extension for organic molecules, and choice of atomic charges.
+               The discussion of water models covers some history, performance
+               issues, and special topics such as nuclear quantum effects.",
+  journal   = "Proc. Natl. Acad. Sci. U. S. A.",
+  publisher = "Proceedings of the National Academy of Sciences",
+  volume    =  102,
+  number    =  19,
+  pages     = "6665--6670",
+  month     =  may,
+  year      =  2005,
+  language  = "en",
+  doi       = "10.1073/pnas.0408037102"
+}
 #end
 
 #reference 2
@@ -11273,8 +11299,7 @@ Modeling Ionic Liquids Using a Systematic All-Atom Force Field.
 J Phys Chem B 2004, 108 (6), 2038–2047.
 https://doi.org/10.1021/jp0362133.
 
-
-@article{10.1021/jp0362133, 
+@bibtex @article{10.1021/jp0362133, 
 year = {2004}, 
 title = {{Modeling Ionic Liquids Using a Systematic All-Atom Force Field}}, 
 author = {Lopes, José N. Canongia and Deschamps, Johnny and Pádua, Agílio A. H.}, 
@@ -11296,8 +11321,7 @@ Molecular Force Field for Ionic Liquids Composed of Triflate or Bistriflylimide 
 J Phys Chem B 2004, 108 (43), 16893–16898.
 https://doi.org/10.1021/jp0476545.
 
-
-@article{10.1021/jp0476545, 
+@bibtex @article{10.1021/jp0476545, 
 year = {2004}, 
 title = {{Molecular Force Field for Ionic Liquids Composed of Triflate or Bistriflylimide Anions}}, 
 author = {Lopes, José N. Canongia and Pádua, Agílio A. H.}, 
@@ -11326,6 +11350,103 @@ added missing angle parameters
       
 from LibParGen on EC and FEC (ethylene carbonate and fluoroethylene carbonate)
 
+Potential energy functions for atomic-level simulations of water and organic and
+biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.
+USA 2005, 102, 6665-6670
+
+Localized Bond-Charge Corrected CM1A Charges for Condensed-Phase Simulations.
+Dodda, L. S.; Vilseck, J. Z.; Tirado-Rives, J.; Jorgensen, W. L.
+J. Phys. Chem. B, 2017, 121 (15), 3864-3870
+
+LigParGen web server: An automatic OPLS-AA parameter generator for organic ligands.
+Dodda, L. S.;Cabeza de Vaca, I.; Tirado-Rives, J.; Jorgensen, W. L.
+Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
+
+@bibtex @ARTICLE{Jorgensen2005-uh,
+  title     = "Potential energy functions for atomic-level simulations of water
+               and organic and biomolecular systems",
+  author    = "Jorgensen, William L and Tirado-Rives, Julian",
+  abstract  = "An overview is provided on the development and status of
+               potential energy functions that are used in atomic-level
+               statistical mechanics and molecular dynamics simulations of
+               water and of organic and biomolecular systems. Some topics that
+               are considered are the form of force fields, their
+               parameterization and performance, simulations of organic
+               liquids, computation of free energies of hydration, universal
+               extension for organic molecules, and choice of atomic charges.
+               The discussion of water models covers some history, performance
+               issues, and special topics such as nuclear quantum effects.",
+  journal   = "Proc. Natl. Acad. Sci. U. S. A.",
+  publisher = "Proceedings of the National Academy of Sciences",
+  volume    =  102,
+  number    =  19,
+  pages     = "6665--6670",
+  month     =  may,
+  year      =  2005,
+  language  = "en"
+}
+
+@bibtex @ARTICLE{Dodda2017-hm,
+  title     = "{1.14*CM1A-LBCC}: Localized bond-charge corrected {CM1A} charges
+               for condensed-phase simulations",
+  author    = "Dodda, Leela S and Vilseck, Jonah Z and Tirado-Rives, Julian and
+               Jorgensen, William L",
+  abstract  = "The quality of the 1.14*CM1A and 1.20*CM5 charge models was
+               evaluated for calculations of free energies of hydration. For a
+               set of 426 neutral molecules, 1.14*CM1A and 1.20*CM5 yield MADs
+               of 1.26 and 1.21 kcal/mol, respectively. The 1.14*CM1A charges,
+               which can be readily obtained for large systems, exhibit large
+               deviations only for a subset of functional groups. The results
+               for these cases were systematically improved using localized
+               bond-charge corrections (LBCC) by which offsetting adjustments
+               are made to the partial charges for atoms in specified bond
+               types. Only 19 LBCCs were needed to yield 1.14*CM1A-LBCC charges
+               that reduce the errors for the 426 $\Delta$Ghyd values to only
+               0.61 kcal/mol. The modified charge method was also tested in
+               computation of heats of vaporization and densities for pure
+               organic liquids, yielding average errors of 1.40 kcal/mol and
+               0.024 g/cm3, similar to those for 1.14*CM1A.",
+  journal   = "J. Phys. Chem. B",
+  publisher = "American Chemical Society (ACS)",
+  volume    =  121,
+  number    =  15,
+  pages     = "3864--3870",
+  month     =  apr,
+  year      =  2017,
+  language  = "en",
+  doi       = "10.1021/acs.jpcb.7b00272"
+}
+
+@bibtex @ARTICLE{Dodda2017-in,
+  title     = "{LigParGen} web server: an automatic {OPLS-AA} parameter
+               generator for organic ligands",
+  author    = "Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,
+               Julian and Jorgensen, William L",
+  journal   = "Nucleic Acids Res.",
+  publisher = "Oxford University Press (OUP)",
+  volume    =  45,
+  number    = "W1",
+  pages     = "W331--W336",
+  month     =  jul,
+  year      =  2017,
+  copyright = "http://creativecommons.org/licenses/by-nc/4.0/",
+  doi       = "10.1093/nar/gkx312"
+}
+
+
+@bibtex @Misc{SBLRHMKNNHXPHG-UWTATZPHSA-N,
+  author    = "Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,
+               Julian and Jorgensen, William L",
+  title     = "{LigParGen} generated parameters for O=C1OCCO1 and O=C1OCC(F)O1
+  	       (1,3-dioxolan-2-one and (4S)-4-fluoro-1,3-dioxolan-2-one)",
+  month     = "jun",
+  year      = "2024",
+  organization = "William L. Jorgensen research group, Yale University",
+  url       = "https://traken.chem.yale.edu/ligpargen/",
+  address   = "New Haven, CT, USA",
+  note      = "Accessed on 2024-06-26T11:29:43.355106"
+}
+
 #reference 5
 @Author Paul Saxe
 @Date 2023-09-13
@@ -11334,7 +11455,7 @@ from asymmetrical substitutions to a consistent force field model.
 Phys. Chem. Chem. Phys. 19, 29617–29624 (2017).
 doi: 10.1039/c7cp06081e
 
-@article{10.1039/c7cp06081e, 
+@bibtex @article{10.1039/c7cp06081e, 
 year = {2017}, 
 title = {{Ionic liquids with anions based on fluorosulfonyl derivatives: from asymmetrical substitutions to a consistent force field model}}, 
 author = {Gouveia, Andreia S. L. and Bernardes, Carlos E. S. and Tomé, Liliana C. and Lozinskaya, Elena I. and Vygodskii, Yakov S. and Shaplov, Alexander S. and Lopes, José N. Canongia and Marrucho, Isabel M.}, 

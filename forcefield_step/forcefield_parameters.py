@@ -5,6 +5,7 @@
 import importlib
 import logging
 import os
+from pathlib import Path
 import pkg_resources
 import seamm
 
@@ -29,6 +30,13 @@ with os.scandir(path) as it:
             if ext == ".frc":
                 forcefields.append(entry.name)
 
+# and local forcefields in the ~/SEAMM/Parameters directory
+local = Path.home() / "SEAMM" / "Parameters"
+logger.debug("Looking for forcefields at " + str(local))
+if local.exists():
+    for path in local.glob("**/*.frc"):
+        logger.debug("   " + str(path))
+        forcefields.append("local:" + str(path.relative_to(local)))
 forcefields = sorted(forcefields)
 
 
