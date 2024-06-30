@@ -264,8 +264,8 @@ class Forcefield(seamm.Node):
 
         ff_file = P["forcefield_file"]
         if ff_file.startswith("local:"):
-            ff_file = ff_file[6:]
-            uri = f"data:Forcefields/{ff_file}"
+            ff_file = "Forcefields/" + ff_file[6:]
+            uri = f"data:{ff_file}"
             path = self.find_data_file(ff_file)
             result.append((uri, path))
         else:
