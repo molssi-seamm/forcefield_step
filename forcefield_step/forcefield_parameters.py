@@ -66,7 +66,7 @@ class ForcefieldParameters(seamm.Parameters):
             "help_text": "What to do with the forcefield.",
         },
         "forcefield_file": {
-            "default": forcefields[0],
+            "default": "oplsaa.frc",
             "kind": "enumeration",
             "default_units": "",
             "enumeration": tuple(forcefields),

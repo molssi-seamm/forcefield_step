@@ -1,6 +1,8 @@
 =======
 History
 =======
+2024.10.25 -- Changed the default forcefield to OPLSAA
+
 2024.6.30 -- Bugfix: Error submitting jobs with local forcefield files.
 
 2024.6.29 -- Bugfix: factor of 2 for dihedrals and impropers in ligpargen
