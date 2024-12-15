@@ -7,7 +7,7 @@ These were originally developed using the SMILES from OpenBabel.
 When the default for SMILES was changed to RDKit, tests with explicit
 hydrogens in the SMILES failed because RDKit produces a different order
 of atoms than OpenBabel in these cases. For the time being, in these tests
-the call to configuration.smiles adds the argument 'rdkit=False' to continue
+the call to configuration.smiles adds the argument 'flavor="openbabel"' to continue
 using OpenBabel.
 """
 
@@ -322,7 +322,7 @@ if True:
             + ["opls_115", "opls_113", "opls_114"]
             + 5 * ["opls_118"]
         )
-        configuration.from_smiles("C(O[H])C(O[H])CO[H]", rdkit=False)
+        configuration.from_smiles("C(O[H])C(O[H])CO[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -337,7 +337,7 @@ if True:
             + 3 * ["opls_118"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("C(O[H])C(O[H])C(O[H])(C)C", rdkit=False)
+        configuration.from_smiles("C(O[H])C(O[H])C(O[H])(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -937,7 +937,7 @@ if True:
             + 2 * ["opls_85"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("[H]OCc1ccccc1", rdkit=False)
+        configuration.from_smiles("[H]OCc1ccccc1", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -954,7 +954,7 @@ if True:
             + 4 * ["opls_85"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("[H]OC(C)c1ccccc1", rdkit=False)
+        configuration.from_smiles("[H]OC(C)c1ccccc1", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -971,7 +971,7 @@ if True:
             + 6 * ["opls_85"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("[H]OC(C)(C)c1ccccc1", rdkit=False)
+        configuration.from_smiles("[H]OC(C)(C)c1ccccc1", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1063,7 +1063,7 @@ if True:
         correct = (
             ["opls_221", "opls_174", "opls_220"] + 6 * ["opls_90"] + 5 * ["opls_91"]
         )
-        configuration.from_smiles("[H]C(=O)c1ccccc1", rdkit=False)
+        configuration.from_smiles("[H]C(=O)c1ccccc1", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1093,7 +1093,7 @@ if True:
         opls 221, hydrogen in aldehyde -CH=O
         """
         correct = ["opls_221", "opls_219", "opls_220", "opls_80"] + 3 * ["opls_85"]
-        configuration.from_smiles("[H]C(=O)C", rdkit=False)
+        configuration.from_smiles("[H]C(=O)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1350,7 +1350,7 @@ if True:
             + 2 * ["opls_194", "opls_195", "opls_198"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("N([H])(C(=O)C)C(=O)C", rdkit=False)
+        configuration.from_smiles("N([H])(C(=O)C)C(=O)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1383,7 +1383,7 @@ if True:
             + 2 * ["opls_194", "opls_195", "opls_199", "opls_80"]
             + 10 * ["opls_85"]
         )
-        configuration.from_smiles("N([H])(C(=O)CC)C(=O)CC", rdkit=False)
+        configuration.from_smiles("N([H])(C(=O)CC)C(=O)CC", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1416,7 +1416,7 @@ if True:
             + 2 * (["opls_194", "opls_195", "opls_200"] + 2 * ["opls_80"])
             + 14 * ["opls_85"]
         )
-        configuration.from_smiles("N([H])(C(=O)C(C)C)C(=O)C(C)C", rdkit=False)
+        configuration.from_smiles("N([H])(C(=O)C(C)C)C(=O)C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1449,7 +1449,9 @@ if True:
             + 2 * (["opls_194", "opls_195", "opls_201"] + 3 * ["opls_80"])
             + 18 * ["opls_85"]
         )
-        configuration.from_smiles("N([H])(C(=O)C(C)(C)C)C(=O)C(C)(C)C", rdkit=False)
+        configuration.from_smiles(
+            "N([H])(C(=O)C(C)(C)C)C(=O)C(C)(C)C", flavor="openbabel"
+        )
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1497,7 +1499,7 @@ if True:
             + 3 * ["opls_85"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("CC(=O)N([H])c1ccccc1", rdkit=False)
+        configuration.from_smiles("CC(=O)N([H])c1ccccc1", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1513,7 +1515,7 @@ if True:
         correct = ["opls_80", "opls_209", "opls_210", "opls_211", "opls_212"] + 3 * [
             "opls_85"
         ]
-        configuration.from_smiles("CC(=O)O[H]", rdkit=False)
+        configuration.from_smiles("CC(=O)O[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1521,7 +1523,7 @@ if True:
 
         # Formic acid is an edge case
         correct = ["opls_221", "opls_209", "opls_210", "opls_211", "opls_212"]
-        configuration.from_smiles("[H]C(=O)O[H]", rdkit=False)
+        configuration.from_smiles("[H]C(=O)O[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1534,7 +1536,7 @@ if True:
         opls 221, hydrogen in aldehydes, formic acid, formamide...
         """
         correct = ["opls_221", "opls_213", "opls_214", "opls_214"]
-        configuration.from_smiles("[H]C(=O)[O-]", rdkit=False)
+        configuration.from_smiles("[H]C(=O)[O-]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1616,7 +1618,7 @@ if True:
             + ["opls_183", "opls_177", "opls_178", "opls_80", "opls_212"]
             + 7 * ["opls_85"]
         )
-        configuration.from_smiles("O=C(O)C(C)N([H])C(=O)C", rdkit=False)
+        configuration.from_smiles("O=C(O)C(C)N([H])C(=O)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1631,7 +1633,7 @@ if True:
             + ["opls_183", "opls_177", "opls_178", "opls_80", "opls_212"]
             + 5 * ["opls_85"]
         )
-        configuration.from_smiles("O=C(O)CN([H])C(=O)C", rdkit=False)
+        configuration.from_smiles("O=C(O)CN([H])C(=O)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -1646,7 +1648,7 @@ if True:
             + ["opls_180", "opls_183", "opls_177", "opls_178", "opls_80", "opls_212"]
             + 9 * ["opls_85"]
         )
-        configuration.from_smiles("O=C(O)C(C)(C)N([H])C(=O)C", rdkit=False)
+        configuration.from_smiles("O=C(O)C(C)(C)N([H])C(=O)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -2006,7 +2008,7 @@ if True:
             + ["opls_411", "opls_210", "opls_211", "opls_212"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("c1ccccc1C(=O)O[H]", rdkit=False)
+        configuration.from_smiles("c1ccccc1C(=O)O[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -2523,7 +2525,7 @@ if True:
             + ["opls_538", "opls_539", "opls_540", "opls_541"]
             + ["opls_542", "opls_543"]
         )
-        configuration.from_smiles("n1([H])ccc2ccccc21", rdkit=False)
+        configuration.from_smiles("n1([H])ccc2ccccc21", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -2582,7 +2584,7 @@ if True:
             + ["opls_566", "opls_567", "opls_568", "opls_569"]
             + ["opls_573", "opls_570", "opls_571", "opls_572"]
         )
-        configuration.from_smiles("n1cnc2c(c1)ncn2[H]", rdkit=False)
+        configuration.from_smiles("n1cnc2c(c1)ncn2[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -2651,7 +2653,7 @@ if True:
             + 2 * ["opls_739"]
             + ["opls_540", "opls_542", "opls_543"]
         )
-        configuration.from_smiles("n1([H])cc(CCN)c2cc(O[H])ccc21", rdkit=False)
+        configuration.from_smiles("n1([H])cc(CCN)c2cc(O[H])ccc21", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3551,7 +3553,7 @@ if True:
             + ["opls_824"]
             + 3 * ["opls_85"]
         )
-        configuration.from_smiles("CC(=O)N(O[H])[H]", rdkit=False)
+        configuration.from_smiles("CC(=O)N(O[H])[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3572,7 +3574,7 @@ if True:
             + ["opls_824"]
             + 5 * ["opls_91"]
         )
-        configuration.from_smiles("c1ccccc1C(=O)N(O[H])[H]", rdkit=False)
+        configuration.from_smiles("c1ccccc1C(=O)N(O[H])[H]", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3591,7 +3593,7 @@ if True:
             + ["opls_185"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("CC(=O)N(O[H])C", rdkit=False)
+        configuration.from_smiles("CC(=O)N(O[H])C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3780,7 +3782,7 @@ if True:
             + 5 * ["opls_852"]
             + 3 * ["opls_85"]
         )
-        configuration.from_smiles("[H]C(=O)N(C)CC", rdkit=False)
+        configuration.from_smiles("[H]C(=O)N(C)CC", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3803,7 +3805,7 @@ if True:
             + 4 * ["opls_852"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("[H]C(=O)N(C)C(C)C", rdkit=False)
+        configuration.from_smiles("[H]C(=O)N(C)C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3927,7 +3929,7 @@ if True:
         opls_903: central C  =C=
         """
         correct = ["opls_900", "opls_903", "opls_900"] + 4 * ["opls_899"]
-        configuration.from_smiles("C=C=C")
+        configuration.from_smiles("C=C=C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3994,7 +3996,7 @@ if True:
             + 2 * ["opls_899"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("C=C=C(C)C")
+        configuration.from_smiles("C=C=C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -4006,7 +4008,7 @@ if True:
             + ["opls_80", "opls_80"]
             + 12 * ["opls_85"]
         )
-        configuration.from_smiles("CC(C)=C=C(C)C")
+        configuration.from_smiles("CC(C)=C=C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
