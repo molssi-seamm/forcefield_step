@@ -1,6 +1,10 @@
 =======
 History
 =======
+2024.12.14 -- Updated for changes in SMILES handling
+  * Changes in the handling of SMILES in MolSystem required small changes in the tests
+    to continue using Open Babel for SMILES.
+    
 2024.10.25 -- Changed the default forcefield to OPLSAA
 
 2024.6.30 -- Bugfix: Error submitting jobs with local forcefield files.
