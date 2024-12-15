@@ -4008,7 +4008,7 @@ if True:
             + ["opls_80", "opls_80"]
             + 12 * ["opls_85"]
         )
-        configuration.from_smiles("CC(C)=C=C(C)C")
+        configuration.from_smiles("CC(C)=C=C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
