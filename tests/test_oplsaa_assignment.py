@@ -3929,7 +3929,7 @@ if True:
         opls_903: central C  =C=
         """
         correct = ["opls_900", "opls_903", "opls_900"] + 4 * ["opls_899"]
-        configuration.from_smiles("C=C=C")
+        configuration.from_smiles("C=C=C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
@@ -3996,7 +3996,7 @@ if True:
             + 2 * ["opls_899"]
             + 6 * ["opls_85"]
         )
-        configuration.from_smiles("C=C=C(C)C")
+        configuration.from_smiles("C=C=C(C)C", flavor="openbabel")
         result = oplsaa_assigner.assign(configuration)
         if result != correct:
             print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
