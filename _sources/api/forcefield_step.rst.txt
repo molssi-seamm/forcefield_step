@@ -9,45 +9,45 @@ forcefield\_step.forcefield module
 
 .. automodule:: forcefield_step.forcefield
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 forcefield\_step.forcefield\_parameters module
 ----------------------------------------------
 
 .. automodule:: forcefield_step.forcefield_parameters
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 forcefield\_step.forcefield\_step module
 ----------------------------------------
 
 .. automodule:: forcefield_step.forcefield_step
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 forcefield\_step.ligpargen module
 ---------------------------------
 
 .. automodule:: forcefield_step.ligpargen
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 forcefield\_step.tk\_forcefield module
 --------------------------------------
 
 .. automodule:: forcefield_step.tk_forcefield
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: forcefield_step
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
