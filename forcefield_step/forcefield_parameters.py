@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Control parameters for using forcefields
-"""
+"""Control parameters for using forcefields"""
 
 import importlib
 import logging
