@@ -1,6 +1,8 @@
 =======
 History
 =======
+2025.3.16 -- Added the Dreiding forcefield
+
 2024.12.14 -- Updated for changes in SMILES handling
   * Changes in the handling of SMILES in MolSystem required small changes in the tests
     to continue using Open Babel for SMILES.
