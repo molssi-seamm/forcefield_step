@@ -10721,6 +10721,16 @@
             "overrides": []
         }
     },
+    "Fsi": {
+        "2025.03.18": {
+            "smarts": [
+                "[F:1][S](~[O])(~[O])~[N]",
+                "[F:1][S](~[O])(~[O])~[N-1]"
+            ],
+            "description": "Fluorine in bis(fluorosulfonyl)imide anion [LiFSI]",
+            "overrides": []
+        }
+    },
     "Nbt": {
         "2023.09.213": {
             "smarts": [
@@ -10869,6 +10879,7 @@
 2023.09.13    5	    Nbt	    14.007  N      2	N- in bis(trifluoromethanesulfonyl)imide anion
 2023.09.13    5	    Sbt	    32.060  S	   4	S in bis(trifluoromethanesulfonyl)imide anion
 2023.09.13    5	    Fbt	    18.998  F	   1	F in bis(trifluoromethanesulfonyl)imide anion
+2025.03.18    6     Fsi     18.998  F      1    F in bis(fluorosulfonyl)imide anion [LiFSI]
 2023.09.13    5	    Obt	    15.999  O	   1	O in bis(trifluoromethanesulfonyl)imide anion
 2023.09.13    5	    Cbt	    15.999  C	   4	C in bis(trifluoromethanesulfonyl)imide anion
 2023.09.14    2	    C1	    12.011  C	   4	C bonded to N in charged imidazolium group
@@ -10896,6 +10907,7 @@
 2023.09.13    5     Nbt      Nbt       N       N    	N	 N
 2023.09.13    5     Sbt      Sbt       S       S	S	 S
 2023.09.13    5     Fbt      Fbt       Fbt     Fbt	Fbt	 Fbt
+2025.03.18    6     Fsi      Fsi       Fsi     Fsi      Fsi      Fsi
 2023.09.13    5     Obt      Obt       O       O	O	 O
 2023.09.13    5     Cbt      Cbt       C       C	C	 C
 2023.09.14    2     C1       C1    opls_18  opls_18  opls_18  opls_18 
@@ -10924,6 +10936,7 @@
 2023.09.13  3     Nbt        -0.660
 2023.09.13  3     Sbt         1.020
 2023.09.13  3     Fbt        -0.160
+2025.03.18  6     Fsi        -0.13
 2023.09.13  3     Obt        -0.530
 2023.09.13  3     Cbt         0.350
 2023.09.14   2    C1	     -0.17
@@ -10959,6 +10972,7 @@
 2023.09.13  3	  Nbt       3.250      0.71128
 2023.09.13  3	  Sbt       3.550      1.04600
 2023.09.13  5	  Fbt       3.118      0.25540
+2025.03.18  6	  Fsi       2.95       0.22175
 2023.09.13  5	  Obt       3.150      0.83736
 2023.09.13  3	  Cbt       3.500      0.27614
 2023.09.14  2     C1	    3.50       0.27614
@@ -10986,6 +11000,7 @@
 2023.09.13  3     S         N         1.570     3137.0
 2023.09.13  3	  S	    O	      1.437	5331.0
 2023.09.13  3	  Sbt	    Cbt	      1.818	1970.0
+2025.03.18  6     Sbt       Fsi       1.575     3137.0
 2023.09.13  3	  Cbt	    Fbt       1.323	3697.0
 2023.09.14  2	  CR	    NA 	      1.315 	1996.0
 2023.09.14  2	  CW	    NA 	      1.378 	1787.0
@@ -11009,6 +11024,8 @@
 2023.09.13  3	  C	    S	      O      	 102.6	     870.0
 2023.09.13  3	  O	    S	      O      	 118.5	     969.0
 2023.09.13  3	  N	    S	      O      	 113.6	     789.0
+2025.03.18  6     N         S         Fsi        103.0       902.0
+2025.03.18  6     O         S         Fsi        104.1      1077.0
 2023.09.13  3	  Fbt	    C	      S       	 111.8	     694.0
 2023.09.13  5	  Fbt	    C	      Fbt      	 109.1	     644.0
 2023.09.14  2	  CW	    NA	      CR	 108.0       292.6
@@ -11055,6 +11072,7 @@
 2023.09.13  3     Fbt	    C         S         N          0.0      0.0     1.322   0.0
 2023.09.13  3     S	    N         S         O          0.0      0.0    -0.015   0.0
 2023.09.13  3     Fbt	    C         S         O          0.0      0.0     1.451   0.0
+2025.03.18  6     Fsi       S         N         S         13.4514 -12.3373 -8.4874 -2.8654
 2023.09.14  2	  * 	    NA	      CR	*  	   0.0 	   19.46    0.0     0.0
 2023.09.14  2	  * 	    CW	      CW	*  	   0.0 	   44.98    0.0	    0.0
 2023.09.14  2	  * 	    NA	      CW	*  	   0.0 	   12.55    0.0	    0.0
@@ -11124,6 +11142,16 @@
                 "[P]([F:1])([F:2])([F:3])([F:4])([F:5])[F:6]"
             ],
             "description": "Fluorine in PF6-",
+            "overrides": []
+        }
+    },
+    "Fsi": {
+        "2025.03.18": {
+            "smarts": [
+                "[F:1][S](~[O])(~[O])~[N]",
+                "[F:1][S](~[O])(~[O])~[N-1]"
+            ],
+            "description": "Fluorine in bis(fluorosulfonyl)imide anion [LiFSI]",
             "overrides": []
         }
     },
@@ -11299,16 +11327,16 @@ Modeling Ionic Liquids Using a Systematic All-Atom Force Field.
 J Phys Chem B 2004, 108 (6), 2038–2047.
 https://doi.org/10.1021/jp0362133.
 
-@bibtex @article{10.1021/jp0362133, 
-year = {2004}, 
-title = {{Modeling Ionic Liquids Using a Systematic All-Atom Force Field}}, 
-author = {Lopes, José N. Canongia and Deschamps, Johnny and Pádua, Agílio A. H.}, 
-journal = {The Journal of Physical Chemistry B}, 
-issn = {1520-6106}, 
-doi = {10.1021/jp0362133}, 
-pages = {2038--2047}, 
-number = {6}, 
-volume = {108}, 
+@bibtex @article{10.1021/jp0362133,
+year = {2004},
+title = {{Modeling Ionic Liquids Using a Systematic All-Atom Force Field}},
+author = {Lopes, José N. Canongia and Deschamps, Johnny and Pádua, Agílio A. H.},
+journal = {The Journal of Physical Chemistry B},
+issn = {1520-6106},
+doi = {10.1021/jp0362133},
+pages = {2038--2047},
+number = {6},
+volume = {108},
 }
 
 
@@ -11321,16 +11349,16 @@ Molecular Force Field for Ionic Liquids Composed of Triflate or Bistriflylimide 
 J Phys Chem B 2004, 108 (43), 16893–16898.
 https://doi.org/10.1021/jp0476545.
 
-@bibtex @article{10.1021/jp0476545, 
-year = {2004}, 
-title = {{Molecular Force Field for Ionic Liquids Composed of Triflate or Bistriflylimide Anions}}, 
-author = {Lopes, José N. Canongia and Pádua, Agílio A. H.}, 
-journal = {The Journal of Physical Chemistry B}, 
-issn = {1520-6106}, 
-doi = {10.1021/jp0476545}, 
-pages = {16893--16898}, 
-number = {43}, 
-volume = {108}, 
+@bibtex @article{10.1021/jp0476545,
+year = {2004},
+title = {{Molecular Force Field for Ionic Liquids Composed of Triflate or Bistriflylimide Anions}},
+author = {Lopes, José N. Canongia and Pádua, Agílio A. H.},
+journal = {The Journal of Physical Chemistry B},
+issn = {1520-6106},
+doi = {10.1021/jp0476545},
+pages = {16893--16898},
+number = {43},
+volume = {108},
 }
 
 #reference 4
@@ -11455,17 +11483,57 @@ from asymmetrical substitutions to a consistent force field model.
 Phys. Chem. Chem. Phys. 19, 29617–29624 (2017).
 doi: 10.1039/c7cp06081e
 
-@bibtex @article{10.1039/c7cp06081e, 
-year = {2017}, 
-title = {{Ionic liquids with anions based on fluorosulfonyl derivatives: from asymmetrical substitutions to a consistent force field model}}, 
-author = {Gouveia, Andreia S. L. and Bernardes, Carlos E. S. and Tomé, Liliana C. and Lozinskaya, Elena I. and Vygodskii, Yakov S. and Shaplov, Alexander S. and Lopes, José N. Canongia and Marrucho, Isabel M.}, 
-journal = {Physical Chemistry Chemical Physics}, 
-issn = {1463-9076}, 
-doi = {10.1039/c7cp06081e}, 
-pmid = {29083012}, 
-pages = {29617--29624}, 
-number = {43}, 
-volume = {19}, 
+@bibtex @article{10.1039/c7cp06081e,
+year = {2017},
+title = {{Ionic liquids with anions based on fluorosulfonyl derivatives: from asymmetrical substitutions to a consistent force field model}},
+author = {Gouveia, Andreia S. L. and Bernardes, Carlos E. S. and Tomé, Liliana C. and Lozinskaya, Elena I. and Vygodskii, Yakov S. and Shaplov, Alexander S. and Lopes, José N. Canongia and Marrucho, Isabel M.},
+journal = {Physical Chemistry Chemical Physics},
+issn = {1463-9076},
+doi = {10.1039/c7cp06081e},
+pmid = {29083012},
+pages = {29617--29624},
+number = {43},
+volume = {19},
 local-url = {file://localhost/Users/psaxe/Downloads/c7cp06081e.pdf}
 }
 #end
+
+#reference 6
+@Author Paul Saxe
+@Date 2025-03-18
+
+Shimizu, K.; Almantariotis, D.; Gomes, M. F. C.; Pádua, A. A. H.; Lopes,
+J. N. C. Molecular Force Field for Ionic Liquids V: Hydroxyethylimidazolium,
+Dimethoxy-2- Methylimidazolium, and Fluoroalkylimidazolium Cations and
+Bis(Fluorosulfonyl)Amide, Perfluoroalkanesulfonylamide, and Fluoroalkylfluorophosphate
+Anions.  J. Phys. Chem. B 2010, 114 (10), 3592–3600. https://doi.org/10.1021/jp9120468.
+
+@article{10.1021/jp9120468,
+year = {2010},
+title = {{Molecular Force Field for Ionic Liquids V: Hydroxyethylimidazolium,
+Dimethoxy-2- Methylimidazolium, and Fluoroalkylimidazolium Cations and
+Bis(Fluorosulfonyl)Amide, Perfluoroalkanesulfonylamide, and Fluoroalkylfluorophosphate
+Anions}},
+author = {Shimizu, Karina and Almantariotis, Dimitrios and Gomes, Margarida F. Costa and
+Pádua, Agílio. A. H. and Lopes, José N. Canongia},
+journal = {The Journal of Physical Chemistry B},
+issn = {1520-6106},
+doi = {10.1021/jp9120468},
+pmid = {20175555},
+abstract = {{In this article, the fifth of a series that describes the parametrization
+of a force field for the molecular simulation of ionic liquids within the framework of
+statistical mechanics, we have modeled cations belonging to the hydroxyethylimidazolium,
+dimethoxy-2-methylimidazolium, and fluoroalkylimidazolium families and anions of the
+bis(fluorosulfonyl)amide, perfluoroalkanesulfonylamide, and fluoroalkylfluorophosphate
+families. The development of the force field, created in the spirit of the OPLS-AA model
+in a stepwise manner and oriented toward the calculation of equilibrium thermodynamic
+and structural properties in the liquid and crystalline phases, is discussed in
+detail. Because of the transferability of the present force field, the ions studied here
+can be combined with those reported in our four previous publications to create a large
+variety of ionic liquids that can be studied by molecular simulation. The present
+extension of the force field was validated by comparison of simulation results with
+experimental crystal structure and liquid density data.}},
+pages = {3592--3600},
+number = {10},
+volume = {114},
+}

@@ -22,6 +22,18 @@ def test_TFSI(oplsaa_assigner, configuration):
         raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
 
 
+def test_FSI(oplsaa_assigner, configuration):
+    """Test of atom-type assignment bis(fluorosulfonyl)imide anion"""
+    correct = (
+        ["Fsi"] + ["Sbt", "Obt", "Obt"] + ["Nbt"] + ["Sbt", "Obt", "Obt"] + ["Fsi"]
+    )
+    configuration.from_smiles("FS(=O)(=O)[N-]S(=O)(=O)F")
+    result = oplsaa_assigner.assign(configuration)
+    if result != correct:
+        print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+        raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+
 def test_C2mem(oplsaa_assigner, configuration):
     """Test of atom-type assignment for 1-ethyl-3-methylimidazolium cation"""
     correct = (
