@@ -1,6 +1,11 @@
 =======
 History
 =======
+2025.3.18 -- Added bis(fluorosulfonyl)imide anion (FSI) to the OPLS-AA and CL&P forcefields
+  * Added parameters for the bis(fluorosulfonyl)imide anion (FSI) to the OPLS-AA and
+    CL&P forcefields.
+  * Added a test for FSI in the test suite.
+    
 2025.3.16 -- Added the Dreiding forcefield
 
 2024.12.14 -- Updated for changes in SMILES handling
