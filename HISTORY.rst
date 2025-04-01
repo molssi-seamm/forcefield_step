@@ -1,6 +1,8 @@
 =======
 History
 =======
+2025.4.1 -- Added support for ReaxFF, which does not need atom type assignment.
+
 2025.3.18 -- Added bis(fluorosulfonyl)imide anion (FSI) to the OPLS-AA and CL&P forcefields
   * Added parameters for the bis(fluorosulfonyl)imide anion (FSI) to the OPLS-AA and
     CL&P forcefields.

@@ -111,10 +111,28 @@ class Forcefield(seamm.Node):
             self.setup_forcefield(P)
         elif P["task"] == "assign forcefield to structure":
             ff = self.get_variable("_forcefield")
-            system_db = self.get_variable("_system_db")
-            configuration = system_db.system.configuration
-            ff.assign_forcefield(configuration)
-
+            if ff.ff_form in ("reaxff",):
+                printer.important(
+                    __(
+                        "There is no atom-type assignment needed for ReaxFF",
+                        indent=self.indent + 4 * " ",
+                    )
+                )
+            else:
+                system_db = self.get_variable("_system_db")
+                configuration = system_db.system.configuration
+                try:
+                    ff.assign_forcefield(configuration)
+                except seamm_ff_util.ForcefieldAssignmentError as e:
+                    printer.important(__(f"\n\nError: {e}", self.indent + 4 * " "))
+                    raise
+                printer.important(
+                    __(
+                        "Successfully assigned the atom types for "
+                        f"{ff.current_forcefield}.",
+                        indent=self.indent + 4 * " ",
+                    )
+                )
         printer.important("")
 
         return next_node
