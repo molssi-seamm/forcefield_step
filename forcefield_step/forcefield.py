@@ -124,13 +124,13 @@ class Forcefield(seamm.Node):
                 try:
                     ff.assign_forcefield(configuration)
                 except seamm_ff_util.ForcefieldAssignmentError as e:
-                    printer.important(__(f"\n\nError: {e}", self.indent() + 4 * " "))
+                    printer.important(__(f"\n\nError: {e}", self.indent + 4 * " "))
                     raise
                 printer.important(
                     __(
                         "Successfully assigned the atom types for "
                         f"{ff.current_forcefield}.",
-                        indent=self.indent() + 4 * " ",
+                        indent=self.indent + 4 * " ",
                     )
                 )
         printer.important("")
