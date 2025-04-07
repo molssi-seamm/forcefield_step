@@ -14,6 +14,7 @@
 
 !Ver Ref                Function             Label
 !--- ---    ------------------------------   ------
+ 1.0  1     metadata                         cff91
  1.0  1     atom_types                       cff91
  1.0  1     equivalence                      cff91
  2.0  1     auto_equivalence                 cff91_auto
@@ -35,6 +36,13 @@
  1.0  1     angle-torsion_3                  cff91
  1.0  1     angle-angle-torsion_1            cff91
 2020.10.5  1 templates                       pcff
+
+
+#metadata cff91
+
+!Version      Ref   Parameter       Value  Description
+!---------  -----  ------------  --------  --------------------------------------
+2025.04.06      1   ff_form        class2  The functional form of the forcefield
 
 #atom_types           cff91
 

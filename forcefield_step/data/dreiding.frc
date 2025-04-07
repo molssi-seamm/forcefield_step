@@ -4,6 +4,7 @@
 
 !Ver Ref                Function                   Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         dreiding
 2025.02.14   1    atom_types                       dreiding
 2025.02.14   1    templates                        dreiding
 2025.02.14   1    dreiding_atomic_parameters       dreiding
@@ -15,12 +16,20 @@
 
 !Ver Ref                Function                   Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         dreiding
 2025.02.14   1    atom_types                       dreiding
 2025.02.14   1    templates                        dreiding
 2025.02.14   1    dreiding_atomic_parameters       dreiding
 2025.02.14   1    buckingham                       dreiding
 2025.02.14   1    charges                          dreiding
 2025.02.14   1    dreiding_out_of_plane            dreiding
+
+
+#metadata dreiding
+
+!Version      Ref   Parameter       Value  Description
+!---------  -----  ------------  --------  --------------------------------------
+2025.04.06      1   ff_form      dreiding  The functional form of the forcefield
 
 
 #atom_types           dreiding

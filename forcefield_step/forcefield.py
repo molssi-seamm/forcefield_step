@@ -281,7 +281,12 @@ class Forcefield(seamm.Node):
             return result
 
         ff_file = P["forcefield_file"]
-        if ff_file.startswith("local:"):
+        if ff_file.startswith("personal:"):
+            ff_file = "Forcefields/" + ff_file[9:]
+            uri = f"data:{ff_file}"
+            path = self.find_data_file(ff_file)
+            result.append((uri, path))
+        elif ff_file.startswith("local:"):
             ff_file = "Forcefields/" + ff_file[6:]
             uri = f"data:{ff_file}"
             path = self.find_data_file(ff_file)
@@ -435,7 +440,7 @@ class Forcefield(seamm.Node):
         JobServer is running on. When a job is submitted to the Dashboard, the code
         locates the forcefields on the local machine, as outlined above. It then sends
         copies to the data/Forcefields directory of the job. The path for the job's
-        data/ driectory is changed to its local data/ directory, so the copies sent with
+        data/ directory is changed to its local data/ directory, so the copies sent with
         the job are used.
         """
         filename = str(path)

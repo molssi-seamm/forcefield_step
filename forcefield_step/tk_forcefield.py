@@ -2,6 +2,10 @@
 
 """The graphical part of a Forcefield step"""
 
+import importlib
+from importlib.resources import files as data_files
+from pathlib import Path
+
 import seamm
 import tkinter as tk
 
@@ -43,7 +47,18 @@ class TkForcefield(seamm.TkNode):
         if self.dialog is None:
             self.create_dialog()
 
-        # Reset the dialog, which will rectreate the PeriodicTable
+        forcefields = self._update_forcefields()
+        forcefield = self["forcefield_file"].get()
+        self["forcefield_file"].combobox.configure(value=forcefields)
+        width = max([len(f) for f in forcefields])
+        self["forcefield_file"].combobox.configure(width=width)
+        if forcefield not in forcefields:
+            if len(forcefields) == 0:
+                self["forcefield_file"].set("")
+            else:
+                self["forcefield_file"].set(forcefields[0])
+
+        # Reset the dialog, which will recreate the PeriodicTable
         # widget
         self.reset_dialog()
         # And resize the dialog to fit...
@@ -89,7 +104,7 @@ class TkForcefield(seamm.TkNode):
         if task == "assign forcefield to structure":
             pass
         elif task == "setup forcefield":
-            self["forcefield_file"].grid(row=row, column=0, sticky=tk.W)
+            self["forcefield_file"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
             row += 1
             if repository == "OpenKIM":
                 # For reasons unknown, the PeriodicTable does not redisplay
@@ -106,7 +121,12 @@ class TkForcefield(seamm.TkNode):
                 self["potentials"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
             else:
                 self["forcefield"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+                frame.rowconfigure(row, weight=0)
+                frame.columnconfigure(1, weight=0)
                 row += 1
+
+        # And resize the dialog to fit...
+        self.fit_dialog()
 
         return row
 
@@ -123,3 +143,41 @@ class TkForcefield(seamm.TkNode):
                 self["potentials"].set("")
             else:
                 self["potentials"].set(potentials[0])
+
+    def _update_forcefields(self):
+        """Update the list of forcefields from scratch."""
+        data_path = data_files(__package__).joinpath("data")
+        paths = self._traverse(data_path)
+
+        forcefields = sorted([str(p.relative_to(data_path)) for p in paths])
+
+        # Check if we can use OpenKIM
+        if importlib.util.find_spec("kim_query") is not None:
+            forcefields.append("OpenKIM")
+
+        # and local forcefields in the ~/SEAMM/data/Forcefields
+        local = Path.home() / "SEAMM" / "data" / "Forcefields"
+        if local.exists():
+            tmp = []
+            for path in local.glob("**/*.frc"):
+                tmp.append("local:" + str(path.relative_to(local)))
+            forcefields.extend(sorted(tmp))
+
+        # and local forcefields in the ~/.seamm.d/data/Forcefields
+        local = Path.home() / ".seamm.d" / "data" / "Forcefields"
+        if local.exists():
+            tmp = []
+            for path in local.glob("**/*.frc"):
+                tmp.append("personal:" + str(path.relative_to(local)))
+            forcefields.extend(sorted(tmp))
+
+        return forcefields
+
+    def _traverse(self, path):
+        paths = []
+        for target in path.iterdir():
+            if target.is_file():
+                paths.append(target)
+            elif target.is_dir():
+                paths.extend(self._traverse(target))
+        return paths
