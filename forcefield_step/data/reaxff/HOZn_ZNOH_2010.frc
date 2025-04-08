@@ -1,25 +1,25 @@
 !MolSSI forcefield 1
 
 
-#define reaxff_ZnOH_HOZn
+#define reaxff/HOZn_ZNOH_2010
 
 !Version      Ref  Section                          Label
 !---------  -----  -------------------------------  ----------------
-2025.04.04      1  metadata                         reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_general_parameters        reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_atomic_parameters_1-8     reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_atomic_parameters_9-16    reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_atomic_parameters_17-24   reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_atomic_parameters_25-32   reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_bond_parameters_1-8       reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_bond_parameters_9-16      reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_off-diagonal_parameters   reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_angle_parameters          reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_torsion_parameters        reaxff_ZnOH_HOZn
-2025.04.04      1  reaxff_hydrogen-bond_parameters  reaxff_ZnOH_HOZn
+2025.04.04      1  metadata                         HOZn_ZNOH_2010
+2025.04.04      1  reaxff_general_parameters        HOZn_ZNOH_2010
+2025.04.04      1  reaxff_atomic_parameters_1-8     HOZn_ZNOH_2010
+2025.04.04      1  reaxff_atomic_parameters_9-16    HOZn_ZNOH_2010
+2025.04.04      1  reaxff_atomic_parameters_17-24   HOZn_ZNOH_2010
+2025.04.04      1  reaxff_atomic_parameters_25-32   HOZn_ZNOH_2010
+2025.04.04      1  reaxff_bond_parameters_1-8       HOZn_ZNOH_2010
+2025.04.04      1  reaxff_bond_parameters_9-16      HOZn_ZNOH_2010
+2025.04.04      1  reaxff_off-diagonal_parameters   HOZn_ZNOH_2010
+2025.04.04      1  reaxff_angle_parameters          HOZn_ZNOH_2010
+2025.04.04      1  reaxff_torsion_parameters        HOZn_ZNOH_2010
+2025.04.04      1  reaxff_hydrogen-bond_parameters  HOZn_ZNOH_2010
 
 
-#metadata reaxff_ZnOH_HOZn
+#metadata HOZn_ZNOH_2010
 
 !Version      Ref   Parameter       Value   Description
 !---------  -----  ------------  ---------  --------------------------------------
@@ -27,7 +27,7 @@
 2025.04.04      1   charges      qeq/reaxff How charges should be handled
 
 
-#reaxff_general_parameters reaxff_ZnOH_HOZn
+#reaxff_general_parameters HOZn_ZNOH_2010
 
 !Version      Ref   Parameter       Value  Description
 !---------  -----  ------------  --------  --------------------------------------
@@ -72,7 +72,7 @@
 2025.04.04      1   not_used_7     0       Molecular energy (not used)
 
 
-#reaxff_atomic_parameters_1-8 reaxff_ZnOH_HOZn
+#reaxff_atomic_parameters_1-8 HOZn_ZNOH_2010
 
 !Version      Ref   Center     Acore,2     C_i     Dij    Ecore,2       Hat    Pboc,3    Pboc,4    Pboc,5
 !---------  -----  --------  ---------  ------  ------  ---------  --------  --------  --------  --------
@@ -81,7 +81,7 @@
 2025.04.04      1     Zn             0  0       0.2998          0  266.484    10.126     5.343     0.759
 
 
-#reaxff_atomic_parameters_9-16 reaxff_ZnOH_HOZn
+#reaxff_atomic_parameters_9-16 HOZn_ZNOH_2010
 
 !Version      Ref   Center     Phbond    Plp,2    Povun,2    Povun,5    Pval,3    Pval,5    R0,alpha    R0,pi
 !---------  -----  --------  --------  -------  ---------  ---------  --------  --------  ----------  -------
@@ -90,7 +90,7 @@
 2025.04.04      1     Zn            0   0         -3.0614     0.0078    2.1158    2.5791      1.8862  -1.6836
 
 
-#reaxff_atomic_parameters_17-24 reaxff_ZnOH_HOZn
+#reaxff_atomic_parameters_17-24 HOZn_ZNOH_2010
 
 !Version      Ref   Center     R0,pi-pi    Rcore,2    RvdW    Val    Val,angle    Val,boc    Val,e    alpha
 !---------  -----  --------  ----------  ---------  ------  -----  -----------  ---------  -------  -------
@@ -99,7 +99,7 @@
 2025.04.04      1     Zn        -1.2             0   1.92       2            2     6.2998        2  11.5134
 
 
-#reaxff_atomic_parameters_25-32 reaxff_ZnOH_HOZn
+#reaxff_atomic_parameters_25-32 HOZn_ZNOH_2010
 
 !Version      Ref   Center     alpha_e    beta     chi     eta    gamma    gamma,w       m    not_used_1
 !---------  -----  --------  ---------  ------  ------  ------  -------  ---------  ------  ------------
@@ -108,7 +108,7 @@
 2025.04.04      1     Zn             0  1.0338  2.0219  5.7915   0.4828    18.3776  65.39          0
 
 
-#reaxff_bond_parameters_1-8 reaxff_ZnOH_HOZn
+#reaxff_bond_parameters_1-8 HOZn_ZNOH_2010
 
 !Version      Ref   I    J     13_boc    De,pi    De,pi-pi    De,sigma    Pbe,1    Pbe,2    Pbo,2    Pbo,3
 !---------  -----  ---  ---  --------  -------  ----------  ----------  -------  -------  -------  -------
@@ -120,7 +120,7 @@
 2025.04.04      1  Zn   Zn          0        0      0          38.4643  -0.6944   0.5059   6.0333  -0.2
 
 
-#reaxff_bond_parameters_9-16 reaxff_ZnOH_HOZn
+#reaxff_bond_parameters_9-16 HOZn_ZNOH_2010
 
 !Version      Ref   I    J     Pbo,4    Pbo,5    Pbo,6    Pbo_1    Povun,1    not_used_1    not_used_2    ovc
 !---------  -----  ---  ---  -------  -------  -------  -------  ---------  ------------  ------------  -----
@@ -132,7 +132,7 @@
 2025.04.04      1  Zn   Zn        15     -0.2  16       -0.0814     0.2129             0             0      0
 
 
-#reaxff_off-diagonal_parameters reaxff_ZnOH_HOZn
+#reaxff_off-diagonal_parameters HOZn_ZNOH_2010
 
 !Version      Ref   I    J      Dij    R0,pi    R0,pi-pi    R0,sigma    RvdW    alpha
 !---------  -----  ---  ---  ------  -------  ----------  ----------  ------  -------
@@ -141,7 +141,7 @@
 2025.04.04      1  Zn    O   0.2744       -1          -1      1.9804  2.1414   9.7703
 
 
-#reaxff_angle_parameters reaxff_ZnOH_HOZn
+#reaxff_angle_parameters HOZn_ZNOH_2010
 
 !Version      Ref   I    J     K    Pcoa,1    Ppen,1    Pval,1    Pval,2    Pval,4    Pval,7    Theta0
 !---------  -----  ---  ---  ---  --------  --------  --------  --------  --------  --------  --------
@@ -158,7 +158,7 @@
 2025.04.04      1  Zn   Zn     O         0         0   30.3241    0.2697    3.0708    2        16.9624
 
 
-#reaxff_torsion_parameters reaxff_ZnOH_HOZn
+#reaxff_torsion_parameters HOZn_ZNOH_2010
 
 !Version      Ref   I    J     K    L    Pcot,1    Ptor,1       V1        V2    V3    not_used_1    not_used_2
 !---------  -----  ---  ---  ---  ---  --------  --------  -------  --------  ----  ------------  ------------
@@ -167,7 +167,7 @@
 2025.04.04      1   O    O     O    O        -1   -2.5     -2.5     -25          1             0             0
 
 
-#reaxff_hydrogen-bond_parameters reaxff_ZnOH_HOZn
+#reaxff_hydrogen-bond_parameters HOZn_ZNOH_2010
 
 !Version      Ref   I    J     K    Ehb    Phb3    Rhb    Thb
 !---------  -----  ---  ---  ---  -----  ------  -----  -----

@@ -1,6 +1,6 @@
 !MolSSI forcefield 1
 
-#define CHLiOFSi_Yun_2017
+#define reaxff/CHLiOFSi_Yun_2017
 
 !Version      Ref  Section                          Label
 !---------  -----  -------------------------------  -----------------

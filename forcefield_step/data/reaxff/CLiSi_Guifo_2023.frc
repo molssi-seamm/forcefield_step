@@ -1,7 +1,7 @@
 !MolSSI forcefield 1
 
 
-#define CliSi_Guifo_2023
+#define reaxff/CliSi_Guifo_2023
 
 !Version      Ref  Section                         Label
 !---------  -----  ------------------------------  -------------

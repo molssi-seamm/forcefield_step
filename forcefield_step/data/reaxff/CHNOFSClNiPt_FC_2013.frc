@@ -1,25 +1,25 @@
 !MolSSI forcefield 1
 
 
-#define reaxff_FC_CHONFSClPtNi
+#define reaxff/CHNOFSClNiPt_FC_2013
 
 !Version      Ref  Section                          Label
 !---------  -----  -------------------------------  ----------------------
-2025.04.04      1  metadata			    reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_general_parameters        reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_atomic_parameters_1-8     reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_atomic_parameters_9-16    reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_atomic_parameters_17-24   reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_atomic_parameters_25-32   reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_bond_parameters_1-8       reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_bond_parameters_9-16      reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_off-diagonal_parameters   reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_angle_parameters          reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_torsion_parameters        reaxff_FC_CHNOFSClNiPt
-2025.04.04      1  reaxff_hydrogen-bond_parameters  reaxff_FC_CHNOFSClNiPt
+2025.04.04      1  metadata			    CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_general_parameters        CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_atomic_parameters_1-8     CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_atomic_parameters_9-16    CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_atomic_parameters_17-24   CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_atomic_parameters_25-32   CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_bond_parameters_1-8       CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_bond_parameters_9-16      CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_off-diagonal_parameters   CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_angle_parameters          CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_torsion_parameters        CHNOFSClNiPt_FC_2013
+2025.04.04      1  reaxff_hydrogen-bond_parameters  CHNOFSClNiPt_FC_2013
 
 
-#metadata reaxff_FC_CHNOFSClNiPt
+#metadata CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Parameter       Value   Description
 !---------  -----  ------------  ---------  --------------------------------------
@@ -27,7 +27,7 @@
 2025.04.04      1   charges      qeq/reaxff How charges should be handled
 
 
-#reaxff_general_parameters reaxff_FC_CHNOFSClNiPt
+#reaxff_general_parameters CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Parameter       Value  Description
 !---------  -----  ------------  --------  --------------------------------------
@@ -72,7 +72,7 @@
 2025.04.04      1   not_used_7     0       Molecular energy (not used)
 
 
-#reaxff_atomic_parameters_1-8 reaxff_FC_CHNOFSClNiPt
+#reaxff_atomic_parameters_1-8 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Center     Acore,2     C_i     Dij    Ecore,2       Hat    Pboc,3    Pboc,4    Pboc,5
 !---------  -----  --------  ---------  ------  ------  ---------  --------  --------  --------  --------
@@ -87,7 +87,7 @@
 2025.04.04      1     Pt             0  0.8563  0.3309          0  142.63      3.2757   26.235     0.1586
 
 
-#reaxff_atomic_parameters_9-16 reaxff_FC_CHNOFSClNiPt
+#reaxff_atomic_parameters_9-16 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Center     Phbond    Plp,2    Povun,2    Povun,5    Pval,3    Pval,5    R0,alpha    R0,pi
 !---------  -----  --------  --------  -------  ---------  ---------  --------  --------  ----------  -------
@@ -102,7 +102,7 @@
 2025.04.04      1     Pt            0   0        -13          0         1.7934    2.5791      1.982   -1
 
 
-#reaxff_atomic_parameters_17-24 reaxff_FC_CHNOFSClNiPt
+#reaxff_atomic_parameters_17-24 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Center     R0,pi-pi    Rcore,2    RvdW    Val    Val,angle    Val,boc    Val,e    alpha
 !---------  -----  --------  ----------  ---------  ------  -----  -----------  ---------  -------  -------
@@ -117,7 +117,7 @@
 2025.04.04      1     Pt        -1               0  2.0423      2            2     5             2  12.3677
 
 
-#reaxff_atomic_parameters_25-32 reaxff_FC_CHNOFSClNiPt
+#reaxff_atomic_parameters_25-32 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   Center     alpha_e    beta     chi      eta    gamma    gamma,w         m    not_used_1
 !---------  -----  --------  ---------  ------  ------  -------  -------  ---------  --------  ------------
@@ -132,7 +132,7 @@
 2025.04.04      1     Pt             0  1.0338  5.6538   6.2512   0.3738     6.0083  195.08          0
 
 
-#reaxff_bond_parameters_1-8 reaxff_FC_CHNOFSClNiPt
+#reaxff_bond_parameters_1-8 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J     13_boc     De,pi    De,pi-pi    De,sigma    Pbe,1    Pbe,2    Pbo,2    Pbo,3
 !---------  -----  ---  ---  --------  --------  ----------  ----------  -------  -------  -------  -------
@@ -177,7 +177,7 @@
 2025.04.04      1  Pt   Pt          0    0           0         122.137   -0.3578   0.9897   5.4801  -0.2
 
 
-#reaxff_bond_parameters_9-16 reaxff_FC_CHNOFSClNiPt
+#reaxff_bond_parameters_9-16 CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J     Pbo,4    Pbo,5    Pbo,6    Pbo_1    Povun,1    not_used_1    not_used_2    ovc
 !---------  -----  ---  ---  -------  -------  -------  -------  ---------  ------------  ------------  -----
@@ -222,7 +222,7 @@
 2025.04.04      1  Pt   Pt   15       -0.2     16       -0.0853     0.2877             1             0      0
 
 
-#reaxff_off-diagonal_parameters reaxff_FC_CHNOFSClNiPt
+#reaxff_off-diagonal_parameters CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J      Dij    R0,pi    R0,pi-pi    R0,sigma    RvdW    alpha
 !---------  -----  ---  ---  ------  -------  ----------  ----------  ------  -------
@@ -249,7 +249,7 @@
 2025.04.04      1  Pt   Ni   0.1919  -1          -1           1.8319  2.1352  12.2879
 
 
-#reaxff_angle_parameters reaxff_FC_CHNOFSClNiPt
+#reaxff_angle_parameters CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J     K    Pcoa,1    Ppen,1    Pval,1    Pval,2    Pval,4    Pval,7    Theta0
 !---------  -----  ---  ---  ---  --------  --------  --------  --------  --------  --------  --------
@@ -359,7 +359,7 @@
 2025.04.04      1  Pt   Pt     O    0         0        41.1348    2.245     1.9235    0.1218   94.9741
 
 
-#reaxff_torsion_parameters reaxff_FC_CHNOFSClNiPt
+#reaxff_torsion_parameters CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J     K    L    Pcot,1    Ptor,1       V1        V2       V3    not_used_1    not_used_2
 !---------  -----  ---  ---  ---  ---  --------  --------  -------  --------  -------  ------------  ------------
@@ -420,7 +420,7 @@
 2025.04.04      1  Pt   Pt     O    H    0        -5.2275   0         0.01     0.01               0             0
 
 
-#reaxff_hydrogen-bond_parameters reaxff_FC_CHNOFSClNiPt
+#reaxff_hydrogen-bond_parameters CHNOFSClNiPt_FC_2013
 
 !Version      Ref   I    J     K      Ehb     Phb3     Rhb     Thb
 !---------  -----  ---  ---  ---  -------  -------  ------  ------
