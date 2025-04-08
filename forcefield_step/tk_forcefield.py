@@ -50,7 +50,10 @@ class TkForcefield(seamm.TkNode):
         forcefields = self._update_forcefields()
         forcefield = self["forcefield_file"].get()
         self["forcefield_file"].combobox.configure(value=forcefields)
-        width = max([len(f) for f in forcefields])
+        if forcefields:
+            width = max([len(f) for f in forcefields])
+        else:
+            width = 0
         self["forcefield_file"].combobox.configure(width=width)
         if forcefield not in forcefields:
             if len(forcefields) == 0:
