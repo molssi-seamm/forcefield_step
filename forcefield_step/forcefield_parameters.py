@@ -1,51 +1,10 @@
 # -*- coding: utf-8 -*-
 """Control parameters for using forcefields"""
 
-import importlib
 import logging
-import os
-from pathlib import Path
-import pkg_resources
 import seamm
 
 logger = logging.getLogger(__name__)
-
-
-# Get the list of available forcefields
-path = pkg_resources.resource_filename(__name__, "data/")
-
-# Check if we can use OpenKIM
-if importlib.util.find_spec("kim_query") is None:
-    forcefields = []
-else:
-    forcefields = ["OpenKIM"]
-
-logger.debug("Looking for forcefields at " + path)
-with os.scandir(path) as it:
-    for entry in it:
-        if not entry.name.startswith(".") and entry.is_file():
-            logger.debug("   " + entry.name)
-            ffname, ext = os.path.splitext(entry.name)
-            if ext == ".frc":
-                forcefields.append(entry.name)
-
-# and local forcefields in the ~/SEAMM/data/Forcefields
-local = Path.home() / "SEAMM" / "data" / "Forcefields"
-logger.debug("Looking for forcefields at " + str(local))
-if local.exists():
-    for path in local.glob("**/*.frc"):
-        logger.debug("   " + str(path))
-        forcefields.append("local:" + str(path.relative_to(local)))
-
-# and local forcefields in the ~/.seamm.d/data/Forcefields
-local = Path.home() / ".seamm.d" / "data" / "Forcefields"
-logger.debug("Looking for forcefields at " + str(local))
-if local.exists():
-    for path in local.glob("**/*.frc"):
-        logger.debug("   " + str(path))
-        forcefields.append("local:" + str(path.relative_to(local)))
-
-forcefields = sorted(forcefields)
 
 
 class ForcefieldParameters(seamm.Parameters):
@@ -68,7 +27,7 @@ class ForcefieldParameters(seamm.Parameters):
             "default": "oplsaa.frc",
             "kind": "enumeration",
             "default_units": "",
-            "enumeration": tuple(forcefields),
+            "enumeration": tuple(),
             "format_string": "s",
             "description": "Forcefield Repository:",
             "help_text": "The forcefield repository or file to use.",

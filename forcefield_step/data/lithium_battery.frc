@@ -4,11 +4,20 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         oplsaa
 2023.04.03   1    atom_types                       cathode
 2023.04.03   1    equivalence                      cathode
 2023.04.03   1    buckingham                       cathode
 2023.04.03   1    charges                          cathode
 2023.04.03   1    templates                        cathode
+
+
+#metadata oplsaa
+
+!Version      Ref   Parameter       Value   Description
+!---------  -----  ------------  ---------  --------------------------------------
+2025.04.06      1   ff_form      buckingham  The functional form of the forcefield
+2025.04.06      1   charges      point       How charges should be handled
 
 
 #atom_types cathode

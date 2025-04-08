@@ -4,6 +4,7 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         oplsaa
 2023.01.29   1    atom_types                       oplsaa CL&P ligpargen:optional
 2023.01.29   1    equivalence                      oplsaa CL&P
 2023.01.29   1    charges                          oplsaa CL&P ligpargen:optional
@@ -22,6 +23,7 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         oplsaa
 2023.01.29   1    atom_types                       oplsaa
 2023.01.29   1    equivalence                      oplsaa
 2023.01.29   1    charges                          oplsaa
@@ -37,6 +39,7 @@
 
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
+2025.04.06   1    metadata                         oplsaa
 2023.01.29   1    atom_types                       CL&P
 2023.01.29   1    equivalence                      CL&P
 2023.01.29   1    charges                          CL&P
@@ -51,6 +54,14 @@
 #end
 
 #include local:OPLS-AA/ligpargen.frc missing_ok
+
+
+#metadata oplsaa
+
+!Version      Ref   Parameter       Value  Description
+!---------  -----  ------------  --------  --------------------------------------
+2025.04.06      1   ff_form        oplsaa  The functional form of the forcefield
+2025.04.06      1   charges        point   How charges should be handled
 
 #atom_types           oplsaa
 

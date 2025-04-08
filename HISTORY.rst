@@ -1,6 +1,14 @@
 =======
 History
 =======
+2025.4.7 -- Added a number of ReaxFF forcefields.
+   * Added the ReaxFF forcefields from LAMMPS, plus two from lithium battery work.
+   * Added metadata sections to the forcefield to better support the features of
+     different forcefields.
+   * Improved the listing and display of available forcefields, and made it dynamic so
+     that forcefields added locally are immediately found without needing to restart
+     SEAMM.
+       
 2025.4.1 -- Added support for ReaxFF, which does not need atom type assignment.
 
 2025.3.18 -- Added bis(fluorosulfonyl)imide anion (FSI) to the OPLS-AA and CL&P forcefields
