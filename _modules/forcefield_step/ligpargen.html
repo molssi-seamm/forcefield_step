@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forcefield_step.ligpargen &#8212; SEAMM Forcefield Plug-in 2025.4.7 documentation</title>
+    <title>forcefield_step.ligpargen &#8212; SEAMM Forcefield Plug-in 2025.5.26 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../../_static/documentation_options.js?v=c38f2275"></script>
+    <script src="../../_static/documentation_options.js?v=0a24fd17"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2025.4.7" />
+  <meta name="docsearch:version" content="2025.5.26" />
   </head>
   
   
@@ -690,8 +690,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">inchikey</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">inchikey</span>
-    <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">smarts</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">hydrogens</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">smarts</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">hydrogens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Find the next available reference number</span>
     <span class="n">ref</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1227,13 +1227,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <span class="n">changed</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">system</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_system</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">smiles</span><span class="p">)</span>
         <span class="n">configuration</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">create_configuration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;initial&quot;</span><span class="p">)</span>
-        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
 
-        <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">canonical_smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Recreate the system from the canonical SMILES to get the order of atoms</span>
         <span class="n">system</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">canonical_smiles</span>
-        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">,</span> <span class="n">rdkit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="o">.</span><span class="n">from_smiles</span><span class="p">(</span><span class="n">canonical_smiles</span><span class="p">)</span>
 
         <span class="n">read_structure_step</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
             <span class="s2">&quot;structure.mol&quot;</span><span class="p">,</span>
