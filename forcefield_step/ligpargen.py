@@ -214,8 +214,8 @@ def add_to_ff(ff, configuration, data):
     except Exception:
         name = None
     inchikey = configuration.inchikey
-    canonical_smiles = configuration.to_smiles(canonical=True, rdkit=True)
-    smarts = configuration.to_smiles(hydrogens=True, rdkit=True)
+    canonical_smiles = configuration.to_smiles(canonical=True)
+    smarts = configuration.to_smiles(hydrogens=True)
 
     # Find the next available reference number
     ref = 0
@@ -748,13 +748,13 @@ def run():
         changed = True
         system = db.create_system(name=smiles)
         configuration = system.create_configuration(name="initial")
-        configuration.from_smiles(smiles, rdkit=True)
+        configuration.from_smiles(smiles)
 
-        canonical_smiles = configuration.to_smiles(canonical=True, rdkit=True)
+        canonical_smiles = configuration.to_smiles(canonical=True)
 
         # Recreate the system from the canonical SMILES to get the order of atoms
         system.name = canonical_smiles
-        configuration.from_smiles(canonical_smiles, rdkit=True)
+        configuration.from_smiles(canonical_smiles)
 
         read_structure_step.write(
             "structure.mol",
