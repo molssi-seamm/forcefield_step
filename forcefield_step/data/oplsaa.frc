@@ -5,18 +5,18 @@
 ! Version  Ref                Function             Label
 !--------- ---    ------------------------------   ------
 2025.04.06   1    metadata                         oplsaa
-2023.01.29   1    atom_types                       oplsaa CL&P ligpargen:optional
-2023.01.29   1    equivalence                      oplsaa CL&P
-2023.01.29   1    charges                          oplsaa CL&P ligpargen:optional
-2023.01.29   1    nonbond(12-6)                    oplsaa CL&P ligpargen:optional
-2023.01.29   1    quadratic_bond                   oplsaa CL&P ligpargen:optional
-2023.01.29   1    quadratic_angle                  oplsaa CL&P ligpargen:optional
-2023.08.21   1    quadratic_angle                  oplsaa CL&P ligpargen:optional
+2023.01.29   1    atom_types                       oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2023.01.29   1    equivalence                      oplsaa CL&P my_oplsaa:optional
+2023.01.29   1    charges                          oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2023.01.29   1    nonbond(12-6)                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2023.01.29   1    quadratic_bond                   oplsaa CL&P CL&P-g my_oplsaa:optional ligpargen:optional
+2023.01.29   1    quadratic_angle                  oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2023.08.21   1    quadratic_angle                  oplsaa CL&P my_oplsaa:optional ligpargen:optional
 2023.08.26   1    tabulated_angle                  CL&P
-2023.01.29   1    torsion_opls                     oplsaa CL&P ligpargen:optional
-2023.01.29   1    improper_opls                    oplsaa ligpargen:optional
+2023.01.29   1    torsion_opls                     oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2023.01.29   1    improper_opls                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
 2023.01.29   1    templates                        oplsaa
-2024.06.20   1    fragments			   ligpargen:optional
+2024.06.20   1    fragments			   CL&P my_oplsaa:optional ligpargen:optional
 #end
 
 #define oplsaa
@@ -54,6 +54,7 @@
 #end
 
 #include local:OPLS-AA/ligpargen.frc missing_ok
+#include local:OPLS-AA/my_oplsaa.frc missing_ok
 
 
 #metadata oplsaa
@@ -10881,8 +10882,10 @@
 
 ! Version   Ref    Type       Mass  El  # conns           Comment
 !---------- ---  --------   ------  --  ------- ---------------------------
+2025.05.16    7     B       10.811  B      4    Boron in BF4-
 2023.01.29    1     P       30.974  P      6    Phosphorous
 2023.01.29    1     F       18.998  F      1    Fluorine
+2025.05.16    7     FB      18.998  F      1    Fluorine in BF4-
 2023.01.29    1     FP      18.998  F      1    Fluorine in PF6-
 2023.09.13    3	    N	    14.007  N      2	generic N in CL&P
 2023.09.13    3	    S	    32.060  S	   4	generic S in CL&P
@@ -10904,7 +10907,11 @@
 2023.09.14    2	    HC	     1.008  H	   1	H bonded to side chain C past first in charged imidazolium group
 2023.09.14    2	    H1	     1.008  H	   1	H bonded to first side chain C in charged imidazolium group
 2023.09.14    2	    NA	    14.007  N	   2	N in charged imidazolium group
-
+! BOB and DFOB
+2025.05.16    8     Cbob    12.011  C      3    Ester -COOR
+2025.05.16    8     O2bob   15.999  O      1    Ester C=O
+2025.05.16    8     Obob    15.999  O      2    Ester CO-O-R
+2025.05.16    8     Fbob    18.998  F      1    Fluorine on B
 
 #equivalence          CL&P
 
@@ -10912,8 +10919,10 @@
 !                         -------------------------------------------
 !Ver        Ref    Type     NonB     Bond    Angle   Torsion    OOP
 !--------- ----  -------- -------- -------- -------- -------- --------
+2025.05.16    7     B        B         B       B        B        B
 2023.01.29    1     P        P         P       P        P        P
 2023.01.29    1     F        F         F       F        F        F
+2025.05.16    7     FB       FB        F       FB       F        F
 2023.01.29    1     FP       FP        F       FP       F        F
 2023.09.13    5     Nbt      Nbt       N       N    	N	 N
 2023.09.13    5     Sbt      Sbt       S       S	S	 S
@@ -10934,22 +10943,28 @@
 2023.09.14    2     HC       HC    opls_85  opls_85  opls_85  opls_85 
 2023.09.14    2     H1       H1    opls_85  opls_85  opls_85  opls_85 
 2023.09.14    2     NA       NA       NA       NA       NA       NA  
-
+! atom types for BOB and DFOB
+2025.05.16    8     Cbob     Cbob     C        C        C        C  
+2025.05.16    8     Fbob     FB       Fbob     F        F        F
+2025.05.16    8     Obob     Obob     O        O        O        O
+2025.05.16    8     O2bob    O2bob    O        O2bob    O        O
 
 #charges CL&P
 
 
 ! Version   Ref   I          Charge
 !---------  ----  --------   ------
-2023.01.29  2     F          -0.12
-2023.01.29  2     FP         -0.39
-2023.01.29  2     P           1.34
-2023.09.13  3     Nbt        -0.660
-2023.09.13  3     Sbt         1.020
-2023.09.13  3     Fbt        -0.160
-2025.03.18  6     Fsi        -0.13
-2023.09.13  3     Obt        -0.530
-2023.09.13  3     Cbt         0.350
+2025.05.16   7    B           0.96
+2023.01.29   2    F          -0.12
+2025.05.16   7    FB         -0.49
+2023.01.29   2    FP         -0.39
+2023.01.29   2    P           1.34
+2023.09.13   3    Nbt        -0.660
+2023.09.13   3    Sbt         1.020
+2023.09.13   3    Fbt        -0.160
+2025.03.18   6    Fsi        -0.13
+2023.09.13   3    Obt        -0.530
+2023.09.13   3    Cbt         0.350
 2023.09.14   2    C1	     -0.17
 2023.09.14   2    C2	      0.01
 2023.09.14   2    CE	     -0.05
@@ -10977,7 +10992,9 @@
 
 ! Version   Ref   I         sigma     eps
 !---------  ----  --------  --------  --------
+2025.05.16  7     B         3.58       0.39750
 2023.01.29  2     F         2.95       0.22175
+2025.05.16  7     FB        3.12       0.25520
 2023.01.29  2     FP        3.12       0.25520
 2023.01.29  2     P         3.74       0.83680
 2023.09.13  3	  Nbt       3.250      0.71128
@@ -10996,7 +11013,9 @@
 2023.09.14  2     HA	    2.42       0.12552
 2023.09.14  2     H1	    2.50       0.12552
 2023.09.14  2     NA	    3.25       0.71128
-
+2025.05.16  8     Obob      3.00       0.71128
+2025.05.16  8     Cbob      3.75       0.43932
+2025.05.16  8     O2bob     2.96       0.87864
 
 #quadratic_bond       CL&P
 
@@ -11007,6 +11026,7 @@
 
 ! Version   Ref   I         J               R0        K2
 !---------  ----  --------  --------  --------  --------
+2025.05.16  7     B         F         1.394     3235.0
 2023.01.29  3     P         F         1.606     3100.0
 2023.09.13  3     S         N         1.570     3137.0
 2023.09.13  3	  S	    O	      1.437	5331.0
@@ -11018,6 +11038,20 @@
 2023.09.14  2	  CW	    CW 	      1.341 	2176.0
 2023.09.14  2	  NA	    C1 	      1.466 	1410.0
 
+#quadratic_bond       CL&P-g
+
+> E = K2 * (R - R0)^2
+
+@units R0 nm
+@units K2 kJ/mol/nm^2
+
+! Version   Ref   I         J               R0        K2
+!---------  ----  --------  --------  --------  --------
+2025.05.16  8     B         Fbob      0.13820   323500.0
+2025.05.16  8     B         Obob      0.15067   267776.0
+2025.05.16  8     Cbob      Cbob      0.15542   392459.2
+2025.05.16  8     Cbob      Obob      0.13227   267776.0
+2025.05.16  8     Cbob      O2bob     0.12140   548900.0
 
 #quadratic_angle       CL&P
 
@@ -11028,6 +11062,7 @@
 
 ! Version   Ref   I         J         K           Theta0        K2
 !---------  ----  --------  --------  --------  --------  --------
+2025.05.16  7     FB        B         FB         109.5       669.5
 ! 2023.01.29  3     FP        P         FP          90.0      1165.0 replaced by tabulated form
 2023.09.13  3	  Sbt	    Nbt	      Sbt	 125.6	     671.0
 2023.09.13  3	  O	    N	      S       	 113.6	     789.0
@@ -11051,6 +11086,14 @@
 2023.01.29  1     NA       opls_18   opls_18     112.70       58.35
 !2023.01.29  1     opls_18   opls_18   opls_85     110.70     37.50
 2023.01.29  1     NA       opls_18   opls_85     110.70     37.50
+! BOB and DFOB
+2025.05.16  8     Fbob      B         Fbob       111.820     669.500
+2025.05.16  8     Fbob      B         Obob       110.300     669.500
+2025.05.16  8     Obob      B         Obob       103.510     774.880
+2025.05.16  8     B         Obob      Cbob       110.350     502.080
+2025.05.16  8     Obob      Cbob      Cbob       107.890     585.760
+2025.05.16  8     O2bob     Cbob      Cbob       125.500     527.180
+2025.05.16  8     Obob      Cbob      O2bob      126.600     585.760
 
 
 #simple_fourier_angle       CL&P
@@ -11102,6 +11145,14 @@
 ! 2023.09.14  2	  H*-C*-C*-H* 0 0 1.331
 ! 2023.09.14  2	  C*-C*-C*-C* 0.728 -0.657 1.167
 
+! BOB and DFOB
+2025.05.16  8     Fbob      B         Obob      Cbob       0.00000  0.00000 3.17980 0.00000
+2025.05.16  8     Obob      B         Obob      Cbob      -1.56900 -5.68187 0.01670 0.00000
+2025.05.16  8     B         Obob      Cbob      Cbob       0.00000 12.55200 0.00000 0.00000
+2025.05.16  8     B         Obob      Cbob      O2bob      0.00000 12.55200 0.00000 0.00000
+2025.05.16  8     Obob      Cbob      Cbob      Obob       0.00000 30.33400 0.00000 0.00000
+2025.05.16  8     Obob      Cbob      Cbob      O2bob      0.00000 30.33400 0.00000 0.00000
+2025.05.16  8     O2bob     Cbob      Cbob      O2bob      0.00000 30.33400 0.00000 0.00000
 
 
 #improper_opls       CL&P
@@ -11117,6 +11168,7 @@
 2023.09.14  2	  *         *         NA        *           8.37 
 2023.09.14  2	  *         *         CW        *           9.2
 2023.09.14  2	  *         *         CR        *           9.2
+2025.05.16  8     Obob      Cbob      Cbob      O2bob       9.20480
 
 
 
@@ -11135,6 +11187,99 @@
 ! Version   Ref   I         J         K        Eqn     K         n      Rb      A     zero-shift
 !---------  ----  --------  --------  -------- ---  --------    ---  ------  ------   ----------
 2023.08.25  5     FP        P         FP        E    1165.0      4    1.606   2000.0      0.001
+
+#fragments CL&P
+
+{
+    "BF4": {
+        "2025.05.16": {
+            "name": "tetrafluoroborate",
+            "InChIKey": "ODGCEQLVLXJUCC-UHFFFAOYSA-N",
+            "SMILES": "[B-](F)(F)(F)F",
+            "SMARTS": "[B-]([F])([F])([F])[F]",
+            "atom types": [
+                "B",
+                "FB",
+                "FB",
+                "FB",
+                "FB"
+            ],
+            "reference": 7
+        }
+    },
+    "O=C1O[B-]2(OC1=O)OC(=O)C(=O)O2": {
+        "2025.05.16": {
+	    "name": "1,4,6,9-tetraoxa-5-boranuidaspiro[4.4]nonane-2,3,7,8-tetrone",
+	    "common names": ["BOB", "bis(oxalato)borate"],
+	    "InChIKey": "IKHPCVLSMLIHHR-UHFFFAOYSA-N",
+	    "SMILES": "O=C1O[B-]2(OC1=O)OC(=O)C(=O)O2",
+	    "SMARTS": "[B-]12(OC(=O)C(=O)O1)OC(=O)C(=O)O2",
+	    "atom types": [
+	        "B",
+		"Obob",
+		"Cbob",
+		"O2bob",
+		"Cbob",
+		"O2bob",
+		"Obob",
+		"Obob",
+		"Cbob",
+		"O2bob",
+		"Cbob",
+		"O2bob",
+		"Obob"
+	    ],
+	    "charges": [
+	        0.785632,
+		-0.497707,
+		0.605242,
+		-0.553943,
+		0.605242,
+		-0.553943,
+		-0.497707,
+		-0.497707,
+		0.605242,
+		-0.553943,
+		0.605242,
+		-0.553943,
+		-0.497707
+	    ],
+	    "reference": 8
+        }
+    },
+    "O=C1O[B-](F)(F)OC1=O": {
+        "2025.05.16": {
+	    "name": "2,2-difluoro-1,3-dioxa-2-boranuidacyclopentane-4,5-dione",
+	    "common names": ["DFOB", "difluoro(oxalato)borate"],
+	    "InChIKey": "CKSNGRFEJKNBMU-UHFFFAOYSA-N",
+	    "SMILES": "O=C1O[B-](F)(F)OC1=O",
+	    "SMARTS": "F[B-]1(F)OC(=O)C(=O)O1",
+	    "atom types": [
+	        "Fbob",
+	        "B",
+		"Fbob",
+		"Obob",
+		"Cbob",
+		"O2bob",
+		"Cbob",
+		"O2bob",
+		"Obob"
+	    ],
+	    "charges": [
+	        -0.458552,
+		0.943418,
+	        -0.458552,
+		-0.523849,
+		0.588616,
+		-0.577924,
+		0.588616,
+		-0.577924,
+		-0.523849
+	    ],
+	    "reference": 8
+	}
+    }    
+}
 
 #templates CL&P
 {
@@ -11549,3 +11694,33 @@ number = {10},
 volume = {114},
 }
 #end
+
+#reference 7
+@Author Paul Saxe
+@Date 2025-5-16
+
+
+CL&P force field for ionic liquids
+
+IL force field:
+J.N. Canongia Lopes, A.A.H. Padua et al.
+1) J Phys Chem B 108 (2004) 2038, DOI: 10.1021/jp0362133;
+2) J Phys Chem B 108 (2004) 11250, DOI: 10.1021/jp0476996;
+3) J Phys Chem B 108 (2004) 16893, DOI: 10.1021/jp0476545;
+4) J Phys Chem B 110 (2006) 19586, DOI: 10.1021/jp063901o;
+5) J Phys Chem B 110 (2008) 5039, DOI: 10.1021/jp800281e;
+6) J Phys Chem B 110 (2010) 3592, DOI: 10.1021/jp9120468
+
+@misc{agilio_padua_2019_3250840,
+  author       = {Agilio Padua and
+                  Kateryna Goloviznina},
+  title        = {agiliopadua/ilff: Update},
+  month        = jun,
+  year         = 2019,
+  publisher    = {Zenodo},
+  version      = {v1.1},
+  doi          = {10.5281/zenodo.3250840},
+  url          = {https://doi.org/10.5281/zenodo.3250840},
+}
+#end
+

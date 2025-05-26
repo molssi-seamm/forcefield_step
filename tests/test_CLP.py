@@ -64,3 +64,17 @@ def test_C3mem(oplsaa_assigner, configuration):
     if result != correct:
         print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
         raise AssertionError(f"\n result: {result}\ncorrect: {correct}")
+
+
+def test_opls_P(oplsaa_assigner, configuration):
+    """Test of atom-type assignment for opls P,  PF6-
+
+    P: phosphorus in PF6-
+    FP: fluorine in PF6-
+    """
+    correct = ["P"] + 6 * ["FP"]
+    configuration.from_smiles("[P-](F)(F)(F)(F)(F)F")
+    result = oplsaa_assigner.assign(configuration)
+    if result != correct:
+        print(f"Incorrect typing. Should be:\n  {correct}\nnot\n  {result}")
+        raise AssertionError(f"\n result: {result}\ncorrect: {correct}")

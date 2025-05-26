@@ -1,6 +1,12 @@
 =======
 History
 =======
+2025.5.26 -- Updated the OPLS-AA forcefield file to allow personal versions
+   * Updated the OPLS-AA forcefield to support an optional local user file
+     'my_oplsaa.frc' to add to or override parameters in the main file.
+   * Fixed issues in the ligpargen utility due to changes in the SMILES routines in
+     SEAMM.
+
 2025.4.7 -- Added a number of ReaxFF forcefields.
    * Added the ReaxFF forcefields from LAMMPS, plus two from lithium battery work.
    * Added metadata sections to the forcefield to better support the features of

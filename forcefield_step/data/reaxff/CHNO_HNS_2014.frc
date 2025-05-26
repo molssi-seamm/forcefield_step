@@ -262,5 +262,11 @@ T.-R. Shan, R. R. Wixom, A. P. Thompson,
 "Atomistic Simulation of Nanoscale Void-Enhanced Initiation in Hexanitrostilbene",
 Proc. 15th International Detonation Symposium, pp. 962-969, SAND Number: SAND2014-15518J
 
+@techreport{shan2014nanoscale,
+  title={Nanoscale Void-Enhanced Initiation in Hexanitrostilbene: Reactive Molecular Dynamics Simulations.},
+  author={Shan, Tzu-Ray and Wixom, Ryan R and Thompson, Aidan Patrick},
+  year={2014},
+  institution={Sandia National Lab.(SNL-NM), Albuquerque, NM (United States)}
+}
 
 #end
