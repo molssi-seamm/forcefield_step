@@ -170,7 +170,7 @@ ReaxFF forcefield translated from Reax format
 
 Reactive MD-force field: Li/Si/C force field Volkswagen Jan 12, 2022
 
-@article{10.1021/acs.jpcc.2c07773, 
+@bibtex @article{10.1021/acs.jpcc.2c07773, 
 year = {2023}, 
 title = {{Development and Validation of a ReaxFF Reactive Force Field for Modeling Silicon–Carbon Composite Anode Materials in Lithium-Ion Batteries}}, 
 author = {Guifo, Stéphane B. Olou’ou and Mueller, Jonathan E. and Duin, Diana van and Talkhoncheh, Mahdi K. and Duin, Adri C. T. van and Henriques, David and Markus, Torsten}, 

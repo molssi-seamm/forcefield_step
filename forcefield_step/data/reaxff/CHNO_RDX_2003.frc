@@ -251,7 +251,7 @@ N.B. Removed two angle terms
 2)   1  2  4   0.0000   0.0019   6.3000   0.0000   0.0000   0.0000   1.0400        
      This is the first of two lines for 1 2 4. LAMMPS takes the second...
 
-@article{PhysRevLett.91.098301,
+@bibtex @article{PhysRevLett.91.098301,
   title = {Shock Waves in High-Energy Materials: The Initial Chemical Events in Nitramine RDX},
   author = {Strachan, Alejandro and van Duin, Adri C. T. and Chakraborty, Debashis and Dasgupta, Siddharth and Goddard, William A.},
   journal = {Phys. Rev. Lett.},

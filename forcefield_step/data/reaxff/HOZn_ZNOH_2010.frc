@@ -182,7 +182,7 @@ Import from LAMMPS examples/reaxff/ZnOH2
 
 DATE: 2011-02-18 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Raymand, van Duin, Spangberg, Goddard and Hermansson, Surf Sci, 604, 741-752 (2010) COMMENT: Reactive MD-force field: water/zinc: Raymand, D.; van Duin, A. C. T.; Spangberg, D.; Goddard, W. A.; Hermansson, K. Surface Science 2010, 604, 9-10, 741-752.
 
-@article{RAYMAND2010741,
+@bibtex @article{RAYMAND2010741,
 title = {Water adsorption on stepped ZnO surfaces from MD simulation},
 journal = {Surface Science},
 volume = {604},

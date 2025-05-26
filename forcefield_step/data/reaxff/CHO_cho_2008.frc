@@ -210,7 +210,7 @@ ReaxFF forcefield translated from Reax format
 
 DATE: 2011-02-18 DATE: 2010-11-03 DATE: 2010-02-19 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Chenoweth, van Duin and Goddard, J Phys Chem A, 112, 1040-1053 (2008) COMMENT: Reactive MD-force field c/h/o combustion force field: Chenoweth, K.; van Duin, A.C.T.; Goddard, W.A. J. Phys. Chem. A 2008, 112, 1040-1053.
 
-@article{doi:10.1021/jp709896w,
+@bibtex @article{doi:10.1021/jp709896w,
 author = {Chenoweth, Kimberly and van Duin, Adri C. T. and Goddard, William A.},
 title = {ReaxFF Reactive Force Field for Molecular Dynamics Simulations of Hydrocarbon Oxidation},
 journal = {The Journal of Physical Chemistry A},

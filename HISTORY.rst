@@ -1,6 +1,10 @@
 =======
 History
 =======
+2025.5.26.1 -- Corrected the references in the ReaxFF files.
+   * The references in the ReaxFF forcefields included with the release were not
+     correctly formatted so were being ignored.
+
 2025.5.26 -- Updated the OPLS-AA forcefield file to allow personal versions
    * Updated the OPLS-AA forcefield to support an optional local user file
      'my_oplsaa.frc' to add to or override parameters in the main file.

@@ -236,7 +236,7 @@ import from LAMMPS examples/reaxff/AB
 
 DATE: 2011-02-18 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Weismiller, van Duin,  Lee, Yetter, J Phys Chem A, 114, 5485-5492 (2010) COMMENT: Reactive MD-force field for Ammonia Borane: Weismiller, M.R.; van Duin, A.C.T.; Lee, J.; Yetter, R.A. J. Phys. Chem. A 2010, 114, 5485-5492
 
-@article{doi:10.1021/jp100136c,
+@bibtex @article{doi:10.1021/jp100136c,
 author = {Weismiller, Michael R. and van Duin, Adri C. T. and Lee, Jongguen and Yetter, Richard A.},
 title = {ReaxFF Reactive Force Field Development and Applications for Molecular Dynamics Simulations of Ammonia Borane Dehydrogenation and Combustion},
 journal = {The Journal of Physical Chemistry A},
