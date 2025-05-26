@@ -192,7 +192,7 @@ ReaxFF forcefield translated from Reax format
 
 DATE: 2011-02-18 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Joshi et al, J Mat Chem, 20, 10431-10437 (2010) COMMENT: Reactive MD-force field: Au-Au: Keith, J. A. et al. Phys Rev B 2010, 81, 235404; Joshi, K. et al., J. Mat. Chem 2010, 20, 10431-10437
 
-@article{PhysRevB.81.235404,
+@bibtex @article{PhysRevB.81.235404,
   title = {Reactive forcefield for simulating gold surfaces and nanoparticles},
   author = {Keith, John A. and Fantauzzi, Donato and Jacob, Timo and van Duin, Adri C. T.},
   journal = {Phys. Rev. B},
@@ -207,7 +207,7 @@ DATE: 2011-02-18 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Joshi
   url = {https://link.aps.org/doi/10.1103/PhysRevB.81.235404}
 }
 
-@Article{C0JM01556C,
+@bibtex @article{C0JM01556C,
 author ="Joshi, Kaushik and van Duin, Adri C. T. and Jacob, Timo",
 title  ="Development of a ReaxFF description of gold oxides and initial application to cold welding of partially oxidized gold surfaces",
 journal  ="J. Mater. Chem.",

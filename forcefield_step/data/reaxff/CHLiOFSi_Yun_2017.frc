@@ -306,7 +306,7 @@ ReaxFF forcefield translated from Reax format
 Reactive MD-force field: C/H/O/Si/Li/F force field Apr 2017
 
 
-@article{10.1021/acs.jpclett.7b00898, 
+@bibtex @article{10.1021/acs.jpclett.7b00898, 
 year = {2017}, 
 title = {{Simulation Protocol for Prediction of a Solid-Electrolyte Interphase on the Silicon-based Anodes of a Lithium-Ion Battery: ReaxFF Reactive Force Field}}, 
 author = {Yun, Kang-Seop and Pai, Sung Jin and Yeo, Byung Chul and Lee, Kwang-Ryeol and Kim, Sun-Jae and Han, Sang Soo}, 

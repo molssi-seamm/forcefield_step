@@ -443,7 +443,7 @@ From LAMMPS examples/reaxff/FC
 
 DATE: 2013-06-28 CONTRIBUTOR: Aidan Thompson, athomps@sandia.gov CITATION: Singh, Phys Rev B 87, 104114 (2013) COMMENT: Reactive MD-force field: Singh, Phys. Rev. B 87, 104114 (2013)
 
-@article{PhysRevB.87.104114,
+@bibtex @article{PhysRevB.87.104114,
   title = {Thermal properties of fluorinated graphene},
   author = {Singh, Sandeep Kumar and Srinivasan, S. Goverapet and Neek-Amal, M. and Costamagna, S. and van Duin, Adri C. T. and Peeters, F. M.},
   journal = {Phys. Rev. B},
