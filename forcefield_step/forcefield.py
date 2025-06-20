@@ -334,7 +334,8 @@ class Forcefield(seamm.Node):
                 context=seamm.flowchart_variables._data
             )
 
-        if P["forcefield_file"] == "OpenKIM":
+        ff_file = P["forcefield_file"]
+        if ff_file == "OpenKIM":
             printer.important(
                 __(
                     "Using the OpenKIM potential '{potentials}'",
@@ -344,9 +345,25 @@ class Forcefield(seamm.Node):
             )
             self.set_variable("_forcefield", "OpenKIM")
             self.set_variable("_OpenKIM_Potential", P["potentials"])
+        elif ff_file.endswith(".pt"):
+            # Pytorch
+            self.set_variable("_forcefield", "PyTorch")
+
+            if ff_file.startswith("local:"):
+                ff_file = "Forcefields/" + ff_file[6:]
+                path = self.find_data_file(ff_file)
+                ff_file = str(path)
+            else:
+                path = pkg_resources.resource_filename(__name__, "data/")
+                ff_file = os.path.join(path, P["forcefield_file"])
+
+            self.set_variable("_pytorch_model", ff_file)
+
+            printer.important(
+                self.indent + 4 * " " + f"Will use the PyTorch model {ff_file}"
+            )
         else:
             # Find the forcefield file
-            ff_file = P["forcefield_file"]
             printer.important(
                 self.indent + 4 * " " + f"Reading the forcefield file {ff_file}"
             )
