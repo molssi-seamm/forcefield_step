@@ -164,6 +164,8 @@ class TkForcefield(seamm.TkNode):
             tmp = []
             for path in local.glob("**/*.frc"):
                 tmp.append("local:" + str(path.relative_to(local)))
+            for path in local.glob("**/*.pt"):
+                tmp.append("local:" + str(path.relative_to(local)))
             forcefields.extend(sorted(tmp))
 
         # and local forcefields in the ~/.seamm.d/data/Forcefields
@@ -171,6 +173,8 @@ class TkForcefield(seamm.TkNode):
         if local.exists():
             tmp = []
             for path in local.glob("**/*.frc"):
+                tmp.append("personal:" + str(path.relative_to(local)))
+            for path in local.glob("**/*.pt"):
                 tmp.append("personal:" + str(path.relative_to(local)))
             forcefields.extend(sorted(tmp))
 

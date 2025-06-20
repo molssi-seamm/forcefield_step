@@ -1,6 +1,8 @@
 =======
 History
 =======
+2025.6.20 -- Adding support for MACE PyTorch potentials
+
 2025.5.26.1 -- Corrected the references in the ReaxFF files.
    * The references in the ReaxFF forcefields included with the release were not
      correctly formatted so were being ignored.
