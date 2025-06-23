@@ -353,6 +353,10 @@ class Forcefield(seamm.Node):
                 ff_file = "Forcefields/" + ff_file[6:]
                 path = self.find_data_file(ff_file)
                 ff_file = str(path)
+            elif ff_file.startswith("personal:"):
+                ff_file = "Forcefields/" + ff_file[9:]
+                path = self.find_data_file(ff_file)
+                ff_file = str(path)
             else:
                 path = pkg_resources.resource_filename(__name__, "data/")
                 ff_file = os.path.join(path, P["forcefield_file"])
@@ -369,6 +373,10 @@ class Forcefield(seamm.Node):
             )
             if ff_file.startswith("local:"):
                 ff_file = "Forcefields/" + ff_file[6:]
+                path = self.find_data_file(ff_file)
+                ff_file = str(path)
+            elif ff_file.startswith("personal:"):
+                ff_file = "Forcefields/" + ff_file[9:]
                 path = self.find_data_file(ff_file)
                 ff_file = str(path)
             else:
