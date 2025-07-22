@@ -55,7 +55,7 @@ class TkForcefield(seamm.TkNode):
         else:
             width = 0
         self["forcefield_file"].combobox.configure(width=width)
-        if forcefield not in forcefields:
+        if not self.is_expr(forcefield) and forcefield not in forcefields:
             if len(forcefields) == 0:
                 self["forcefield_file"].set("")
             else:
