@@ -1,6 +1,10 @@
 =======
 History
 =======
+2025.7.22 -- Allowing the forcefield to be specified using a variable.
+    * The graphical code forced the selected forcefield to be one of the available
+      forcefields, not allowing for the use of a variable. This has been fixed.
+
 2025.6.23 -- Bugfix: corrected handling of personal forcefield files.
 
 2025.6.20 -- Adding support for MACE PyTorch potentials
