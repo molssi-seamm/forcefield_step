@@ -334,19 +334,20 @@ def add_to_ff(ff, configuration, data):
                         "decimal",
                     )
                 elif section == "improper_opls":
-                    for imptor in data["imptors"]:
-                        it, jt, kt, lt, v2, _, _ = imptor
-                        if it == "0" and jt == "0" and kt == "0" and lt == "0":
-                            continue
-                        # Tinker has a factor of 2 someplace.
-                        v2 = str(round(2 * float(v2), 4))
-                        columns["Version"].append(version)
-                        columns["Ref"].append(ref)
-                        columns["I"].append(ikey + "_" + it)
-                        columns["J"].append(ikey + "_" + jt)
-                        columns["K"].append(ikey + "_" + kt)
-                        columns["L"].append(ikey + "_" + lt)
-                        columns["V2"].append(v2)
+                    if "imptors" in data:
+                        for imptor in data["imptors"]:
+                            it, jt, kt, lt, v2, _, _ = imptor
+                            if it == "0" and jt == "0" and kt == "0" and lt == "0":
+                                continue
+                            # Tinker has a factor of 2 someplace.
+                            v2 = str(round(2 * float(v2), 4))
+                            columns["Version"].append(version)
+                            columns["Ref"].append(ref)
+                            columns["I"].append(ikey + "_" + it)
+                            columns["J"].append(ikey + "_" + jt)
+                            columns["K"].append(ikey + "_" + kt)
+                            columns["L"].append(ikey + "_" + lt)
+                            columns["V2"].append(v2)
                     align = (
                         "center",
                         "right",
@@ -585,7 +586,6 @@ def add_to_ff(ff, configuration, data):
     if result[-1] != "#end":
         result[-1] = ""
     result.append(f"#reference {ref}")
-    result.append("")
     result.append(f"@Date {datetime.datetime.now().isoformat()}")
     try:
         result.append(f"@User {getpass.getuser()}")
@@ -598,8 +598,7 @@ def add_to_ff(ff, configuration, data):
     result.append(f"InChIKey: {inchikey}")
     result.append(f"  SMILES: {canonical_smiles}")
     result.append(f"  SMARTS: {smarts}")
-    result.append(
-        """
+    result.append("""
 Potential energy functions for atomic-level simulations of water and organic and
 biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.
 USA 2005, 102, 6665-6670
@@ -683,15 +682,13 @@ Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
   copyright = "http://creativecommons.org/licenses/by-nc/4.0/",
   doi       = "10.1093/nar/gkx312"
 }
-"""
-    )
+""")
     if name is None:
         tmp = ""
     else:
         tmp = " (" + name + ")"
     year, month, day = datetime.datetime.now().isoformat().split("-")
-    result.append(
-        f"""
+    result.append(f"""
 @bibtex @Misc{{{inchikey},
   author    = "Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,
                Julian and Jorgensen, William L",
@@ -703,8 +700,7 @@ Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
   address   = "New Haven, CT, USA",
   note      = "Accessed on {year}-{month}-{day}"
 }}
-"""
-    )
+""")
     result.append("#end")
     result.append("")
 
