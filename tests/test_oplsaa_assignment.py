@@ -11,7 +11,6 @@ the call to configuration.smiles adds the argument 'flavor="openbabel"' to conti
 using OpenBabel.
 """
 
-
 if True:
 
     def test_opls_58(oplsaa_assigner, configuration):

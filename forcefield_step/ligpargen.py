@@ -598,8 +598,7 @@ def add_to_ff(ff, configuration, data):
     result.append(f"InChIKey: {inchikey}")
     result.append(f"  SMILES: {canonical_smiles}")
     result.append(f"  SMARTS: {smarts}")
-    result.append(
-        """
+    result.append("""
 Potential energy functions for atomic-level simulations of water and organic and
 biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.
 USA 2005, 102, 6665-6670
@@ -683,15 +682,13 @@ Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
   copyright = "http://creativecommons.org/licenses/by-nc/4.0/",
   doi       = "10.1093/nar/gkx312"
 }
-"""
-    )
+""")
     if name is None:
         tmp = ""
     else:
         tmp = " (" + name + ")"
     year, month, day = datetime.datetime.now().isoformat().split("-")
-    result.append(
-        f"""
+    result.append(f"""
 @bibtex @Misc{{{inchikey},
   author    = "Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,
                Julian and Jorgensen, William L",
@@ -703,8 +700,7 @@ Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336
   address   = "New Haven, CT, USA",
   note      = "Accessed on {year}-{month}-{day}"
 }}
-"""
-    )
+""")
     result.append("#end")
     result.append("")
 
