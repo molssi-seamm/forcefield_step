@@ -334,19 +334,20 @@ def add_to_ff(ff, configuration, data):
                         "decimal",
                     )
                 elif section == "improper_opls":
-                    for imptor in data["imptors"]:
-                        it, jt, kt, lt, v2, _, _ = imptor
-                        if it == "0" and jt == "0" and kt == "0" and lt == "0":
-                            continue
-                        # Tinker has a factor of 2 someplace.
-                        v2 = str(round(2 * float(v2), 4))
-                        columns["Version"].append(version)
-                        columns["Ref"].append(ref)
-                        columns["I"].append(ikey + "_" + it)
-                        columns["J"].append(ikey + "_" + jt)
-                        columns["K"].append(ikey + "_" + kt)
-                        columns["L"].append(ikey + "_" + lt)
-                        columns["V2"].append(v2)
+                    if "imptors" in data:
+                        for imptor in data["imptors"]:
+                            it, jt, kt, lt, v2, _, _ = imptor
+                            if it == "0" and jt == "0" and kt == "0" and lt == "0":
+                                continue
+                            # Tinker has a factor of 2 someplace.
+                            v2 = str(round(2 * float(v2), 4))
+                            columns["Version"].append(version)
+                            columns["Ref"].append(ref)
+                            columns["I"].append(ikey + "_" + it)
+                            columns["J"].append(ikey + "_" + jt)
+                            columns["K"].append(ikey + "_" + kt)
+                            columns["L"].append(ikey + "_" + lt)
+                            columns["V2"].append(v2)
                     align = (
                         "center",
                         "right",
@@ -585,7 +586,6 @@ def add_to_ff(ff, configuration, data):
     if result[-1] != "#end":
         result[-1] = ""
     result.append(f"#reference {ref}")
-    result.append("")
     result.append(f"@Date {datetime.datetime.now().isoformat()}")
     try:
         result.append(f"@User {getpass.getuser()}")

@@ -1,6 +1,9 @@
 =======
 History
 =======
+2026.1.28 -- Bugfix: ligpargen failed for some molecules
+    * ligpargen crashed for molecules with no improper torsions.
+
 2025.7.22 -- Allowing the forcefield to be specified using a variable.
     * The graphical code forced the selected forcefield to be one of the available
       forcefields, not allowing for the use of a variable. This has been fixed.
