@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forcefield_step.ligpargen &#8212; SEAMM Forcefield Plug-in 2025.7.22 documentation</title>
+    <title>forcefield_step.ligpargen &#8212; SEAMM Forcefield Plug-in 2026.1.28 documentation</title>
   
   
   
@@ -48,9 +48,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../../_static/documentation_options.js?v=d3d99f84"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/documentation_options.js?v=77e8914b"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
@@ -60,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2025.7.22" />
+  <meta name="docsearch:version" content="2026.1.28" />
   </head>
   
   
@@ -810,19 +810,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="s2">&quot;decimal&quot;</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="k">elif</span> <span class="n">section</span> <span class="o">==</span> <span class="s2">&quot;improper_opls&quot;</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">imptor</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imptors&quot;</span><span class="p">]:</span>
-                        <span class="n">it</span><span class="p">,</span> <span class="n">jt</span><span class="p">,</span> <span class="n">kt</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">imptor</span>
-                        <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">jt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">kt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">lt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
-                            <span class="k">continue</span>
-                        <span class="c1"># Tinker has a factor of 2 someplace.</span>
-                        <span class="n">v2</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">v2</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">it</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">jt</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">kt</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">lt</span><span class="p">)</span>
-                        <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s2">&quot;imptors&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">imptor</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;imptors&quot;</span><span class="p">]:</span>
+                            <span class="n">it</span><span class="p">,</span> <span class="n">jt</span><span class="p">,</span> <span class="n">kt</span><span class="p">,</span> <span class="n">lt</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">imptor</span>
+                            <span class="k">if</span> <span class="n">it</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">jt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">kt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span> <span class="ow">and</span> <span class="n">lt</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                            <span class="c1"># Tinker has a factor of 2 someplace.</span>
+                            <span class="n">v2</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">v2</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">it</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">jt</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">kt</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ikey</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">lt</span><span class="p">)</span>
+                            <span class="n">columns</span><span class="p">[</span><span class="s2">&quot;V2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
                     <span class="n">align</span> <span class="o">=</span> <span class="p">(</span>
                         <span class="s2">&quot;center&quot;</span><span class="p">,</span>
                         <span class="s2">&quot;right&quot;</span><span class="p">,</span>
@@ -1061,7 +1062,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;#end&quot;</span><span class="p">:</span>
         <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;#reference </span><span class="si">{</span><span class="n">ref</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@Date </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@User </span><span class="si">{</span><span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1074,100 +1074,97 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;InChIKey: </span><span class="si">{</span><span class="n">inchikey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  SMILES: </span><span class="si">{</span><span class="n">canonical_smiles</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  SMARTS: </span><span class="si">{</span><span class="n">smarts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Potential energy functions for atomic-level simulations of water and organic and</span>
-<span class="sd">biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.</span>
-<span class="sd">USA 2005, 102, 6665-6670</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Potential energy functions for atomic-level simulations of water and organic and</span>
+<span class="s2">biomolecular systems. Jorgensen, W. L.; Tirado-Rives, J. Proc. Nat. Acad. Sci.</span>
+<span class="s2">USA 2005, 102, 6665-6670</span>
 
-<span class="sd">Localized Bond-Charge Corrected CM1A Charges for Condensed-Phase Simulations.</span>
-<span class="sd">Dodda, L. S.; Vilseck, J. Z.; Tirado-Rives, J.; Jorgensen, W. L.</span>
-<span class="sd">J. Phys. Chem. B, 2017, 121 (15), 3864-3870</span>
+<span class="s2">Localized Bond-Charge Corrected CM1A Charges for Condensed-Phase Simulations.</span>
+<span class="s2">Dodda, L. S.; Vilseck, J. Z.; Tirado-Rives, J.; Jorgensen, W. L.</span>
+<span class="s2">J. Phys. Chem. B, 2017, 121 (15), 3864-3870</span>
 
-<span class="sd">LigParGen web server: An automatic OPLS-AA parameter generator for organic ligands.</span>
-<span class="sd">Dodda, L. S.;Cabeza de Vaca, I.; Tirado-Rives, J.; Jorgensen, W. L.</span>
-<span class="sd">Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336</span>
+<span class="s2">LigParGen web server: An automatic OPLS-AA parameter generator for organic ligands.</span>
+<span class="s2">Dodda, L. S.;Cabeza de Vaca, I.; Tirado-Rives, J.; Jorgensen, W. L.</span>
+<span class="s2">Nucleic Acids Research, Volume 45, Issue W1, 3 July 2017, Pages W331-W336</span>
 
-<span class="sd">@bibtex @ARTICLE{Jorgensen2005-uh,</span>
-<span class="sd">  title     = &quot;Potential energy functions for atomic-level simulations of water</span>
-<span class="sd">               and organic and biomolecular systems&quot;,</span>
-<span class="sd">  author    = &quot;Jorgensen, William L and Tirado-Rives, Julian&quot;,</span>
-<span class="sd">  abstract  = &quot;An overview is provided on the development and status of</span>
-<span class="sd">               potential energy functions that are used in atomic-level</span>
-<span class="sd">               statistical mechanics and molecular dynamics simulations of</span>
-<span class="sd">               water and of organic and biomolecular systems. Some topics that</span>
-<span class="sd">               are considered are the form of force fields, their</span>
-<span class="sd">               parameterization and performance, simulations of organic</span>
-<span class="sd">               liquids, computation of free energies of hydration, universal</span>
-<span class="sd">               extension for organic molecules, and choice of atomic charges.</span>
-<span class="sd">               The discussion of water models covers some history, performance</span>
-<span class="sd">               issues, and special topics such as nuclear quantum effects.&quot;,</span>
-<span class="sd">  journal   = &quot;Proc. Natl. Acad. Sci. U. S. A.&quot;,</span>
-<span class="sd">  publisher = &quot;Proceedings of the National Academy of Sciences&quot;,</span>
-<span class="sd">  volume    =  102,</span>
-<span class="sd">  number    =  19,</span>
-<span class="sd">  pages     = &quot;6665--6670&quot;,</span>
-<span class="sd">  month     =  may,</span>
-<span class="sd">  year      =  2005,</span>
-<span class="sd">  language  = &quot;en&quot;,</span>
-<span class="sd">  doi       = &quot;10.1073/pnas.0408037102&quot;</span>
-<span class="sd">}</span>
+<span class="s2">@bibtex @ARTICLE{Jorgensen2005-uh,</span>
+<span class="s2">  title     = &quot;Potential energy functions for atomic-level simulations of water</span>
+<span class="s2">               and organic and biomolecular systems&quot;,</span>
+<span class="s2">  author    = &quot;Jorgensen, William L and Tirado-Rives, Julian&quot;,</span>
+<span class="s2">  abstract  = &quot;An overview is provided on the development and status of</span>
+<span class="s2">               potential energy functions that are used in atomic-level</span>
+<span class="s2">               statistical mechanics and molecular dynamics simulations of</span>
+<span class="s2">               water and of organic and biomolecular systems. Some topics that</span>
+<span class="s2">               are considered are the form of force fields, their</span>
+<span class="s2">               parameterization and performance, simulations of organic</span>
+<span class="s2">               liquids, computation of free energies of hydration, universal</span>
+<span class="s2">               extension for organic molecules, and choice of atomic charges.</span>
+<span class="s2">               The discussion of water models covers some history, performance</span>
+<span class="s2">               issues, and special topics such as nuclear quantum effects.&quot;,</span>
+<span class="s2">  journal   = &quot;Proc. Natl. Acad. Sci. U. S. A.&quot;,</span>
+<span class="s2">  publisher = &quot;Proceedings of the National Academy of Sciences&quot;,</span>
+<span class="s2">  volume    =  102,</span>
+<span class="s2">  number    =  19,</span>
+<span class="s2">  pages     = &quot;6665--6670&quot;,</span>
+<span class="s2">  month     =  may,</span>
+<span class="s2">  year      =  2005,</span>
+<span class="s2">  language  = &quot;en&quot;,</span>
+<span class="s2">  doi       = &quot;10.1073/pnas.0408037102&quot;</span>
+<span class="s2">}</span>
 
-<span class="sd">@bibtex @ARTICLE{Dodda2017-hm,</span>
-<span class="sd">  title     = &quot;{1.14*CM1A-LBCC}: Localized bond-charge corrected {CM1A} charges</span>
-<span class="sd">               for condensed-phase simulations&quot;,</span>
-<span class="sd">  author    = &quot;Dodda, Leela S and Vilseck, Jonah Z and Tirado-Rives, Julian and</span>
-<span class="sd">               Jorgensen, William L&quot;,</span>
-<span class="sd">  abstract  = &quot;The quality of the 1.14*CM1A and 1.20*CM5 charge models was</span>
-<span class="sd">               evaluated for calculations of free energies of hydration. For a</span>
-<span class="sd">               set of 426 neutral molecules, 1.14*CM1A and 1.20*CM5 yield MADs</span>
-<span class="sd">               of 1.26 and 1.21 kcal/mol, respectively. The 1.14*CM1A charges,</span>
-<span class="sd">               which can be readily obtained for large systems, exhibit large</span>
-<span class="sd">               deviations only for a subset of functional groups. The results</span>
-<span class="sd">               for these cases were systematically improved using localized</span>
-<span class="sd">               bond-charge corrections (LBCC) by which offsetting adjustments</span>
-<span class="sd">               are made to the partial charges for atoms in specified bond</span>
-<span class="sd">               types. Only 19 LBCCs were needed to yield 1.14*CM1A-LBCC charges</span>
-<span class="sd">               that reduce the errors for the 426 $\\Delta$Ghyd values to only</span>
-<span class="sd">               0.61 kcal/mol. The modified charge method was also tested in</span>
-<span class="sd">               computation of heats of vaporization and densities for pure</span>
-<span class="sd">               organic liquids, yielding average errors of 1.40 kcal/mol and</span>
-<span class="sd">               0.024 g/cm3, similar to those for 1.14*CM1A.&quot;,</span>
-<span class="sd">  journal   = &quot;J. Phys. Chem. B&quot;,</span>
-<span class="sd">  publisher = &quot;American Chemical Society (ACS)&quot;,</span>
-<span class="sd">  volume    =  121,</span>
-<span class="sd">  number    =  15,</span>
-<span class="sd">  pages     = &quot;3864--3870&quot;,</span>
-<span class="sd">  month     =  apr,</span>
-<span class="sd">  year      =  2017,</span>
-<span class="sd">  language  = &quot;en&quot;,</span>
-<span class="sd">  doi       = &quot;10.1021/acs.jpcb.7b00272&quot;</span>
-<span class="sd">}</span>
+<span class="s2">@bibtex @ARTICLE{Dodda2017-hm,</span>
+<span class="s2">  title     = &quot;{1.14*CM1A-LBCC}: Localized bond-charge corrected </span><span class="si">{CM1A}</span><span class="s2"> charges</span>
+<span class="s2">               for condensed-phase simulations&quot;,</span>
+<span class="s2">  author    = &quot;Dodda, Leela S and Vilseck, Jonah Z and Tirado-Rives, Julian and</span>
+<span class="s2">               Jorgensen, William L&quot;,</span>
+<span class="s2">  abstract  = &quot;The quality of the 1.14*CM1A and 1.20*CM5 charge models was</span>
+<span class="s2">               evaluated for calculations of free energies of hydration. For a</span>
+<span class="s2">               set of 426 neutral molecules, 1.14*CM1A and 1.20*CM5 yield MADs</span>
+<span class="s2">               of 1.26 and 1.21 kcal/mol, respectively. The 1.14*CM1A charges,</span>
+<span class="s2">               which can be readily obtained for large systems, exhibit large</span>
+<span class="s2">               deviations only for a subset of functional groups. The results</span>
+<span class="s2">               for these cases were systematically improved using localized</span>
+<span class="s2">               bond-charge corrections (LBCC) by which offsetting adjustments</span>
+<span class="s2">               are made to the partial charges for atoms in specified bond</span>
+<span class="s2">               types. Only 19 LBCCs were needed to yield 1.14*CM1A-LBCC charges</span>
+<span class="s2">               that reduce the errors for the 426 $</span><span class="se">\\</span><span class="s2">Delta$Ghyd values to only</span>
+<span class="s2">               0.61 kcal/mol. The modified charge method was also tested in</span>
+<span class="s2">               computation of heats of vaporization and densities for pure</span>
+<span class="s2">               organic liquids, yielding average errors of 1.40 kcal/mol and</span>
+<span class="s2">               0.024 g/cm3, similar to those for 1.14*CM1A.&quot;,</span>
+<span class="s2">  journal   = &quot;J. Phys. Chem. B&quot;,</span>
+<span class="s2">  publisher = &quot;American Chemical Society (ACS)&quot;,</span>
+<span class="s2">  volume    =  121,</span>
+<span class="s2">  number    =  15,</span>
+<span class="s2">  pages     = &quot;3864--3870&quot;,</span>
+<span class="s2">  month     =  apr,</span>
+<span class="s2">  year      =  2017,</span>
+<span class="s2">  language  = &quot;en&quot;,</span>
+<span class="s2">  doi       = &quot;10.1021/acs.jpcb.7b00272&quot;</span>
+<span class="s2">}</span>
 
-<span class="sd">@bibtex @ARTICLE{Dodda2017-in,</span>
-<span class="sd">  title     = &quot;{LigParGen} web server: an automatic {OPLS-AA} parameter</span>
-<span class="sd">               generator for organic ligands&quot;,</span>
-<span class="sd">  author    = &quot;Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,</span>
-<span class="sd">               Julian and Jorgensen, William L&quot;,</span>
-<span class="sd">  journal   = &quot;Nucleic Acids Res.&quot;,</span>
-<span class="sd">  publisher = &quot;Oxford University Press (OUP)&quot;,</span>
-<span class="sd">  volume    =  45,</span>
-<span class="sd">  number    = &quot;W1&quot;,</span>
-<span class="sd">  pages     = &quot;W331--W336&quot;,</span>
-<span class="sd">  month     =  jul,</span>
-<span class="sd">  year      =  2017,</span>
-<span class="sd">  copyright = &quot;http://creativecommons.org/licenses/by-nc/4.0/&quot;,</span>
-<span class="sd">  doi       = &quot;10.1093/nar/gkx312&quot;</span>
-<span class="sd">}</span>
-<span class="sd">&quot;&quot;&quot;</span>
-    <span class="p">)</span>
+<span class="s2">@bibtex @ARTICLE{Dodda2017-in,</span>
+<span class="s2">  title     = &quot;</span><span class="si">{LigParGen}</span><span class="s2"> web server: an automatic {OPLS-AA} parameter</span>
+<span class="s2">               generator for organic ligands&quot;,</span>
+<span class="s2">  author    = &quot;Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,</span>
+<span class="s2">               Julian and Jorgensen, William L&quot;,</span>
+<span class="s2">  journal   = &quot;Nucleic Acids Res.&quot;,</span>
+<span class="s2">  publisher = &quot;Oxford University Press (OUP)&quot;,</span>
+<span class="s2">  volume    =  45,</span>
+<span class="s2">  number    = &quot;W1&quot;,</span>
+<span class="s2">  pages     = &quot;W331--W336&quot;,</span>
+<span class="s2">  month     =  jul,</span>
+<span class="s2">  year      =  2017,</span>
+<span class="s2">  copyright = &quot;http://creativecommons.org/licenses/by-nc/4.0/&quot;,</span>
+<span class="s2">  doi       = &quot;10.1093/nar/gkx312&quot;</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot; (&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
     <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">@bibtex @Misc</span><span class="se">{{</span><span class="si">{</span><span class="n">inchikey</span><span class="si">}</span><span class="s2">,</span>
 <span class="s2">  author    = &quot;Dodda, Leela S and Cabeza de Vaca, Israel and Tirado-Rives,</span>
 <span class="s2">               Julian and Jorgensen, William L&quot;,</span>
@@ -1179,8 +1176,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="s2">  address   = &quot;New Haven, CT, USA&quot;,</span>
 <span class="s2">  note      = &quot;Accessed on </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="se">}}</span>
-<span class="s2">&quot;&quot;&quot;</span>
-    <span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;#end&quot;</span><span class="p">)</span>
     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
