@@ -2,10 +2,10 @@
 
 """A node or step for the forcefield in a flowchart"""
 
+import importlib
 import logging
 import os.path
 from pathlib import Path
-import pkg_resources
 import pprint
 
 import forcefield_step
@@ -293,7 +293,7 @@ class Forcefield(seamm.Node):
             result.append((uri, path))
         else:
             uri = ff_file
-            path = Path(pkg_resources.resource_filename(__name__, "data/"))
+            path = importlib.resources.files("forcefield_step") / "data"
             path = path / ff_file
             if not local_only:
                 result.append((uri, path))
@@ -358,7 +358,7 @@ class Forcefield(seamm.Node):
                 path = self.find_data_file(ff_file)
                 ff_file = str(path)
             else:
-                path = pkg_resources.resource_filename(__name__, "data/")
+                path = importlib.resources.files("forcefield_step") / "data"
                 ff_file = os.path.join(path, P["forcefield_file"])
 
             self.set_variable("_pytorch_model", ff_file)
@@ -380,7 +380,7 @@ class Forcefield(seamm.Node):
                 path = self.find_data_file(ff_file)
                 ff_file = str(path)
             else:
-                path = pkg_resources.resource_filename(__name__, "data/")
+                path = importlib.resources.files("forcefield_step") / "data"
                 ff_file = os.path.join(path, P["forcefield_file"])
 
             printer.important("")
