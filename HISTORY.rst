@@ -1,6 +1,8 @@
 =======
 History
 =======
+2026.2.26 -- Internal: moving from pkg_resources to importlib.resources
+
 2026.1.28 -- Bugfix: ligpargen failed for some molecules
     * ligpargen crashed for molecules with no improper torsions.
 
