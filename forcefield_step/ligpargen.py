@@ -190,6 +190,197 @@ def reader(path):
     return section
 
 
+def key_atom_types(configuration, data):
+    """Get the LigParGen atom type of each atom of the configuration.
+
+    LigParGen does not keep the order of the atoms it is given: it perceives the
+    molecule afresh and orders it its own way. The ``atom`` records of the .key file
+    are therefore *not* in the configuration's order, so they cannot simply be zipped
+    together.
+
+    LigParGen does, however, give every atom its own type, which means the ``bond``
+    records -- which are in terms of the types -- are the molecular graph of its
+    ordering. Matching that graph to the configuration's gives the mapping exactly,
+    with no reliance on the two orders agreeing.
+
+    Parameters
+    ----------
+    configuration : Configuration
+        The configuration the .key file was generated for.
+    data : dict
+        The data read from the .key file.
+
+    Returns
+    -------
+    [str]
+        The LigParGen atom type of each atom, in the configuration's order.
+    """
+    types = [atom[0] for atom in data["atom"]]
+    index_of = {_type: i for i, _type in enumerate(types)}
+    atnos = [int(atom[4]) for atom in data["atom"]]
+
+    n_atoms = configuration.n_atoms
+    if len(types) != n_atoms:
+        raise ValueError(
+            f"The .key file has {len(types)} atoms but the structure has {n_atoms}."
+            " The .key file is for a different molecule."
+        )
+
+    # The LigParGen molecule, from the bond records.
+    key_neighbors = [set() for _ in types]
+    for bond in data["bond"]:
+        i = index_of[bond[0]]
+        j = index_of[bond[1]]
+        key_neighbors[i].add(j)
+        key_neighbors[j].add(i)
+
+    # ...and the configuration's.
+    configuration_atnos = configuration.atoms.atomic_numbers
+    neighbors = [set(tmp) for tmp in configuration.bonded_neighbors(as_indices=True)]
+
+    # Work outwards from the most connected atom so that every atom after the first
+    # is bonded to one already placed. The candidates for it are then just the
+    # neighbors of that atom's image, which keeps the search tiny.
+    order = []
+    seen = set()
+    for start in sorted(range(n_atoms), key=lambda i: -len(neighbors[i])):
+        if start in seen:
+            continue
+        seen.add(start)
+        queue = [start]
+        while queue:
+            i = queue.pop(0)
+            order.append(i)
+            for j in sorted(neighbors[i]):
+                if j not in seen:
+                    seen.add(j)
+                    queue.append(j)
+
+    mapping = {}
+    used = set()
+
+    def place(k):
+        "Map order[k] onto a .key atom, consistently with those already mapped."
+        if k == n_atoms:
+            return True
+        i = order[k]
+        placed = [j for j in neighbors[i] if j in mapping]
+        if placed:
+            candidates = set.intersection(*(key_neighbors[mapping[j]] for j in placed))
+        else:
+            candidates = set(range(n_atoms))
+        for candidate in sorted(candidates - used):
+            if atnos[candidate] != configuration_atnos[i]:
+                continue
+            if len(key_neighbors[candidate]) != len(neighbors[i]):
+                continue
+            # Bonded to exactly the images of the atoms it is bonded to, and to no
+            # others: this is what makes the result an exact match rather than a
+            # plausible one.
+            if any(
+                (mapping[j] in key_neighbors[candidate]) != (j in neighbors[i])
+                for j in mapping
+            ):
+                continue
+            mapping[i] = candidate
+            used.add(candidate)
+            if place(k + 1):
+                return True
+            del mapping[i]
+            used.discard(candidate)
+        return False
+
+    if not place(0):
+        raise ValueError(
+            "Could not match the atoms in the LigParGen .key file to those in the "
+            "structure. Is the .key file for this molecule?"
+        )
+
+    return [types[mapping[i]] for i in range(n_atoms)]
+
+
+# The most bonds an atom of each element can have, used to sanity check the
+# number of connections written for each atom type.
+max_valence = {"H": 1, "F": 1, "Cl": 1, "Br": 1, "I": 1, "O": 2, "N": 4, "C": 4}
+
+
+def check_fragment(configuration, data, smarts, match, types):
+    """Check a fragment's atom types against the molecule they describe.
+
+    A wrong ordering of the types is otherwise silent -- it is a permutation, so the
+    charges still sum to the molecular charge and nothing complains until the types
+    are used, if then. These checks catch it at the point it is written.
+
+    Parameters
+    ----------
+    configuration : Configuration
+        The configuration the .key file was generated for.
+    data : dict
+        The data read from the .key file.
+    smarts : str
+        The SMARTS for the fragment.
+    match : tuple(int)
+        The configuration's atom for each position of the SMARTS.
+    types : [str]
+        The atom type for each position of the SMARTS.
+
+    Raises
+    ------
+    ValueError
+        If the types do not describe the molecule.
+    """
+    by_type = {}
+    for atom in data["atom"]:
+        by_type[atom[0]] = atom
+
+    # The types carry the fragment's prefix; the .key file's do not.
+    bare = [_type.split("_", 1)[1] for _type in types]
+
+    # 1. Each position's element is the element of the type it was given.
+    symbols = configuration.atoms.symbols
+    for position, (index, _type) in enumerate(zip(match, bare)):
+        symbol = to_symbols([int(by_type[_type][4])])[0]
+        if symbol != symbols[index]:
+            raise ValueError(
+                f"Atom {position + 1} of '{smarts}' is {symbols[index]} but its type "
+                f"{types[position]} is {symbol}. The atom types are in the wrong "
+                "order."
+            )
+
+    # 2. No type claims more bonds than its element can have.
+    for _type, atom in by_type.items():
+        symbol = to_symbols([int(atom[4])])[0]
+        if symbol in max_valence and int(atom[6]) > max_valence[symbol]:
+            raise ValueError(
+                f"Atom type {_type} is {symbol} with {atom[6]} connections, which is "
+                f"more than the {max_valence[symbol]} an {symbol} can have."
+            )
+
+    # 3. Every bond of the molecule is a bond of the .key file. Checks 1 and 2 cannot
+    # see a permutation among atoms of the same element -- only the connectivity can.
+    key_bonds = set()
+    for bond in data["bond"]:
+        key_bonds.add(tuple(sorted(bond[0:2])))
+
+    type_of = {}
+    for position, index in enumerate(match):
+        type_of[index] = bare[position]
+
+    neighbors = configuration.bonded_neighbors(as_indices=True)
+    for i, tmp in enumerate(neighbors):
+        for j in tmp:
+            if j < i:
+                continue
+            key = tuple(sorted((type_of[i], type_of[j])))
+            if key not in key_bonds:
+                raise ValueError(
+                    f"The {symbols[i]}-{symbols[j]} bond between atoms {i + 1} and "
+                    f"{j + 1} was given the types {key[0]} and {key[1]}, which are "
+                    "not bonded in the LigParGen file, so the bond would have no "
+                    "parameters. The atom types are in the wrong order."
+                )
+
+
 def add_to_ff(ff, configuration, data):
     """Adds the data to the forcefield file
 
@@ -217,6 +408,10 @@ def add_to_ff(ff, configuration, data):
     canonical_smiles = configuration.to_smiles(canonical=True)
     smarts = configuration.to_smiles(hydrogens=True)
 
+    # LigParGen orders the atoms its own way, so work out which of its atoms is
+    # which of ours rather than assuming the two orders agree.
+    types_by_atom = key_atom_types(configuration, data)
+
     # Find the next available reference number
     ref = 0
     for line in ff.splitlines():
@@ -238,17 +433,18 @@ def add_to_ff(ff, configuration, data):
             if section is not None:
                 # Add the new data and print to the file
                 if section == "atom_types":
-                    neighbors = configuration.bonded_neighbors(as_indices=True)
-                    nbonds = [str(len(x)) for x in neighbors]
                     atom_types = []
-                    for atom, nb in zip(data["atom"], nbonds):
+                    for atom in data["atom"]:
                         symbol = to_symbols([int(atom[4])])[0]
                         columns["Version"].append(version)
                         columns["Ref"].append(ref)
                         columns["Type"].append(ikey + "_" + atom[0])
                         columns["Mass"].append(atom[5])
                         columns["El"].append(symbol)
-                        columns["# conns"].append(nb)
+                        # The valence is in the .key file, next to the element and
+                        # mass. Counting the bonds in the configuration instead mixes
+                        # the two orderings and gives each type another atom's valence.
+                        columns["# conns"].append(atom[6])
                         columns["Comment"].append("?")
                         atom_types.append(ikey + "_" + atom[0])
                     align = (
@@ -364,7 +560,11 @@ def add_to_ff(ff, configuration, data):
                     molecule = configuration.to_RDKMol()
                     pattern = rdkit.Chem.MolFromSmarts(smarts)
                     matches = molecule.GetSubstructMatches(pattern)
-                    types = [atom_types[i] for i in matches[0]]
+                    # matches[0][k] is the configuration's atom for position k of the
+                    # SMARTS, so index by our own order, not the .key file's.
+                    types = [ikey + "_" + types_by_atom[i] for i in matches[0]]
+
+                    check_fragment(configuration, data, smarts, matches[0], types)
 
                     fragments[canonical_smiles] = {version: {}}
                     tmp = fragments[canonical_smiles][version]
