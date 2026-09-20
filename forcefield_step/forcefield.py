@@ -122,7 +122,7 @@ class Forcefield(seamm.Node):
                 system_db = self.get_variable("_system_db")
                 configuration = system_db.system.configuration
                 try:
-                    ff.assign_forcefield(configuration)
+                    warnings = ff.assign_forcefield(configuration)
                 except seamm_ff_util.ForcefieldAssignmentError as e:
                     printer.important(__(f"\n\nError: {e}", self.indent + 4 * " "))
                     raise
@@ -133,6 +133,12 @@ class Forcefield(seamm.Node):
                         indent=self.indent + 4 * " ",
                     )
                 )
+                # Anything the forcefield needs to tell the user, such as having had
+                # to adjust the charges, belongs here where they will see it, not
+                # only in the log. A version of seamm_ff_util from before this
+                # returns None rather than a list.
+                for warning in warnings or []:
+                    printer.important(__(warning, indent=self.indent + 4 * " "))
         printer.important("")
 
         return next_node
