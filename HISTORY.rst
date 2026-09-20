@@ -1,6 +1,14 @@
 =======
 History
 =======
+2026.9.20.1 -- Warnings about the charges now appear in the output
+    * When the charges from the forcefield do not add up to the charge of the
+      system they are adjusted to compensate. The warning about it went only to the
+      log, which for a job in a queue is the queueing system's output file if it is
+      kept at all, so a change to the charges could pass unnoticed. It now appears
+      in the step's output and the job's output, with the rest of what assigning a
+      forcefield reports.
+
 2026.9.20 -- Bugfix: LigParGen parameters were put on the wrong atoms
     * The utility that reads LigParGen's output assumed that the atoms in the .key
       file were in the same order as those in the structure it was asked about.
