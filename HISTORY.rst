@@ -1,6 +1,27 @@
 =======
 History
 =======
+2026.9.20 -- Bugfix: LigParGen parameters were put on the wrong atoms
+    * The utility that reads LigParGen's output assumed that the atoms in the .key
+      file were in the same order as those in the structure it was asked about.
+      LigParGen perceives the molecule afresh and orders the atoms its own way, so
+      for many molecules they are not. For fluoroethylene carbonate, this gave the
+      fluorine two connections and a ring oxygen one -- neither of which is
+      possible -- and handed the atoms of the fragment each other's types, so a
+      hydrogen was given the mass and charge of an oxygen, and a bond of the
+      molecule ended up between two types that are not bonded and so has no
+      parameters.
+    * Nothing complained, because reordering the types leaves the charges summing
+      to the same total. The atoms of the .key file are now matched to those of the
+      structure through the molecule's connectivity, which the .key file itself
+      describes, rather than by assuming the two orders agree. The entry written
+      for a molecule is checked against the molecule before it is added: that every
+      atom gets a type of its own element, that no type claims more bonds than its
+      element can have, and that every bond of the molecule is one the LigParGen
+      file has parameters for.
+    * Forcefield files generated before this will have the same problem, and should
+      be regenerated.
+
 2026.2.26 -- Internal: moving from pkg_resources to importlib.resources
 
 2026.1.28 -- Bugfix: ligpargen failed for some molecules
