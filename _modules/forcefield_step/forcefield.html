@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forcefield_step.forcefield &#8212; SEAMM Forcefield Plug-in 2026.2.26 documentation</title>
+    <title>forcefield_step.forcefield &#8212; SEAMM Forcefield Plug-in 2026.9.20 documentation</title>
   
   
   
@@ -26,8 +26,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -35,10 +35,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c224919a" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,33 +48,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../../_static/documentation_options.js?v=0cc0f2be"></script>
+    <script src="../../_static/documentation_options.js?v=c24a4294"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/forcefield_step/forcefield';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
 
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.2.26" />
+  <meta name="docsearch:version" content="2026.9.20" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -100,7 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -230,11 +237,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -247,8 +261,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           
           
-          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -259,8 +272,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           
           
-          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
 </ul></div>
       
@@ -375,11 +387,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -392,8 +411,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           
           
-          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/molssi-seamm/forcefield_step" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -404,8 +422,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           
           
           
-          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">Twitter</span></a>
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
         </li>
 </ul></div>
         
@@ -471,7 +488,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <h1>Source code for forcefield_step.forcefield</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="sd">&quot;&quot;&quot;A node or step for the forcefield in a flowchart&quot;&quot;&quot;</span>
+<span class="sd">"""A node or step for the forcefield in a flowchart"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
@@ -487,24 +504,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="kn">from</span><span class="w"> </span><span class="nn">seamm_util.printing</span><span class="w"> </span><span class="kn">import</span> <span class="n">FormattedText</span> <span class="k">as</span> <span class="n">__</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="c1"># logger.setLevel(&quot;DEBUG&quot;)</span>
+<span class="c1"># logger.setLevel("DEBUG")</span>
 <span class="n">job</span> <span class="o">=</span> <span class="n">printing</span><span class="o">.</span><span class="n">getPrinter</span><span class="p">()</span>
-<span class="n">printer</span> <span class="o">=</span> <span class="n">printing</span><span class="o">.</span><span class="n">getPrinter</span><span class="p">(</span><span class="s2">&quot;forcefield&quot;</span><span class="p">)</span>
+<span class="n">printer</span> <span class="o">=</span> <span class="n">printing</span><span class="o">.</span><span class="n">getPrinter</span><span class="p">(</span><span class="s2">"forcefield"</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Forcefield">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Forcefield</span><span class="p">(</span><span class="n">seamm</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flowchart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a forcefield step</span>
+<span class="w">        </span><span class="sd">"""Initialize a forcefield step</span>
 
 <span class="sd">        Keyword arguments:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Creating Forcefield </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+<span class="sd">        """</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Creating Forcefield </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">flowchart</span><span class="o">=</span><span class="n">flowchart</span><span class="p">,</span>
-            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Forcefield&quot;</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">"Forcefield"</span><span class="p">,</span>
             <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">,</span>
             <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
         <span class="p">)</span>
@@ -514,23 +531,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The semantic version of this module.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""The semantic version of this module."""</span>
         <span class="k">return</span> <span class="n">forcefield_step</span><span class="o">.</span><span class="n">__version__</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">git_revision</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The git version of this module.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""The git version of this module."""</span>
         <span class="k">return</span> <span class="n">forcefield_step</span><span class="o">.</span><span class="n">__git_revision__</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;The files in the forcefield ... (short name &amp; full path)&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""The files in the forcefield ... (short name &amp; full path)"""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_files</span>
 
 <div class="viewcode-block" id="Forcefield.description_text">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.description_text">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">description_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a short description of this step.</span>
+<span class="w">        </span><span class="sd">"""Return a short description of this step.</span>
 
 <span class="sd">        Return a nicely formatted string describing what this step will</span>
 <span class="sd">        do.</span>
@@ -539,34 +556,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">            P: a dictionary of parameter values, which may be variables</span>
 <span class="sd">                or final values. If None, then the parameters values will</span>
 <span class="sd">                be used as is.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">P</span><span class="p">:</span>
             <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values_to_dict</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;setup forcefield&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;$&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"setup forcefield"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"$"</span><span class="p">:</span>
                 <span class="n">text</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s2">&quot;Read the forcefield file given in the variable&quot;</span>
-                    <span class="s2">&quot; &#39;</span><span class="si">{forcefield_file}</span><span class="s2">&#39; and use the </span><span class="si">{forcefield}</span><span class="s2"> &quot;</span>
-                    <span class="s2">&quot;forcefield.&quot;</span>
+                    <span class="s2">"Read the forcefield file given in the variable"</span>
+                    <span class="s2">" '</span><span class="si">{forcefield_file}</span><span class="s2">' and use the </span><span class="si">{forcefield}</span><span class="s2"> "</span>
+                    <span class="s2">"forcefield."</span>
                 <span class="p">)</span>
-            <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;OpenKIM&quot;</span><span class="p">:</span>
-                <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Use the OpenKIM potential &#39;</span><span class="si">{potentials}</span><span class="s2">&#39;&quot;</span>
+            <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OpenKIM"</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="s2">"Use the OpenKIM potential '</span><span class="si">{potentials}</span><span class="s2">'"</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">text</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="s2">&quot;Read the forcefield file &#39;</span><span class="si">{forcefield_file}</span><span class="s2">&#39; &quot;</span>
-                    <span class="s2">&quot;and use the </span><span class="si">{forcefield}</span><span class="s2"> forcefield.&quot;</span>
+                    <span class="s2">"Read the forcefield file '</span><span class="si">{forcefield_file}</span><span class="s2">' "</span>
+                    <span class="s2">"and use the </span><span class="si">{forcefield}</span><span class="s2"> forcefield."</span>
                 <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;assign forcefield to structure&quot;</span><span class="p">:</span>
-            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Assign the atom types to the structure.&quot;</span>
+        <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"assign forcefield to structure"</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">"Assign the atom types to the structure."</span>
 
         <span class="k">return</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">header</span>
-            <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
             <span class="o">+</span> <span class="n">__</span><span class="p">(</span>
                 <span class="n">text</span><span class="p">,</span>
-                <span class="n">indent</span><span class="o">=</span><span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                <span class="n">indent</span><span class="o">=</span><span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">P</span><span class="p">,</span>
             <span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
         <span class="p">)</span></div>
@@ -575,7 +592,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="viewcode-block" id="Forcefield.run">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.run">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup the forcefield&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Setup the forcefield"""</span>
 
         <span class="n">next_node</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">printer</span><span class="o">=</span><span class="n">printer</span><span class="p">)</span>
 
@@ -585,33 +602,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;setup forcefield&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"setup forcefield"</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">setup_forcefield</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;assign forcefield to structure&quot;</span><span class="p">:</span>
-            <span class="n">ff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;_forcefield&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">ff</span><span class="o">.</span><span class="n">ff_form</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;reaxff&quot;</span><span class="p">,):</span>
+        <span class="k">elif</span> <span class="n">P</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"assign forcefield to structure"</span><span class="p">:</span>
+            <span class="n">ff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">"_forcefield"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ff</span><span class="o">.</span><span class="n">ff_form</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"reaxff"</span><span class="p">,):</span>
                 <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                     <span class="n">__</span><span class="p">(</span>
-                        <span class="s2">&quot;There is no atom-type assignment needed for ReaxFF&quot;</span><span class="p">,</span>
-                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                        <span class="s2">"There is no atom-type assignment needed for ReaxFF"</span><span class="p">,</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">system_db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;_system_db&quot;</span><span class="p">)</span>
+                <span class="n">system_db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">"_system_db"</span><span class="p">)</span>
                 <span class="n">configuration</span> <span class="o">=</span> <span class="n">system_db</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">configuration</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">ff</span><span class="o">.</span><span class="n">assign_forcefield</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
                 <span class="k">except</span> <span class="n">seamm_ff_util</span><span class="o">.</span><span class="n">ForcefieldAssignmentError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                    <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">))</span>
+                    <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="n">__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">))</span>
                     <span class="k">raise</span>
                 <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                     <span class="n">__</span><span class="p">(</span>
-                        <span class="s2">&quot;Successfully assigned the atom types for &quot;</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ff</span><span class="o">.</span><span class="n">current_forcefield</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
-                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                        <span class="s2">"Successfully assigned the atom types for "</span>
+                        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ff</span><span class="o">.</span><span class="n">current_forcefield</span><span class="si">}</span><span class="s2">."</span><span class="p">,</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
-        <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">next_node</span></div>
 
@@ -619,7 +636,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="viewcode-block" id="Forcefield.assign_forcefield">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.assign_forcefield">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">assign_forcefield</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Assign the forcefield to the structure, i.e. find the atom types</span>
+<span class="w">        </span><span class="sd">"""Assign the forcefield to the structure, i.e. find the atom types</span>
 <span class="sd">        and charges.</span>
 
 <span class="sd">        Parameters</span>
@@ -630,119 +647,119 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># if P is None:</span>
         <span class="c1">#     P = self.parameters.current_values_to_dict(</span>
         <span class="c1">#         context=seamm.flowchart_variables._data</span>
         <span class="c1">#     )</span>
 
-        <span class="n">ff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;_forcefield&quot;</span><span class="p">)</span>
+        <span class="n">ff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">"_forcefield"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">configuration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">system_db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;_system_db&quot;</span><span class="p">)</span>
+            <span class="n">system_db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">"_system_db"</span><span class="p">)</span>
             <span class="n">configuration</span> <span class="o">=</span> <span class="n">system_db</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">configuration</span>
 
         <span class="n">ffname</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">current_forcefield</span>
         <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
             <span class="n">__</span><span class="p">(</span>
-                <span class="s2">&quot;Assigning the atom types and charges for forcefield &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">&#39; to the system&quot;</span><span class="p">,</span>
-                <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span>
+                <span class="s2">"Assigning the atom types and charges for forcefield "</span>
+                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">' to the system"</span><span class="p">,</span>
+                <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">"    "</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="p">)</span>
 
         <span class="c1"># Atom types</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Atom typing, getting the SMILES for the system&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Atom typing, getting the SMILES for the system"</span><span class="p">)</span>
         <span class="n">smiles</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">to_smiles</span><span class="p">(</span><span class="n">hydrogens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Atom typing -- smiles = &quot;</span> <span class="o">+</span> <span class="n">smiles</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Atom typing -- smiles = "</span> <span class="o">+</span> <span class="n">smiles</span><span class="p">)</span>
         <span class="n">ff_assigner</span> <span class="o">=</span> <span class="n">seamm_ff_util</span><span class="o">.</span><span class="n">FFAssigner</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
         <span class="n">atom_types</span> <span class="o">=</span> <span class="n">ff_assigner</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Atom types: &quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">atom_types</span><span class="p">))</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;atom_types_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Atom types: "</span> <span class="o">+</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">atom_types</span><span class="p">))</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"atom_types_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">"</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
-            <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">&quot;str&quot;</span><span class="p">)</span>
+            <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">"str"</span><span class="p">)</span>
         <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">atom_types</span>
 
         <span class="c1"># Now get the charges if forcefield has them.</span>
-        <span class="n">terms</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;forcefield&quot;</span><span class="p">][</span><span class="n">ffname</span><span class="p">][</span><span class="s2">&quot;parameters&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s2">&quot;bond_increments&quot;</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Getting the charges for the system&quot;</span><span class="p">)</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"forcefield"</span><span class="p">][</span><span class="n">ffname</span><span class="p">][</span><span class="s2">"parameters"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">"bond_increments"</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Getting the charges for the system"</span><span class="p">)</span>
             <span class="n">neighbors</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">bonded_neighbors</span><span class="p">(</span><span class="n">as_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">atom_types</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">neighbors</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">atom_types</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">neighbors</span><span class="si">=}</span><span class="s2">"</span><span class="p">)</span>
 
             <span class="n">charges</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">total_q</span> <span class="o">=</span> <span class="mf">0.0</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">):</span>
                 <span class="n">itype</span> <span class="o">=</span> <span class="n">atom_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">parameters</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">charges</span><span class="p">(</span><span class="n">itype</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-                <span class="n">q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">])</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">])</span>
                 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
                     <span class="n">jtype</span> <span class="o">=</span> <span class="n">atom_types</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
                     <span class="n">parameters</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">bond_increments</span><span class="p">(</span><span class="n">itype</span><span class="p">,</span> <span class="n">jtype</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-                    <span class="n">q</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;deltaij&quot;</span><span class="p">])</span>
+                    <span class="n">q</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"deltaij"</span><span class="p">])</span>
                 <span class="n">charges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
                 <span class="n">total_q</span> <span class="o">+=</span> <span class="n">q</span>
             <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">total_q</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0001</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Total charge is not zero: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_q</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Total charge is not zero: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_q</span><span class="p">))</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                    <span class="s2">&quot;Charges from increments and charges:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+                    <span class="s2">"Charges from increments and charges:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
                 <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                    <span class="s2">&quot;Charges from increments:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
+                    <span class="s2">"Charges from increments:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span>
                 <span class="p">)</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;charges_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"charges_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">"</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
-                <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">"float"</span><span class="p">)</span>
             <span class="n">charge_column</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
             <span class="n">charge_column</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span> <span class="o">=</span> <span class="n">charges</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Set column &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; to the charges&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Set column '</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">' to the charges"</span><span class="p">)</span>
 
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                 <span class="n">__</span><span class="p">(</span>
-                    <span class="s2">&quot;Assigned atom types and charges to &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> atoms.&quot;</span><span class="p">,</span>
-                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span>
+                    <span class="s2">"Assigned atom types and charges to "</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> atoms."</span><span class="p">,</span>
+                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">"    "</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
-        <span class="k">elif</span> <span class="s2">&quot;charges&quot;</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Getting the charges for the system&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">"charges"</span> <span class="ow">in</span> <span class="n">terms</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Getting the charges for the system"</span><span class="p">)</span>
 
             <span class="n">charges</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">total_q</span> <span class="o">=</span> <span class="mf">0.0</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">):</span>
                 <span class="n">itype</span> <span class="o">=</span> <span class="n">atom_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">parameters</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">charges</span><span class="p">(</span><span class="n">itype</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-                <span class="n">q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">])</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">])</span>
                 <span class="n">charges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
                 <span class="n">total_q</span> <span class="o">+=</span> <span class="n">q</span>
             <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">total_q</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0001</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Total charge is not zero: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_q</span><span class="p">))</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Charges from charges:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Total charge is not zero: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_q</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Charges from charges:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Charges from charges:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Charges from charges:</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">charges</span><span class="p">))</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;charges_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"charges_</span><span class="si">{</span><span class="n">ffname</span><span class="si">}</span><span class="s2">"</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
-                <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">add_attribute</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">coltype</span><span class="o">=</span><span class="s2">"float"</span><span class="p">)</span>
             <span class="n">charge_column</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_column</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
             <span class="n">charge_column</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span> <span class="o">=</span> <span class="n">charges</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Set column &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; to the charges&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Set column '</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">' to the charges"</span><span class="p">)</span>
 
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                 <span class="n">__</span><span class="p">(</span>
-                    <span class="s2">&quot;Assigned atom types and charges to &quot;</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> atoms.&quot;</span><span class="p">,</span>
-                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span>
+                    <span class="s2">"Assigned atom types and charges to "</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> atoms."</span><span class="p">,</span>
+                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">"    "</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                 <span class="n">__</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Assigned atom types to </span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="s2">&quot;atoms.&quot;</span><span class="p">,</span>
-                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">"Assigned atom types to </span><span class="si">{</span><span class="n">configuration</span><span class="o">.</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> "</span> <span class="s2">"atoms."</span><span class="p">,</span>
+                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">"    "</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span></div>
 
@@ -750,34 +767,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="viewcode-block" id="Forcefield.list_data_files">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.list_data_files">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">list_data_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the forcefield files needed by this step.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Returns the forcefield files needed by this step."""</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values_to_dict</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;setup forcefield&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"setup forcefield"</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">result</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">]):</span>
             <span class="k">return</span> <span class="n">result</span>
 
-        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;OpenKIM&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OpenKIM"</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">result</span>
 
-        <span class="n">ff_file</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;personal:&quot;</span><span class="p">):</span>
-            <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
-            <span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;data:</span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">ff_file</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"personal:"</span><span class="p">):</span>
+            <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
+            <span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"data:</span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">"</span>
             <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
-        <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;local:&quot;</span><span class="p">):</span>
-            <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
-            <span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;data:</span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+            <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+            <span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"data:</span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">"</span>
             <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">uri</span> <span class="o">=</span> <span class="n">ff_file</span>
-            <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;forcefield_step&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">"forcefield_step"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"data"</span>
             <span class="n">path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="n">ff_file</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">local_only</span><span class="p">:</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
@@ -786,15 +803,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <span class="c1"># Now read through the forcefield file to pick up any included files</span>
         <span class="k">with</span> <span class="n">seamm_util</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span>
-            <span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">&quot;#include&quot;</span><span class="p">,</span> <span class="n">uri_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uri_handler</span>
+            <span class="n">path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"#include"</span><span class="p">,</span> <span class="n">uri_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uri_handler</span>
         <span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fd</span><span class="p">:</span>
                 <span class="k">pass</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">visited</span>
 
         <span class="k">for</span> <span class="n">uri</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;local:&quot;</span><span class="p">):</span>
-                <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;data:Forcefields/&quot;</span> <span class="o">+</span> <span class="n">uri</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+                <span class="n">uri</span> <span class="o">=</span> <span class="s2">"data:Forcefields/"</span> <span class="o">+</span> <span class="n">uri</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
             <span class="k">elif</span> <span class="ow">not</span> <span class="n">local_only</span><span class="p">:</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
@@ -805,7 +822,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="viewcode-block" id="Forcefield.setup_forcefield">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.setup_forcefield">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">setup_forcefield</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup the forcefield for later use.</span>
+<span class="w">        </span><span class="sd">"""Setup the forcefield for later use.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ---------</span>
@@ -815,88 +832,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">P</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">current_values_to_dict</span><span class="p">(</span>
                 <span class="n">context</span><span class="o">=</span><span class="n">seamm</span><span class="o">.</span><span class="n">flowchart_variables</span><span class="o">.</span><span class="n">_data</span>
             <span class="p">)</span>
 
-        <span class="n">ff_file</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">ff_file</span> <span class="o">==</span> <span class="s2">&quot;OpenKIM&quot;</span><span class="p">:</span>
+        <span class="n">ff_file</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ff_file</span> <span class="o">==</span> <span class="s2">"OpenKIM"</span><span class="p">:</span>
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                 <span class="n">__</span><span class="p">(</span>
-                    <span class="s2">&quot;Using the OpenKIM potential &#39;</span><span class="si">{potentials}</span><span class="s2">&#39;&quot;</span><span class="p">,</span>
+                    <span class="s2">"Using the OpenKIM potential '</span><span class="si">{potentials}</span><span class="s2">'"</span><span class="p">,</span>
                     <span class="o">**</span><span class="n">P</span><span class="p">,</span>
-                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">&quot;    &quot;</span><span class="p">,</span>
+                    <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="s2">"    "</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">&quot;_forcefield&quot;</span><span class="p">,</span> <span class="s2">&quot;OpenKIM&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">&quot;_OpenKIM_Potential&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;potentials&quot;</span><span class="p">])</span>
-        <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.pt&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">"_forcefield"</span><span class="p">,</span> <span class="s2">"OpenKIM"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">"_OpenKIM_Potential"</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">"potentials"</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pt"</span><span class="p">):</span>
             <span class="c1"># Pytorch</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">&quot;_forcefield&quot;</span><span class="p">,</span> <span class="s2">&quot;PyTorch&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">"_forcefield"</span><span class="p">,</span> <span class="s2">"PyTorch"</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;local:&quot;</span><span class="p">):</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
                 <span class="n">ff_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;personal:&quot;</span><span class="p">):</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
+            <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"personal:"</span><span class="p">):</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
                 <span class="n">ff_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;forcefield_step&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">])</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">"forcefield_step"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"data"</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">])</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">&quot;_pytorch_model&quot;</span><span class="p">,</span> <span class="n">ff_file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">"_pytorch_model"</span><span class="p">,</span> <span class="n">ff_file</span><span class="p">)</span>
 
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Will use the PyTorch model </span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">"Will use the PyTorch model </span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Find the forcefield file</span>
             <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Reading the forcefield file </span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">"Reading the forcefield file </span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
-            <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;local:&quot;</span><span class="p">):</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
                 <span class="n">ff_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;personal:&quot;</span><span class="p">):</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
+            <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"personal:"</span><span class="p">):</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:]</span>
                 <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span>
                 <span class="n">ff_file</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;forcefield_step&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
-                <span class="n">ff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">])</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">"forcefield_step"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"data"</span>
+                <span class="n">ff_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">])</span>
 
-            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ff_file</span><span class="p">))</span>
-            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ff_file</span><span class="p">))</span>
+            <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 
             <span class="n">ff</span> <span class="o">=</span> <span class="n">seamm_ff_util</span><span class="o">.</span><span class="n">Forcefield</span><span class="p">(</span>
                 <span class="n">ff_file</span><span class="p">,</span> <span class="n">uri_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uri_handler</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">references</span>
             <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">&quot;_forcefield&quot;</span><span class="p">,</span> <span class="n">ff</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_variable</span><span class="p">(</span><span class="s2">"_forcefield"</span><span class="p">,</span> <span class="n">ff</span><span class="p">)</span>
 
             <span class="c1"># Print any included files</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield_file&quot;</span><span class="p">],</span> <span class="n">ff_file</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">P</span><span class="p">[</span><span class="s2">"forcefield_file"</span><span class="p">],</span> <span class="n">ff_file</span><span class="p">)]</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">files_visited</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s2">&quot;which included:&quot;</span><span class="p">)</span>
+                <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span> <span class="o">+</span> <span class="s2">"which included:"</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">file_</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_</span><span class="p">)</span>
                     <span class="n">short</span> <span class="o">=</span> <span class="n">file_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-                    <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">short</span><span class="si">:}</span><span class="se">\t</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">*</span> <span class="s2">" "</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">short</span><span class="si">:}</span><span class="se">\t</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="s2">"forcefield"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"default"</span><span class="p">:</span>
                 <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                     <span class="n">__</span><span class="p">(</span>
-                        <span class="s2">&quot;   Using the default forcefield &#39;</span><span class="si">{ff}</span><span class="s2">&#39;.&quot;</span><span class="p">,</span>
+                        <span class="s2">"   Using the default forcefield '</span><span class="si">{ff}</span><span class="s2">'."</span><span class="p">,</span>
                         <span class="n">ff</span><span class="o">=</span><span class="n">ff</span><span class="o">.</span><span class="n">forcefields</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
 
@@ -904,19 +921,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">printer</span><span class="o">.</span><span class="n">important</span><span class="p">(</span>
                     <span class="n">__</span><span class="p">(</span>
-                        <span class="s2">&quot;   Using the forcefield &#39;</span><span class="si">{forcefield}</span><span class="s2">&#39;&quot;</span><span class="p">,</span>
+                        <span class="s2">"   Using the forcefield '</span><span class="si">{forcefield}</span><span class="s2">'"</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">P</span><span class="p">,</span>
-                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                        <span class="n">indent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">indent</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s2">" "</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
 
-                <span class="n">ff</span><span class="o">.</span><span class="n">initialize_biosym_forcefield</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s2">&quot;forcefield&quot;</span><span class="p">])</span></div>
+                <span class="n">ff</span><span class="o">.</span><span class="n">initialize_biosym_forcefield</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="s2">"forcefield"</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="Forcefield.uri_handler">
 <a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.uri_handler">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">uri_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the actual file given a path that may have a uri.</span>
+<span class="w">        </span><span class="sd">"""Return the actual file given a path that may have a uri.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -938,7 +955,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">            2. In the local installation, under ~/SEAMM/data/Forcefields. This allows a</span>
 <span class="sd">               site to add or customize forcefields for all users. The user for the</span>
 <span class="sd">               SEAMM installation may not be the same as the user running the code! So</span>
-<span class="sd">               &#39;~/&#39; may reference a different directory than the next item.</span>
+<span class="sd">               '~/' may reference a different directory than the next item.</span>
 
 <span class="sd">            3. In the users directory at ~/seamm.d/data/Forcefields. This allows the</span>
 <span class="sd">               user to add or override any existing forcefield.</span>
@@ -946,7 +963,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">        When a forcefield is referenced, if it has no URI it is assumed to be in (1),</span>
 <span class="sd">        the default location for forcefields shipped with the release.</span>
 
-<span class="sd">        If it has a URI, i.e. the path starts with &#39;local:&#39;, the code searches for it</span>
+<span class="sd">        If it has a URI, i.e. the path starts with 'local:', the code searches for it</span>
 <span class="sd">        first in the users local data (3). If it is not found, the search continues in</span>
 <span class="sd">        site location (2).</span>
 
@@ -954,13 +971,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <span class="sd">        and home directories may not exist or may be different on the machine that the</span>
 <span class="sd">        JobServer is running on. When a job is submitted to the Dashboard, the code</span>
 <span class="sd">        locates the forcefields on the local machine, as outlined above. It then sends</span>
-<span class="sd">        copies to the data/Forcefields directory of the job. The path for the job&#39;s</span>
+<span class="sd">        copies to the data/Forcefields directory of the job. The path for the job's</span>
 <span class="sd">        data/ directory is changed to its local data/ directory, so the copies sent with</span>
 <span class="sd">        the job are used.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;local:&quot;</span><span class="p">):</span>
-            <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Forcefields/&quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">filename</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span></div>
@@ -995,8 +1012,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1008,7 +1025,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>
