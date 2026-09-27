@@ -7,6 +7,7 @@ from importlib.resources import files as data_files
 from pathlib import Path
 
 import seamm
+import seamm_util
 import tkinter as tk
 
 try:
@@ -158,15 +159,21 @@ class TkForcefield(seamm.TkNode):
         if importlib.util.find_spec("kim_query") is not None:
             forcefields.append("OpenKIM")
 
-        # and local forcefields in the ~/SEAMM/data/Forcefields
-        local = Path.home() / "SEAMM" / "data" / "Forcefields"
-        if local.exists():
-            tmp = []
-            for path in local.glob("**/*.frc"):
-                tmp.append("local:" + str(path.relative_to(local)))
-            for path in local.glob("**/*.pt"):
-                tmp.append("local:" + str(path.relative_to(local)))
-            forcefields.extend(sorted(tmp))
+        # and local forcefields in the installation's data/Forcefields, then in the
+        # default installation's ~/SEAMM/data/Forcefields -- the order in which
+        # they are looked up when the flowchart runs.
+        tmp = []
+        root_local = seamm_util.current_root() / "data" / "Forcefields"
+        for local in dict.fromkeys(
+            (root_local, Path.home() / "SEAMM" / "data" / "Forcefields")
+        ):
+            if local.exists():
+                for pattern in ("**/*.frc", "**/*.pt"):
+                    for path in local.glob(pattern):
+                        name = "local:" + str(path.relative_to(local))
+                        if name not in tmp:
+                            tmp.append(name)
+        forcefields.extend(sorted(tmp))
 
         # and local forcefields in the ~/.seamm.d/data/Forcefields
         local = Path.home() / ".seamm.d" / "data" / "Forcefields"
