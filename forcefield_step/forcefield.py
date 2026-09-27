@@ -451,7 +451,8 @@ class Forcefield(seamm.Node):
             1. In the data directory of this Python package. This is where the standard
                forcefields are stored.
 
-            2. In the local installation, under ~/SEAMM/data/Forcefields. This allows a
+            2. In the SEAMM installation, under <root>/data/Forcefields, and then
+               in the default installation's ~/SEAMM/data/Forcefields. This allows a
                site to add or customize forcefields for all users. The user for the
                SEAMM installation may not be the same as the user running the code! So
                '~/' may reference a different directory than the next item.

@@ -4,4 +4,5 @@ rdkit
 read-structure-step
 seamm
 seamm-ff-util
+seamm-util>=2026.9.27.1
 tabulate

@@ -1,6 +1,14 @@
 =======
 History
 =======
+2026.9.27 -- Local forcefields can belong to the installation
+    * ``local:`` forcefields were listed only from ``~/SEAMM/data/Forcefields``. The
+      dialog now lists those in the ``data/Forcefields`` directory of the SEAMM
+      installation in use as well as ``~/SEAMM``'s, matching where seamm 2026.9.27 looks
+      for them when the flowchart runs. A second installation such as ``~/SEAMM_DEV``
+      therefore sees the default installation's forcefields and can add its own.
+      Requires seamm-util 2026.9.27.1.
+
 2026.9.20.1 -- Warnings about the charges now appear in the output
     * When the charges from the forcefield do not add up to the charge of the
       system they are adjusted to compensate. The warning about it went only to the
