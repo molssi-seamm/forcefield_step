@@ -1,6 +1,11 @@
 =======
 History
 =======
+2026.10.4 -- The forcefield survives a resume
+    * A job resumed from its checkpoint (seamm 2026.10.4, ``run_flowchart --resume``)
+      after the Forcefield step has the forcefield again: the step saves it in the
+      checkpoint as its file and forcefield name.
+
 2026.9.27 -- Local forcefields can belong to the installation
     * ``local:`` forcefields were listed only from ``~/SEAMM/data/Forcefields``. The
       dialog now lists those in the ``data/Forcefields`` directory of the SEAMM
