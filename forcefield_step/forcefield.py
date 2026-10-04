@@ -431,6 +431,25 @@ class Forcefield(seamm.Node):
 
                 ff.initialize_biosym_forcefield(P["forcefield"])
 
+    def checkpoint_variable(self, name, value):
+        """Save the forcefield in the checkpoint as its file and name."""
+        if name == "_forcefield" and isinstance(value, seamm_ff_util.Forcefield):
+            return {
+                "file": str(value.filename),
+                "forcefield": value.current_forcefield,
+            }
+        return None
+
+    def restore_variable(self, name, data):
+        """Remake the forcefield from the checkpoint when a job resumes."""
+        if name != "_forcefield":
+            return None
+        ff = seamm_ff_util.Forcefield(
+            data["file"], uri_handler=self.uri_handler, references=self.references
+        )
+        ff.initialize_biosym_forcefield(data["forcefield"])
+        return ff
+
     def uri_handler(self, path):
         """Return the actual file given a path that may have a uri.
 
