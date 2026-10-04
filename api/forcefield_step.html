@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>forcefield_step package &#8212; SEAMM Forcefield Plug-in 2026.9.27 documentation</title>
+    <title>forcefield_step package &#8212; SEAMM Forcefield Plug-in 2026.10.4 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../_static/documentation_options.js?v=09c3d259"></script>
+    <script src="../_static/documentation_options.js?v=3dc6335c"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="prev" title="forcefield_step" href="modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.9.27" />
+  <meta name="docsearch:version" content="2026.10.4" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -543,6 +543,12 @@ and charges.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="forcefield_step.forcefield.Forcefield.checkpoint_variable">
+<span class="sig-name descname"><span class="pre">checkpoint_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield.html#Forcefield.checkpoint_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield.Forcefield.checkpoint_variable" title="Link to this definition">#</a></dt>
+<dd><p>Save the forcefield in the checkpoint as its file and name.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="forcefield_step.forcefield.Forcefield.description_text">
 <span class="sig-name descname"><span class="pre">description_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield.html#Forcefield.description_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield.Forcefield.description_text" title="Link to this definition">#</a></dt>
 <dd><p>Return a short description of this step.</p>
@@ -573,6 +579,12 @@ be used as is.</p>
 <dt class="sig sig-object py" id="forcefield_step.forcefield.Forcefield.list_data_files">
 <span class="sig-name descname"><span class="pre">list_data_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield.html#Forcefield.list_data_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield.Forcefield.list_data_files" title="Link to this definition">#</a></dt>
 <dd><p>Returns the forcefield files needed by this step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forcefield_step.forcefield.Forcefield.restore_variable">
+<span class="sig-name descname"><span class="pre">restore_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield.html#Forcefield.restore_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield.Forcefield.restore_variable" title="Link to this definition">#</a></dt>
+<dd><p>Remake the forcefield from the checkpoint when a job resumes.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -966,10 +978,12 @@ A step for choosing the default forcefield.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-forcefield_step.forcefield">forcefield_step.forcefield module</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield"><code class="docutils literal notranslate"><span class="pre">Forcefield</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.assign_forcefield"><code class="docutils literal notranslate"><span class="pre">Forcefield.assign_forcefield()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.checkpoint_variable"><code class="docutils literal notranslate"><span class="pre">Forcefield.checkpoint_variable()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.description_text"><code class="docutils literal notranslate"><span class="pre">Forcefield.description_text()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.files"><code class="docutils literal notranslate"><span class="pre">Forcefield.files</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.git_revision"><code class="docutils literal notranslate"><span class="pre">Forcefield.git_revision</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.list_data_files"><code class="docutils literal notranslate"><span class="pre">Forcefield.list_data_files()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.restore_variable"><code class="docutils literal notranslate"><span class="pre">Forcefield.restore_variable()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.run"><code class="docutils literal notranslate"><span class="pre">Forcefield.run()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.setup_forcefield"><code class="docutils literal notranslate"><span class="pre">Forcefield.setup_forcefield()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield.Forcefield.uri_handler"><code class="docutils literal notranslate"><span class="pre">Forcefield.uri_handler()</span></code></a></li>
