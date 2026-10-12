@@ -13,6 +13,33 @@ need to handle it explicitly.
 If you want to understand more about the theory and definition of forcefields, see the
 `Overview of Forcefields`_ in the main SEAMM documentation.
 
+Forcefields as model chemistries
+================================
+The forcefields can also be chosen with a **Model Chemistry** step instead of a
+Forcefield step: this plug-in offers every forcefield it can find as a model chemistry,
+and LAMMPS and Packmol then use it as they would the Forcefield step's.
+
+* A classical forcefield is ``FF@<name>``: ``FF@OPLS-AA``, ``FF@OPLS-AA+``,
+  ``FF@CL&P``, ``FF@PCFF``, ``FF@DREIDING``, ``FF@DREIDING-X6``, ... Other forcefields
+  keep the name they have in their file, with ``:``, ``@``, ``/`` and ``|`` replaced by
+  ``-``.
+* A ReaxFF parameter set is ``ReaxFF@<set>``, e.g. ``ReaxFF@CHO_cho_2008``.
+* There is no program in front: LAMMPS evaluates the forcefield itself.
+
+The forcefields come from the files shipped with this plug-in and from your own:
+``~/.seamm.d/data/Forcefields`` (``personal:``), then the installation's
+``<root>/data/Forcefields`` and ``~/SEAMM/data/Forcefields`` (``local:``), searched in
+that order, so a forcefield of your own with the same name as a shipped one is used
+instead of it. Your files are sent with a job submitted to a JobServer, as with the
+Forcefield step.
+
+The atoms are typed when the forcefield is needed -- by LAMMPS when it writes its
+input, by Packmol for each kind of molecule -- unless they already have types for it, so
+the Forcefield step's "assign forcefield to structure" is not needed.
+
+The Forcefield step's default, the file ``oplsaa.frc`` with its default forcefield, is
+``FF@OPLS-AA+``, the first forcefield in the file.
+
 The following sections cover accessing and controlling forcefields.
 
 .. toctree::
