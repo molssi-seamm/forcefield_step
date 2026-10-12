@@ -1,6 +1,16 @@
 =======
 History
 =======
+2026.10.12.1 -- Forcefields as model chemistries
+    * The forcefields can be chosen with a Model Chemistry step: the step offers every
+      forcefield in the files it can find as a model chemistry -- ``FF@oplsaa``,
+      ``FF@pcff``, ... for classical forcefields and ``ReaxFF@<set>`` for ReaxFF
+      parameter sets -- and LAMMPS and Packmol build and use it as they would the
+      Forcefield step's. Your own forcefield files (``personal:`` and ``local:``) are
+      included, shadow shipped ones of the same name, and are sent with a submitted job.
+      A file that another forcefield file includes, such as ``OPLS-AA/ligpargen.frc``,
+      is part of that forcefield, not one of its own.
+
 2026.10.12 -- Bugfix: the ReaxFF force fields have their parameters' full precision again
     * The ReaxFF force fields shipped with the step had been converted keeping only 6
       significant figures, so 148 parameters in the 12 files were rounded (e.g. the
