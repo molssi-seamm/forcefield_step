@@ -4,8 +4,9 @@
 
 Every forcefield defined in a ``.frc`` file the step can find -- the package's,
 the SEAMM installation's (``local:``) and the user's (``personal:``) -- is offered
-as a model chemistry: ``FF@<name>`` for a classical forcefield and
-``ReaxFF@<parameter set>`` for a ReaxFF one. The steps that use a forcefield
+as a model chemistry: ``FF@<name>`` for a classical forcefield (``FF@oplsaa+``)
+and ``ReaxFF@<parameter set>`` for a ReaxFF one, the names being those the
+files define. The steps that use a forcefield
 (LAMMPS, Packmol) build it from the model chemistry with :func:`forcefield`.
 
 See lammps_step's campaign of 2026-10-11 (forcefields as model chemistries).
@@ -19,15 +20,6 @@ logger = logging.getLogger(__name__)
 
 #: Characters the model-chemistry grammar reserves
 RESERVED = ":@/|"
-
-#: The methods the bundled classical forcefields are offered as
-METHOD_NAMES = {
-    "oplsaa": "OPLS-AA",
-    "oplsaa+": "OPLS-AA+",
-    "pcff": "PCFF",
-    "dreiding": "DREIDING",
-    "dreiding/X6": "DREIDING-X6",
-}
 
 #: The model-chemistry types this package offers
 TYPES = ("FF", "ReaxFF")
@@ -78,16 +70,46 @@ def forcefield_files(root=None, data_path=None):
 
     ``spec`` is what the Forcefield step calls the file: ``personal:<path>`` or
     ``local:<path>`` relative to its directory, or the path within the package's
-    data directory.
+    data directory. Files that another ``.frc`` file includes (``#include``) are
+    left out: they are parts of that forcefield -- e.g. ``oplsaa.frc`` includes
+    ``local:OPLS-AA/ligpargen.frc``, whose parameters extend ``oplsaa+`` -- not
+    forcefields of their own.
     """
     result = []
     for source, directory in source_directories(root, data_path):
         if directory.is_dir():
             for path in sorted(directory.glob("**/*.frc")):
-                result.append((f"{source}:{path.relative_to(directory)}", path))
+                relative = path.relative_to(directory).as_posix()
+                result.append((f"{source}:{relative}", path, ("local", relative)))
     directory = package_directory()
     for path in sorted(directory.glob("**/*.frc")):
-        result.append((str(path.relative_to(directory)), path))
+        relative = path.relative_to(directory).as_posix()
+        result.append((relative, path, ("package", relative)))
+
+    included = set()
+    for _, path, _ in result:
+        included.update(included_files(path))
+    return [(spec, path) for spec, path, key in result if key not in included]
+
+
+def included_files(path):
+    """What a ``.frc`` file includes, as ``(where, relative path)``: ``local``
+    for ``local:`` files (the user's and the installation's data directories),
+    else ``package``."""
+    result = set()
+    try:
+        with open(path, errors="replace") as fd:
+            for line in fd:
+                if line.startswith("#include"):
+                    words = line.split()
+                    if len(words) > 1:
+                        target = words[1]
+                        if target.startswith("local:"):
+                            result.add(("local", target[len("local:") :]))
+                        else:
+                            result.add(("package", target))
+    except OSError:
+        pass
     return result
 
 
@@ -110,15 +132,14 @@ def defined_forcefields(path):
 def type_and_method(name):
     """The model-chemistry type and method for a forcefield's name.
 
-    ``reaxff/<set>`` is ``ReaxFF@<set>``; the bundled classical forcefields have
-    the names in :data:`METHOD_NAMES` (``oplsaa`` is ``FF@OPLS-AA``); any other
-    name is used as it is, with the grammar's reserved characters replaced by
-    ``-``.
+    ``reaxff/<set>`` is ``ReaxFF@<set>``; any other forcefield is ``FF@<name>``
+    (``oplsaa+`` is ``FF@oplsaa+``). The grammar's reserved characters are
+    replaced by ``-`` (``dreiding/X6`` is ``FF@dreiding-X6``).
     """
     if name.startswith("reaxff/"):
         type_, method = "ReaxFF", name[len("reaxff/") :]
     else:
-        type_, method = "FF", METHOD_NAMES.get(name, name)
+        type_, method = "FF", name
     for character in RESERVED:
         method = method.replace(character, "-")
     return type_, method
@@ -145,7 +166,7 @@ def get_model_chemistry_options(
     Returns
     -------
     dict
-        Keyed by the model chemistry (``FF@OPLS-AA``). Each entry has
+        Keyed by the model chemistry (``FF@oplsaa+``). Each entry has
         ``model_chemistry``, ``type``, ``description``, ``file`` (the file as the
         Forcefield step names it), ``path``, ``forcefield`` (the name in the
         file), ``source`` (``personal``, ``local`` or ``package``),

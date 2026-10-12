@@ -25,9 +25,11 @@ def _no_user_files(tmp_path):
 
 def test_bundled_forcefields_are_offered(tmp_path):
     options = get_model_chemistry_options(data_path=_no_user_files(tmp_path))
-    assert options["FF@OPLS-AA"]["forcefield"] == "oplsaa"
-    assert options["FF@OPLS-AA+"]["forcefield"] == "oplsaa+"
-    assert options["FF@PCFF"]["file"] == "pcff2018.frc"
+    assert options["FF@oplsaa"]["forcefield"] == "oplsaa"
+    assert options["FF@oplsaa+"]["file"] == "oplsaa.frc"
+    assert options["FF@CL&P"]["file"] == "oplsaa.frc"
+    assert options["FF@pcff"]["file"] == "pcff2018.frc"
+    assert options["FF@dreiding-X6"]["forcefield"] == "dreiding/X6"
     reaxff = options["ReaxFF@CHO_cho_2008"]
     assert reaxff["type"] == "ReaxFF" and reaxff["file"] == "reaxff/CHO_cho_2008.frc"
     assert all(not o["mdi_capable"] and o["periodic_native"] for o in options.values())
@@ -37,8 +39,9 @@ def test_bundled_forcefields_are_offered(tmp_path):
 
 
 def test_names():
-    assert type_and_method("oplsaa") == ("FF", "OPLS-AA")
-    assert type_and_method("dreiding/X6") == ("FF", "DREIDING-X6")
+    """The names the files define; only the grammar's reserved characters change."""
+    assert type_and_method("oplsaa+") == ("FF", "oplsaa+")
+    assert type_and_method("dreiding/X6") == ("FF", "dreiding-X6")
     assert type_and_method("reaxff/CH_2018") == ("ReaxFF", "CH_2018")
     assert type_and_method("my/ff:1") == ("FF", "my-ff-1")
 
@@ -50,9 +53,9 @@ def test_a_users_forcefield_shadows_a_bundled_one(tmp_path):
     directory.mkdir(parents=True)
     (directory / "special.frc").write_text("#define oplsaa\n\n#define my_ff\n")
     options = get_model_chemistry_options(data_path=[tmp_path / "data"])
-    assert options["FF@OPLS-AA"]["file"] == "local:mine/special.frc"
+    assert options["FF@oplsaa"]["file"] == "local:mine/special.frc"
     assert options["FF@my_ff"]["path"] == str(directory / "special.frc")
-    assert options["FF@OPLS-AA+"]["source"] == "package"
+    assert options["FF@oplsaa+"]["source"] == "package"
 
 
 def test_the_forcefield_is_built(tmp_path):
@@ -61,7 +64,7 @@ def test_the_forcefield_is_built(tmp_path):
     assert ff.current_forcefield == "reaxff/CHO_cho_2008"
     assert ff.ff_form == "reaxff"
     # and through the step, as LAMMPS and Packmol call it
-    ff = ForcefieldStep.forcefield(_wrapper("FF@OPLS-AA", options))
+    ff = ForcefieldStep.forcefield(_wrapper("FF@oplsaa", options))
     assert ff.current_forcefield == "oplsaa"
 
 
@@ -76,4 +79,17 @@ def test_local_files_go_with_a_job(tmp_path):
     files = data_files(_wrapper("FF@my_ff", options), node)
     assert files == [("data:Forcefields/mine.frc", directory / "mine.frc")]
     # The package's own files are installed wherever the step is
-    assert data_files(_wrapper("FF@OPLS-AA", options), node) == []
+    assert data_files(_wrapper("FF@oplsaa", options), node) == []
+
+
+def test_included_files_are_parts_not_forcefields(tmp_path):
+    """oplsaa.frc includes local:OPLS-AA/ligpargen.frc, whose parameters extend
+    oplsaa+: it is not offered on its own, but one not included is."""
+    directory = tmp_path / "data" / "Forcefields" / "OPLS-AA"
+    directory.mkdir(parents=True)
+    (directory / "ligpargen.frc").write_text("#define ligpargen\n")
+    (directory / "other.frc").write_text("#define other\n")
+    options = get_model_chemistry_options(data_path=[tmp_path / "data"])
+    assert "FF@ligpargen" not in options
+    assert options["FF@other"]["file"] == "local:OPLS-AA/other.frc"
+    assert "FF@oplsaa+" in options

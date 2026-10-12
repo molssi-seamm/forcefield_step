@@ -19,10 +19,13 @@ The forcefields can also be chosen with a **Model Chemistry** step instead of a
 Forcefield step: this plug-in offers every forcefield it can find as a model chemistry,
 and LAMMPS and Packmol then use it as they would the Forcefield step's.
 
-* A classical forcefield is ``FF@<name>``: ``FF@OPLS-AA``, ``FF@OPLS-AA+``,
-  ``FF@CL&P``, ``FF@PCFF``, ``FF@DREIDING``, ``FF@DREIDING-X6``, ... Other forcefields
-  keep the name they have in their file, with ``:``, ``@``, ``/`` and ``|`` replaced by
-  ``-``.
+* A classical forcefield is ``FF@<name>``, with the name the forcefield has in its
+  file: ``FF@oplsaa+``, ``FF@oplsaa`` and ``FF@CL&P`` from ``oplsaa.frc``,
+  ``FF@pcff``, ``FF@dreiding``, ``FF@dreiding-X6``, ... Only ``:``, ``@``, ``/`` and
+  ``|`` are replaced, by ``-``, since the model chemistry uses them itself.
+* A file that another forcefield file includes is part of that forcefield, not a
+  forcefield of its own: e.g. ``OPLS-AA/ligpargen.frc``, which LigParGen's parameters
+  are written to, extends ``FF@oplsaa+``.
 * A ReaxFF parameter set is ``ReaxFF@<set>``, e.g. ``ReaxFF@CHO_cho_2008``.
 * There is no program in front: LAMMPS evaluates the forcefield itself.
 
@@ -38,7 +41,7 @@ input, by Packmol for each kind of molecule -- unless they already have types fo
 the Forcefield step's "assign forcefield to structure" is not needed.
 
 The Forcefield step's default, the file ``oplsaa.frc`` with its default forcefield, is
-``FF@OPLS-AA+``, the first forcefield in the file.
+``FF@oplsaa+``, the first forcefield in the file.
 
 The following sections cover accessing and controlling forcefields.
 
