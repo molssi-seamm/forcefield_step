@@ -9,6 +9,8 @@ History
       of Yun et al. 2017 -- and each file's other values were checked to be exactly
       those of its source. In CLiSi_Guifo_2023 the two bond energies affected are
       restored from the paper's Table S.3.
+    * The source distribution now includes versioneer.py and the requirements, so the
+      package can be built from it.
 
 2026.10.4 -- The forcefield survives a resume
     * A job resumed from its checkpoint (seamm 2026.10.4, ``run_flowchart --resume``)
