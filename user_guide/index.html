@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User Guide &#8212; SEAMM Forcefield Plug-in 2026.10.12 documentation</title>
+    <title>User Guide &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../_static/documentation_options.js?v=a6df0ad7"></script>
+    <script src="../_static/documentation_options.js?v=0f4eb122"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12" />
+  <meta name="docsearch:version" content="2026.10.12.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -521,6 +521,33 @@ working on, though that happens by default when you start the simulation, so you
 need to handle it explicitly.</p>
 <p>If you want to understand more about the theory and definition of forcefields, see the
 <a class="reference external" href="https://molssi-seamm.github.io/background/forcefields/overview.html">Overview of Forcefields</a> in the main SEAMM documentation.</p>
+<section id="forcefields-as-model-chemistries">
+<h2>Forcefields as model chemistries<a class="headerlink" href="#forcefields-as-model-chemistries" title="Link to this heading">#</a></h2>
+<p>The forcefields can also be chosen with a <strong>Model Chemistry</strong> step instead of a
+Forcefield step: this plug-in offers every forcefield it can find as a model chemistry,
+and LAMMPS and Packmol then use it as they would the Forcefield step’s.</p>
+<ul class="simple">
+<li><p>A classical forcefield is <code class="docutils literal notranslate"><span class="pre">FF&#64;&lt;name&gt;</span></code>, with the name the forcefield has in its
+file: <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>, <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa</span></code> and <code class="docutils literal notranslate"><span class="pre">FF&#64;CL&amp;P</span></code> from <code class="docutils literal notranslate"><span class="pre">oplsaa.frc</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FF&#64;pcff</span></code>, <code class="docutils literal notranslate"><span class="pre">FF&#64;dreiding</span></code>, <code class="docutils literal notranslate"><span class="pre">FF&#64;dreiding-X6</span></code>, … Only <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> and
+<code class="docutils literal notranslate"><span class="pre">|</span></code> are replaced, by <code class="docutils literal notranslate"><span class="pre">-</span></code>, since the model chemistry uses them itself.</p></li>
+<li><p>A file that another forcefield file includes is part of that forcefield, not a
+forcefield of its own: e.g. <code class="docutils literal notranslate"><span class="pre">OPLS-AA/ligpargen.frc</span></code>, which LigParGen’s parameters
+are written to, extends <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>.</p></li>
+<li><p>A ReaxFF parameter set is <code class="docutils literal notranslate"><span class="pre">ReaxFF&#64;&lt;set&gt;</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">ReaxFF&#64;CHO_cho_2008</span></code>.</p></li>
+<li><p>There is no program in front: LAMMPS evaluates the forcefield itself.</p></li>
+</ul>
+<p>The forcefields come from the files shipped with this plug-in and from your own:
+<code class="docutils literal notranslate"><span class="pre">~/.seamm.d/data/Forcefields</span></code> (<code class="docutils literal notranslate"><span class="pre">personal:</span></code>), then the installation’s
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/data/Forcefields</span></code> and <code class="docutils literal notranslate"><span class="pre">~/SEAMM/data/Forcefields</span></code> (<code class="docutils literal notranslate"><span class="pre">local:</span></code>), searched in
+that order, so a forcefield of your own with the same name as a shipped one is used
+instead of it. Your files are sent with a job submitted to a JobServer, as with the
+Forcefield step.</p>
+<p>The atoms are typed when the forcefield is needed – by LAMMPS when it writes its
+input, by Packmol for each kind of molecule – unless they already have types for it, so
+the Forcefield step’s “assign forcefield to structure” is not needed.</p>
+<p>The Forcefield step’s default, the file <code class="docutils literal notranslate"><span class="pre">oplsaa.frc</span></code> with its default forcefield, is
+<code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>, the first forcefield in the file.</p>
 <p>The following sections cover accessing and controlling forcefields.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -531,6 +558,7 @@ need to handle it explicitly.</p>
 </li>
 </ul>
 </div>
+</section>
 <section id="index">
 <h2>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -586,6 +614,7 @@ need to handle it explicitly.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefields-as-model-chemistries">Forcefields as model chemistries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
 </ul>
   </nav></div>

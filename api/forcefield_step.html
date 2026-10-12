@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>forcefield_step package &#8212; SEAMM Forcefield Plug-in 2026.10.12 documentation</title>
+    <title>forcefield_step package &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../_static/documentation_options.js?v=a6df0ad7"></script>
+    <script src="../_static/documentation_options.js?v=0f4eb122"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12" />
+  <meta name="docsearch:version" content="2026.10.12.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -707,6 +707,27 @@ nodes.</p>
 <dd><p>Return a description of what this extension does</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="forcefield_step.forcefield_step.ForcefieldStep.forcefield">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">forcefield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_chemistry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield_step.html#ForcefieldStep.forcefield"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield_step.ForcefieldStep.forcefield" title="Link to this definition">#</a></dt>
+<dd><p>The seamm_ff_util forcefield for a model chemistry from
+<a class="reference internal" href="#forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options" title="forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_model_chemistry_options()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_model_chemistry_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">periodic_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mdi_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield_step.html#ForcefieldStep.get_model_chemistry_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options" title="Link to this definition">#</a></dt>
+<dd><p>The forcefields in the .frc files the step can find, as model
+chemistries; <code class="docutils literal notranslate"><span class="pre">data_path</span></code> is a running flowchart’s data directories.
+See <a class="reference internal" href="#forcefield_step.model_chemistry.get_model_chemistry_options" title="forcefield_step.model_chemistry.get_model_chemistry_options"><code class="xref py py-func docutils literal notranslate"><span class="pre">forcefield_step.model_chemistry.get_model_chemistry_options()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forcefield_step.forcefield_step.ForcefieldStep.model_chemistry_data_files">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">model_chemistry_data_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_chemistry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/forcefield_step.html#ForcefieldStep.model_chemistry_data_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.forcefield_step.ForcefieldStep.model_chemistry_data_files" title="Link to this definition">#</a></dt>
+<dd><p>The local and personal files a job needs for the model chemistry.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="forcefield_step.forcefield_step.ForcefieldStep.my_description">
 <span class="sig-name descname"><span class="pre">my_description</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">'An</span> <span class="pre">interface</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">setup</span> <span class="pre">and</span> <span class="pre">control</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">forcefield',</span> <span class="pre">'group':</span> <span class="pre">'Simulations',</span> <span class="pre">'name':</span> <span class="pre">'Forcefield'}</span></span><a class="headerlink" href="#forcefield_step.forcefield_step.ForcefieldStep.my_description" title="Link to this definition">#</a></dt>
@@ -878,6 +899,146 @@ Tinker. It looks like this:</p>
 <dd></dd></dl>
 
 </section>
+<section id="module-forcefield_step.model_chemistry">
+<span id="forcefield-step-model-chemistry-module"></span><h2>forcefield_step.model_chemistry module<a class="headerlink" href="#module-forcefield_step.model_chemistry" title="Link to this heading">#</a></h2>
+<p>The forcefields as model chemistries.</p>
+<p>Every forcefield defined in a <code class="docutils literal notranslate"><span class="pre">.frc</span></code> file the step can find – the package’s,
+the SEAMM installation’s (<code class="docutils literal notranslate"><span class="pre">local:</span></code>) and the user’s (<code class="docutils literal notranslate"><span class="pre">personal:</span></code>) – is offered
+as a model chemistry: <code class="docutils literal notranslate"><span class="pre">FF&#64;&lt;name&gt;</span></code> for a classical forcefield (<code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>)
+and <code class="docutils literal notranslate"><span class="pre">ReaxFF&#64;&lt;parameter</span> <span class="pre">set&gt;</span></code> for a ReaxFF one, the names being those the
+files define. The steps that use a forcefield
+(LAMMPS, Packmol) build it from the model chemistry with <a class="reference internal" href="#forcefield_step.model_chemistry.forcefield" title="forcefield_step.model_chemistry.forcefield"><code class="xref py py-func docutils literal notranslate"><span class="pre">forcefield()</span></code></a>.</p>
+<p>See lammps_step’s campaign of 2026-10-11 (forcefields as model chemistries).</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.RESERVED">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">RESERVED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">':&#64;/|'</span></span><a class="headerlink" href="#forcefield_step.model_chemistry.RESERVED" title="Link to this definition">#</a></dt>
+<dd><p>Characters the model-chemistry grammar reserves</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.TYPES">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">TYPES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('FF',</span> <span class="pre">'ReaxFF')</span></span><a class="headerlink" href="#forcefield_step.model_chemistry.TYPES" title="Link to this definition">#</a></dt>
+<dd><p>The model-chemistry types this package offers</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.data_files">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">data_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_chemistry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#data_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.data_files" title="Link to this definition">#</a></dt>
+<dd><p>The files a job needs for a forcefield model chemistry, as the Forcefield
+step’s <code class="docutils literal notranslate"><span class="pre">list_data_files</span></code>: <code class="docutils literal notranslate"><span class="pre">[(uri,</span> <span class="pre">path)]</span></code> of the <code class="docutils literal notranslate"><span class="pre">local:</span></code> and
+<code class="docutils literal notranslate"><span class="pre">personal:</span></code> file and its includes (and the package’s, unless
+<code class="docutils literal notranslate"><span class="pre">local_only</span></code>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.defined_forcefields">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">defined_forcefields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#defined_forcefields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.defined_forcefields" title="Link to this definition">#</a></dt>
+<dd><p>The names of the forcefields a <code class="docutils literal notranslate"><span class="pre">.frc</span></code> file defines (<code class="docutils literal notranslate"><span class="pre">#define</span></code>), in
+order; the first is the file’s default.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.forcefield">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">forcefield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_chemistry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#forcefield"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.forcefield" title="Link to this definition">#</a></dt>
+<dd><p>The seamm_ff_util forcefield for a model chemistry, ready to use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_chemistry</strong> (<em>dict</em>) – The <code class="docutils literal notranslate"><span class="pre">_model_chemistry</span></code> wrapper of an <code class="docutils literal notranslate"><span class="pre">FF</span></code> or <code class="docutils literal notranslate"><span class="pre">ReaxFF</span></code> model
+chemistry offered by this package.</p></li>
+<li><p><strong>node</strong> (<em>seamm.Node</em><em>, </em><em>optional</em>) – The step using it: its data files (a job’s copies of <code class="docutils literal notranslate"><span class="pre">local:</span></code> and
+<code class="docutils literal notranslate"><span class="pre">personal:</span></code> files) and its references, which get the forcefield’s
+citations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>seamm_ff_util.Forcefield</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.forcefield_files">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">forcefield_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#forcefield_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.forcefield_files" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">[(spec,</span> <span class="pre">path)]</span></code> of the <code class="docutils literal notranslate"><span class="pre">.frc</span></code> files, the user’s first.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spec</span></code> is what the Forcefield step calls the file: <code class="docutils literal notranslate"><span class="pre">personal:&lt;path&gt;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">local:&lt;path&gt;</span></code> relative to its directory, or the path within the package’s
+data directory. Files that another <code class="docutils literal notranslate"><span class="pre">.frc</span></code> file includes (<code class="docutils literal notranslate"><span class="pre">#include</span></code>) are
+left out: they are parts of that forcefield – e.g. <code class="docutils literal notranslate"><span class="pre">oplsaa.frc</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">local:OPLS-AA/ligpargen.frc</span></code>, whose parameters extend <code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code> – not
+forcefields of their own.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.get_model_chemistry_options">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">get_model_chemistry_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">periodic_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mdi_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#get_model_chemistry_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.get_model_chemistry_options" title="Link to this definition">#</a></dt>
+<dd><p>The forcefields as model chemistries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>periodic_only</strong> (<em>bool</em>) – Only those that handle periodic systems – all of them.</p></li>
+<li><p><strong>mdi_only</strong> (<em>bool</em>) – Only those launchable as MDI engines – none: LAMMPS evaluates the
+forcefield itself.</p></li>
+<li><p><strong>root</strong> (<em>str</em><em> or </em><em>Path</em><em>, </em><em>optional</em>) – The SEAMM installation; the current one by default.</p></li>
+<li><p><strong>data_path</strong> (<em>[</em><em>Path</em><em>]</em><em>, </em><em>optional</em>) – A flowchart’s data directories (<code class="docutils literal notranslate"><span class="pre">Node.data_path</span></code>) to search instead
+of the default ones: in a job, its own copies of the files sent with it.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keyed by the model chemistry (<code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>). Each entry has
+<code class="docutils literal notranslate"><span class="pre">model_chemistry</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code> (the file as the
+Forcefield step names it), <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">forcefield</span></code> (the name in the
+file), <code class="docutils literal notranslate"><span class="pre">source</span></code> (<code class="docutils literal notranslate"><span class="pre">personal</span></code>, <code class="docutils literal notranslate"><span class="pre">local</span></code> or <code class="docutils literal notranslate"><span class="pre">package</span></code>),
+<code class="docutils literal notranslate"><span class="pre">periodic_native</span></code>, <code class="docutils literal notranslate"><span class="pre">periodic_mdi</span></code> and <code class="docutils literal notranslate"><span class="pre">mdi_capable</span></code>. A user’s
+forcefield of the same name as a bundled one is offered instead of it.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.included_files">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">included_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#included_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.included_files" title="Link to this definition">#</a></dt>
+<dd><p>What a <code class="docutils literal notranslate"><span class="pre">.frc</span></code> file includes, as <code class="docutils literal notranslate"><span class="pre">(where,</span> <span class="pre">relative</span> <span class="pre">path)</span></code>: <code class="docutils literal notranslate"><span class="pre">local</span></code>
+for <code class="docutils literal notranslate"><span class="pre">local:</span></code> files (the user’s and the installation’s data directories),
+else <code class="docutils literal notranslate"><span class="pre">package</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.package_directory">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">package_directory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#package_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.package_directory" title="Link to this definition">#</a></dt>
+<dd><p>The directory of the forcefields shipped with this package.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.source_directories">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">source_directories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#source_directories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.source_directories" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">[(source,</span> <span class="pre">directory)]</span></code> searched for <code class="docutils literal notranslate"><span class="pre">.frc</span></code> files, in order.</p>
+<p><code class="docutils literal notranslate"><span class="pre">personal</span></code> is <code class="docutils literal notranslate"><span class="pre">~/.seamm.d/data/Forcefields</span></code>; <code class="docutils literal notranslate"><span class="pre">local</span></code> the installation’s
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/data/Forcefields</span></code> and then the default installation’s
+<code class="docutils literal notranslate"><span class="pre">~/SEAMM/data/Forcefields</span></code>. Given a flowchart’s <code class="docutils literal notranslate"><span class="pre">data_path</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">Forcefields</span></code> directory in each of its directories instead – in a job
+this starts with the job’s own copies of the files sent with it.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.type_and_method">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">type_and_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#type_and_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.type_and_method" title="Link to this definition">#</a></dt>
+<dd><p>The model-chemistry type and method for a forcefield’s name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">reaxff/&lt;set&gt;</span></code> is <code class="docutils literal notranslate"><span class="pre">ReaxFF&#64;&lt;set&gt;</span></code>; any other forcefield is <code class="docutils literal notranslate"><span class="pre">FF&#64;&lt;name&gt;</span></code>
+(<code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code> is <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>). The grammar’s reserved characters are
+replaced by <code class="docutils literal notranslate"><span class="pre">-</span></code> (<code class="docutils literal notranslate"><span class="pre">dreiding/X6</span></code> is <code class="docutils literal notranslate"><span class="pre">FF&#64;dreiding-X6</span></code>).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forcefield_step.model_chemistry.uri_handler">
+<span class="sig-prename descclassname"><span class="pre">forcefield_step.model_chemistry.</span></span><span class="sig-name descname"><span class="pre">uri_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/forcefield_step/model_chemistry.html#uri_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#forcefield_step.model_chemistry.uri_handler" title="Link to this definition">#</a></dt>
+<dd><p>A <code class="docutils literal notranslate"><span class="pre">uri_handler</span></code> for seamm_ff_util: <code class="docutils literal notranslate"><span class="pre">local:</span></code> includes are data files.</p>
+</dd></dl>
+
+</section>
 <section id="module-forcefield_step.tk_forcefield">
 <span id="forcefield-step-tk-forcefield-module"></span><h2>forcefield_step.tk_forcefield module<a class="headerlink" href="#module-forcefield_step.tk_forcefield" title="Link to this heading">#</a></h2>
 <p>The graphical part of a Forcefield step</p>
@@ -1005,6 +1166,9 @@ A step for choosing the default forcefield.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.create_node"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.create_node()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.create_tk_node"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.create_tk_node()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.description"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.description()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.forcefield"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.forcefield()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.get_model_chemistry_options()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.model_chemistry_data_files"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.model_chemistry_data_files()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.forcefield_step.ForcefieldStep.my_description"><code class="docutils literal notranslate"><span class="pre">ForcefieldStep.my_description</span></code></a></li>
 </ul>
 </li>
@@ -1016,6 +1180,21 @@ A step for choosing the default forcefield.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.ligpargen.key_atom_types"><code class="docutils literal notranslate"><span class="pre">key_atom_types()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.ligpargen.reader"><code class="docutils literal notranslate"><span class="pre">reader()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.ligpargen.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-forcefield_step.model_chemistry">forcefield_step.model_chemistry module</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.RESERVED"><code class="docutils literal notranslate"><span class="pre">RESERVED</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.TYPES"><code class="docutils literal notranslate"><span class="pre">TYPES</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.data_files"><code class="docutils literal notranslate"><span class="pre">data_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.defined_forcefields"><code class="docutils literal notranslate"><span class="pre">defined_forcefields()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.forcefield"><code class="docutils literal notranslate"><span class="pre">forcefield()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.forcefield_files"><code class="docutils literal notranslate"><span class="pre">forcefield_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.get_model_chemistry_options"><code class="docutils literal notranslate"><span class="pre">get_model_chemistry_options()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.included_files"><code class="docutils literal notranslate"><span class="pre">included_files()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.package_directory"><code class="docutils literal notranslate"><span class="pre">package_directory()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.source_directories"><code class="docutils literal notranslate"><span class="pre">source_directories()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.type_and_method"><code class="docutils literal notranslate"><span class="pre">type_and_method()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefield_step.model_chemistry.uri_handler"><code class="docutils literal notranslate"><span class="pre">uri_handler()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-forcefield_step.tk_forcefield">forcefield_step.tk_forcefield module</a><ul class="pst-show_toc_level nav section-nav flex-column">

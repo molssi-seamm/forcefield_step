@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forcefield_step.forcefield_step &#8212; SEAMM Forcefield Plug-in 2026.10.12 documentation</title>
+    <title>forcefield_step.forcefield_step &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
   
   
   
@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../../_static/documentation_options.js?v=a6df0ad7"></script>
+    <script src="../../_static/documentation_options.js?v=0f4eb122"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12" />
+  <meta name="docsearch:version" content="2026.10.12.1" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -531,6 +531,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span class="k">def</span><span class="w"> </span><span class="nf">create_tk_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">canvas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Return the graphical Tk node object"""</span>
         <span class="k">return</span> <span class="n">forcefield_step</span><span class="o">.</span><span class="n">TkForcefield</span><span class="p">(</span><span class="n">canvas</span><span class="o">=</span><span class="n">canvas</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ----------------------------------------------------------------------</span>
+    <span class="c1"># The forcefields as model chemistries (see forcefield_step.model_chemistry):</span>
+    <span class="c1"># FF@&lt;name&gt; and ReaxFF@&lt;parameter set&gt;, evaluated by LAMMPS itself.</span>
+    <span class="c1"># ----------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="ForcefieldStep.get_model_chemistry_options">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield_step.ForcefieldStep.get_model_chemistry_options">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_chemistry_options</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">periodic_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mdi_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data_path</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The forcefields in the .frc files the step can find, as model</span>
+<span class="sd">        chemistries; ``data_path`` is a running flowchart's data directories.</span>
+<span class="sd">        See :func:`forcefield_step.model_chemistry.get_model_chemistry_options`."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.model_chemistry</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_model_chemistry_options</span>
+
+        <span class="k">return</span> <span class="n">get_model_chemistry_options</span><span class="p">(</span>
+            <span class="n">periodic_only</span><span class="o">=</span><span class="n">periodic_only</span><span class="p">,</span> <span class="n">mdi_only</span><span class="o">=</span><span class="n">mdi_only</span><span class="p">,</span> <span class="n">data_path</span><span class="o">=</span><span class="n">data_path</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ForcefieldStep.forcefield">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield_step.ForcefieldStep.forcefield">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forcefield</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model_chemistry</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The seamm_ff_util forcefield for a model chemistry from</span>
+<span class="sd">        :meth:`get_model_chemistry_options`."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.model_chemistry</span><span class="w"> </span><span class="kn">import</span> <span class="n">forcefield</span>
+
+        <span class="k">return</span> <span class="n">forcefield</span><span class="p">(</span><span class="n">model_chemistry</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ForcefieldStep.model_chemistry_data_files">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield_step.ForcefieldStep.model_chemistry_data_files">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">model_chemistry_data_files</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model_chemistry</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">local_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The local and personal files a job needs for the model chemistry."""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.model_chemistry</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_files</span>
+
+        <span class="k">return</span> <span class="n">data_files</span><span class="p">(</span><span class="n">model_chemistry</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">local_only</span><span class="o">=</span><span class="n">local_only</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

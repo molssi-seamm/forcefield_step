@@ -36,6 +36,14 @@ forcefield\_step.ligpargen module
    :show-inheritance:
    :undoc-members:
 
+forcefield\_step.model\_chemistry module
+----------------------------------------
+
+.. automodule:: forcefield_step.model_chemistry
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 forcefield\_step.tk\_forcefield module
 --------------------------------------
 

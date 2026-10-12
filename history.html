@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>History &#8212; SEAMM Forcefield Plug-in 2026.10.12 documentation</title>
+    <title>History &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="_static/documentation_options.js?v=a6df0ad7"></script>
+    <script src="_static/documentation_options.js?v=0f4eb122"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12" />
+  <meta name="docsearch:version" content="2026.10.12.1" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -506,6 +506,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="history">
 <h1>History<a class="headerlink" href="#history" title="Link to this heading">#</a></h1>
 <dl class="simple">
+<dt>2026.10.12.1 – Forcefields as model chemistries</dt><dd><ul class="simple">
+<li><p>The forcefields can be chosen with a Model Chemistry step: the step offers every
+forcefield in the files it can find as a model chemistry – <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa</span></code>,
+<code class="docutils literal notranslate"><span class="pre">FF&#64;pcff</span></code>, … for classical forcefields and <code class="docutils literal notranslate"><span class="pre">ReaxFF&#64;&lt;set&gt;</span></code> for ReaxFF
+parameter sets – and LAMMPS and Packmol build and use it as they would the
+Forcefield step’s. Your own forcefield files (<code class="docutils literal notranslate"><span class="pre">personal:</span></code> and <code class="docutils literal notranslate"><span class="pre">local:</span></code>) are
+included, shadow shipped ones of the same name, and are sent with a submitted job.
+A file that another forcefield file includes, such as <code class="docutils literal notranslate"><span class="pre">OPLS-AA/ligpargen.frc</span></code>,
+is part of that forcefield, not one of its own.</p></li>
+</ul>
+</dd>
 <dt>2026.10.12 – Bugfix: the ReaxFF force fields have their parameters’ full precision again</dt><dd><ul class="simple">
 <li><p>The ReaxFF force fields shipped with the step had been converted keeping only 6
 significant figures, so 148 parameters in the 12 files were rounded (e.g. the
