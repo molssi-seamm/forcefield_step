@@ -1,6 +1,19 @@
 =======
 History
 =======
+2026.10.12 -- Bugfix: the ReaxFF force fields have their parameters' full precision again
+    * The ReaxFF force fields shipped with the step had been converted keeping only 6
+      significant figures, so 148 parameters in the 12 files were rounded (e.g. the
+      C-H bond energy in CHO_cho_2008 was 170.232 instead of 170.2316). They are now
+      regenerated from their sources -- the LAMMPS distribution's files, and Table S1
+      of Yun et al. 2017 -- and each file's other values were checked to be exactly
+      those of its source. In CLiSi_Guifo_2023 the two bond energies affected are
+      restored from the paper's Table S.3.
+    * CHO_cho_2008 notes in its reference that kc2 (the C2 correction) is 70, as in
+      LAMMPS since 2010, while the paper's published parameter set has 0.
+    * The source distribution now includes versioneer.py and the requirements, so the
+      package can be built from it.
+
 2026.10.4 -- The forcefield survives a resume
     * A job resumed from its checkpoint (seamm 2026.10.4, ``run_flowchart --resume``)
       after the Forcefield step has the forcefield again: the step saves it in the
