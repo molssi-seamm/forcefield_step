@@ -9,6 +9,8 @@ History
       of Yun et al. 2017 -- and each file's other values were checked to be exactly
       those of its source. In CLiSi_Guifo_2023 the two bond energies affected are
       restored from the paper's Table S.3.
+    * CHO_cho_2008 notes in its reference that kc2 (the C2 correction) is 70, as in
+      LAMMPS since 2010, while the paper's published parameter set has 0.
     * The source distribution now includes versioneer.py and the requirements, so the
       package can be built from it.
 
