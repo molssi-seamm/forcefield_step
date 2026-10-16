@@ -1,6 +1,14 @@
 =======
 History
 =======
+2026.10.16 -- Rigid water models, and choosing the forcefield in a file
+    * New forcefields oplsaa+-spc_e and oplsaa+-tip3p in oplsaa.frc: oplsaa+ with
+      rigid SPC/E or TIP3P water. oplsaa+ itself keeps its flexible SPC water.
+    * The SPC/E water in nacl_water.frc is now rigid, as the model was made.
+    * The Forcefield step lists the forcefields in the chosen file, and a flowchart
+      built or edited without the editor can name any of them, e.g. oplsaa+-spc_e.
+      Before, only "default" was offered.
+
 2026.10.12.1 -- Forcefields as model chemistries
     * The forcefields can be chosen with a Model Chemistry step: the step offers every
       forcefield in the files it can find as a model chemistry -- ``FF@oplsaa``,

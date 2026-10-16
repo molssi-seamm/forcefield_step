@@ -19,6 +19,50 @@
 2024.06.20   1    fragments			   CL&P my_oplsaa:optional ligpargen:optional
 #end
 
+#define oplsaa+-spc_e
+
+> oplsaa+ with rigid SPC/E water
+
+! Version  Ref                Function             Label
+!--------- ---    ------------------------------   ------
+2026.10.15   8    metadata                         oplsaa
+2026.10.15   8    atom_types                       oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   8    equivalence                      oplsaa CL&P my_oplsaa:optional
+2026.10.15   8    charges                          oplsaa CL&P my_oplsaa:optional ligpargen:optional spc_e
+2026.10.15   8    nonbond(12-6)                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   8    quadratic_bond                   oplsaa CL&P CL&P-g my_oplsaa:optional ligpargen:optional
+2026.10.15   8    quadratic_angle                  oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   8    tabulated_angle                  CL&P
+2026.10.15   8    rigid_bond                       spc_e
+2026.10.15   8    rigid_angle                      spc_e
+2026.10.15   8    torsion_opls                     oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   8    improper_opls                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   8    templates                        oplsaa
+2026.10.15   8    fragments                        CL&P my_oplsaa:optional ligpargen:optional
+#end
+
+#define oplsaa+-tip3p
+
+> oplsaa+ with rigid TIP3P water
+
+! Version  Ref                Function             Label
+!--------- ---    ------------------------------   ------
+2026.10.15   9    metadata                         oplsaa
+2026.10.15   9    atom_types                       oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    equivalence                      oplsaa CL&P my_oplsaa:optional
+2026.10.15   9    charges                          oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    nonbond(12-6)                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    quadratic_bond                   oplsaa CL&P CL&P-g my_oplsaa:optional ligpargen:optional
+2026.10.15   9    quadratic_angle                  oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    tabulated_angle                  CL&P
+2026.10.15   9    rigid_bond                       tip3p
+2026.10.15   9    rigid_angle                      tip3p
+2026.10.15   9    torsion_opls                     oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    improper_opls                    oplsaa CL&P my_oplsaa:optional ligpargen:optional
+2026.10.15   9    templates                        oplsaa tip3p
+2026.10.15   9    fragments                        CL&P my_oplsaa:optional ligpargen:optional
+#end
+
 #define oplsaa
 
 ! Version  Ref                Function             Label
@@ -11443,6 +11487,72 @@
     }
 }
 
+#charges spc_e
+
+> The SPC/E charges, replacing those of SPC
+
+! Version   Ref   I          Charge
+!---------  ----  --------   ------
+2026.10.15  8     opls_76   -0.8476
+2026.10.15  8     opls_77    0.4238
+
+#rigid_bond spc_e
+
+> R = R0, held fixed by constraints
+
+! Version   Ref   I         J               R0
+!---------  ----  --------  --------  --------
+2026.10.15  8     opls_76   opls_77     1.0000
+
+#rigid_angle spc_e
+
+> Theta = Theta0, held fixed by constraints
+
+! Version   Ref   I         J         K           Theta0
+!---------  ----  --------  --------  --------  --------
+2026.10.15  8     opls_77   opls_76   opls_77     109.47
+
+#rigid_bond tip3p
+
+> R = R0, held fixed by constraints
+
+! Version   Ref   I         J               R0
+!---------  ----  --------  --------  --------
+2026.10.15  9     opls_63   opls_64     0.9572
+
+#rigid_angle tip3p
+
+> Theta = Theta0, held fixed by constraints
+
+! Version   Ref   I         J         K           Theta0
+!---------  ----  --------  --------  --------  --------
+2026.10.15  9     opls_64   opls_63   opls_64     104.52
+
+#templates tip3p
+
+> Water is TIP3P (opls_63 and opls_64) rather than SPC (opls_76 and opls_77)
+
+{
+    "opls_63": {
+        "2026.10.15": {
+            "smarts": [
+                "[OD2H2:1]"
+            ],
+            "description": "TIP3P Water O",
+            "overrides": []
+        }
+    },
+    "opls_64": {
+        "2026.10.15": {
+            "smarts": [
+                "[OD2H2]([H:1])[H:2]"
+            ],
+            "description": "TIP3P Water H",
+            "overrides": []
+        }
+    }
+}
+
 #reference 1
 @Author Paul Saxe
 @Date 2023-01-29
@@ -11724,3 +11834,38 @@ J.N. Canongia Lopes, A.A.H. Padua et al.
 }
 #end
 
+#reference 8
+@Author Paul Saxe
+@Date 2026-10-15
+The SPC/E water model.
+
+@bibtex @article{Berendsen1987,
+  title     = "The missing term in effective pair potentials",
+  author    = "Berendsen, H J C and Grigera, J R and Straatsma, T P",
+  journal   = "J. Phys. Chem.",
+  volume    =  91,
+  number    =  24,
+  pages     = "6269--6271",
+  year      =  1987,
+  doi       = "10.1021/j100308a038"
+}
+#end
+
+#reference 9
+@Author Paul Saxe
+@Date 2026-10-15
+The TIP3P water model.
+
+@bibtex @article{Jorgensen1983,
+  title     = "Comparison of simple potential functions for simulating liquid
+               water",
+  author    = "Jorgensen, William L and Chandrasekhar, Jayaraman and Madura,
+               Jeffry D and Impey, Roger W and Klein, Michael L",
+  journal   = "J. Chem. Phys.",
+  volume    =  79,
+  number    =  2,
+  pages     = "926--935",
+  year      =  1983,
+  doi       = "10.1063/1.445869"
+}
+#end

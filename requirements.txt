@@ -3,6 +3,6 @@ pyperclip
 rdkit
 read-structure-step
 seamm
-seamm-ff-util
+seamm-ff-util>=2026.10.16
 seamm-util>=2026.9.27.1
 tabulate

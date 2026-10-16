@@ -323,6 +323,49 @@ class Forcefield(seamm.Node):
 
         return result
 
+    def forcefield_names(self, ff_file):
+        """The forcefields defined in a forcefield file and the files it includes.
+
+        Parameters
+        ----------
+        ff_file : str
+            The forcefield file, as given in "forcefield_file", e.g. "oplsaa.frc"
+            or "local:OPLS-AA/my_oplsaa.frc".
+
+        Returns
+        -------
+        [str]
+            The names in the "#define" lines, in order, or [] if the file cannot be
+            found or is not a forcefield file with definitions, e.g. OpenKIM.
+        """
+        if self.is_expr(ff_file) or ff_file in ("", "OpenKIM"):
+            return []
+        try:
+            if ff_file.startswith("personal:"):
+                path = self.find_data_file("Forcefields/" + ff_file[9:])
+            elif ff_file.startswith("local:"):
+                path = self.find_data_file("Forcefields/" + ff_file[6:])
+            else:
+                path = importlib.resources.files("forcefield_step") / "data" / ff_file
+        except FileNotFoundError:
+            return []
+        if path is None or not Path(path).is_file() or Path(path).suffix != ".frc":
+            return []
+
+        names = []
+        try:
+            with seamm_util.Open(
+                path, "r", include="#include", uri_handler=self.uri_handler
+            ) as fd:
+                for line in fd:
+                    if line.startswith("#define"):
+                        words = line.split()
+                        if len(words) > 1 and words[1] not in names:
+                            names.append(words[1])
+        except Exception as e:
+            logger.warning(f"Could not read the forcefields in {ff_file}: {e}")
+        return names
+
     def setup_forcefield(self, P=None):
         """Setup the forcefield for later use.
 
