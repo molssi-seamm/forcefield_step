@@ -34,12 +34,15 @@ class ForcefieldParameters(seamm.Parameters):
         },
         "forcefield": {
             "default": "default",
-            "kind": "enumeration",
+            "kind": "string",
             "default_units": "",
             "enumeration": ("default",),
             "format_string": "s",
             "description": "Forcefield:",
-            "help_text": "The forcefield with the file.",
+            "help_text": (
+                "The forcefield in the file to use, e.g. oplsaa+ or oplsaa+-spc_e in "
+                "oplsaa.frc, or 'default' for the first one in the file."
+            ),
         },
         "elements": {
             "default": "",

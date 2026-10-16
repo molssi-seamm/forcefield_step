@@ -124,6 +124,12 @@ class TkForcefield(seamm.TkNode):
                 row += 1
                 self["potentials"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
             else:
+                # The forcefields defined in the file, e.g. oplsaa+ or oplsaa+-spc_e
+                names = ["default"] + self.node.forcefield_names(repository)
+                self["forcefield"].combobox.configure(values=names)
+                current = self["forcefield"].get()
+                if not self.is_expr(current) and current not in names:
+                    self["forcefield"].set("default")
                 self["forcefield"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
                 frame.rowconfigure(row, weight=0)
                 frame.columnconfigure(1, weight=0)

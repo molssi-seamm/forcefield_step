@@ -13,6 +13,8 @@
 2020.05.13   1    bond_increments                  nacl_water
 2020.05.13   1    quadratic_bond                   nacl_water
 2020.05.13   1    quadratic_angle                  nacl_water
+2026.10.15   3    rigid_bond                       nacl_water
+2026.10.15   3    rigid_angle                      nacl_water
 2020.05.13   1    nonbond(12-6)                    nacl spc
 2020.05.13   1    templates                        nacl_water
 
@@ -86,6 +88,24 @@
 ! Version Ref      I       J       K       Theta0       K2
 !--------- ---  ------- ------- -------   --------   --------
 2020.05.13   4  h_spc   o_spc   h_spc     109.47     50.0
+
+
+#rigid_bond nacl_water
+
+> R = R0, held fixed by constraints: SPC/E water is rigid
+
+! Version  Ref     I       J       R0
+!--------- ---  ------- -------  -------
+2026.10.15   3   h_spc  o_spc    1.0
+
+
+#rigid_angle nacl_water
+
+> Theta = Theta0, held fixed by constraints: SPC/E water is rigid
+
+! Version Ref      I       J       K       Theta0
+!--------- ---  ------- ------- -------   --------
+2026.10.15   3  h_spc   o_spc   h_spc     109.47
 
 
 #nonbond(12-6) spc
