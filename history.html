@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>History &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
+    <title>History &#8212; SEAMM Forcefield Plug-in 2026.10.16 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="_static/documentation_options.js?v=0f4eb122"></script>
+    <script src="_static/documentation_options.js?v=5aae1070"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12.1" />
+  <meta name="docsearch:version" content="2026.10.16" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -506,6 +506,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <section id="history">
 <h1>History<a class="headerlink" href="#history" title="Link to this heading">#</a></h1>
 <dl class="simple">
+<dt>2026.10.16 – Rigid water models, and choosing the forcefield in a file</dt><dd><ul class="simple">
+<li><p>New forcefields oplsaa+-spc_e and oplsaa+-tip3p in oplsaa.frc: oplsaa+ with
+rigid SPC/E or TIP3P water. oplsaa+ itself keeps its flexible SPC water.</p></li>
+<li><p>The SPC/E water in nacl_water.frc is now rigid, as the model was made.</p></li>
+<li><p>The Forcefield step lists the forcefields in the chosen file, and a flowchart
+built or edited without the editor can name any of them, e.g. oplsaa+-spc_e.
+Before, only “default” was offered.</p></li>
+</ul>
+</dd>
 <dt>2026.10.12.1 – Forcefields as model chemistries</dt><dd><ul class="simple">
 <li><p>The forcefields can be chosen with a Model Chemistry step: the step offers every
 forcefield in the files it can find as a model chemistry – <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa</span></code>,

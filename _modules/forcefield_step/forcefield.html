@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>forcefield_step.forcefield &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
+    <title>forcefield_step.forcefield &#8212; SEAMM Forcefield Plug-in 2026.10.16 documentation</title>
   
   
   
@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../../_static/documentation_options.js?v=0f4eb122"></script>
+    <script src="../../_static/documentation_options.js?v=5aae1070"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12.1" />
+  <meta name="docsearch:version" content="2026.10.16" />
   
     
     <script src="../../_static/searchtools.js"></script>
@@ -823,6 +823,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">uri</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="Forcefield.forcefield_names">
+<a class="viewcode-back" href="../../api/forcefield_step.html#forcefield_step.forcefield.Forcefield.forcefield_names">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forcefield_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ff_file</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The forcefields defined in a forcefield file and the files it includes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ff_file : str</span>
+<span class="sd">            The forcefield file, as given in "forcefield_file", e.g. "oplsaa.frc"</span>
+<span class="sd">            or "local:OPLS-AA/my_oplsaa.frc".</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        [str]</span>
+<span class="sd">            The names in the "#define" lines, in order, or [] if the file cannot be</span>
+<span class="sd">            found or is not a forcefield file with definitions, e.g. OpenKIM.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_expr</span><span class="p">(</span><span class="n">ff_file</span><span class="p">)</span> <span class="ow">or</span> <span class="n">ff_file</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"OpenKIM"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"personal:"</span><span class="p">):</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">9</span><span class="p">:])</span>
+            <span class="k">elif</span> <span class="n">ff_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"local:"</span><span class="p">):</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_data_file</span><span class="p">(</span><span class="s2">"Forcefields/"</span> <span class="o">+</span> <span class="n">ff_file</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">"forcefield_step"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="n">ff_file</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">or</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="o">!=</span> <span class="s2">".frc"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">seamm_util</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">"#include"</span><span class="p">,</span> <span class="n">uri_handler</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uri_handler</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fd</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"#define"</span><span class="p">):</span>
+                        <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Could not read the forcefields in </span><span class="si">{</span><span class="n">ff_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">names</span></div>
 
 
 <div class="viewcode-block" id="Forcefield.setup_forcefield">

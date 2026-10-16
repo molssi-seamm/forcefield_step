@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User Guide &#8212; SEAMM Forcefield Plug-in 2026.10.12.1 documentation</title>
+    <title>User Guide &#8212; SEAMM Forcefield Plug-in 2026.10.16 documentation</title>
   
   
   
@@ -48,7 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PQXXTJ2');</script>
 <!-- End Google Tag Manager -->
 
-    <script src="../_static/documentation_options.js?v=0f4eb122"></script>
+    <script src="../_static/documentation_options.js?v=5aae1070"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026.10.12.1" />
+  <meta name="docsearch:version" content="2026.10.16" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -548,6 +548,45 @@ input, by Packmol for each kind of molecule – unless they already have types f
 the Forcefield step’s “assign forcefield to structure” is not needed.</p>
 <p>The Forcefield step’s default, the file <code class="docutils literal notranslate"><span class="pre">oplsaa.frc</span></code> with its default forcefield, is
 <code class="docutils literal notranslate"><span class="pre">FF&#64;oplsaa+</span></code>, the first forcefield in the file.</p>
+</section>
+<section id="choosing-the-forcefield-in-a-file">
+<h2>Choosing the forcefield in a file<a class="headerlink" href="#choosing-the-forcefield-in-a-file" title="Link to this heading">#</a></h2>
+<p>A forcefield file can define several forcefields. The Forcefield step lists those in
+the file you pick, with <code class="docutils literal notranslate"><span class="pre">default</span></code> meaning the first one. <code class="docutils literal notranslate"><span class="pre">oplsaa.frc</span></code> defines</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code></p></td>
+<td><p>OPLS-AA with the CL&amp;P parameters for ionic liquids and any you have
+added with LigParGen. Water is flexible SPC.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oplsaa+-spc_e</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code> with rigid SPC/E water.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oplsaa+-tip3p</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code> with rigid TIP3P water.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oplsaa</span></code></p></td>
+<td><p>The original OPLS-AA.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CL&amp;P</span></code></p></td>
+<td><p>The CL&amp;P forcefield for ionic liquids.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">nacl_water.frc</span></code> defines <code class="docutils literal notranslate"><span class="pre">nacl_water</span></code>, rigid SPC/E water with sodium,
+potassium and chloride ions.</p>
+</section>
+<section id="rigid-water">
+<h2>Rigid water<a class="headerlink" href="#rigid-water" title="Link to this heading">#</a></h2>
+<p>Water models such as SPC/E and TIP3P were fitted as rigid molecules, and give the
+density, diffusion coefficient and viscosity of liquid water they were fitted to only
+when they are kept rigid. A forcefield makes bonds and angles rigid in its
+<code class="docutils literal notranslate"><span class="pre">rigid_bond</span></code> and <code class="docutils literal notranslate"><span class="pre">rigid_angle</span></code> sections, which give only their lengths and angles,
+and take precedence over the flexible terms for the same atoms. <code class="docutils literal notranslate"><span class="pre">oplsaa+-spc_e</span></code> and
+<code class="docutils literal notranslate"><span class="pre">oplsaa+-tip3p</span></code> are <code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code> with such sections for water (and, for TIP3P, the
+TIP3P atom types); everything else is as in <code class="docutils literal notranslate"><span class="pre">oplsaa+</span></code>. LAMMPS keeps these bonds and
+angles at their values with SHAKE during dynamics, so you can use a 2 fs timestep.</p>
 <p>The following sections cover accessing and controlling forcefields.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -615,6 +654,8 @@ the Forcefield step’s “assign forcefield to structure” is not needed.</p>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forcefields-as-model-chemistries">Forcefields as model chemistries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-forcefield-in-a-file">Choosing the forcefield in a file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-water">Rigid water</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
 </ul>
   </nav></div>
