@@ -1,7 +1,7 @@
 =======
 History
 =======
-2026.10.15 -- Rigid water models, and choosing the forcefield in a file
+2026.10.16 -- Rigid water models, and choosing the forcefield in a file
     * New forcefields oplsaa+-spc_e and oplsaa+-tip3p in oplsaa.frc: oplsaa+ with
       rigid SPC/E or TIP3P water. oplsaa+ itself keeps its flexible SPC water.
     * The SPC/E water in nacl_water.frc is now rigid, as the model was made.
